@@ -4,11 +4,20 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
 <meta name="color-scheme" content="light dark" />
-<meta name="description" content="Zaika Worlds: Pinterest-style food blog. Desi recipes in English, with big photos, ingredients and easy step-by-step methods." />
+<meta name="description" content="Cook famous dishes from Pakistan and India, plus favourite dishes from 14 more countries: 16 countries and 32 recipes in total, with big photos and step by step methods." />
+<link rel="canonical" href="https://zaikaworlds.com/" />
+<meta name="robots" content="index, follow" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Zaika Worlds" />
+<meta property="og:title" content="Zaika Worlds: Desi and World Food Recipes" />
+<meta property="og:description" content="Cook famous dishes from Pakistan and India, plus favourite dishes from 14 more countries: 16 countries and 32 recipes in total, with big photos and step by step methods." />
+<meta property="og:url" content="https://zaikaworlds.com/" />
+<meta property="og:image" content="https://zaikaworlds.com/assets/biryani.webp" />
+<meta property="og:image:alt" content="A large plate of chicken biryani with saffron rice, fresh coriander and onion" />
 <link rel="icon" href="data:," />
 <title>Zaika Worlds: Desi and World Food Recipes</title>
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"Blog","name":"Zaika Worlds","description":"Pinterest-style food blog with desi recipes in English, with ingredients and step-by-step methods.","inLanguage":"en","blogPost":[{"@type":"BlogPosting","headline":"Chicken Biryani Recipe","description":"Karachi-style chicken biryani with spiced chicken, fragrant basmati and dum aroma."},{"@type":"BlogPosting","headline":"Beef Nihari Recipe","description":"Slow-cooked beef nihari with tender meat and deep masala gravy."},{"@type":"BlogPosting","headline":"Gulab Jamun Recipe","description":"Soft gulab jamun with khoya, syrup and cardamom."}]}
+{"@context":"https://schema.org","@type":"Blog","name":"Zaika Worlds","description":"Home food recipes and world food recipes with big photos, ingredients, cooking time, servings and step by step methods, in English, Roman Urdu and Hindi.","inLanguage":"en","blogPost":[{"@type":"BlogPosting","headline":"Chicken Biryani Recipe","description":"Karachi-style chicken biryani with spiced chicken, fragrant basmati and dum aroma."},{"@type":"BlogPosting","headline":"Beef Nihari Recipe","description":"Slow-cooked beef nihari with tender meat and deep masala gravy."},{"@type":"BlogPosting","headline":"Gulab Jamun Recipe","description":"Soft gulab jamun with khoya, syrup and cardamom."}]}
 </script>
 <script type="application/ld+json">
 {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Can I make biryani without saffron?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Use a pinch of yellow food colour dissolved in warm milk, or skip it. The flavour comes from the masala and the dum, not from colour alone."}}, {"@type": "Question", "name": "How long should the chicken marinate?", "acceptedAnswer": {"@type": "Answer", "text": "30 minutes is the minimum. Two to four hours in the fridge is better. Keep it refrigerated, and do not leave marinated chicken at room temperature."}}, {"@type": "Question", "name": "Why is my rice sticky?", "acceptedAnswer": {"@type": "Answer", "text": "The rice was overboiled, or it was not drained at once, or the pot was stirred hard. Drain at 70 percent done and rest the pot before fluffing."}}, {"@type": "Question", "name": "Can I use boneless chicken?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Use thigh pieces and reduce the masala cooking by 3 to 4 minutes, so the chicken does not dry out."}}]}
@@ -299,7 +308,6 @@ footer a{color:var(--muted)}
 .copied{font-size:13px;font-weight:700;color:var(--green);align-self:center;display:none}
 .copied.show{display:inline}
 .sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0)}
-/* SEO playbook */
 .seo-lead{max-width:72ch;color:var(--muted);font-size:16px}
 .seo-lead b{color:var(--ink)}
 .seo-block{margin-top:26px}
@@ -401,6 +409,29 @@ footer a{color:var(--muted)}
 .recipe-faq article:first-child{border-top:0;padding-top:2px}
 .recipe-faq h4{font-family:inherit;font-size:16px;font-weight:800;margin:0 0 4px;line-height:1.35}
 .recipe-faq p{margin:0}
+
+.recipes-head{margin:8px 0 4px}
+.recipes-head h2{font-size:clamp(29px,4vw,40px);margin:0 0 6px}
+.recipes-head p{color:var(--muted);margin:0 0 14px;max-width:70ch}
+.recipes-head h3{font-size:21px;margin:0 0 10px}
+.world-sub{font-size:23px;margin:0 0 14px}
+#detailsHeading,#goodHeading,#helpHeading{font-size:25px;margin:26px 0 12px}
+.two-col h4,.extra-sections h4{font-family:"DM Serif Display",Georgia,serif;font-weight:400;font-size:22px;line-height:1.15;margin:0 0 10px}
+.tip h4{font-size:16px;font-weight:800;margin:0 0 3px;font-family:inherit}
+.recipe-faq h4{font-family:"DM Serif Display",Georgia,serif;font-weight:400;font-size:23px;margin:0 0 10px;line-height:1.15}
+.recipe-faq h5{font-family:inherit;font-size:16px;font-weight:800;margin:0 0 4px;line-height:1.35}
+.site-footer{background:var(--surface2);border-top:1px solid var(--line);margin-top:52px;padding:36px 0 30px;color:var(--muted);font-size:14px}
+.site-footer h2{font-size:30px;margin:0 0 8px;color:var(--ink)}
+.site-footer h3{font-size:19px;margin:0 0 10px;color:var(--ink);font-family:"DM Serif Display",Georgia,serif;font-weight:400}
+.site-footer h4{font-size:16px;margin:18px 0 6px;color:var(--ink)}
+.site-footer p{margin:0 0 10px}
+.footer-grid{display:grid;grid-template-columns:1.3fr .8fr .9fr;gap:28px}
+.footer-col ul{list-style:none;margin:0;padding:0}
+.footer-col li{margin:8px 0}
+.footer-col a{color:var(--ink);text-decoration:none;font-weight:600}
+.footer-col a:hover{text-decoration:underline}
+.footer-copy{margin-top:28px;padding-top:18px;border-top:1px solid var(--line);font-size:13px}
+@media(max-width:860px){.footer-grid{grid-template-columns:1fr}}
 @media print{
   .topbar,.hero,.filters,.section,.modal-backdrop .modal-close,.modal-actions,footer,.related{display:none!important}
   .modal-backdrop{position:static;display:block;background:#fff;padding:0}
@@ -439,18 +470,18 @@ footer a{color:var(--muted)}
   <section class="hero" aria-labelledby="heroTitle">
     <div>
       <div class="hero-site">Zaika Worlds · zaikaworlds.com</div>
-      <h1 id="heroTitle">Home food, with <em>big photos</em>.</h1>
-      <p>Famous dishes from Pakistan, India and Bangladesh, plus favourite dishes from 14 more countries, in English, with easy steps. Click a photo to open the full recipe.</p>
+      <h1 id="heroTitle">Home food, with <em>big photos</em> and easy steps.</h1>
+      <p>Cook famous dishes from Pakistan and India, plus favourite dishes from 14 more countries: 16 countries and 32 recipes in total. Each dish has a big photo, a step by step method, cooking time and servings, in English, Roman Urdu and Hindi. Click any photo to open the full recipe and start cooking.</p>
       <div class="hero-stats">
         <div><b>32</b><span>Recipes</span></div>
-        <div><b>7</b><span>Categories</span></div>
-        <div><b>15–180</b><span>Minute recipes</span></div>
+        <div><b>16</b><span>Countries</span></div>
+        <div><b>15–180</b><span>Cooking minutes</span></div>
       </div>
       <div class="hero-cta">
-        <a class="btn btn-red" href="#recipes">See Recipes ↓</a>
+        <a class="btn btn-red" href="#recipes">Browse Recipes</a>
         <a class="btn btn-ghost" href="#world">Explore World Food</a>
       </div>
-      <p class="lang-note" id="langNote"><b>3 languages:</b> use the buttons at the top, English, Roman Urdu or हिन्दी, to read every recipe in the language that is easiest for you.</p>
+      <p class="lang-note" id="langNote"><b>3 languages:</b> English, Roman Urdu or हिन्दी. Use the buttons at the top to read every recipe, with its ingredients and step by step method, in the language that is easiest for you.</p>
     </div>
     <div class="hero-photo">
       <img src="assets/hero-49347f9b.webp" alt="A large plate of chicken biryani with saffron rice, fresh coriander and onion" width="1920" height="2560">
@@ -462,6 +493,11 @@ footer a{color:var(--muted)}
   </section>
 
   <section class="filters" id="recipes" aria-label="Recipe filter">
+    <div class="recipes-head">
+      <h2 id="recipesTitle">Home food recipes for lunch and dinner</h2>
+      <p id="recipesIntro">Choose a dish for lunch or dinner, from a homemade curry with rice and naan to a slow gravy for a family meal. Every card shows cooking time and servings. Open a photo to see the ingredients and the step by step method.</p>
+      <h3 id="browseHeading">Browse by category</h3>
+    </div>
     <div class="chips" id="chips" role="group" aria-label="Category">
       <button class="chip" data-cat="all" aria-pressed="true">All Recipes</button>
       <button class="chip" data-cat="desi" aria-pressed="false">Desi Dishes</button>
@@ -530,10 +566,11 @@ footer a{color:var(--muted)}
       <div>
         <p class="kicker">Browse by country</p>
         <h2 id="worldTitle">World Food</h2>
-        <p>20 new dishes from 14 countries, each with its country label on the card, a full article in English, Roman Urdu and Hindi, and the coming soon video placeholder. Click a country below to filter the recipe grid, or use the Country filter with the other filters.</p>
-        <p>India is already here: Chicken Biryani and Punjabi Samosa are kept as they are and are not added again. Find Chicken Biryani under Pakistan and Punjabi Samosa under India with the Country filter.</p>
+        <p id="worldP1">World food recipes from 14 countries, with 20 dishes to try at home. Each dish has a big photo, ingredients, cooking time and servings, and a step by step method in English, Roman Urdu and Hindi. Click a country below to show only its dishes in the recipe list.</p>
+        <p id="worldP2">Pakistani recipes and Indian recipes stay in the main recipe list above. Use the Country filter there to show dishes from Pakistan or India, or choose a country below for world food.</p>
       </div>
     </div>
+    <h3 class="world-sub" id="worldSub">20 dishes from 14 countries</h3>
     <div class="world-grid">
       <button class="country-card" type="button" data-country="Italy"><b>Italy</b><span>Margherita Pizza, Spaghetti Carbonara</span><em>2 dishes · Show recipes</em></button>
       <button class="country-card" type="button" data-country="Japan"><b>Japan</b><span>Sushi, Ramen</span><em>2 dishes · Show recipes</em></button>
@@ -555,29 +592,29 @@ footer a{color:var(--muted)}
   <section class="section" id="trending" aria-labelledby="trendTitle">
     <div class="section-head">
       <div>
-        <p class="kicker">What people are searching for this week</p>
-        <h2 id="trendTitle">Trending: write these 3 first</h2>
-        <p>The first recipes on the real site should be the ones people search for most on Google and Pinterest. All three are everyday dishes, so they have the best chance of bringing traffic.</p>
+        <p class="kicker">Start here</p>
+        <h2 id="trendTitle">Three dishes to start with</h2>
+        <p>If you are new here, start with these three. Each one has a clear photo, simple ingredients and a step by step method, from a weekday curry to a sweet for a special dinner.</p>
       </div>
     </div>
     <div class="trending">
       <article class="trend-card">
-        <img src="assets/hero-49347f9b.webp" alt="Chicken biryani">
+        <img src="assets/hero-49347f9b.webp" alt="A plate of chicken biryani with saffron rice and fresh coriander">
         <div class="num">01</div>
         <h3>Chicken Biryani</h3>
-        <p>A staple in every home. “Chicken biryani recipe” is the most-searched recipe in both Pakistan and India. Its videos are also watched the most.</p>
+        <p>A family meal built on spiced chicken, fragrant rice and a slow dum. The method shows when to layer the rice and how long to rest the pot before serving.</p>
       </article>
       <article class="trend-card">
-        <img src="assets/trend-card-1-20dab29d.webp" alt="Beef nihari">
+        <img src="assets/trend-card-1-20dab29d.webp" alt="A bowl of beef nihari with deep masala and ginger">
         <div class="num">02</div>
         <h3>Beef Nihari</h3>
-        <p>Slow-cooked weekend food. People also search for “nihari masala” and how to make the meat tender, one recipe can grow into 3–4 articles.</p>
+        <p>A slow cooked gravy with tender beef, served with naan. The method shows how to build the masala, thicken the gravy and add fresh garnish at the table.</p>
       </article>
       <article class="trend-card">
-        <img src="assets/trend-card-2-009bdad8.webp" alt="Gulab jamun">
+        <img src="assets/trend-card-2-009bdad8.webp" alt="Gulab jamun in syrup with rose aroma">
         <div class="num">03</div>
         <h3>Gulab Jamun</h3>
-        <p>The sweet for Eid, weddings and feasts. Its vertical photo is saved the most on Pinterest, so it is the best start for Pinterest traffic.</p>
+        <p>Soft, syrup soaked sweets for Eid, weddings and family dinners. The method shows how to knead the dough gently and keep the syrup warm, not boiling.</p>
       </article>
     </div>
   </section>
@@ -588,21 +625,53 @@ footer a{color:var(--muted)}
       <div>
         <p class="kicker">Frequently asked questions</p>
         <h2 id="faqTitle">Questions &amp; Answers</h2>
+        <p id="faqIntro">Short answers to questions about using this page, finding a recipe and reading it in your language.</p>
       </div>
     </div>
     <div class="faq">
-      <article><h3>Will this demo itself become the real website?</h3><p>No. This is only a preview, to see the design and feel. The real website will be built on its own domain and hosting, where Google and Pinterest will bring real benefit.</p></article>
-      <article><h3>Can I save a recipe in this demo?</h3><p>Pressing ♥ will show a recipe as saved on this page, but the save disappears when the page is closed. The real site will have account or browser saving.</p></article>
-      <article><h3>Will the recipes be in English?</h3><p>Yes, the whole site is in English. Every article, ingredient list and step-by-step method is written in English.</p></article>
-      <article><h3>Can YouTube videos be added too?</h3><p>Yes. Your YouTube video can sit with every recipe, so people who watch the video come to the blog and people who read the blog go to the video.</p></article>
+      <article><h3>How do I open a full recipe?</h3><p>Click any photo. The full recipe opens with ingredients, a step by step method, cooking time and servings.</p></article>
+      <article><h3>Can I save a recipe to look at later?</h3><p>Press the heart on a photo to show it as saved on this page. The save only lasts while this page is open, so copy the recipe if you want to keep it.</p></article>
+      <article><h3>Can I read recipes in Roman Urdu or Hindi?</h3><p>Yes. Use the language buttons at the top. Every recipe, ingredient list and method can be read in English, Roman Urdu or Hindi.</p></article>
+      <article><h3>Is there a video for every recipe?</h3><p>No. Beef Nihari has a video in English, Roman Urdu and Hindi, and you can switch the language inside the recipe. Other recipes have the full written method, with ingredients, cooking time and servings.</p></article>
     </div>
   </section>
 </main>
 
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <h2 id="footerTitle">Zaika Worlds</h2>
+        <p id="footerDesc">Zaika Worlds is a home cooking collection with big photos and step by step methods, from desi dishes to world food.</p>
+        <p id="footerGuide">Every recipe on this page is a home cooking guide. It lists the ingredients first, then the cooking method in clear steps, with cooking time and servings.</p>
+      </div>
+      <nav class="footer-col footer-quick" aria-labelledby="footerQuickH">
+        <h3 id="footerQuickH">Quick links</h3>
+        <ul>
+          <li><a href="#recipes">Recipes</a></li>
+          <li><a href="#world">World Food</a></li>
+          <li><a href="#trending">Trending</a></li>
+          <li><a href="#faq">FAQs</a></li>
+        </ul>
+      </nav>
+      <nav class="footer-col" aria-labelledby="footerCatH">
+        <h3 id="footerCatH">Categories</h3>
+        <ul>
+          <li><a href="#recipes" data-footer-cat="desi" id="footerLinkDesi">Desi Dishes</a></li>
+          <li><a href="#world" data-footer-cat="world" id="footerLinkWorldCat">World Food</a></li>
+        </ul>
+        <h4 id="footerLangH">Read in 3 languages</h4>
+        <p id="footerLangP">English, Roman Urdu and Hindi. Use the buttons at the top to change the language.</p>
+      </nav>
+    </div>
+    <p class="footer-copy" id="footerCopy">© 2026 Zaika Worlds</p>
+  </div>
+</footer>
+
 <div class="modal-backdrop" id="modalBackdrop" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
   <div class="modal">
     <div class="modal-hero">
-      <img id="modalImg" src="assets/hero-49347f9b.webp" alt="Chicken biryani">
+      <img id="modalImg" src="assets/hero-49347f9b.webp" alt="A plate of chicken biryani with saffron rice and fresh coriander">
       <button class="modal-close" id="modalClose" type="button" aria-label="Close">×</button>
     </div>
     <div class="modal-body" id="modalBody">
@@ -616,7 +685,7 @@ footer a{color:var(--muted)}
       <div class="video-area">
         <h3 id="videoHeading">Recipe Video</h3>
         <div class="video-frame">
-          <img id="videoThumbImg" src="assets/hero-49347f9b.webp" alt="Chicken biryani">
+          <img id="videoThumbImg" src="assets/hero-49347f9b.webp" alt="A plate of chicken biryani with saffron rice and fresh coriander">
           <video id="recipeVideo" class="recipe-video" controls playsinline preload="none" aria-label="Recipe video" hidden></video>
           <button class="video-play" id="videoPlayBtn" type="button" aria-label="Watch the recipe video">
             <span class="play-icon" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span>
@@ -629,20 +698,22 @@ footer a{color:var(--muted)}
         </div>
       </div>
       <div class="facts" id="modalFacts"></div>
+      <h3 id="detailsHeading">Ingredients and method</h3>
       <div class="two-col">
-        <div><h3 id="ingHeading">Ingredients</h3><ul id="modalIng"></ul></div>
-        <div><h3 id="methodHeading">Method</h3><ol id="modalSteps"></ol></div>
+        <div><h4 id="ingHeading">Ingredients</h4><ul id="modalIng"></ul></div>
+        <div><h4 id="methodHeading">Method</h4><ol id="modalSteps"></ol></div>
       </div>
-      <div class="tip"><b id="tipHeading">Chef's tip</b><span id="modalTip"></span></div>
+      <div class="tip"><h4 id="tipHeading">Chef's tip</h4><span id="modalTip"></span></div>
+      <h3 id="goodHeading">Good to know</h3>
       <div class="extra-sections">
         <div class="serve-grid">
-          <div><h3 id="servingHeading">Serving</h3><p id="modalServing"></p></div>
-          <div><h3 id="storageHeading">Storage and reheating</h3><p id="modalStorage"></p></div>
+          <div><h4 id="servingHeading">Serving</h4><p id="modalServing"></p></div>
+          <div><h4 id="storageHeading">Storage and reheating</h4><p id="modalStorage"></p></div>
         </div>
-        <h3 id="notesHeading">Ingredient notes</h3><ul id="modalNotes"></ul>
-        <h3 id="varHeading">Variations</h3><ul id="modalVariations"></ul>
-        <h3 id="mistakesHeading">Common mistakes</h3><ul id="modalMistakes"></ul>
-        <div class="recipe-faq"><h3 id="recipeFaqHeading">Frequently asked questions</h3><div id="modalFaq"></div></div>
+        <h4 id="notesHeading">Ingredient notes</h4><ul id="modalNotes"></ul>
+        <h4 id="varHeading">Variations</h4><ul id="modalVariations"></ul>
+        <h4 id="mistakesHeading">Common mistakes</h4><ul id="modalMistakes"></ul>
+        <div class="recipe-faq"><h3 id="helpHeading">Help and answers</h3><h4 id="recipeFaqHeading">Frequently asked questions</h4><div id="modalFaq"></div></div>
       </div>
       <div class="modal-actions">
         <a class="btn btn-red" id="waShare" href="#" target="_blank" rel="noopener">Share on WhatsApp</a>
@@ -697,14 +768,17 @@ feijoada:{ru:{"name":"Feijoada","catLabel":"Duniya Ke Khane","diff":"Mushkil","s
 meatpie:{ru:{"name":"Aussie Meat Pie","catLabel":"Duniya Ke Khane","diff":"Darmiyana","servings":"6 log","desc":"Australia se, classic meat pie, rich beef filling kurkuri sunehri pastry mein, tomato sauce ke sath.","alt":"Beef filling dikhati hui kati hui sunehri pastry wali Australian meat pie"},hi:{"name":"Aussie Meat Pie","catLabel":"दुनिया का खाना","diff":"मध्यम","servings":"6 लोग","desc":"ऑस्ट्रेलिया से, क्लासिक मीट पाई, रिच बीफ़ फिलिंग कुरकुरी सुनहरी पेस्ट्री में, टमाटर सॉस के साथ।","alt":"बीफ़ फिलिंग दिखाती हुई कटी हुई सुनहरी पेस्ट्री वाली ऑस्ट्रेलियाई मीट पाई"}},
 };
 var UI={
-en:{nav:["Recipes","World Food","Trending","FAQs"],searchPh:"Biryani, nihari, halwa… type anything",searchLabel:"Search recipes",saved:"Saved",heroTitle:'Home food, with <em>big photos</em>.',heroSub:"Famous dishes from Pakistan, India and Bangladesh, plus favourite dishes from 14 more countries, in English, with easy steps. Click a photo to open the full recipe.",stats:["Recipes","Categories","Minute recipes"],cta:["See Recipes ↓","Explore World Food"],langNote:"<b>3 languages:</b> use the buttons at the top, English, Roman Urdu or हिन्दी, to read every recipe in the language that is easiest for you.",chips:["All Recipes","Desi Dishes","BBQ","Breakfast","Street Food","Desserts","Drinks","World Food"],pref:"Preference:",prefOpts:["Everything","Veg only","Non-veg only"],timeL:"Time:",timeOpts:["Any time","30 minutes or less","45 minutes or less","1 hour or less"],sortL:"Sort:",sortOpts:["Most popular first","Quickest first","Name A–Z"],countryL:"Country:",countryAll:"All Countries",emptyT:"Nothing found",emptyP:"Try a different spelling or filter, like “kebab” or “halwa”.",emptyB:"Clear All Filters",trendK:"What people are searching for this week",trendT:"Trending: write these 3 first",trendP:"The first recipes on the real site should be the ones people search for most on Google and Pinterest. All three are everyday dishes, so they have the best chance of bringing traffic.",trendCards:[["Chicken Biryani","A staple in every home. “Chicken biryani recipe” is the most-searched recipe in both Pakistan and India. Its videos are also watched the most."],["Beef Nihari","Slow-cooked weekend food. People also search for “nihari masala” and how to make the meat tender, one recipe can grow into 3–4 articles."],["Gulab Jamun","The sweet for Eid, weddings and feasts. Its vertical photo is saved the most on Pinterest, so it is the best start for Pinterest traffic."]],faqK:"Frequently asked questions",faqT:"Questions & Answers",faq:[["Will this demo itself become the real website?","No. This is only a preview, to see the design and feel. The real website will be built on its own domain and hosting, where Google and Pinterest will bring real benefit."],["Can I save a recipe in this demo?","Pressing ♥ will show a recipe as saved on this page, but the save disappears when the page is closed. The real site will have account or browser saving."],["Will the recipes be in English?","Yes, the whole site is in English. Every article, ingredient list and step-by-step method is written in English."],["Can YouTube videos be added too?","Yes. Your YouTube video can sit with every recipe, so people who watch the video come to the blog and people who read the blog go to the video."]],heroCapT:"Chicken Biryani",heroCapS:"Karachi style · 60 minutes · Medium",heroCapB:"Open Recipe",time:"Time",serv:"Servings",diff:"Difficulty",cat:"Category",ingH:"Ingredients",methH:"Method",tipH:"Chef's tip",relH:"Similar Recipes",wa:"Share on WhatsApp",copy:"Copy Recipe",save:"♡ Save Recipe",savedBtn:"♥ Saved: Remove",copied:"Copied ✓",videoH:"Recipe Video",videoPlay:"Watch the recipe video",videoSoon:"Video coming soon, this recipe is being filmed, so check back soon to watch every step.",videoBack:"Back to photo",min:"min",veg:"🥬 Veg",nonveg:"🍖 Non-Veg",results:function(n,cat,savedOnly){return "<b>"+n+" recipes</b> shown"+(cat?" · "+cat:"")+(savedOnly?" · Saved only":"")+". Click any photo to open the full recipe.";},copyHead:{ing:"Ingredients:",meth:"Method:",tip:"Tip:",time:"Time:"}},
-ru:{nav:["Recipes","Duniya Ke Khane","Trending","FAQs"],searchPh:"Biryani, nihari, halwa… kuch bhi likhein",searchLabel:"Recipes dhoondhein",saved:"Saved",heroTitle:'Ghar ka khana, <em>bari photos</em> ke sath.',heroSub:"Pakistan, India aur Bangladesh ke mashhoor khane, aur 14 mazeed mulkon ki pasandeeda dishes, ab English, Roman Urdu aur Hindi mein, asaan steps ke sath. Poori recipe kholne ke liye kisi photo par click karein.",stats:["Recipes","Categories","Minute wali recipes"],cta:["Recipes Dekhein ↓","Duniya Ke Khane Dekhein"],langNote:"<b>3 zabanein:</b> upar wale button se zabaan badlein, English, Roman Urdu ya हिन्दी, har recipe us zabaan mein parhein jo aap ke liye sab se asaan ho.",chips:["Saari Recipes","Desi Khane","BBQ","Nashta","Street Food","Meetha","Drinks","Duniya Ke Khane"],pref:"Pasand:",prefOpts:["Sab kuch","Sirf Veg","Sirf Non-Veg"],timeL:"Waqt:",timeOpts:["Koi bhi waqt","30 minute ya kam","45 minute ya kam","1 ghanta ya kam"],sortL:"Tarteeb:",sortOpts:["Sab se mashhoor pehle","Sab se jaldi pehle","Naam A–Z"],countryL:"Mulk:",countryAll:"Sab Mulk",emptyT:"Kuch nahi mila",emptyP:"Doosri spelling ya filter try karein, jaise “kebab” ya “halwa”.",emptyB:"Saare Filter Saaf Karein",trendK:"Is hafte log kya dhoondh rahe hain",trendT:"Trending: pehle ye 3 likhein",trendP:"Asli site par pehli recipes wo honi chahiye jo log Google aur Pinterest par sab se zyada dhoondhte hain. Teeno roz ke khane hain, is liye traffic lane ka in ka chance sab se zyada hai.",trendCards:[["Chicken Biryani","Har ghar ki zaroorat. “Chicken biryani recipe” Pakistan aur India dono mein sab se zyada search hone wali recipe hai. Is ki videos bhi sab se zyada dekhi jati hain."],["Beef Nihari","Halki aanch par pakne wala weekend ka khana. Log “nihari masala” aur gosht naram karne ka tareeqa bhi dhoondhte hain, ek recipe se 3–4 articles ban sakte hain."],["Gulab Jamun","Eid, shadi aur dawat ki mithai. Is ki vertical photo Pinterest par sab se zyada save hoti hai, is liye Pinterest traffic ke liye ye behtareen shuruaat hai."]],faqK:"Aksar puche jane wale sawal",faqT:"Sawal aur Jawab",faq:[["Kya ye demo hi asli website ban jayega?","Nahi. Ye sirf preview hai, design aur feel dekhne ke liye. Asli website apne domain aur hosting par banegi, jahan Google aur Pinterest se asli faida hoga."],["Kya is demo mein recipe save kar sakte hain?","♥ dabane se recipe is page par saved dikhegi, lekin page band karne par save khatam ho jayega. Asli site mein account ya browser saving hogi."],["Kya recipes English mein hongi?","Ab har recipe 3 zabanon mein hai, English, Roman Urdu aur Hindi. Upar wale button se zabaan badlein, aur poora article usi zabaan mein parhein."],["Kya YouTube videos bhi add ho sakti hain?","Ji haan. Aap ki YouTube video har recipe ke sath lag sakti hai, taake video dekhne wale blog par aayein aur blog parhne wale video par jayein."]],heroCapT:"Chicken Biryani",heroCapS:"Karachi style · 60 minute · Darmiyana",heroCapB:"Recipe Kholein",time:"Waqt",serv:"Servings",diff:"Difficulty",cat:"Category",ingH:"Ajza",methH:"Banane Ka Tareeqa",tipH:"Chef ki tip",relH:"Milti Julti Recipes",wa:"WhatsApp par Share Karein",copy:"Recipe Copy Karein",save:"♡ Recipe Save Karein",savedBtn:"♥ Saved: Hatayein",copied:"Copy ho gaya ✓",videoH:"Recipe Ki Video",videoPlay:"Recipe ki video dekhein",videoSoon:"Video jald aa rahi hai, is recipe ki video ban rahi hai, jald hi har step yahan dekh sakein ge.",videoBack:"Photo par wapas jayein",min:"minute",veg:"🥬 Veg",nonveg:"🍖 Non-Veg",results:function(n,cat,savedOnly){return "<b>"+n+" recipes</b> dikhayi ja rahi hain"+(cat?" · "+cat:"")+(savedOnly?" · Sirf Saved":"")+". Poori recipe kholne ke liye kisi photo par click karein.";},copyHead:{ing:"Ajza:",meth:"Banane Ka Tareeqa:",tip:"Tip:",time:"Waqt:"}},
-hi:{nav:["रेसिपी","दुनिया का खाना","ट्रेंडिंग","सवाल-जवाब"],searchPh:"बिरयानी, निहारी, हलवा… कुछ भी लिखें",searchLabel:"रेसिपी खोजें",saved:"सेव्ड",heroTitle:'घर का खाना, <em>बड़ी फ़ोटो</em> के साथ।',heroSub:"पाकिस्तान, भारत और बांग्लादेश के मशहूर खाने, और 14 और देशों की पसंदीदा डिश, अब अंग्रेज़ी, रोमन उर्दू और हिन्दी में, आसान स्टेप्स के साथ। पूरी रेसिपी खोलने के लिए किसी फ़ोटो पर क्लिक करें।",stats:["रेसिपी","श्रेणियाँ","मिनट वाली रेसिपी"],cta:["रेसिपी देखें ↓","दुनिया का खाना देखें"],langNote:"<b>3 भाषाएँ:</b> ऊपर वाले बटन से भाषा बदलें, English, Roman Urdu या हिन्दी, हर रेसिपी उस भाषा में पढ़ें जो आपके लिए सबसे आसान हो।",chips:["सारी रेसिपी","देसी खाना","बारबेक्यू","नाश्ता","स्ट्रीट फ़ूड","मीठा","ड्रिंक्स","दुनिया का खाना"],pref:"पसंद:",prefOpts:["सब कुछ","सिर्फ़ वेज","सिर्फ़ नॉन-वेज"],timeL:"समय:",timeOpts:["कोई भी समय","30 मिनट या कम","45 मिनट या कम","1 घंटा या कम"],sortL:"क्रम:",sortOpts:["सबसे लोकप्रिय पहले","सबसे जल्दी पहले","नाम A–Z"],countryL:"देश:",countryAll:"सभी देश",emptyT:"कुछ नहीं मिला",emptyP:"दूसरी स्पेलिंग या फ़िल्टर आज़माएँ, जैसे “कबाब” या “हलवा”।",emptyB:"सारे फ़िल्टर साफ़ करें",trendK:"इस हफ़्ते लोग क्या खोज रहे हैं",trendT:"ट्रेंडिंग: पहले ये 3 लिखें",trendP:"असली साइट पर पहली रेसिपी वो होनी चाहिए जो लोग Google और Pinterest पर सबसे ज़्यादा खोजते हैं। तीनों रोज़ के खाने हैं, इसलिए ट्रैफ़िक लाने का इनका मौका सबसे ज़्यादा है।",trendCards:[["चिकन बिरयानी","हर घर की ज़रूरत। “चिकन बिरयानी रेसिपी” पाकिस्तान और भारत दोनों में सबसे ज़्यादा खोजी जाने वाली रेसिपी है। इसके वीडियो भी सबसे ज़्यादा देखे जाते हैं।"],["बीफ़ निहारी","हल्की आंच पर पकने वाला वीकेंड का खाना। लोग “निहारी मसाला” और गोश्त नरम करने का तरीक़ा भी खोजते हैं, एक रेसिपी से 3–4 लेख बन सकते हैं।"],["गुलाब जामुन","ईद, शादी और दावत की मिठाई। इसकी वर्टिकल फ़ोटो Pinterest पर सबसे ज़्यादा सेव होती है, इसलिए Pinterest ट्रैफ़िक के लिए ये बेहतरीन शुरुआत है।"]],faqK:"अक्सर पूछे जाने वाले सवाल",faqT:"सवाल और जवाब",faq:[["क्या ये डेमो ही असली वेबसाइट बन जाएगा?","नहीं। ये सिर्फ़ प्रीव्यू है, डिज़ाइन और फील देखने के लिए। असली वेबसाइट अपने डोमेन और होस्टिंग पर बनेगी, जहाँ Google और Pinterest से असली फ़ायदा होगा।"],["क्या इस डेमो में रेसिपी सेव कर सकते हैं?","♥ दबाने से रेसिपी इस पेज पर सेव्ड दिखेगी, लेकिन पेज बंद करने पर सेव खत्म हो जाएगा। असली साइट में अकाउंट या ब्राउज़र सेविंग होगी।"],["क्या रेसिपी अंग्रेज़ी में होंगी?","अब हर रेसिपी 3 भाषाओं में है, English, Roman Urdu और हिन्दी। ऊपर वाले बटन से भाषा बदलें, और पूरा लेख उसी भाषा में पढ़ें।"],["क्या YouTube वीडियो भी जोड़े जा सकते हैं?","जी हाँ। आपका YouTube वीडियो हर रेसिपी के साथ लग सकता है, ताकि वीडियो देखने वाले ब्लॉग पर आएँ और ब्लॉग पढ़ने वाले वीडियो पर जाएँ।"]],heroCapT:"चिकन बिरयानी",heroCapS:"कराची स्टाइल · 60 मिनट · मध्यम",heroCapB:"रेसिपी खोलें",time:"समय",serv:"सर्विंग",diff:"कठिनाई",cat:"श्रेणी",ingH:"सामग्री",methH:"बनाने का तरीक़ा",tipH:"शेफ़ की टिप",relH:"मिलती-जुलती रेसिपी",wa:"WhatsApp पर शेयर करें",copy:"रेसिपी कॉपी करें",save:"♡ रेसिपी सेव करें",savedBtn:"♥ सेव्ड: हटाएँ",copied:"कॉपी हो गया ✓",videoH:"रेसिपी वीडियो",videoPlay:"रेसिपी वीडियो देखें",videoSoon:"वीडियो जल्द आ रहा है, इस रेसिपी का वीडियो बनाया जा रहा है, जल्द ही आप हर स्टेप यहाँ देख पाएँगे।",videoBack:"फ़ोटो पर वापस जाएँ",min:"मिनट",veg:"🥬 वेज",nonveg:"🍖 नॉन-वेज",results:function(n,cat,savedOnly){return "<b>"+n+" रेसिपी</b> दिखाई जा रही हैं"+(cat?" · "+cat:"")+(savedOnly?" · सिर्फ़ सेव्ड":"")+"। पूरी रेसिपी खोलने के लिए किसी फ़ोटो पर क्लिक करें।";},copyHead:{ing:"सामग्री:",meth:"बनाने का तरीक़ा:",tip:"टिप:",time:"समय:"}}
+en:{nav:["Recipes","World Food","Trending","FAQs"],searchPh:"Biryani, nihari, halwa… type anything",searchLabel:"Search recipes",saved:"Saved",heroTitle:'Home food, with <em>big photos</em> and easy steps.',heroSub:"Cook famous dishes from Pakistan and India, plus favourite dishes from 14 more countries: 16 countries and 32 recipes in total. Each dish has a big photo, a step by step method, cooking time and servings, in English, Roman Urdu and Hindi. Click any photo to open the full recipe and start cooking.",stats:["Recipes","Countries","Cooking minutes"],cta:["Browse Recipes","Explore World Food"],langNote:"<b>3 languages:</b> English, Roman Urdu or हिन्दी. Use the buttons at the top to read every recipe, with its ingredients and step by step method, in the language that is easiest for you.",chips:["All Recipes","Desi Dishes","BBQ","Breakfast","Street Food","Desserts","Drinks","World Food"],pref:"Preference:",prefOpts:["Everything","Veg only","Non-veg only"],timeL:"Time:",timeOpts:["Any time","30 minutes or less","45 minutes or less","1 hour or less"],sortL:"Sort:",sortOpts:["Most popular first","Quickest first","Name A–Z"],countryL:"Country:",countryAll:"All Countries",emptyT:"Nothing found",emptyP:"Try a different spelling or filter, like “kebab” or “halwa”.",emptyB:"Clear All Filters",trendK:"Start here",trendT:"Three dishes to start with",trendP:"If you are new here, start with these three. Each one has a clear photo, simple ingredients and a step by step method, from a weekday curry to a sweet for a special dinner.",trendCards:[["Chicken Biryani","A family meal built on spiced chicken, fragrant rice and a slow dum. The method shows when to layer the rice and how long to rest the pot before serving."],["Beef Nihari","A slow cooked gravy with tender beef, served with naan. The method shows how to build the masala, thicken the gravy and add fresh garnish at the table."],["Gulab Jamun","Soft, syrup soaked sweets for Eid, weddings and family dinners. The method shows how to knead the dough gently and keep the syrup warm, not boiling."]],faqK:"Frequently asked questions",faqT:"Questions & Answers",faq:[["How do I open a full recipe?","Click any photo. The full recipe opens with ingredients, a step by step method, cooking time and servings."],["Can I save a recipe to look at later?","Press the heart on a photo to show it as saved on this page. The save only lasts while this page is open, so copy the recipe if you want to keep it."],["Can I read recipes in Roman Urdu or Hindi?","Yes. Use the language buttons at the top. Every recipe, ingredient list and method can be read in English, Roman Urdu or Hindi."],["Is there a video for every recipe?","No. Beef Nihari has a video in English, Roman Urdu and Hindi, and you can switch the language inside the recipe. Other recipes have the full written method, with ingredients, cooking time and servings."]],heroCapT:"Chicken Biryani",heroCapS:"Karachi style · 60 minutes · Medium",heroCapB:"Open Recipe",time:"Time",serv:"Servings",diff:"Difficulty",cat:"Category",ingH:"Ingredients",methH:"Method",tipH:"Chef's tip",relH:"Similar Recipes",wa:"Share on WhatsApp",copy:"Copy Recipe",save:"♡ Save Recipe",savedBtn:"♥ Saved: Remove",copied:"Copied ✓",videoH:"Recipe Video",videoPlay:"Watch the recipe video",videoSoon:"Video coming soon, this recipe is being filmed, so check back soon to watch every step.",videoBack:"Back to photo",min:"min",veg:"🥬 Veg",nonveg:"🍖 Non-Veg",results:function(n,cat,savedOnly){return "<b>"+n+" recipes</b> shown"+(cat?" · "+cat:"")+(savedOnly?" · Saved only":"")+". Click any photo to open the full recipe.";},copyHead:{ing:"Ingredients:",meth:"Method:",tip:"Tip:",time:"Time:"}},
+ru:{nav:["Recipes","Duniya Ke Khane","Trending","FAQs"],searchPh:"Biryani, nihari, halwa… kuch bhi likhein",searchLabel:"Recipes dhoondhein",saved:"Saved",heroTitle:'Ghar ka khana, <em>bari photos</em> aur asaan steps ke sath.',heroSub:"Pakistan aur India ki mashhoor dishes banayein, plus 14 aur mulkon ki favourite dishes: kul 16 mulk aur 32 recipes. Har dish mein bari photo, step by step tareeqa, cooking time aur servings hain, English, Roman Urdu aur Hindi mein. Poori recipe kholne ke liye kisi bhi photo par click karein aur pakana shuru karein.",stats:["Recipes","Mulk","Pakane ke minute"],cta:["Recipes Dekhein","Duniya Ke Khane Dekhein"],langNote:"<b>3 zabanein:</b> English, Roman Urdu ya हिन्दी. Upar wale button se zabaan badlein, aur har recipe us zabaan mein parhein jo aap ke liye sab se asaan ho, ajza aur step by step tareeqe ke sath.",chips:["Saari Recipes","Desi Khane","BBQ","Nashta","Street Food","Meetha","Drinks","Duniya Ke Khane"],pref:"Pasand:",prefOpts:["Sab kuch","Sirf Veg","Sirf Non-Veg"],timeL:"Waqt:",timeOpts:["Koi bhi waqt","30 minute ya kam","45 minute ya kam","1 ghanta ya kam"],sortL:"Tarteeb:",sortOpts:["Sab se mashhoor pehle","Sab se jaldi pehle","Naam A–Z"],countryL:"Mulk:",countryAll:"Sab Mulk",emptyT:"Kuch nahi mila",emptyP:"Doosri spelling ya filter try karein, jaise “kebab” ya “halwa”.",emptyB:"Saare Filter Saaf Karein",trendK:"Yahan se shuru karein",trendT:"Shuru karne ke liye 3 dishes",trendP:"Agar aap yahan naye hain, to in 3 dishes se shuru karein. Har dish mein saaf photo, saada ajza aur step by step tareeqa hai, roz ke curry se le kar khaas dinner ki mithai tak.",trendCards:[["Chicken Biryani","Masaledar chicken, khushbudar chawal aur halki aanch par dum wala family meal. Tareeqa batata hai ke chawal kab layer karein aur serve karne se pehle pot ko kitni der rest dein."],["Beef Nihari","Halki aanch par paki gravy, naram gosht, naan ke sath. Tareeqa batata hai ke masala kaise banayein, gravy kaise garhi karein aur table par taaza garnish kaise dein."],["Gulab Jamun","Eid, shadi aur family dinner ke liye naram, chashni mein doobi mithai. Tareeqa batata hai ke dough ko halke hath se kaise goondhein aur chashni ko garam rakhein, ubalte hue nahi."]],faqK:"Aksar puche jane wale sawal",faqT:"Sawal aur Jawab",faq:[["Poori recipe kaise kholein?","Kisi bhi photo par click karein. Poori recipe ajza, step by step tareeqa, cooking time aur servings ke sath khul jayegi."],["Kya recipes Roman Urdu ya Hindi mein parh sakte hain?","Ji haan. Upar wale language button istemal karein. Har recipe, ajza ki list aur tareeqa English, Roman Urdu ya Hindi mein parha ja sakta hai."],["Kya recipe ko baad mein dekhne ke liye save kar sakte hain?","Photo par heart dabayein, recipe is page par saved dikhegi. Save sirf is page ke khula rehne tak rehta hai, is liye recipe ko mehfooz rakhna ho to use copy kar lein."],["Kya har recipe ki video hai?","Nahi. Beef Nihari ki video English, Roman Urdu aur Hindi mein hai, aur recipe ke andar zabaan badli ja sakti hai. Doosri recipes mein poora likha hua tareeqa hai, ajza, cooking time aur servings ke sath."]],heroCapT:"Chicken Biryani",heroCapS:"Karachi style · 60 minute · Darmiyana",heroCapB:"Recipe Kholein",time:"Waqt",serv:"Servings",diff:"Difficulty",cat:"Category",ingH:"Ajza",methH:"Banane Ka Tareeqa",tipH:"Chef ki tip",relH:"Milti Julti Recipes",wa:"WhatsApp par Share Karein",copy:"Recipe Copy Karein",save:"♡ Recipe Save Karein",savedBtn:"♥ Saved: Hatayein",copied:"Copy ho gaya ✓",videoH:"Recipe Ki Video",videoPlay:"Recipe ki video dekhein",videoSoon:"Video jald aa rahi hai, is recipe ki video ban rahi hai, jald hi har step yahan dekh sakein ge.",videoBack:"Photo par wapas jayein",min:"minute",veg:"🥬 Veg",nonveg:"🍖 Non-Veg",results:function(n,cat,savedOnly){return "<b>"+n+" recipes</b> dikhayi ja rahi hain"+(cat?" · "+cat:"")+(savedOnly?" · Sirf Saved":"")+". Poori recipe kholne ke liye kisi photo par click karein.";},copyHead:{ing:"Ajza:",meth:"Banane Ka Tareeqa:",tip:"Tip:",time:"Waqt:"}},
+hi:{nav:["रेसिपी","दुनिया का खाना","ट्रेंडिंग","सवाल-जवाब"],searchPh:"बिरयानी, निहारी, हलवा… कुछ भी लिखें",searchLabel:"रेसिपी खोजें",saved:"सेव्ड",heroTitle:'घर का खाना, <em>बड़ी फ़ोटो</em> और आसान स्टेप्स के साथ।',heroSub:"पाकिस्तान और भारत की मशहूर डिश बनाएँ, और 14 और देशों की पसंदीदा डिश भी: कुल 16 देश और 32 रेसिपी। हर डिश में बड़ी फ़ोटो, स्टेप बाय स्टेप तरीक़ा, पकाने का समय और सर्विंग है, अंग्रेज़ी, रोमन उर्दू और हिन्दी में। पूरी रेसिपी खोलने के लिए किसी भी फ़ोटो पर क्लिक करें और पकाना शुरू करें।",stats:["रेसिपी","देश","पकाने के मिनट"],cta:["रेसिपी देखें","दुनिया का खाना देखें"],langNote:"<b>3 भाषाएँ:</b> English, Roman Urdu या हिन्दी। ऊपर वाले बटन से भाषा बदलें, और हर रेसिपी को उस भाषा में पढ़ें जो आपके लिए सबसे आसान हो, सामग्री और स्टेप बाय स्टेप तरीक़े के साथ।",chips:["सारी रेसिपी","देसी खाना","बारबेक्यू","नाश्ता","स्ट्रीट फ़ूड","मीठा","ड्रिंक्स","दुनिया का खाना"],pref:"पसंद:",prefOpts:["सब कुछ","सिर्फ़ वेज","सिर्फ़ नॉन-वेज"],timeL:"समय:",timeOpts:["कोई भी समय","30 मिनट या कम","45 मिनट या कम","1 घंटा या कम"],sortL:"क्रम:",sortOpts:["सबसे लोकप्रिय पहले","सबसे जल्दी पहले","नाम A–Z"],countryL:"देश:",countryAll:"सभी देश",emptyT:"कुछ नहीं मिला",emptyP:"दूसरी स्पेलिंग या फ़िल्टर आज़माएँ, जैसे “कबाब” या “हलवा”।",emptyB:"सारे फ़िल्टर साफ़ करें",trendK:"यहाँ से शुरू करें",trendT:"शुरू करने के लिए 3 डिश",trendP:"अगर आप यहाँ नए हैं, तो इन 3 डिश से शुरू करें। हर डिश में साफ़ फ़ोटो, सरल सामग्री और स्टेप बाय स्टेप तरीक़ा है, रोज़ की करी से लेकर ख़ास डिनर की मिठाई तक।",trendCards:[["चिकन बिरयानी","मसालेदार चिकन, खुशबूदार चावल और हल्की आंच पर दम वाला फ़ैमिली मील। तरीक़ा बताता है कि चावल कब लेयर करें और परोसने से पहले बर्तन को कितनी देर आराम दें।"],["बीफ़ निहारी","हल्की आंच पर पकी ग्रेवी, नरम गोश्त, नान के साथ। तरीक़ा बताता है कि मसाला कैसे बनाएँ, ग्रेवी कैसे गाढ़ी करें और मेज़ पर ताज़ा गार्निश कैसे दें।"],["गुलाब जामुन","ईद, शादी और फ़ैमिली डिनर के लिए नरम, चाशनी में डूबी मिठाई। तरीक़ा बताता है कि आटा हल्के हाथ से कैसे गूँधें और चाशनी को गरम रखें, उबलता हुआ नहीं।"]],faqK:"अक्सर पूछे जाने वाले सवाल",faqT:"सवाल और जवाब",faq:[["पूरी रेसिपी कैसे खोलें?","किसी भी फ़ोटो पर क्लिक करें। पूरी रेसिपी सामग्री, स्टेप बाय स्टेप तरीक़ा, पकाने का समय और सर्विंग के साथ खुल जाएगी।"],["क्या रेसिपी रोमन उर्दू या हिन्दी में पढ़ सकते हैं?","जी हाँ। ऊपर वाले भाषा बटन का इस्तेमाल करें। हर रेसिपी, सामग्री की सूची और तरीक़ा English, Roman Urdu या हिन्दी में पढ़ा जा सकता है।"],["क्या रेसिपी को बाद में देखने के लिए सेव कर सकते हैं?","फ़ोटो पर दिल दबाएँ, रेसिपी इस पेज पर सेव्ड दिखेगी। सेव सिर्फ़ इस पेज के खुले रहने तक रहता है, इसलिए रेसिपी को रखना हो तो उसे कॉपी कर लें।"],["क्या हर रेसिपी का वीडियो है?","नहीं। बीफ़ निहारी का वीडियो English, Roman Urdu और हिन्दी में है, और रेसिपी के अंदर भाषा बदली जा सकती है। दूसरी रेसिपी में पूरा लिखा हुआ तरीक़ा है, सामग्री, पकाने का समय और सर्विंग के साथ।"]],heroCapT:"चिकन बिरयानी",heroCapS:"कराची स्टाइल · 60 मिनट · मध्यम",heroCapB:"रेसिपी खोलें",time:"समय",serv:"सर्विंग",diff:"कठिनाई",cat:"श्रेणी",ingH:"सामग्री",methH:"बनाने का तरीक़ा",tipH:"शेफ़ की टिप",relH:"मिलती-जुलती रेसिपी",wa:"WhatsApp पर शेयर करें",copy:"रेसिपी कॉपी करें",save:"♡ रेसिपी सेव करें",savedBtn:"♥ सेव्ड: हटाएँ",copied:"कॉपी हो गया ✓",videoH:"रेसिपी वीडियो",videoPlay:"रेसिपी वीडियो देखें",videoSoon:"वीडियो जल्द आ रहा है, इस रेसिपी का वीडियो बनाया जा रहा है, जल्द ही आप हर स्टेप यहाँ देख पाएँगे।",videoBack:"फ़ोटो पर वापस जाएँ",min:"मिनट",veg:"🥬 वेज",nonveg:"🍖 नॉन-वेज",results:function(n,cat,savedOnly){return "<b>"+n+" रेसिपी</b> दिखाई जा रही हैं"+(cat?" · "+cat:"")+(savedOnly?" · सिर्फ़ सेव्ड":"")+"। पूरी रेसिपी खोलने के लिए किसी फ़ोटो पर क्लिक करें।";},copyHead:{ing:"सामग्री:",meth:"बनाने का तरीक़ा:",tip:"टिप:",time:"समय:"}}
 };
 
 UI.en.servingH="Serving"; UI.en.storageH="Storage and reheating"; UI.en.notesH="Ingredient notes"; UI.en.varH="Variations"; UI.en.mistakesH="Common mistakes"; UI.en.recipeFaqH="Frequently asked questions";
 UI.ru.servingH="Serve Karna"; UI.ru.storageH="Store Aur Dobara Garam Karna"; UI.ru.notesH="Ajza Ke Notes"; UI.ru.varH="Variations"; UI.ru.mistakesH="Aam Ghaltiyan"; UI.ru.recipeFaqH="Aksar Puche Jane Wale Sawal";
 UI.hi.servingH="परोसना"; UI.hi.storageH="स्टोर करना और दोबारा गरम करना"; UI.hi.notesH="सामग्री के नोट्स"; UI.hi.varH="वैरिएशन"; UI.hi.mistakesH="आम गलतियाँ"; UI.hi.recipeFaqH="अक्सर पूछे जाने वाले सवाल";
+UI.en.recipesT="Home food recipes for lunch and dinner"; UI.en.recipesP="Choose a dish for lunch or dinner, from a homemade curry with rice and naan to a slow gravy for a family meal. Every card shows cooking time and servings. Open a photo to see the ingredients and the step by step method."; UI.en.browseH="Browse by category"; UI.en.faqIntro="Short answers to questions about using this page, finding a recipe and reading it in your language."; UI.en.worldK="Browse by country"; UI.en.worldT="World Food"; UI.en.worldP1="World food recipes from 14 countries, with 20 dishes to try at home. Each dish has a big photo, ingredients, cooking time and servings, and a step by step method in English, Roman Urdu and Hindi. Click a country below to show only its dishes in the recipe list."; UI.en.worldP2="Pakistani recipes and Indian recipes stay in the main recipe list above. Use the Country filter there to show dishes from Pakistan or India, or choose a country below for world food."; UI.en.worldSub="20 dishes from 14 countries"; UI.en.detailsH="Ingredients and method"; UI.en.goodH="Good to know"; UI.en.helpH="Help and answers"; UI.en.footerDesc="Zaika Worlds is a home cooking collection with big photos and step by step methods, from desi dishes to world food."; UI.en.footerGuide="Every recipe on this page is a home cooking guide. It lists the ingredients first, then the cooking method in clear steps, with cooking time and servings."; UI.en.footerQuickH="Quick links"; UI.en.footerCatH="Categories"; UI.en.footerLangH="Read in 3 languages"; UI.en.footerLangP="English, Roman Urdu and Hindi. Use the buttons at the top to change the language.";
+UI.ru.recipesT="Lunch aur dinner ke liye ghar ke khane ki recipes"; UI.ru.recipesP="Lunch ya dinner ke liye dish chunein, chawal aur naan ke sath ghar jaisa curry ho ya family meal ke liye halki aanch par paki gravy. Har card par cooking time aur servings likhe hain. Ajza aur step by step tareeqa dekhne ke liye photo kholein."; UI.ru.browseH="Category ke hisab se dekhein"; UI.ru.faqIntro="Is page ko istemal karne, recipe dhoondhne aur apni zabaan mein parhne ke bare mein mukhtasar jawab."; UI.ru.worldK="Mulk ke hisab se dekhein"; UI.ru.worldT="Duniya Ke Khane"; UI.ru.worldP1="14 mulkon ki world food recipes, ghar par banane ke liye 20 dishes. Har dish mein bari photo, ajza, cooking time aur servings, aur English, Roman Urdu aur Hindi mein step by step tareeqa hai. Sirf us mulk ki dishes dikhane ke liye neeche kisi mulk par click karein."; UI.ru.worldP2="Pakistan aur India ki recipes upar wali main list mein rehti hain. Wahan Country filter se Pakistan ya India ki dishes dikhayein, ya duniya ke khane ke liye neeche koi mulk chunein."; UI.ru.worldSub="14 mulkon ki 20 dishes"; UI.ru.detailsH="Ajza aur banane ka tareeqa"; UI.ru.goodH="Kaam ki baatein"; UI.ru.helpH="Madad aur jawab"; UI.ru.footerDesc="Zaika Worlds ghar ke khano ka collection hai, bari photos aur step by step tareeqon ke sath, desi khano se le kar duniya ke khano tak."; UI.ru.footerGuide="Is page ki har recipe ghar par khana banane ki guide hai. Pehle ajza diye jate hain, phir cooking time aur servings ke sath saaf steps mein banane ka tareeqa."; UI.ru.footerQuickH="Quick Links"; UI.ru.footerCatH="Categories"; UI.ru.footerLangH="3 zabanon mein parhein"; UI.ru.footerLangP="English, Roman Urdu aur Hindi. Zabaan badalne ke liye upar wale button istemal karein.";
+UI.hi.recipesT="लंच और डिनर के लिए घर के खाने की रेसिपी"; UI.hi.recipesP="लंच या डिनर के लिए डिश चुनें, चावल और नान के साथ घर जैसी करी हो या फ़ैमिली मील के लिए हल्की आंच पर पकी ग्रेवी। हर कार्ड पर पकाने का समय और सर्विंग लिखा है। सामग्री और स्टेप बाय स्टेप तरीक़ा देखने के लिए फ़ोटो खोलें।"; UI.hi.browseH="श्रेणी के हिसाब से देखें"; UI.hi.faqIntro="इस पेज को इस्तेमाल करने, रेसिपी खोजने और अपनी भाषा में पढ़ने के बारे में छोटे जवाब।"; UI.hi.worldK="देश के हिसाब से देखें"; UI.hi.worldT="दुनिया का खाना"; UI.hi.worldP1="14 देशों की वर्ल्ड फ़ूड रेसिपी, घर पर बनाने के लिए 20 डिश। हर डिश में बड़ी फ़ोटो, सामग्री, पकाने का समय और सर्विंग, और अंग्रेज़ी, रोमन उर्दू और हिन्दी में स्टेप बाय स्टेप तरीक़ा है। सिर्फ़ उस देश की डिश दिखाने के लिए नीचे किसी देश पर क्लिक करें।"; UI.hi.worldP2="पाकिस्तान और भारत की रेसिपी ऊपर वाली मुख्य सूची में रहती हैं। वहाँ Country फ़िल्टर से पाकिस्तान या भारत की डिश दिखाएँ, या दुनिया के खाने के लिए नीचे कोई देश चुनें।"; UI.hi.worldSub="14 देशों की 20 डिश"; UI.hi.detailsH="सामग्री और बनाने का तरीक़ा"; UI.hi.goodH="जानने लायक बातें"; UI.hi.helpH="मदद और जवाब"; UI.hi.footerDesc="Zaika Worlds घर के खाने का संग्रह है, बड़ी फ़ोटो और स्टेप बाय स्टेप तरीक़ों के साथ, देसी खाने से लेकर दुनिया के खाने तक।"; UI.hi.footerGuide="इस पेज की हर रेसिपी घर पर खाना बनाने की गाइड है। पहले सामग्री दी जाती है, फिर पकाने का समय और सर्विंग के साथ साफ़ स्टेप्स में बनाने का तरीक़ा।"; UI.hi.footerQuickH="क्विक लिंक्स"; UI.hi.footerCatH="श्रेणियाँ"; UI.hi.footerLangH="3 भाषाओं में पढ़ें"; UI.hi.footerLangP="English, Roman Urdu और हिन्दी। भाषा बदलने के लिए ऊपर वाले बटन का इस्तेमाल करें।";
 function T(){return UI[LANG]||UI.en;}
 function rLangData(r){return (LANG_DATA[r.id]&&LANG_DATA[r.id][LANG])||null;}
 function rName(r){var d=rLangData(r);return d&&d.name?d.name:r.name;}
@@ -762,6 +836,28 @@ function applyLang(){
   faqSec.querySelector(".kicker").textContent=t.faqK;
   document.getElementById("faqTitle").textContent=t.faqT;
   document.querySelectorAll(".faq article").forEach(function(a,i){if(t.faq[i]){a.querySelector("h3").textContent=t.faq[i][0];a.querySelector("p").textContent=t.faq[i][1];}});
+  document.getElementById("recipesTitle").textContent=t.recipesT;
+  document.getElementById("recipesIntro").textContent=t.recipesP;
+  document.getElementById("browseHeading").textContent=t.browseH;
+  document.getElementById("faqIntro").textContent=t.faqIntro;
+  var worldSec=document.getElementById("world");
+  worldSec.querySelector(".kicker").textContent=t.worldK;
+  document.getElementById("worldTitle").textContent=t.worldT;
+  document.getElementById("worldP1").textContent=t.worldP1;
+  document.getElementById("worldP2").textContent=t.worldP2;
+  document.getElementById("worldSub").textContent=t.worldSub;
+  document.getElementById("detailsHeading").textContent=t.detailsH;
+  document.getElementById("goodHeading").textContent=t.goodH;
+  document.getElementById("helpHeading").textContent=t.helpH;
+  document.getElementById("footerDesc").textContent=t.footerDesc;
+  document.getElementById("footerGuide").textContent=t.footerGuide;
+  document.getElementById("footerQuickH").textContent=t.footerQuickH;
+  document.getElementById("footerCatH").textContent=t.footerCatH;
+  document.getElementById("footerLangH").textContent=t.footerLangH;
+  document.getElementById("footerLangP").textContent=t.footerLangP;
+  document.querySelectorAll(".footer-quick a").forEach(function(a,i){if(t.nav[i]) a.textContent=t.nav[i];});
+  document.getElementById("footerLinkDesi").textContent=t.chips[1];
+  document.getElementById("footerLinkWorldCat").textContent=t.chips[7];
   var cap=document.querySelector(".hero-caption");
   cap.querySelector("strong").textContent=t.heroCapT;
   cap.querySelector("span").textContent=t.heroCapS;
@@ -910,7 +1006,7 @@ function openRecipe(id){
   document.getElementById("modalNotes").innerHTML=(tx.notes||[]).map(function(n){return "<li>"+esc(n)+"</li>";}).join("");
   document.getElementById("modalVariations").innerHTML=(tx.variations||[]).map(function(n){return "<li>"+esc(n)+"</li>";}).join("");
   document.getElementById("modalMistakes").innerHTML=(tx.mistakes||[]).map(function(n){return "<li>"+esc(n)+"</li>";}).join("");
-  document.getElementById("modalFaq").innerHTML=(tx.faq||[]).map(function(pair){return "<article><h4>"+esc(pair[0])+"</h4><p>"+esc(pair[1])+"</p></article>";}).join("");
+  document.getElementById("modalFaq").innerHTML=(tx.faq||[]).map(function(pair){return "<article><h5>"+esc(pair[0])+"</h5><p>"+esc(pair[1])+"</p></article>";}).join("");
   document.getElementById("waShare").href="https://wa.me/?text="+encodeURIComponent("See this recipe: "+rName(r)+", Zaika Worlds: "+tx.desc);
   document.getElementById("modalSave").textContent=saved.has(id)?T().savedBtn:T().save;
   var rel=RECIPES.filter(function(x){return x.cat===r.cat && x.id!==r.id;}).concat(RECIPES.filter(function(x){return x.cat!==r.cat && x.id!==r.id;})).slice(0,3);
@@ -930,6 +1026,18 @@ function closeModal(){
 document.getElementById("videoPlayBtn").addEventListener("click",onVideoPlayClick);
 document.getElementById("videoBackBtn").addEventListener("click",hideVideoSoon);
 document.addEventListener("click",function(e){
+  var footCat=e.target.closest("[data-footer-cat]");
+  if(footCat){
+    e.preventDefault();
+    var fc=footCat.getAttribute("data-footer-cat");
+    activeCat=fc; showSavedOnly=false;
+    document.getElementById("countryFilter").value="all";
+    document.getElementById("savedToggle").setAttribute("aria-pressed","false");
+    document.querySelectorAll(".chip").forEach(function(c){c.setAttribute("aria-pressed",c.getAttribute("data-cat")===fc?"true":"false");});
+    render();
+    document.getElementById("recipes").scrollIntoView({behavior:"smooth"});
+    return;
+  }
   var countryBtn=e.target.closest("[data-country]");
   if(countryBtn){
     e.preventDefault();
