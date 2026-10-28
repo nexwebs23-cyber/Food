@@ -358,7 +358,7 @@ footer a{color:var(--muted)}
 .site-footer h3{font-size:19px;margin:0 0 10px;color:var(--ink);font-family:"DM Serif Display",Georgia,serif;font-weight:400}
 .site-footer h4{font-size:16px;margin:18px 0 6px;color:var(--ink)}
 .site-footer p{margin:0 0 10px}
-.footer-grid{display:grid;grid-template-columns:1.2fr .7fr .8fr .9fr;gap:28px}
+.footer-grid{display:grid;grid-template-columns:1.2fr .7fr .8fr;gap:28px}
 .footer-col ul{list-style:none;margin:0;padding:0}
 .footer-col li{margin:8px 0}
 .footer-col a{color:var(--ink);text-decoration:none;font-weight:600}
@@ -753,27 +753,6 @@ footer a{color:var(--muted)}
           <li><a href="/" data-footer-cat="world">World Food</a></li>
         </ul>
       </nav>
-      <nav class="footer-col" aria-labelledby="footerCountriesH">
-        <h3 id="footerCountriesH">Countries</h3>
-        <ul id="footerCountryList">
-          <li><a href="/" data-footer-country="Pakistan">Pakistan</a></li>
-          <li><a href="/" data-footer-country="India">India</a></li>
-          <li><a href="/" data-footer-country="Italy">Italy</a></li>
-          <li><a href="/" data-footer-country="Japan">Japan</a></li>
-          <li><a href="/" data-footer-country="Mexico">Mexico</a></li>
-          <li><a href="/" data-footer-country="Thailand">Thailand</a></li>
-          <li><a href="/" data-footer-country="China">China</a></li>
-          <li><a href="/" data-footer-country="France">France</a></li>
-          <li><a href="/" data-footer-country="Spain">Spain</a></li>
-          <li><a href="/" data-footer-country="Vietnam">Vietnam</a></li>
-          <li><a href="/" data-footer-country="Canada">Canada</a></li>
-          <li><a href="/" data-footer-country="South Africa">South Africa</a></li>
-          <li><a href="/" data-footer-country="Greece">Greece</a></li>
-          <li><a href="/" data-footer-country="Middle East">Middle East</a></li>
-          <li><a href="/" data-footer-country="Brazil">Brazil</a></li>
-          <li><a href="/" data-footer-country="Australia">Australia</a></li>
-        </ul>
-      </nav>
     </div>
     <p class="footer-copy" id="footerCopy">© 2026 Zaika Worlds</p>
   </div>
@@ -912,11 +891,6 @@ function renderFooterLinks(){
     var catKeys=["desi","bbq","nashta","street","meetha","drinks","world"];
     catList.innerHTML=catKeys.map(function(k,i){return '<li><a href="'+homePath()+'" data-footer-cat="'+k+'">'+esc(t.chips[i+1]||k)+'</a></li>';}).join("");
   }
-  var coList=document.getElementById("footerCountryList");
-  if(coList){
-    var keys=["Pakistan","India","Italy","Japan","Mexico","Thailand","China","France","Spain","Vietnam","Canada","South Africa","Greece","Middle East","Brazil","Australia"];
-    coList.innerHTML=keys.map(function(k){return '<li><a href="'+homePath()+'" data-footer-country="'+k+'">'+esc((t.countries&&t.countries[k])||k)+'</a></li>';}).join("");
-  }
 }
 function basePhrases(includePages){
   var t=T(); var list=[]; var seen={};
@@ -1054,7 +1028,6 @@ function applyLang(){
   document.getElementById("footerLangP").textContent=t.footerLangP;
   document.querySelectorAll(".footer-quick a").forEach(function(a,i){if(i===0){a.textContent=linkTxt().home;}else if(t.nav[i-1]) a.textContent=t.nav[i-1];});
   renderFooterLinks();
-  var _fch=document.getElementById("footerCountriesH");if(_fch)_fch.textContent=linkTxt().countries;
   document.querySelectorAll(".info-links a").forEach(function(a){var k=a.getAttribute("data-kind");if(k==="home")a.textContent=linkTxt().home;else if(k==="browse")a.textContent=t.cta[0];else if(k==="world")a.textContent=t.cta[1];else if(k==="recipes")a.textContent=t.nav[0];else if(k==="about")a.textContent=t.nav[4];else if(k==="faqs")a.textContent=t.nav[3];});
   var cap=document.querySelector(".hero-caption");
   cap.querySelector("strong").textContent=t.heroCapT;
