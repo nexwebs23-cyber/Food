@@ -4,11 +4,11 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
 <meta name="color-scheme" content="light dark" />
-<meta name="description" content="Zaika Worlds: Pinterest-style food blog demo. Desi recipes in English, with big photos, ingredients and easy step-by-step methods." />
+<meta name="description" content="Zaika Worlds: Pinterest-style food blog. Desi recipes in English, with big photos, ingredients and easy step-by-step methods." />
 <link rel="icon" href="data:," />
-<title>Zaika Worlds: Food Blog Demo Preview</title>
+<title>Zaika Worlds: Desi and World Food Recipes</title>
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"Blog","name":"Zaika Worlds","description":"Pinterest-style food blog demo with desi recipes in English, with ingredients and step-by-step methods.","inLanguage":"en","blogPost":[{"@type":"BlogPosting","headline":"Chicken Biryani Recipe","description":"Karachi-style chicken biryani with spiced chicken, fragrant basmati and dum aroma."},{"@type":"BlogPosting","headline":"Beef Nihari Recipe","description":"Slow-cooked beef nihari with tender meat and deep masala gravy."},{"@type":"BlogPosting","headline":"Gulab Jamun Recipe","description":"Soft gulab jamun with khoya, syrup and cardamom."}]}
+{"@context":"https://schema.org","@type":"Blog","name":"Zaika Worlds","description":"Pinterest-style food blog with desi recipes in English, with ingredients and step-by-step methods.","inLanguage":"en","blogPost":[{"@type":"BlogPosting","headline":"Chicken Biryani Recipe","description":"Karachi-style chicken biryani with spiced chicken, fragrant basmati and dum aroma."},{"@type":"BlogPosting","headline":"Beef Nihari Recipe","description":"Slow-cooked beef nihari with tender meat and deep masala gravy."},{"@type":"BlogPosting","headline":"Gulab Jamun Recipe","description":"Soft gulab jamun with khoya, syrup and cardamom."}]}
 </script>
 <script type="application/ld+json">
 {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Can I make biryani without saffron?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Use a pinch of yellow food colour dissolved in warm milk, or skip it. The flavour comes from the masala and the dum, not from colour alone."}}, {"@type": "Question", "name": "How long should the chicken marinate?", "acceptedAnswer": {"@type": "Answer", "text": "30 minutes is the minimum. Two to four hours in the fridge is better. Keep it refrigerated, and do not leave marinated chicken at room temperature."}}, {"@type": "Question", "name": "Why is my rice sticky?", "acceptedAnswer": {"@type": "Answer", "text": "The rice was overboiled, or it was not drained at once, or the pot was stirred hard. Drain at 70 percent done and rest the pot before fluffing."}}, {"@type": "Question", "name": "Can I use boneless chicken?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Use thigh pieces and reduce the masala cooking by 3 to 4 minutes, so the chicken does not dry out."}}]}
@@ -132,7 +132,6 @@ h1,h2,h3{font-family:"DM Serif Display",Georgia,serif;font-weight:400;line-heigh
 .topbar-in{display:flex;align-items:center;gap:14px;padding:11px 0;flex-wrap:wrap}
 .wordmark{font-family:"DM Serif Display",Georgia,serif;font-size:27px;text-decoration:none;color:var(--ink);white-space:nowrap}
 .wordmark b{color:var(--red);font-weight:400}
-.demo-tag{font-size:11px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;background:var(--red);color:#fff;padding:4px 8px;border-radius:999px}
 .topnav{margin-left:auto;display:flex;gap:4px;flex-wrap:wrap}
 .topnav a{color:var(--ink);text-decoration:none;font-weight:600;font-size:14px;padding:8px 10px;border-radius:999px}
 .topnav a:hover{background:var(--chip)}
@@ -325,11 +324,11 @@ footer a{color:var(--muted)}
 .search-preview .d{font-size:14px;color:var(--muted);margin:0}
 .count{font-size:12px;font-weight:800;color:var(--green);white-space:nowrap}
 .mono{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:13.5px;word-break:break-all}
-.heading-demo{border-left:3px solid var(--orange);padding:2px 0 2px 14px;margin:14px 0}
-.heading-demo .h1{font-family:"DM Serif Display",Georgia,serif;font-size:26px;line-height:1.2}
-.heading-demo .h2{font-family:"DM Serif Display",Georgia,serif;font-size:20px;margin-top:8px}
-.heading-demo .h3{font-size:15px;font-weight:800;margin-top:6px}
-.heading-demo small{color:var(--muted);font-weight:700;letter-spacing:.05em}
+.heading-example{border-left:3px solid var(--orange);padding:2px 0 2px 14px;margin:14px 0}
+.heading-example .h1{font-family:"DM Serif Display",Georgia,serif;font-size:26px;line-height:1.2}
+.heading-example .h2{font-family:"DM Serif Display",Georgia,serif;font-size:20px;margin-top:8px}
+.heading-example .h3{font-size:15px;font-weight:800;margin-top:6px}
+.heading-example small{color:var(--muted);font-weight:700;letter-spacing:.05em}
 .alt-example{display:flex;gap:12px;align-items:flex-start;margin-top:14px}
 .alt-example img{width:92px;height:92px;object-fit:cover;border-radius:10px;flex:none}
 .alt-example p{margin:0;color:var(--muted);font-size:14px}
@@ -417,7 +416,6 @@ footer a{color:var(--muted)}
   <div class="wrap">
     <div class="topbar-in">
       <a class="wordmark" href="#top">Zaika <b>Worlds</b></a>
-      <span class="demo-tag">Demo Preview</span>
       <div class="lang-switch" role="group" aria-label="Language / Zaban / भाषा">
         <button class="lang-btn" type="button" data-lang="en" aria-pressed="true">English</button>
         <button class="lang-btn" type="button" data-lang="ru" aria-pressed="false">Roman Urdu</button>
@@ -427,8 +425,6 @@ footer a{color:var(--muted)}
         <a href="#recipes">Recipes</a>
         <a href="#world">World Food</a>
         <a href="#trending">Trending</a>
-        <a href="#seo">SEO Playbook</a>
-        <a href="#plan">The Real Website Plan</a>
         <a href="#faq">FAQs</a>
       </nav>
     </div>
@@ -449,13 +445,13 @@ footer a{color:var(--muted)}
       <h1 id="heroTitle">Home food, with <em>big photos</em>.</h1>
       <p>Famous dishes from Pakistan, India and Bangladesh, plus favourite dishes from 14 more countries, in English, with easy steps. Click a photo to open the full recipe.</p>
       <div class="hero-stats">
-        <div><b>32</b><span>Demo recipes</span></div>
+        <div><b>32</b><span>Recipes</span></div>
         <div><b>7</b><span>Categories</span></div>
         <div><b>15–180</b><span>Minute recipes</span></div>
       </div>
       <div class="hero-cta">
         <a class="btn btn-red" href="#recipes">See Recipes ↓</a>
-        <a class="btn btn-ghost" href="#plan">Read the real site plan</a>
+        <a class="btn btn-ghost" href="#world">Explore World Food</a>
       </div>
       <p class="lang-note" id="langNote"><b>3 languages:</b> use the buttons at the top, English, Roman Urdu or हिन्दी, to read every recipe in the language that is easiest for you.</p>
     </div>
@@ -589,306 +585,6 @@ footer a{color:var(--muted)}
     </div>
   </section>
 
-  <section class="section" id="seo" aria-labelledby="seoTitle">
-    <div class="section-head">
-      <div>
-        <p class="kicker">SEO playbook: applied to this food blog</p>
-        <h2 id="seoTitle">How people will find Zaika Worlds</h2>
-        <p class="seo-lead">Good food alone does not bring visitors. Search does. This section covers <b>all 15 parts of the SEO plan in English</b>, on-page, technical, keywords, intent, analytics, mobile, Core Web Vitals, crawling, indexing, content, links, modern AI search, and the action plan, each one written for this food blog, with a real recipe as the example. Nothing here is theory only: the last section says what to do, in what order.</p>
-      </div>
-    </div>
-
-    <!-- 1 -->
-    <div class="seo-block">
-      <h3>1. On-Page SEO &amp; Keyword Research: done on every recipe page</h3>
-      <p>On-page SEO is everything on the page itself that helps Google understand it, and helps a person decide to click it. Every recipe on the real site will follow the same pattern, shown here with Chicken Biryani.</p>
-      <div class="seo-two">
-        <div class="example-box">
-          <h4>What Google would show</h4>
-          <div class="search-preview">
-            <div class="url">zaikaworlds.com/chicken-biryani-recipe/ <span class="count">Clean URL ✓</span></div>
-            <div class="t">Chicken Biryani Recipe: Easy Karachi Style | Zaika Worlds</div>
-            <p class="d">Learn Karachi-style chicken biryani at home: marinated chicken, fragrant basmati rice and dum cooking. Full ingredients, easy steps and chef tips.</p>
-          </div>
-          <p style="margin:12px 0 0;color:var(--muted);font-size:14px"><b style="color:var(--ink)">Title tag: 57 characters</b>, under the 60-character limit, so it is not cut off in search. <b style="color:var(--ink)">Meta description: 146 characters</b>, a short summary under the title that says what the page gives the reader. Both are written for people first, with the main keyword in them naturally.</p>
-          <div class="heading-demo" aria-label="Heading structure example">
-            <div><small>H1: ONE PER PAGE</small><div class="h1">Chicken Biryani Recipe</div></div>
-            <div><small>H2</small><div class="h2">Ingredients · Method · Chef&rsquo;s Tip</div></div>
-            <div><small>H3</small><div class="h3">Marinate the Chicken · Layer the Rice · Cook on Dum</div></div>
-          </div>
-          <p style="margin:0;color:var(--muted);font-size:14px">One H1 only. H2s break the page into its main parts. H3s break those parts into steps. A reader, and Google, can scan the whole page in seconds.</p>
-        </div>
-        <div class="seo-card">
-          <h4>The on-page checklist for every recipe</h4>
-          <ul>
-            <li><b>Title tag under 60 characters:</b> main keyword near the start, one clear promise, site name at the end.</li>
-            <li><b>Meta description:</b> what the dish is, what the page contains, and why this version is worth opening.</li>
-            <li><b>Headings in order:</b> one H1, then H2, then H3. Never skip levels, and never use bold text as a fake heading.</li>
-            <li><b>Clean, short URL:</b> <span class="mono">/chicken-biryani-recipe/</span>, not a long link full of numbers, dates and symbols.</li>
-            <li><b>Content quality:</b> unique, long enough to actually cook from, and useful, intro, ingredients with quantities, numbered steps, time, servings and a tip. No copy-paste from another site.</li>
-            <li><b>Image alt text:</b> Google cannot see a photo, so the text behind it must say what it shows. See the example below.</li>
-            <li><b>Internal linking:</b> every recipe links to related recipes and categories, so readers stay and Google can follow the site. Try it: <a href="#recipes">all recipes</a>, <a href="#trending">trending dishes</a>, and the related recipes inside any recipe popup.</li>
-          </ul>
-          <div class="alt-example">
-            <img src="assets/hero-49347f9b.webp" alt="A plate of chicken biryani with saffron rice and fresh coriander">
-            <p><b>Alt text for this photo:</b> &ldquo;A plate of chicken biryani with saffron rice, fresh coriander and onion.&rdquo; It describes the dish, not &ldquo;IMG_1234&rdquo; and not a list of stuffed keywords.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- 3 + 4 -->
-    <div class="seo-block">
-      <h3>3. Audience &amp; Industry · 4. Keyword Research</h3>
-      <p>SEO starts with the audience, not with keywords. The industry is <b>home cooking and food blogging for Pakistan, India and Bangladesh</b>, readers who cook at home, search in English, and often arrive from a phone. Keyword research then finds <i>how</i> that audience searches, not only <i>what</i> it searches for.</p>
-      <div class="seo-two">
-        <div class="seo-card">
-          <h4>Who we are up against</h4>
-          <ul>
-            <li><b>Industry:</b> desi home cooking, everyday dinners, festive dishes, street food and desserts.</li>
-            <li><b>Top competitors:</b> large, long-running recipe sites and food blogs, recipe YouTube channels, and Pinterest food accounts. They do business mainly on Google Search, YouTube and Pinterest.</li>
-            <li><b>How they execute SEO:</b> hundreds of tested recipes, strong photos and video, clear recipe pages, Pinterest pins for every dish, and years of links from other food sites.</li>
-            <li><b>Fiercest competition:</b> the biggest recipe sites for the most-searched dishes, biryani, karahi, nihari. A new site does not beat them on day one by copying them; it wins first on more specific searches (see keyword research), better photos, and faster, clearer pages.</li>
-            <li><b>Where Zaika Worlds can win early:</b> specific, practical searches, &ldquo;easy&rdquo;, &ldquo;30 minutes&rdquo;, ingredient and occasion searches, plus Pinterest, where a good vertical photo can travel further than a new site&rsquo;s Google ranking.</li>
-          </ul>
-        </div>
-        <div class="seo-card">
-          <h4>How the audience searches and the variations that matter</h4>
-          <ul>
-            <li><b>How, not only what:</b> the same dish is searched as &ldquo;chicken biryani recipe&rdquo;, &ldquo;how to make chicken biryani&rdquo;, &ldquo;chicken biryani ingredients&rdquo; and &ldquo;easy chicken biryani&rdquo;. A small change in wording can mean a very different reader.</li>
-            <li><b>Time-led:</b> &ldquo;30-minute chicken karahi&rdquo;, &ldquo;quick daal recipe&rdquo;.</li>
-            <li><b>Ingredient-led:</b> &ldquo;biryani without yoghurt&rdquo;, &ldquo;nihari masala recipe&rdquo;.</li>
-            <li><b>Occasion-led:</b> &ldquo;Eid dessert recipes&rdquo;, &ldquo;Ramadan iftar recipes&rdquo;, &ldquo;winter gajar ka halwa&rdquo;.</li>
-            <li><b>Personas:</b> a beginner who needs every step explained; a busy parent who needs the time first; a festive cook who needs quantities for 8–10 people. One page must serve all three, time and servings at the top, full detail below.</li>
-            <li><b>Market shifts:</b> searches change with season and festivals. Keyword research is repeated, not done once, see Analytics &amp; Reporting below.</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-
-    <!-- 5 -->
-    <div class="seo-block">
-      <h3>5. User Intent: match every search variation to the right page</h3>
-      <p>Behind every keyword is an intent: learn, check, cook quickly, watch, or find somewhere to eat. Sending a &ldquo;how to&rdquo; searcher to a photo gallery, or a &ldquo;near me&rdquo; searcher to a recipe, wastes the click. Each variation below goes to the landing page that answers it.</p>
-      <div class="example-box">
-        <div class="intent-head"><span>Search variation</span><span>Intent</span><span>Landing page</span></div>
-        <div class="intent-row"><p><b>&ldquo;How to make chicken biryani&rdquo;</b></p><p>Learn and cook it</p><p>The full <a href="#recipes">Chicken Biryani recipe</a>, intro, ingredients, steps, tip.</p></div>
-        <div class="intent-row"><p><b>&ldquo;Chicken biryani ingredients&rdquo;</b></p><p>Check a list before shopping</p><p>The same recipe page, with the ingredients list near the top so the answer is found without scrolling through the whole method.</p></div>
-        <div class="intent-row"><p><b>&ldquo;Easy 30-minute karahi&rdquo;</b></p><p>Cook fast tonight</p><p>A quick recipe, found through the <a href="#recipes">time filter</a>, time shown on the card before the reader clicks.</p></div>
-        <div class="intent-row"><p><b>&ldquo;Chicken biryani video&rdquo;</b></p><p>Watch, then cook</p><p>The recipe page with the YouTube video at the top, plus the written steps underneath for cooking along.</p></div>
-        <div class="intent-row"><p><b>&ldquo;Best biryani in Karachi&rdquo;</b></p><p>Find a place to eat</p><p>Not a recipe page. This belongs on a planned local / restaurant-guide page, it is only written if it can be written from real visits, never copied.</p></div>
-      </div>
-    </div>
-
-    <!-- 2, 8, 9, 10, 11 -->
-    <div class="seo-block">
-      <h3>2. Technical SEO · 8. Core Web Vitals · 9. Crawling · 10. Indexing · 11. Advanced Technical SEO</h3>
-      <p>Technical SEO is the backend work that lets Google&rsquo;s bots find, read and trust the site. If this is wrong, good content can stay invisible. The checks below are done before launch and re-checked after every major change.</p>
-      <div class="vitals">
-        <article class="vital"><div class="big">LCP ≤ 2.5s</div><h4>Largest Contentful Paint: loading</h4><p>How fast the main content appears. <b>What helps here:</b> the hero photo is compressed and sized, and every image carries width and height so the page does not jump while loading.</p></article>
-        <article class="vital"><div class="big">INP ≤ 200ms</div><h4>Interaction to Next Paint: interactivity</h4><p>How fast the page responds when tapped or typed in. <b>INP is the current metric</b>, it replaced First Input Delay (FID) in March 2024. <b>What helps here:</b> search and filters that respond at once, with no heavy script blocking the tap.</p></article>
-        <article class="vital"><div class="big">CLS ≤ 0.1</div><h4>Cumulative Layout Shift: visual stability</h4><p>How much the page moves as it loads. <b>What helps here:</b> reserved space for images and no late-loading banners pushing the recipe text down.</p></article>
-      </div>
-      <div class="seo-two" style="margin-top:16px">
-        <div class="seo-card">
-          <h4>Foundations, crawling and indexing: do</h4>
-          <ul>
-            <li><b>Speed: 2–3 seconds</b> to load on a normal mobile connection. Slow sites lose readers before the recipe is even seen.</li>
-            <li><b>HTTPS (SSL):</b> the whole site on secure HTTPS, with the lock in the address bar, and every old HTTP link redirected to HTTPS.</li>
-            <li><b>Crawlable architecture:</b> home page → category → recipe, with internal links at every step. No recipe should be reachable only from search.</li>
-            <li><b>XML sitemap:</b> a sitemap listing every recipe and category page, submitted in Google Search Console.</li>
-            <li><b>Robots.txt that allows crawling:</b> <span class="mono">User-agent: *<br>Allow: /</span>, never <span class="mono">Disallow: /</span>, which blocks every search engine from the whole site.</li>
-            <li><b>Fix 404s and broken links:</b> dead links are checked regularly; a moved page gets a redirect to its new address, not a dead end.</li>
-            <li><b>Canonical URLs:</b> one chosen address per page. If a page can be reached with and without a trailing slash, one version is canonical and the other redirects to it, so Google does not index the same recipe twice or three times.</li>
-            <li><b>Schema markup (JSON-LD):</b> structured data that tells Google &ldquo;this is a recipe, these are its ingredients, this is its time.&rdquo; This demo already carries Blog structured data in its code; the real site adds Recipe, Breadcrumb and FAQ schema to every recipe page, with names and facts spelled exactly as on the page.</li>
-            <li><b>JavaScript done safely:</b> recipe text lives in the page itself, not only inside a script, so bots and readers without JavaScript still get the content.</li>
-          </ul>
-        </div>
-        <div class="seo-card">
-          <h4>Indexing: do not</h4>
-          <ul>
-            <li><b>Do not noindex recipe pages.</b> <span class="mono">noindex</span> means &ldquo;do not put this in search&rdquo;, it belongs only on pages that should never rank, such as internal search-result pages.</li>
-            <li><b>Do not use nofollow on your own internal links</b> by accident. It tells Google not to follow the link, which breaks the crawling path to your own recipes.</li>
-            <li><b>Do not leave a staging / test version public</b> with the same content as the live site, that is duplicate content waiting to happen.</li>
-            <li><b>Do not submit a sitemap and forget it.</b> New recipes go into the sitemap when they are published, and Search Console is checked for crawl errors.</li>
-            <li><b>Do not rely on &ldquo;Fetch as Google&rdquo; instead of a sitemap.</b> It can help one page; a sitemap covers the whole site, every time.</li>
-          </ul>
-          <h4 style="margin-top:18px">7. Mobile SEO</h4>
-          <ul>
-            <li><b>Mobile-first, responsive design:</b> one site, one URL, that reflows to any screen, Google indexes the mobile version first.</li>
-            <li><b>No m-dot site</b> (<span class="mono">m.example.com</span>): separate mobile sites create duplicate content and canonical problems. This site uses one responsive layout instead.</li>
-            <li><b>Works on iPhone and Android:</b> tested on both, with text readable without zooming, buttons big enough to tap, and the recipe popup usable on a small screen.</li>
-            <li><b>Same content on mobile and desktop:</b> nothing important is hidden on mobile only.</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-
-    <!-- 6 -->
-    <div class="seo-block">
-      <h3>6. Analytics and Reporting: accurate, or it is guesswork</h3>
-      <p>If reporting is wrong, every adjustment after it is wrong too. Reports must separate real readers from bots, and must connect each result to the keyword and page that caused it.</p>
-      <div class="report-grid">
-        <article><h4>Attribute everything</h4><p>Every visit is tied to <b>the keyword and the landing page</b> that brought it. That shows which recipes actually drive traffic, and which only look popular.</p></article>
-        <article><h4>Count humans, not bots</h4><p>A report showing thousands of visits that are mostly bot traffic is not success. <b>Bot and spam traffic is filtered out</b> before any decision is made.</p></article>
-        <article><h4>Refresh keywords regularly</h4><p>Food search moves with seasons and festivals. <b>Keyword research is repeated quarterly</b>, and before Ramadan, Eid and winter, so the site follows what people are searching for next, instead of last year&rsquo;s list.</p></article>
-      </div>
-      <p style="margin-top:14px">What is reported each month: visits and clicks by landing page, top keywords by page, Core Web Vitals, crawl errors, and Pinterest saves and outbound clicks. One page of numbers, with one decision at the end, what to write, fix or update next.</p>
-    </div>
-
-    <!-- 12 + 13 -->
-    <div class="seo-block">
-      <h3>12. Content · 13. Links</h3>
-      <p>Content earns the links, and links lift the content. Neither works if the other is weak.</p>
-      <div class="seo-two">
-        <div class="seo-card">
-          <h4>Content that earns its place</h4>
-          <ul>
-            <li><b>Manually written, authoritative:</b> every recipe is written by a person who has cooked it, real quantities, real steps, real tips. &ldquo;Just create great content&rdquo; on its own is not a plan; content also needs the keyword, the headings, the image and the internal links done right.</li>
-            <li><b>Keyword targeting without stuffing:</b> the main keyword in the title, H1 and first paragraph, variations in headings and steps, written so a person would never notice the optimisation.</li>
-            <li><b>No typos, no grammar errors, optimised images:</b> compressed photos, correct sizes, descriptive file names and alt text.</li>
-            <li><b>Made to be shared and linked to:</b> a clear tip, a useful variation, or a method detail another site would want to cite. If a piece flops despite being well written, it is reviewed and improved, not deleted in a panic, and not left to rot.</li>
-          </ul>
-        </div>
-        <div class="seo-card">
-          <h4>Links: quality only, varied by design</h4>
-          <ul>
-            <li><b>Quality over quantity:</b> links from real, relevant food sites and publications, not bought links, link farms or spammy directories.</li>
-            <li><b>No spammy footprint:</b> one bad link now and then is not fatal; saturating the link profile with bad links is. Every link opportunity is judged before it is taken.</li>
-            <li><b>A varied profile:</b> recipe links, food-media mentions, YouTube descriptions, Pinterest pins and internal links, not one type, from one place, with the same anchor text every time.</li>
-            <li><b>Outbound links too:</b> where a source is cited, such as the photo credits at the foot of this page, it links to the real original page.</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-
-    <!-- 15 -->
-    <div class="seo-block">
-      <h3>15. Modern Search: GEO, Programmatic SEO, AXO, AEO, AISEO, LLMO and more</h3>
-      <p>Search is no longer only ten blue links. People now ask AI chatbots, voice assistants and visual search, and the answer often arrives without a click. Each modern form below is covered, with what Zaika Worlds does about it.</p>
-      <div class="modern-grid">
-        <article><h4>GEO <span>: Generative Engine Optimisation</span></h4><p>Being cited inside AI-generated answers (AI Overviews, chatbots). <b>What we do:</b> clear facts, direct answers, original tips and Recipe schema, so an AI can quote the page accurately and link to it.</p></article>
-        <article><h4>AEO <span>: Answer Engine Optimisation</span></h4><p>Winning the direct answer, featured snippets and &ldquo;People also ask&rdquo;. <b>What we do:</b> the answer in the first paragraph, short Q&amp;A sections, and step lists Google can lift word-for-word.</p></article>
-        <article><h4>AISEO <span>: AI Search Optimisation</span></h4><p>Optimising for AI search engines as a whole, not only Google. <b>What we do:</b> the same clean structure, facts and schema that serve Google also serve AI search, one source of truth, kept up to date.</p></article>
-        <article><h4>LLMO <span>: Large Language Model Optimisation</span></h4><p>Being the source large language models learn from and cite. <b>What we do:</b> plain, factual, well-structured text with named quantities, times and steps, easy for a model to quote without inventing details.</p></article>
-        <article><h4>AXO <span>: AI Experience Optimisation</span></h4><p>How the answer <i>feels</i> inside an AI chat or voice reply, and what the reader is offered next. <b>What we do:</b> short answers first, full detail one click away, and follow-up questions answered on the same page (variations, storage, serving).</p></article>
-        <article><h4>Programmatic SEO</h4><p>Many useful pages built from a template and real data, not hand-writing hundreds of near-identical pages. <b>What we do:</b> only where each page is genuinely different (a different dish, time or ingredient), each with its own intro, photo and steps. No thin, auto-generated duplicates.</p></article>
-        <article><h4>Voice Search</h4><p>&ldquo;How long does biryani take?&rdquo; spoken, not typed. <b>What we do:</b> conversational Q&amp;A, times and quantities stated plainly, and FAQ schema.</p></article>
-        <article><h4>Visual &amp; Video Search</h4><p>Google Lens, Pinterest search, and YouTube. <b>What we do:</b> descriptive alt text and file names, tall Pinterest pins for every recipe, and YouTube videos with chapters, descriptions and links back to the recipe page.</p></article>
-      </div>
-      <p style="margin-top:14px">The rule across all of them is the same: <b>one accurate, well-structured page, written for a person, that machines can also read.</b> Chasing each new acronym with separate trick pages would weaken the site, not strengthen it.</p>
-    </div>
-
-    <!-- 14 -->
-    <div class="seo-block">
-      <h3>14. Taking Action: the most important factor</h3>
-      <p>A plan that is never implemented is worth nothing. The work below turns this playbook into a launch, in order. Items marked <b>&ldquo;in this demo&rdquo;</b> are already done on this page; the rest are done on the real domain, before and just after launch.</p>
-      <ol class="action-plan">
-        <li><b>Week 1: Foundations.</b> Choose the site name, domain and hosting. Set up HTTPS, the responsive design, one H1 per page, alt text, internal linking and Recipe JSON-LD. <i>In this demo:</i> responsive layout, headings, alt text, internal links and Blog schema are already in place.</li>
-        <li><b>Week 1: Crawl &amp; index setup.</b> Write robots.txt (Allow: /), build the XML sitemap, submit it in Google Search Console, pick one canonical URL form, and fix any 404s and redirects.</li>
-        <li><b>Week 2: First 10 recipes.</b> Publish the trending dishes first (see <a href="#trending">Trending</a>), each with a title under 60 characters, a meta description, a vertical Pinterest pin, and a YouTube video where one exists.</li>
-        <li><b>Week 3: Measure.</b> Turn on analytics with bot filtering, check Core Web Vitals on a real phone, and fix the slowest page first. Record which keyword and landing page brings each visit.</li>
-        <li><b>Week 4: Expand and refresh.</b> Add the next 10 recipes, pin every recipe on Pinterest, start one programmatic set only where pages are genuinely different, and write the first AI-answer Q&amp;A blocks for the top 5 recipes.</li>
-        <li><b>Every quarter: repeat keyword research.</b> Check what changed, update the top pages, retire or rewrite anything thin or outdated, and report one decision per month: what to write, fix or update next.</li>
-      </ol>
-      <p class="seo-note"><b>Honest note:</b> this demo preview cannot do everything on the list by itself, it has no live domain, Search Console account, sitemap file or server redirects yet, and it does not save data. Those are set up on the real website, as described in <a href="#plan">the full plan</a>. What the demo does show, working, is the design, the recipes, the headings, the alt text, the internal links and the speed-friendly layout that the real site will be built on. No traffic or ranking is promised, it depends on the work above, done consistently.</p>
-    </div>
-  </section>
-
-
-    <div class="section-head">
-      <div>
-        <p class="kicker">What happens after the demo</p>
-        <h2 id="planTitle">The full plan for the real website</h2>
-        <p>This demo is only to show the design, it does not save data and is not built for Google traffic. The real website will be separate, with its own domain, hosting and Google/Pinterest setup. The full plan is below.</p>
-      </div>
-    </div>
-
-    <div class="plan-grid">
-      <article class="plan-card">
-        <h3>1 · What the site will have</h3>
-        <ul>
-          <li><b>Home page:</b> Pinterest-style masonry grid, big photo, name, time and difficulty on every card.</li>
-          <li><b>Search and filters:</b> find by veg / non-veg, time, category and ingredient.</li>
-          <li><b>Every recipe page:</b> ingredients, step-by-step method, servings, time, tips and a print button.</li>
-          <li><b>Categories:</b> Desi Dishes, BBQ, Breakfast, Desserts, Drinks, Street Food, World Food, For Kids.</li>
-          <li><b>Save, Favourite and Share:</b> share on WhatsApp, Facebook and Pinterest.</li>
-          <li><b>Related recipes:</b> 4–6 similar recipes under every recipe.</li>
-          <li><b>About, Contact and Privacy Policy</b> pages, needed for AdSense.</li>
-          <li><b>YouTube video:</b> your video can sit with every recipe, so the blog and YouTube support each other.</li>
-        </ul>
-      </article>
-      <article class="plan-card">
-        <h3>2 · First content: 20 recipes</h3>
-        <p>So the site does not look empty, the plan starts with 20 recipes. Every recipe will follow a fixed format: a short story / intro, ingredients, steps, time, and a good vertical photo that can also be used as a Pinterest pin.</p>
-        <ul>
-          <li>Chicken Biryani, Beef Nihari, Chicken Karahi, Daal Fry, Aloo Gosht</li>
-          <li>Seekh Kabab, Chapli Kabab, Chicken Tikka, Samosa, Bun Kebab</li>
-          <li>Halwa Puri, Aloo Paratha, Gajar Ka Halwa, Gulab Jamun, Falooda</li>
-          <li>Mango Lassi, Kashmiri Chai, Zarda, Chicken Tikka Masala, Palak Paneer</li>
-        </ul>
-      </article>
-      <article class="plan-card">
-        <h3>3 · Design and language</h3>
-        <p><b>Mobile-first:</b> most people will visit on mobile, so photos will be big, text clear and the site fast. Warm, food-like colours: red, orange and cream.</p>
-        <p><b>Language:</b> every article will be written in English, so readers in Pakistan, India and Bangladesh can all read it, and Google can find it.</p>
-      </article>
-      <article class="plan-card">
-        <h3>4 · Traffic from Google and Pinterest</h3>
-        <ul>
-          <li><b>SEO title, description and keywords</b> for every recipe.</li>
-          <li><b>One vertical pin image</b> for Pinterest for every recipe.</li>
-          <li><b>Sitemap + Google Search Console</b> setup, so Google can find the site.</li>
-          <li>Every recipe <b>pinned on Pinterest</b>, so people come from there too.</li>
-          <li>New recipes added every week, fresh sites rank faster than old ones.</li>
-          <li><a href="#seo">Read the full SEO playbook</a>, on-page, technical, keywords, Core Web Vitals and AI search, all applied to this blog.</li>
-        </ul>
-      </article>
-      <article class="plan-card">
-        <h3>5 · Cost and time estimate</h3>
-        <p>This is an estimate; the final price depends on the provider:</p>
-        <ul>
-          <li><b>Domain:</b> about $10–15 per year.</li>
-          <li><b>Basic hosting:</b> about $3–6 per month.</li>
-          <li><b>Demo preview:</b> no cost.</li>
-        </ul>
-        <p>The work will go like this: 1–2 days for design and structure, 2–3 days for the first 10 recipes, then the site goes live and the remaining recipes are added daily.</p>
-      </article>
-      <article class="plan-card">
-        <h3>6 · Earning later</h3>
-        <p>At first the focus will be only on good content and traffic. When daily visitors start coming, these routes will open:</p>
-        <ul>
-          <li><b>Google AdSense</b>, earning from ads on the site.</li>
-          <li><b>Affiliate links</b>, links for spices, cookware and more.</li>
-          <li><b>Sponsored posts</b>, recipe posts for brands.</li>
-        </ul>
-        <p>Earnings cannot be promised, they will depend on traffic and hard work.</p>
-      </article>
-    </div>
-
-    <div class="timeline" aria-label="Work plan">
-      <div class="step"><b>Step 1 · 1–2 days</b><h3>Design and structure</h3><p>Demo final, site name, domain and hosting decided, categories and layout locked.</p></div>
-      <div class="step"><b>Step 2 · 2–3 days</b><h3>First 10 recipes</h3><p>Photos, recipes in English, SEO titles and Pinterest pins ready.</p></div>
-      <div class="step"><b>Step 3 · Site live</b><h3>Publish + daily recipes</h3><p>Search Console, sitemap, Pinterest pins, then new recipes added daily.</p></div>
-    </div>
-
-    <div class="next-steps">
-      <div>
-        <h3>Only 3 things are needed to start</h3>
-        <p>I will handle the rest, design, writing and structure. Just tell me:</p>
-        <ol>
-          <li>What should the site be called? (The demo uses “Zaika Worlds”, it can be changed.)</li>
-          <li>Do you already have a domain / hosting, or should we buy new?</li>
-          <li>Which 5–10 recipes should go first?</li>
-        </ol>
-      </div>
-      <div class="box">
-        <h4>Send your choices</h4>
-        <p>Use the button below to open an email, write the site name and first recipes in it. No form data is saved anywhere.</p>
-        <a class="btn btn-red" href="mailto:?subject=Food%20Blog%20Demo%20%3A%20My%20Choices&body=Site%20name%3A%20%0ADomain%20%2F%20hosting%3A%20%0AFirst%205-10%20recipes%3A%20">Send Your Answer by Email</a>
-      </div>
-    </div>
-  </section>
 
   <section class="section" id="faq" aria-labelledby="faqTitle">
     <div class="section-head">
@@ -908,8 +604,7 @@ footer a{color:var(--muted)}
 
 <footer>
   <div class="wrap">
-    <p><strong style="color:var(--ink)">Zaika Worlds: Demo Preview.</strong> This is a demo, not a real public website. The name, recipes and design can be changed to your choice.</p>
-    <p><strong style="color:var(--ink)">Photo credits:</strong> demo photos are taken from their original recipe pages. Click any photo to see the original page.</p>
+    <p><strong style="color:var(--ink)">Photo credits:</strong> photos are taken from their original recipe pages. Click any photo to see the original page.</p>
     <div class="credits" id="credits"></div>
   </div>
 </footer>
@@ -1012,9 +707,9 @@ feijoada:{ru:{"name":"Feijoada","catLabel":"Duniya Ke Khane","diff":"Mushkil","s
 meatpie:{ru:{"name":"Aussie Meat Pie","catLabel":"Duniya Ke Khane","diff":"Darmiyana","servings":"6 log","desc":"Australia se, classic meat pie, rich beef filling kurkuri sunehri pastry mein, tomato sauce ke sath.","alt":"Beef filling dikhati hui kati hui sunehri pastry wali Australian meat pie"},hi:{"name":"Aussie Meat Pie","catLabel":"दुनिया का खाना","diff":"मध्यम","servings":"6 लोग","desc":"ऑस्ट्रेलिया से, क्लासिक मीट पाई, रिच बीफ़ फिलिंग कुरकुरी सुनहरी पेस्ट्री में, टमाटर सॉस के साथ।","alt":"बीफ़ फिलिंग दिखाती हुई कटी हुई सुनहरी पेस्ट्री वाली ऑस्ट्रेलियाई मीट पाई"}},
 };
 var UI={
-en:{nav:["Recipes","World Food","Trending","SEO Playbook","The Real Website Plan","FAQs"],searchPh:"Biryani, nihari, halwa… type anything",searchLabel:"Search recipes",saved:"Saved",heroTitle:'Home food, with <em>big photos</em>.',heroSub:"Famous dishes from Pakistan, India and Bangladesh, plus favourite dishes from 14 more countries, in English, with easy steps. Click a photo to open the full recipe.",stats:["Demo recipes","Categories","Minute recipes"],cta:["See Recipes ↓","Read the real site plan"],langNote:"<b>3 languages:</b> use the buttons at the top, English, Roman Urdu or हिन्दी, to read every recipe in the language that is easiest for you.",chips:["All Recipes","Desi Dishes","BBQ","Breakfast","Street Food","Desserts","Drinks","World Food"],pref:"Preference:",prefOpts:["Everything","Veg only","Non-veg only"],timeL:"Time:",timeOpts:["Any time","30 minutes or less","45 minutes or less","1 hour or less"],sortL:"Sort:",sortOpts:["Most popular first","Quickest first","Name A–Z"],countryL:"Country:",countryAll:"All Countries",emptyT:"Nothing found",emptyP:"Try a different spelling or filter, like “kebab” or “halwa”.",emptyB:"Clear All Filters",trendK:"What people are searching for this week",trendT:"Trending: write these 3 first",trendP:"The first recipes on the real site should be the ones people search for most on Google and Pinterest. All three are everyday dishes, so they have the best chance of bringing traffic.",trendCards:[["Chicken Biryani","A staple in every home. “Chicken biryani recipe” is the most-searched recipe in both Pakistan and India. Its videos are also watched the most."],["Beef Nihari","Slow-cooked weekend food. People also search for “nihari masala” and how to make the meat tender, one recipe can grow into 3–4 articles."],["Gulab Jamun","The sweet for Eid, weddings and feasts. Its vertical photo is saved the most on Pinterest, so it is the best start for Pinterest traffic."]],seoK:"SEO playbook: applied to this food blog",seoT:"How people will find Zaika Worlds",planK:"What happens after the demo",planT:"The full plan for the real website",faqK:"Frequently asked questions",faqT:"Questions & Answers",faq:[["Will this demo itself become the real website?","No. This is only a preview, to see the design and feel. The real website will be built on its own domain and hosting, where Google and Pinterest will bring real benefit."],["Can I save a recipe in this demo?","Pressing ♥ will show a recipe as saved on this page, but the save disappears when the page is closed. The real site will have account or browser saving."],["Will the recipes be in English?","Yes, the whole site is in English. Every article, ingredient list and step-by-step method is written in English."],["Can YouTube videos be added too?","Yes. Your YouTube video can sit with every recipe, so people who watch the video come to the blog and people who read the blog go to the video."]],heroCapT:"Chicken Biryani",heroCapS:"Karachi style · 60 minutes · Medium",heroCapB:"Open Recipe",time:"Time",serv:"Servings",diff:"Difficulty",cat:"Category",ingH:"Ingredients",methH:"Method",tipH:"Chef's tip",relH:"Similar Recipes",wa:"Share on WhatsApp",copy:"Copy Recipe",save:"♡ Save Recipe",savedBtn:"♥ Saved: Remove",copied:"Copied ✓",videoH:"Recipe Video",videoPlay:"Watch the recipe video",videoSoon:"Video coming soon, this recipe is being filmed, so check back soon to watch every step.",videoBack:"Back to photo",min:"min",veg:"🥬 Veg",nonveg:"🍖 Non-Veg",results:function(n,cat,savedOnly){return "<b>"+n+" recipes</b> shown"+(cat?" · "+cat:"")+(savedOnly?" · Saved only":"")+". Click any photo to open the full recipe.";},copyHead:{ing:"Ingredients:",meth:"Method:",tip:"Tip:",time:"Time:"}},
-ru:{nav:["Recipes","Duniya Ke Khane","Trending","SEO Playbook","Asli Website Ka Plan","FAQs"],searchPh:"Biryani, nihari, halwa… kuch bhi likhein",searchLabel:"Recipes dhoondhein",saved:"Saved",heroTitle:'Ghar ka khana, <em>bari photos</em> ke sath.',heroSub:"Pakistan, India aur Bangladesh ke mashhoor khane, aur 14 mazeed mulkon ki pasandeeda dishes, ab English, Roman Urdu aur Hindi mein, asaan steps ke sath. Poori recipe kholne ke liye kisi photo par click karein.",stats:["Demo recipes","Categories","Minute wali recipes"],cta:["Recipes Dekhein ↓","Asli site ka plan parhein"],langNote:"<b>3 zabanein:</b> upar wale button se zabaan badlein, English, Roman Urdu ya हिन्दी, har recipe us zabaan mein parhein jo aap ke liye sab se asaan ho.",chips:["Saari Recipes","Desi Khane","BBQ","Nashta","Street Food","Meetha","Drinks","Duniya Ke Khane"],pref:"Pasand:",prefOpts:["Sab kuch","Sirf Veg","Sirf Non-Veg"],timeL:"Waqt:",timeOpts:["Koi bhi waqt","30 minute ya kam","45 minute ya kam","1 ghanta ya kam"],sortL:"Tarteeb:",sortOpts:["Sab se mashhoor pehle","Sab se jaldi pehle","Naam A–Z"],countryL:"Mulk:",countryAll:"Sab Mulk",emptyT:"Kuch nahi mila",emptyP:"Doosri spelling ya filter try karein, jaise “kebab” ya “halwa”.",emptyB:"Saare Filter Saaf Karein",trendK:"Is hafte log kya dhoondh rahe hain",trendT:"Trending: pehle ye 3 likhein",trendP:"Asli site par pehli recipes wo honi chahiye jo log Google aur Pinterest par sab se zyada dhoondhte hain. Teeno roz ke khane hain, is liye traffic lane ka in ka chance sab se zyada hai.",trendCards:[["Chicken Biryani","Har ghar ki zaroorat. “Chicken biryani recipe” Pakistan aur India dono mein sab se zyada search hone wali recipe hai. Is ki videos bhi sab se zyada dekhi jati hain."],["Beef Nihari","Halki aanch par pakne wala weekend ka khana. Log “nihari masala” aur gosht naram karne ka tareeqa bhi dhoondhte hain, ek recipe se 3–4 articles ban sakte hain."],["Gulab Jamun","Eid, shadi aur dawat ki mithai. Is ki vertical photo Pinterest par sab se zyada save hoti hai, is liye Pinterest traffic ke liye ye behtareen shuruaat hai."]],seoK:"SEO playbook, is food blog par apply kiya gaya",seoT:"Log Zaika Worlds ko kaise dhoondhenge",planK:"Demo ke baad kya hoga",planT:"Asli website ka mukammal plan",faqK:"Aksar puche jane wale sawal",faqT:"Sawal aur Jawab",faq:[["Kya ye demo hi asli website ban jayega?","Nahi. Ye sirf preview hai, design aur feel dekhne ke liye. Asli website apne domain aur hosting par banegi, jahan Google aur Pinterest se asli faida hoga."],["Kya is demo mein recipe save kar sakte hain?","♥ dabane se recipe is page par saved dikhegi, lekin page band karne par save khatam ho jayega. Asli site mein account ya browser saving hogi."],["Kya recipes English mein hongi?","Ab har recipe 3 zabanon mein hai, English, Roman Urdu aur Hindi. Upar wale button se zabaan badlein, aur poora article usi zabaan mein parhein."],["Kya YouTube videos bhi add ho sakti hain?","Ji haan. Aap ki YouTube video har recipe ke sath lag sakti hai, taake video dekhne wale blog par aayein aur blog parhne wale video par jayein."]],heroCapT:"Chicken Biryani",heroCapS:"Karachi style · 60 minute · Darmiyana",heroCapB:"Recipe Kholein",time:"Waqt",serv:"Servings",diff:"Difficulty",cat:"Category",ingH:"Ajza",methH:"Banane Ka Tareeqa",tipH:"Chef ki tip",relH:"Milti Julti Recipes",wa:"WhatsApp par Share Karein",copy:"Recipe Copy Karein",save:"♡ Recipe Save Karein",savedBtn:"♥ Saved: Hatayein",copied:"Copy ho gaya ✓",videoH:"Recipe Ki Video",videoPlay:"Recipe ki video dekhein",videoSoon:"Video jald aa rahi hai, is recipe ki video ban rahi hai, jald hi har step yahan dekh sakein ge.",videoBack:"Photo par wapas jayein",min:"minute",veg:"🥬 Veg",nonveg:"🍖 Non-Veg",results:function(n,cat,savedOnly){return "<b>"+n+" recipes</b> dikhayi ja rahi hain"+(cat?" · "+cat:"")+(savedOnly?" · Sirf Saved":"")+". Poori recipe kholne ke liye kisi photo par click karein.";},copyHead:{ing:"Ajza:",meth:"Banane Ka Tareeqa:",tip:"Tip:",time:"Waqt:"}},
-hi:{nav:["रेसिपी","दुनिया का खाना","ट्रेंडिंग","SEO प्लेबुक","असली वेबसाइट की योजना","सवाल-जवाब"],searchPh:"बिरयानी, निहारी, हलवा… कुछ भी लिखें",searchLabel:"रेसिपी खोजें",saved:"सेव्ड",heroTitle:'घर का खाना, <em>बड़ी फ़ोटो</em> के साथ।',heroSub:"पाकिस्तान, भारत और बांग्लादेश के मशहूर खाने, और 14 और देशों की पसंदीदा डिश, अब अंग्रेज़ी, रोमन उर्दू और हिन्दी में, आसान स्टेप्स के साथ। पूरी रेसिपी खोलने के लिए किसी फ़ोटो पर क्लिक करें।",stats:["डेमो रेसिपी","श्रेणियाँ","मिनट वाली रेसिपी"],cta:["रेसिपी देखें ↓","असली साइट की योजना पढ़ें"],langNote:"<b>3 भाषाएँ:</b> ऊपर वाले बटन से भाषा बदलें, English, Roman Urdu या हिन्दी, हर रेसिपी उस भाषा में पढ़ें जो आपके लिए सबसे आसान हो।",chips:["सारी रेसिपी","देसी खाना","बारबेक्यू","नाश्ता","स्ट्रीट फ़ूड","मीठा","ड्रिंक्स","दुनिया का खाना"],pref:"पसंद:",prefOpts:["सब कुछ","सिर्फ़ वेज","सिर्फ़ नॉन-वेज"],timeL:"समय:",timeOpts:["कोई भी समय","30 मिनट या कम","45 मिनट या कम","1 घंटा या कम"],sortL:"क्रम:",sortOpts:["सबसे लोकप्रिय पहले","सबसे जल्दी पहले","नाम A–Z"],countryL:"देश:",countryAll:"सभी देश",emptyT:"कुछ नहीं मिला",emptyP:"दूसरी स्पेलिंग या फ़िल्टर आज़माएँ, जैसे “कबाब” या “हलवा”।",emptyB:"सारे फ़िल्टर साफ़ करें",trendK:"इस हफ़्ते लोग क्या खोज रहे हैं",trendT:"ट्रेंडिंग: पहले ये 3 लिखें",trendP:"असली साइट पर पहली रेसिपी वो होनी चाहिए जो लोग Google और Pinterest पर सबसे ज़्यादा खोजते हैं। तीनों रोज़ के खाने हैं, इसलिए ट्रैफ़िक लाने का इनका मौका सबसे ज़्यादा है।",trendCards:[["चिकन बिरयानी","हर घर की ज़रूरत। “चिकन बिरयानी रेसिपी” पाकिस्तान और भारत दोनों में सबसे ज़्यादा खोजी जाने वाली रेसिपी है। इसके वीडियो भी सबसे ज़्यादा देखे जाते हैं।"],["बीफ़ निहारी","हल्की आंच पर पकने वाला वीकेंड का खाना। लोग “निहारी मसाला” और गोश्त नरम करने का तरीक़ा भी खोजते हैं, एक रेसिपी से 3–4 लेख बन सकते हैं।"],["गुलाब जामुन","ईद, शादी और दावत की मिठाई। इसकी वर्टिकल फ़ोटो Pinterest पर सबसे ज़्यादा सेव होती है, इसलिए Pinterest ट्रैफ़िक के लिए ये बेहतरीन शुरुआत है।"]],seoK:"SEO प्लेबुक, इस फ़ूड ब्लॉग पर लागू",seoT:"लोग Zaika Worlds को कैसे खोजेंगे",planK:"डेमो के बाद क्या होगा",planT:"असली वेबसाइट की पूरी योजना",faqK:"अक्सर पूछे जाने वाले सवाल",faqT:"सवाल और जवाब",faq:[["क्या ये डेमो ही असली वेबसाइट बन जाएगा?","नहीं। ये सिर्फ़ प्रीव्यू है, डिज़ाइन और फील देखने के लिए। असली वेबसाइट अपने डोमेन और होस्टिंग पर बनेगी, जहाँ Google और Pinterest से असली फ़ायदा होगा।"],["क्या इस डेमो में रेसिपी सेव कर सकते हैं?","♥ दबाने से रेसिपी इस पेज पर सेव्ड दिखेगी, लेकिन पेज बंद करने पर सेव खत्म हो जाएगा। असली साइट में अकाउंट या ब्राउज़र सेविंग होगी।"],["क्या रेसिपी अंग्रेज़ी में होंगी?","अब हर रेसिपी 3 भाषाओं में है, English, Roman Urdu और हिन्दी। ऊपर वाले बटन से भाषा बदलें, और पूरा लेख उसी भाषा में पढ़ें।"],["क्या YouTube वीडियो भी जोड़े जा सकते हैं?","जी हाँ। आपका YouTube वीडियो हर रेसिपी के साथ लग सकता है, ताकि वीडियो देखने वाले ब्लॉग पर आएँ और ब्लॉग पढ़ने वाले वीडियो पर जाएँ।"]],heroCapT:"चिकन बिरयानी",heroCapS:"कराची स्टाइल · 60 मिनट · मध्यम",heroCapB:"रेसिपी खोलें",time:"समय",serv:"सर्विंग",diff:"कठिनाई",cat:"श्रेणी",ingH:"सामग्री",methH:"बनाने का तरीक़ा",tipH:"शेफ़ की टिप",relH:"मिलती-जुलती रेसिपी",wa:"WhatsApp पर शेयर करें",copy:"रेसिपी कॉपी करें",save:"♡ रेसिपी सेव करें",savedBtn:"♥ सेव्ड: हटाएँ",copied:"कॉपी हो गया ✓",videoH:"रेसिपी वीडियो",videoPlay:"रेसिपी वीडियो देखें",videoSoon:"वीडियो जल्द आ रहा है, इस रेसिपी का वीडियो बनाया जा रहा है, जल्द ही आप हर स्टेप यहाँ देख पाएँगे।",videoBack:"फ़ोटो पर वापस जाएँ",min:"मिनट",veg:"🥬 वेज",nonveg:"🍖 नॉन-वेज",results:function(n,cat,savedOnly){return "<b>"+n+" रेसिपी</b> दिखाई जा रही हैं"+(cat?" · "+cat:"")+(savedOnly?" · सिर्फ़ सेव्ड":"")+"। पूरी रेसिपी खोलने के लिए किसी फ़ोटो पर क्लिक करें।";},copyHead:{ing:"सामग्री:",meth:"बनाने का तरीक़ा:",tip:"टिप:",time:"समय:"}}
+en:{nav:["Recipes","World Food","Trending","FAQs"],searchPh:"Biryani, nihari, halwa… type anything",searchLabel:"Search recipes",saved:"Saved",heroTitle:'Home food, with <em>big photos</em>.',heroSub:"Famous dishes from Pakistan, India and Bangladesh, plus favourite dishes from 14 more countries, in English, with easy steps. Click a photo to open the full recipe.",stats:["Recipes","Categories","Minute recipes"],cta:["See Recipes ↓","Explore World Food"],langNote:"<b>3 languages:</b> use the buttons at the top, English, Roman Urdu or हिन्दी, to read every recipe in the language that is easiest for you.",chips:["All Recipes","Desi Dishes","BBQ","Breakfast","Street Food","Desserts","Drinks","World Food"],pref:"Preference:",prefOpts:["Everything","Veg only","Non-veg only"],timeL:"Time:",timeOpts:["Any time","30 minutes or less","45 minutes or less","1 hour or less"],sortL:"Sort:",sortOpts:["Most popular first","Quickest first","Name A–Z"],countryL:"Country:",countryAll:"All Countries",emptyT:"Nothing found",emptyP:"Try a different spelling or filter, like “kebab” or “halwa”.",emptyB:"Clear All Filters",trendK:"What people are searching for this week",trendT:"Trending: write these 3 first",trendP:"The first recipes on the real site should be the ones people search for most on Google and Pinterest. All three are everyday dishes, so they have the best chance of bringing traffic.",trendCards:[["Chicken Biryani","A staple in every home. “Chicken biryani recipe” is the most-searched recipe in both Pakistan and India. Its videos are also watched the most."],["Beef Nihari","Slow-cooked weekend food. People also search for “nihari masala” and how to make the meat tender, one recipe can grow into 3–4 articles."],["Gulab Jamun","The sweet for Eid, weddings and feasts. Its vertical photo is saved the most on Pinterest, so it is the best start for Pinterest traffic."]],faqK:"Frequently asked questions",faqT:"Questions & Answers",faq:[["Will this demo itself become the real website?","No. This is only a preview, to see the design and feel. The real website will be built on its own domain and hosting, where Google and Pinterest will bring real benefit."],["Can I save a recipe in this demo?","Pressing ♥ will show a recipe as saved on this page, but the save disappears when the page is closed. The real site will have account or browser saving."],["Will the recipes be in English?","Yes, the whole site is in English. Every article, ingredient list and step-by-step method is written in English."],["Can YouTube videos be added too?","Yes. Your YouTube video can sit with every recipe, so people who watch the video come to the blog and people who read the blog go to the video."]],heroCapT:"Chicken Biryani",heroCapS:"Karachi style · 60 minutes · Medium",heroCapB:"Open Recipe",time:"Time",serv:"Servings",diff:"Difficulty",cat:"Category",ingH:"Ingredients",methH:"Method",tipH:"Chef's tip",relH:"Similar Recipes",wa:"Share on WhatsApp",copy:"Copy Recipe",save:"♡ Save Recipe",savedBtn:"♥ Saved: Remove",copied:"Copied ✓",videoH:"Recipe Video",videoPlay:"Watch the recipe video",videoSoon:"Video coming soon, this recipe is being filmed, so check back soon to watch every step.",videoBack:"Back to photo",min:"min",veg:"🥬 Veg",nonveg:"🍖 Non-Veg",results:function(n,cat,savedOnly){return "<b>"+n+" recipes</b> shown"+(cat?" · "+cat:"")+(savedOnly?" · Saved only":"")+". Click any photo to open the full recipe.";},copyHead:{ing:"Ingredients:",meth:"Method:",tip:"Tip:",time:"Time:"}},
+ru:{nav:["Recipes","Duniya Ke Khane","Trending","FAQs"],searchPh:"Biryani, nihari, halwa… kuch bhi likhein",searchLabel:"Recipes dhoondhein",saved:"Saved",heroTitle:'Ghar ka khana, <em>bari photos</em> ke sath.',heroSub:"Pakistan, India aur Bangladesh ke mashhoor khane, aur 14 mazeed mulkon ki pasandeeda dishes, ab English, Roman Urdu aur Hindi mein, asaan steps ke sath. Poori recipe kholne ke liye kisi photo par click karein.",stats:["Recipes","Categories","Minute wali recipes"],cta:["Recipes Dekhein ↓","Duniya Ke Khane Dekhein"],langNote:"<b>3 zabanein:</b> upar wale button se zabaan badlein, English, Roman Urdu ya हिन्दी, har recipe us zabaan mein parhein jo aap ke liye sab se asaan ho.",chips:["Saari Recipes","Desi Khane","BBQ","Nashta","Street Food","Meetha","Drinks","Duniya Ke Khane"],pref:"Pasand:",prefOpts:["Sab kuch","Sirf Veg","Sirf Non-Veg"],timeL:"Waqt:",timeOpts:["Koi bhi waqt","30 minute ya kam","45 minute ya kam","1 ghanta ya kam"],sortL:"Tarteeb:",sortOpts:["Sab se mashhoor pehle","Sab se jaldi pehle","Naam A–Z"],countryL:"Mulk:",countryAll:"Sab Mulk",emptyT:"Kuch nahi mila",emptyP:"Doosri spelling ya filter try karein, jaise “kebab” ya “halwa”.",emptyB:"Saare Filter Saaf Karein",trendK:"Is hafte log kya dhoondh rahe hain",trendT:"Trending: pehle ye 3 likhein",trendP:"Asli site par pehli recipes wo honi chahiye jo log Google aur Pinterest par sab se zyada dhoondhte hain. Teeno roz ke khane hain, is liye traffic lane ka in ka chance sab se zyada hai.",trendCards:[["Chicken Biryani","Har ghar ki zaroorat. “Chicken biryani recipe” Pakistan aur India dono mein sab se zyada search hone wali recipe hai. Is ki videos bhi sab se zyada dekhi jati hain."],["Beef Nihari","Halki aanch par pakne wala weekend ka khana. Log “nihari masala” aur gosht naram karne ka tareeqa bhi dhoondhte hain, ek recipe se 3–4 articles ban sakte hain."],["Gulab Jamun","Eid, shadi aur dawat ki mithai. Is ki vertical photo Pinterest par sab se zyada save hoti hai, is liye Pinterest traffic ke liye ye behtareen shuruaat hai."]],faqK:"Aksar puche jane wale sawal",faqT:"Sawal aur Jawab",faq:[["Kya ye demo hi asli website ban jayega?","Nahi. Ye sirf preview hai, design aur feel dekhne ke liye. Asli website apne domain aur hosting par banegi, jahan Google aur Pinterest se asli faida hoga."],["Kya is demo mein recipe save kar sakte hain?","♥ dabane se recipe is page par saved dikhegi, lekin page band karne par save khatam ho jayega. Asli site mein account ya browser saving hogi."],["Kya recipes English mein hongi?","Ab har recipe 3 zabanon mein hai, English, Roman Urdu aur Hindi. Upar wale button se zabaan badlein, aur poora article usi zabaan mein parhein."],["Kya YouTube videos bhi add ho sakti hain?","Ji haan. Aap ki YouTube video har recipe ke sath lag sakti hai, taake video dekhne wale blog par aayein aur blog parhne wale video par jayein."]],heroCapT:"Chicken Biryani",heroCapS:"Karachi style · 60 minute · Darmiyana",heroCapB:"Recipe Kholein",time:"Waqt",serv:"Servings",diff:"Difficulty",cat:"Category",ingH:"Ajza",methH:"Banane Ka Tareeqa",tipH:"Chef ki tip",relH:"Milti Julti Recipes",wa:"WhatsApp par Share Karein",copy:"Recipe Copy Karein",save:"♡ Recipe Save Karein",savedBtn:"♥ Saved: Hatayein",copied:"Copy ho gaya ✓",videoH:"Recipe Ki Video",videoPlay:"Recipe ki video dekhein",videoSoon:"Video jald aa rahi hai, is recipe ki video ban rahi hai, jald hi har step yahan dekh sakein ge.",videoBack:"Photo par wapas jayein",min:"minute",veg:"🥬 Veg",nonveg:"🍖 Non-Veg",results:function(n,cat,savedOnly){return "<b>"+n+" recipes</b> dikhayi ja rahi hain"+(cat?" · "+cat:"")+(savedOnly?" · Sirf Saved":"")+". Poori recipe kholne ke liye kisi photo par click karein.";},copyHead:{ing:"Ajza:",meth:"Banane Ka Tareeqa:",tip:"Tip:",time:"Waqt:"}},
+hi:{nav:["रेसिपी","दुनिया का खाना","ट्रेंडिंग","सवाल-जवाब"],searchPh:"बिरयानी, निहारी, हलवा… कुछ भी लिखें",searchLabel:"रेसिपी खोजें",saved:"सेव्ड",heroTitle:'घर का खाना, <em>बड़ी फ़ोटो</em> के साथ।',heroSub:"पाकिस्तान, भारत और बांग्लादेश के मशहूर खाने, और 14 और देशों की पसंदीदा डिश, अब अंग्रेज़ी, रोमन उर्दू और हिन्दी में, आसान स्टेप्स के साथ। पूरी रेसिपी खोलने के लिए किसी फ़ोटो पर क्लिक करें।",stats:["रेसिपी","श्रेणियाँ","मिनट वाली रेसिपी"],cta:["रेसिपी देखें ↓","दुनिया का खाना देखें"],langNote:"<b>3 भाषाएँ:</b> ऊपर वाले बटन से भाषा बदलें, English, Roman Urdu या हिन्दी, हर रेसिपी उस भाषा में पढ़ें जो आपके लिए सबसे आसान हो।",chips:["सारी रेसिपी","देसी खाना","बारबेक्यू","नाश्ता","स्ट्रीट फ़ूड","मीठा","ड्रिंक्स","दुनिया का खाना"],pref:"पसंद:",prefOpts:["सब कुछ","सिर्फ़ वेज","सिर्फ़ नॉन-वेज"],timeL:"समय:",timeOpts:["कोई भी समय","30 मिनट या कम","45 मिनट या कम","1 घंटा या कम"],sortL:"क्रम:",sortOpts:["सबसे लोकप्रिय पहले","सबसे जल्दी पहले","नाम A–Z"],countryL:"देश:",countryAll:"सभी देश",emptyT:"कुछ नहीं मिला",emptyP:"दूसरी स्पेलिंग या फ़िल्टर आज़माएँ, जैसे “कबाब” या “हलवा”।",emptyB:"सारे फ़िल्टर साफ़ करें",trendK:"इस हफ़्ते लोग क्या खोज रहे हैं",trendT:"ट्रेंडिंग: पहले ये 3 लिखें",trendP:"असली साइट पर पहली रेसिपी वो होनी चाहिए जो लोग Google और Pinterest पर सबसे ज़्यादा खोजते हैं। तीनों रोज़ के खाने हैं, इसलिए ट्रैफ़िक लाने का इनका मौका सबसे ज़्यादा है।",trendCards:[["चिकन बिरयानी","हर घर की ज़रूरत। “चिकन बिरयानी रेसिपी” पाकिस्तान और भारत दोनों में सबसे ज़्यादा खोजी जाने वाली रेसिपी है। इसके वीडियो भी सबसे ज़्यादा देखे जाते हैं।"],["बीफ़ निहारी","हल्की आंच पर पकने वाला वीकेंड का खाना। लोग “निहारी मसाला” और गोश्त नरम करने का तरीक़ा भी खोजते हैं, एक रेसिपी से 3–4 लेख बन सकते हैं।"],["गुलाब जामुन","ईद, शादी और दावत की मिठाई। इसकी वर्टिकल फ़ोटो Pinterest पर सबसे ज़्यादा सेव होती है, इसलिए Pinterest ट्रैफ़िक के लिए ये बेहतरीन शुरुआत है।"]],faqK:"अक्सर पूछे जाने वाले सवाल",faqT:"सवाल और जवाब",faq:[["क्या ये डेमो ही असली वेबसाइट बन जाएगा?","नहीं। ये सिर्फ़ प्रीव्यू है, डिज़ाइन और फील देखने के लिए। असली वेबसाइट अपने डोमेन और होस्टिंग पर बनेगी, जहाँ Google और Pinterest से असली फ़ायदा होगा।"],["क्या इस डेमो में रेसिपी सेव कर सकते हैं?","♥ दबाने से रेसिपी इस पेज पर सेव्ड दिखेगी, लेकिन पेज बंद करने पर सेव खत्म हो जाएगा। असली साइट में अकाउंट या ब्राउज़र सेविंग होगी।"],["क्या रेसिपी अंग्रेज़ी में होंगी?","अब हर रेसिपी 3 भाषाओं में है, English, Roman Urdu और हिन्दी। ऊपर वाले बटन से भाषा बदलें, और पूरा लेख उसी भाषा में पढ़ें।"],["क्या YouTube वीडियो भी जोड़े जा सकते हैं?","जी हाँ। आपका YouTube वीडियो हर रेसिपी के साथ लग सकता है, ताकि वीडियो देखने वाले ब्लॉग पर आएँ और ब्लॉग पढ़ने वाले वीडियो पर जाएँ।"]],heroCapT:"चिकन बिरयानी",heroCapS:"कराची स्टाइल · 60 मिनट · मध्यम",heroCapB:"रेसिपी खोलें",time:"समय",serv:"सर्विंग",diff:"कठिनाई",cat:"श्रेणी",ingH:"सामग्री",methH:"बनाने का तरीक़ा",tipH:"शेफ़ की टिप",relH:"मिलती-जुलती रेसिपी",wa:"WhatsApp पर शेयर करें",copy:"रेसिपी कॉपी करें",save:"♡ रेसिपी सेव करें",savedBtn:"♥ सेव्ड: हटाएँ",copied:"कॉपी हो गया ✓",videoH:"रेसिपी वीडियो",videoPlay:"रेसिपी वीडियो देखें",videoSoon:"वीडियो जल्द आ रहा है, इस रेसिपी का वीडियो बनाया जा रहा है, जल्द ही आप हर स्टेप यहाँ देख पाएँगे।",videoBack:"फ़ोटो पर वापस जाएँ",min:"मिनट",veg:"🥬 वेज",nonveg:"🍖 नॉन-वेज",results:function(n,cat,savedOnly){return "<b>"+n+" रेसिपी</b> दिखाई जा रही हैं"+(cat?" · "+cat:"")+(savedOnly?" · सिर्फ़ सेव्ड":"")+"। पूरी रेसिपी खोलने के लिए किसी फ़ोटो पर क्लिक करें।";},copyHead:{ing:"सामग्री:",meth:"बनाने का तरीक़ा:",tip:"टिप:",time:"समय:"}}
 };
 
 UI.en.servingH="Serving"; UI.en.storageH="Storage and reheating"; UI.en.notesH="Ingredient notes"; UI.en.varH="Variations"; UI.en.mistakesH="Common mistakes"; UI.en.recipeFaqH="Frequently asked questions";
@@ -1073,12 +768,6 @@ function applyLang(){
   document.getElementById("trendTitle").textContent=t.trendT;
   trendSec.querySelector(".section-head p:not(.kicker)").textContent=t.trendP;
   document.querySelectorAll(".trend-card").forEach(function(card,i){if(t.trendCards[i]){card.querySelector("h3").textContent=t.trendCards[i][0];card.querySelector("p").textContent=t.trendCards[i][1];}});
-  var seoSec=document.getElementById("seo");
-  seoSec.querySelector(".kicker").textContent=t.seoK;
-  document.getElementById("seoTitle").textContent=t.seoT;
-  var planHead=document.getElementById("planTitle").closest(".section-head");
-  planHead.querySelector(".kicker").textContent=t.planK;
-  document.getElementById("planTitle").textContent=t.planT;
   var faqSec=document.getElementById("faq");
   faqSec.querySelector(".kicker").textContent=t.faqK;
   document.getElementById("faqTitle").textContent=t.faqT;
@@ -1232,7 +921,7 @@ function openRecipe(id){
   document.getElementById("modalVariations").innerHTML=(tx.variations||[]).map(function(n){return "<li>"+esc(n)+"</li>";}).join("");
   document.getElementById("modalMistakes").innerHTML=(tx.mistakes||[]).map(function(n){return "<li>"+esc(n)+"</li>";}).join("");
   document.getElementById("modalFaq").innerHTML=(tx.faq||[]).map(function(pair){return "<article><h4>"+esc(pair[0])+"</h4><p>"+esc(pair[1])+"</p></article>";}).join("");
-  document.getElementById("waShare").href="https://wa.me/?text="+encodeURIComponent("See this recipe: "+rName(r)+", Zaika Worlds Demo: "+tx.desc);
+  document.getElementById("waShare").href="https://wa.me/?text="+encodeURIComponent("See this recipe: "+rName(r)+", Zaika Worlds: "+tx.desc);
   document.getElementById("modalSave").textContent=saved.has(id)?T().savedBtn:T().save;
   var rel=RECIPES.filter(function(x){return x.cat===r.cat && x.id!==r.id;}).concat(RECIPES.filter(function(x){return x.cat!==r.cat && x.id!==r.id;})).slice(0,3);
   document.getElementById("relatedGrid").innerHTML=rel.map(function(x){
