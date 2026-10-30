@@ -24,3 +24,4 @@ node_modules/
 # Never commit the single-file export here. It is over 100 MB and GitHub
 # will block it. Run tools/split_export.py on it instead and commit the
 # split files (index.html, assets/, videos/).
+__pycache__/
