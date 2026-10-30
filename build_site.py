@@ -706,13 +706,26 @@ def ui_str(data, lang, key, default=''):
         if isinstance(v, str):
             return v
     raw = data['ui_raw'].get(lang, '')
-    m = re.search(r'\b' + re.escape(key) + r'\s*:\s*"((?:[^"\\]|\\.)*)"',
+    m = re.search(r'\b' + re.escape(key) +
+                  r'\s*:\s*(?:"((?:[^"\\]|\\.)*)"|\'((?:[^\'\\]|\\.)*)\')',
                   raw)
     if m:
-        return m.group(1)
+        return m.group(1) if m.group(1) is not None else m.group(2)
     if lang != 'en':
         return ui_str(data, 'en', key, default)
     return default
+
+
+def ui_cta(data, lang):
+    """The first UI cta label ('Browse Recipes') in a language. The cta
+    value is an array, so it is extracted separately from ui_str()."""
+    raw = data['ui_raw'].get(lang, '')
+    m = re.search(r'\bcta\s*:\s*\[\s*"([^"]+)"', raw)
+    if m:
+        return m.group(1)
+    if lang != 'en':
+        return ui_cta(data, 'en')
+    return 'Browse Recipes'
 
 
 def load_recipe_dates():
@@ -754,19 +767,76 @@ HOME_FAQ_USAGE = (
     "each language.")
 
 
-def home_faq_entries(data):
-    """The homepage /faqs FAQ entries: [(question, answer)] in English."""
+def _faq_lang(data, lang):
+    """A recipe's EXTRA faq list in a language. en/hi/ru come from EXTRA
+    as objects; the other 10 from EXTRA_NEW arrays (already normalized)."""
+    if lang in EXTRA_OBJ_LANGS or lang == 'en':
+        return lambda rid: (data['extra'].get(rid, {}).get(lang, {})
+                            .get('faq') or [])
+    return lambda rid: (data['extra_new'].get(lang, {})
+                        .get(rid, {}).get('faq') or [])
+
+
+# Words for "language(s)" per language, used to find the language-menu
+# question inside each language's existing UI faq (it is the one site-
+# usage question kept in the homepage FAQ).
+LANG_WORD = {'en': 'language', 'ru': 'zaban', 'hi': 'भाषा', 'es': 'idioma',
+             'fr': 'langue', 'ar': 'لغ', 'pt': 'idioma', 'rus': 'язык',
+             'zh': '语言', 'ja': '言語', 'de': 'Sprach', 'tr': 'dil',
+             'bn': 'ভাষা'}
+
+
+def ui_faq_entries(data, lang):
+    """The existing UI faq entries [[q, a], ...] for a language, parsed
+    from the UI literal (en/ru/hi may also carry patch keys, but 'faq'
+    is in the literal for all 13)."""
+    raw = data['ui_raw'].get(lang, '')
+    m = re.search(r'\bfaq\s*:\s*\[', raw)
+    if not m:
+        return []
+    try:
+        val, _ = parse_js_literal(raw, raw.find('[', m.start()))
+    except Exception:
+        return []
+    return val if isinstance(val, list) else []
+
+
+def lang_menu_faq(data, lang):
+    """The language-menu question from a language's existing UI faq
+    (the one site-usage question kept in the homepage FAQ). Falls back
+    to the English entry."""
+    word = LANG_WORD.get(lang, 'language')
+    for q, a in ui_faq_entries(data, lang):
+        if word in q:
+            return (q, a)
+    for q, a in ui_faq_entries(data, 'en'):
+        if 'language' in q:
+            return (q, a)
+    return HOME_FAQ_USAGE
+
+
+def home_faq_entries(data, lang='en'):
+    """The homepage /faqs FAQ entries: [(question, answer)] in a
+    language. 9 cooking Q&As verbatim from the recipes' EXTRA faq data
+    (same recipe/index pairs in every language) + the language-menu
+    question from that language's existing UI faq."""
     out = []
+    get_faq = _faq_lang(data, lang)
     for rid, idx in HOME_FAQ_RECIPES:
-        faq = data['extra'].get(rid, {}).get('en', {}).get('faq') or []
+        faq = get_faq(rid)
         if idx < len(faq):
             out.append((faq[idx][0], faq[idx][1]))
-    out.append(HOME_FAQ_USAGE)
+    out.append(lang_menu_faq(data, lang))
     return out
 
 
 # Seasonal hubs (issue O): curated lists from the real 32 recipes only.
 # No dish is invented; each recipe is listed with the reason it fits.
+# The 3 trending dishes on the homepage (the UI trendCards:
+# Chicken Biryani, Beef Nihari, Gulab Jamun). --check verifies these
+# still match the UI trendCards names.
+TREND_IDS = ['biryani', 'nihari', 'gulabjamun']
+
 HUBS = {
     'eid-recipes': {
         'title': 'Eid Recipes',
@@ -1400,6 +1470,22 @@ def list_info(data, kind, slug):
 # Data files (data/*.js)
 # ---------------------------------------------------------------------------
 
+def _split_ing_obj(obj, lang):
+    """Return a copy of an EXTRA-style {rid: {lang: fields}} dict with the
+    'ing' list split one-per-line (issue G). The source index.html keeps
+    the original combined strings; the split is a build-time transform,
+    so it applies to every deploy (including new recipes)."""
+    out = {}
+    for rid, langs in obj.items():
+        out[rid] = {}
+        for lg, fields in langs.items():
+            f = dict(fields)
+            if f.get('ing'):
+                f['ing'] = split_ingredients(f['ing'], lg)
+            out[rid][lg] = f
+    return out
+
+
 def write_data_files(data):
     """Write the lazily-loaded data files. Returns {path: bytes}."""
     out = {}
@@ -1413,6 +1499,7 @@ def write_data_files(data):
     w('recipes.js', 'var RECIPES=' + js_json(data['recipes']) + ';\n')
     extra_en = {rid: {'en': d['en']} for rid, d in data['extra'].items()
                 if 'en' in d}
+    extra_en = _split_ing_obj(extra_en, 'en')
     w('extra-en.js', 'var EXTRA=' + js_json(extra_en) + ';\n')
     en_patches = ''.join('UI.en.%s=%s;\n' % (k, js_json(v))
                          for k, v in sorted(data['ui_patches']['en'].items()))
@@ -1431,8 +1518,16 @@ def write_data_files(data):
                    if lang in d}
         else:
             obj = data['extra_new'][lang]
+        # obj is {rid: fields}; split its ing list for this language.
+        split_obj = {}
+        for rid, fields in obj.items():
+            f = dict(fields)
+            if f.get('ing'):
+                f['ing'] = split_ingredients(f['ing'], lang)
+            split_obj[rid] = f
         w('extra-%s.js' % lang,
-          'var ZAIKA_EXTRA_' + lang.upper() + '=' + js_json(obj) + ';\n')
+          'var ZAIKA_EXTRA_' + lang.upper() + '=' + js_json(split_obj)
+          + ';\n')
 
     # Per-language UI + INFO strings (12 files). UI is raw JS (it contains
     # a `results` function per language); INFO is JSON. For ru/hi, the 26
@@ -1456,8 +1551,15 @@ def write_data_files(data):
     for lang in LANG_DATA_LANGS:
         obj = {rid: d[lang] for rid, d in data['lang_data'].items()
                if lang in d}
+        split_obj = {}
+        for rid, fields in obj.items():
+            f = dict(fields)
+            if f.get('ing'):
+                f['ing'] = split_ingredients(f['ing'], lang)
+            split_obj[rid] = f
         w('lang-data-%s.js' % lang,
-          'var ZAIKA_LANGDATA_' + lang.upper() + '=' + js_json(obj) + ';\n')
+          'var ZAIKA_LANGDATA_' + lang.upper() + '=' + js_json(split_obj)
+          + ';\n')
 
     # Short-form text for the other 10 languages (merged into LANG_DATA by
     # _mergeLangNew() after load). Kept as the three original objects so the
@@ -1788,11 +1890,25 @@ def list_page(data, li):
 
 
 def info_page(data, name):
-    """about / privacy / contact, from INFO.en (English)."""
+    """about / privacy / contact, from INFO.en (English). Each page's meta
+    description comes from its own intro (unique per page, never the
+    shared homepage description)."""
     en = data['info']['en'][name]
     h1 = en['h1']
     title = cap_title(h1)
     url = SITE + '/' + name
+    desc = fit_desc(en['intro'], '') or DEF_DESC
+    if len(desc) < 140:
+        # Pad with the first section's text (real page content only).
+        extra = ''
+        if name == 'about':
+            extra = en.get('p1') or ''
+        elif name == 'privacy':
+            extra = (en.get('secP') or [''])[0]
+        else:
+            extra = en.get('notice') or ''
+        if extra:
+            desc = fit_desc(en['intro'] + ' ' + extra, '')
     if name == 'about':
         parts = ['<h1>%s</h1>\n<p>%s</p>\n' % (esc(h1), esc(en['intro']))]
         for h2k, pk in (('h2a', 'p1'), ('h2c', 'p3'), ('h2d', 'p4'),
@@ -1839,15 +1955,169 @@ def info_page(data, name):
             '<a class="cta" href="/#%s">Open the interactive site</a>\n'
             % (esc(h1), body_inner, esc(name)))
     wld = {"@context": "https://schema.org", "@type": "WebPage",
-           "name": title, "url": url, "description": DEF_DESC,
+           "name": title, "url": url, "description": desc,
            "isPartOf": {"@type": "WebSite", "name": "Zaika Worlds",
                         "url": SITE + "/"}}
-    return page_shell(title, DEF_DESC, url, DEF_IMG, DEF_ALT, [wld], body)
+    return page_shell(title, desc, url, DEF_IMG, DEF_ALT, [wld], body)
+
+
+def make_list(title, desc, url, label, intro, recipes, img, img_alt):
+    """A list_info-style dict for list_page(), for hand-made list pages
+    (/recipes, /trending, hubs). desc must already be fitted 140-155."""
+    return {'title': title, 'desc': desc, 'url': url, 'label': label,
+            'intro': intro, 'recipes': recipes, 'img': img,
+            'imgAlt': img_alt}
+
+
+def new_list_pages(data):
+    """The new list pages (issue B/O): /recipes, /trending, /eid-recipes,
+    /ramadan-recipes. Returns {rel_path: html}."""
+    by_id = {r['id']: r for r in data['recipes']}
+    all_recipes = sorted(data['recipes'], key=lambda r: r['name'])
+    first_img = all_recipes[0]['img']
+    first_alt = r_text_en(all_recipes[0], data['extra']).get('alt') or ''
+    pages = {}
+    intro_all = ("All 32 Zaika Worlds recipes: Pakistani, Indian and world "
+                 "food dishes with full ingredients, step by step methods, "
+                 "cooking time and servings. Click any recipe to open the "
+                 "full method and start cooking.")
+    pages['recipes/index.html'] = list_page(data, make_list(
+        'All Recipes | Zaika Worlds', fit_desc(intro_all, ''),
+        SITE + '/recipes', 'All Recipes', intro_all, all_recipes,
+        first_img, first_alt))
+    # The 3 trending dishes are the UI trendCards (Chicken Biryani,
+    # Beef Nihari, Gulab Jamun).
+    trend_recipes = [by_id[i] for i in TREND_IDS]
+    intro_trend = ui_str(data, 'en', 'trendP',
+                         'If you are new here, start with these three.')
+    pages['trending/index.html'] = list_page(data, make_list(
+        'Trending Recipes | Zaika Worlds', fit_desc(intro_trend, ''),
+        SITE + '/trending', 'Trending', intro_trend, trend_recipes,
+        trend_recipes[0]['img'],
+        r_text_en(trend_recipes[0], data['extra']).get('alt') or ''))
+    for slug, hub in HUBS.items():
+        hub_recipes = [by_id[i] for i in hub['recipes']]
+        pages['%s/index.html' % slug] = list_page(data, make_list(
+            hub['title'] + ' | Zaika Worlds',
+            fit_desc(hub['intro'], ''), SITE + '/' + slug,
+            hub['title'], hub['intro'], hub_recipes,
+            hub_recipes[0]['img'],
+            r_text_en(hub_recipes[0], data['extra']).get('alt') or ''))
+    return pages
+
+
+def faq_page(data):
+    """The /faqs page (issue B/P): the same 10 cooking Q&As as the
+    homepage FAQ, with FAQPage JSON-LD. All Q&As are verbatim from the
+    recipes' EXTRA faq data (plus the one site-usage question, also
+    verbatim from the site's own UI)."""
+    entries = home_faq_entries(data)
+    intro = ("Cooking questions answered from the recipes themselves: "
+             "biryani, nihari, karahi, samosa, gulab jamun and more. "
+             "Every answer comes from a real recipe on Zaika Worlds, "
+             "with the full method on the recipe page.")
+    parts = ['<nav class="crumb"><a href="/">Home</a> &rsaquo; '
+             '<span>FAQs</span></nav>\n',
+             '<h1>Cooking FAQs</h1>\n<p>%s</p>\n' % esc(intro)]
+    for q, a in entries:
+        parts.append('<h2>%s</h2>\n<p>%s</p>\n' % (esc(q), esc(a)))
+    parts.append('<p><a href="/recipes">Browse all recipes</a></p>\n')
+    fld = {"@context": "https://schema.org", "@type": "FAQPage",
+           "mainEntity": [{"@type": "Question", "name": q,
+                           "acceptedAnswer": {"@type": "Answer", "text": a}}
+                          for q, a in entries]}
+    wld = {"@context": "https://schema.org", "@type": "WebPage",
+           "name": "Cooking FAQs | Zaika Worlds", "url": SITE + "/faqs",
+           "description": fit_desc(intro, ''),
+           "isPartOf": {"@type": "WebSite", "name": "Zaika Worlds",
+                        "url": SITE + "/"}}
+    return page_shell('Cooking FAQs | Zaika Worlds', fit_desc(intro, ''),
+                      SITE + '/faqs', DEF_IMG, DEF_ALT, [wld, fld],
+                      ''.join(parts))
+
+
+def guide_page(data):
+    """The /guides/dum-cooking page (issue O): one short technique guide
+    from real tips/notes/steps in the biryani, karahi and nihari data,
+    attributed to the recipes they come from."""
+    intro = ("How to cook on dum: seal the lid, keep the heat low and let "
+             "the steam finish the dish. Every tip below comes from the "
+             "biryani, karahi and nihari recipes on Zaika Worlds, with "
+             "the full method on each recipe page.")
+    parts = ['<nav class="crumb"><a href="/">Home</a> &rsaquo; '
+             '<span>Guides</span> &rsaquo; <span>Dum cooking</span></nav>\n',
+             '<h1>Dum Cooking: Seal the Lid, Keep the Heat Low</h1>\n'
+             '<p>%s</p>\n' % esc(intro)]
+    for heading, paras in dum_guide_sections(data):
+        parts.append('<h2>%s</h2>\n' % esc(heading))
+        for p in paras:
+            parts.append('<p>%s</p>\n' % esc(p))
+    parts.append('<p><a href="/recipe/biryani">Chicken Biryani recipe</a>'
+                 ' &middot; <a href="/recipe/karahi">Chicken Karahi '
+                 'recipe</a> &middot; <a href="/recipe/nihari">Beef Nihari '
+                 'recipe</a></p>\n')
+    wld = {"@context": "https://schema.org", "@type": "WebPage",
+           "name": "Dum Cooking Guide | Zaika Worlds",
+           "url": SITE + "/guides/dum-cooking",
+           "description": fit_desc(intro, ''),
+           "isPartOf": {"@type": "WebSite", "name": "Zaika Worlds",
+                        "url": SITE + "/"}}
+    return page_shell('Dum Cooking Guide | Zaika Worlds',
+                      fit_desc(intro, ''), SITE + '/guides/dum-cooking',
+                      DEF_IMG, DEF_ALT, [wld], ''.join(parts))
+
+
+def language_home_page(data, lang):
+    """Static homepage for a language (issue N): the translated hero
+    title + hero sub-text, a static grid of all 32 recipes linking to
+    the language recipe pages, and hreflang for every variant. The
+    English homepage is the slim index.html; this is for the 12
+    non-English languages only."""
+    prefix = LANG_PREFIX[lang]
+    url = lang_url('/', lang)
+    ht = re.sub(r'</?em>', '', ui_str(data, lang, 'heroTitle', ''))
+    title = cap_title(ht + ' | Zaika Worlds')
+    desc = fit_desc(ui_str(data, lang, 'heroSub', ''), '')
+    cards = []
+    for r in sorted(data['recipes'], key=lambda x: lang_name(x, data, lang)):
+        dims = data['img_dims'].get(r['img'], [])
+        wh = (' width="%d" height="%d"' % (dims[0], dims[1])
+              if len(dims) == 2 else '')
+        cards.append(
+            '<div class="card"><a href="%s">'
+            '<img src="%s" alt="%s"%s loading="lazy"></a>'
+            '<div><a href="%s">%s</a>'
+            '<p>%s %s &middot; %s &middot; %s</p></div></div>'
+            % (esc(lang_url('/recipe/' + r['id'], lang)),
+               esc(SITE + '/' + r['img']),
+               esc(lang_alt(r, data, lang)), wh,
+               esc(lang_url('/recipe/' + r['id'], lang)),
+               esc(lang_name(r, data, lang)),
+               esc(r['time']), esc(data['ui_min'].get(lang, 'min')),
+               esc(lang_servings(r, data, lang)),
+               esc(r['country'])))
+    body = ('<h1>%s</h1>\n<p>%s</p>\n'
+            '<a class="cta" href="%s">%s</a>\n%s\n'
+            % (esc(ht), esc(ui_str(data, lang, 'heroSub', '')),
+               esc('/?lang=' + lang),
+               esc(ui_cta(data, lang)),
+               '\n'.join(cards)))
+    wld = {"@context": "https://schema.org", "@type": "WebPage",
+           "name": title, "url": url, "description": desc,
+           "isPartOf": {"@type": "WebSite", "name": "Zaika Worlds",
+                        "url": SITE + "/"}}
+    return page_shell(title, desc, url, DEF_IMG, DEF_ALT, [wld], body,
+                      hreflang=hreflang_links('/'),
+                      html_lang=LANG_HREFLANG[lang])
 
 
 def write_static_pages(data):
-    """Write all static pages. Returns {path: bytes}."""
+    """Write all static pages. Returns {path: bytes}. English recipe
+    pages at /recipe/<slug>; language recipe pages at
+    /<prefix>/recipe/<slug> and language homepages at /<prefix>/ (all 12
+    non-English languages — their data is complete, 32/32)."""
     out = {}
+    dates = load_recipe_dates()
 
     def w(rel, text):
         path = os.path.join(ROOT, rel)
@@ -1855,7 +2125,15 @@ def write_static_pages(data):
         out[rel] = len(text.encode('utf-8'))
 
     for r in data['recipes']:
-        w('recipe/%s/index.html' % r['id'], recipe_page(data, r))
+        w('recipe/%s/index.html' % r['id'],
+          recipe_page(data, r, 'en', dates))
+        for lang in LANGS[1:]:
+            prefix = LANG_PREFIX[lang]
+            w('%s/recipe/%s/index.html' % (prefix, r['id']),
+              recipe_page(data, r, lang, dates))
+    for lang in LANGS[1:]:
+        w('%s/index.html' % LANG_PREFIX[lang],
+          language_home_page(data, lang))
     for slug in sorted(data['cat_by_slug']):
         li = list_info(data, 'category', slug)
         w('category/%s/index.html' % slug, list_page(data, li))
@@ -1864,6 +2142,10 @@ def write_static_pages(data):
         w('country/%s/index.html' % slug, list_page(data, li))
     for name in ('about', 'privacy', 'contact'):
         w('%s/index.html' % name, info_page(data, name))
+    for rel, html in new_list_pages(data).items():
+        w(rel, html)
+    w('faqs/index.html', faq_page(data))
+    w('guides/dum-cooking/index.html', guide_page(data))
     return out
 
 
@@ -2014,6 +2296,54 @@ def _stmt_span(src, anchor, opener):
     return i, semi + 1
 
 
+def static_grid_html(data):
+    """The homepage recipe grid as static HTML (issue M): all 32 recipe
+    cards in the same <article class="pin"> markup the SPA's cardHtml()
+    produces, so the homepage shows real content in raw HTML without JS.
+    The SPA's render() replaces this grid on load, so filters keep
+    working. Links point at the static /recipe/<slug> pages."""
+    cards = []
+    for r in sorted(data['recipes'], key=lambda x: x['name']):
+        tx = r_text_en(r, data['extra'])
+        dims = data['img_dims'].get(r['img'], [])
+        wh = (' width="%d" height="%d"' % (dims[0], dims[1])
+              if len(dims) == 2 else '')
+        badge = r['country'] if r['cat'] == 'world' else r['catLabel']
+        veg = '🥬 Veg' if r['veg'] == 'veg' else '🍖 Non-Veg'
+        cards.append(
+            '<article class="pin">'
+            '<div class="pin-img %s"><a class="img-open" href="/recipe/%s" '
+            'data-open="%s" aria-label="Open recipe: %s">'
+            '<img src="/%s" alt="%s" loading="lazy"%s></a>'
+            '<span class="cat-badge">%s</span></div>'
+            '<a class="pin-body" href="/recipe/%s" data-open="%s">'
+            '<h3>%s</h3><p>%s</p>'
+            '<span class="meta"><span><span aria-hidden="true">⏱</span> '
+            '<b>%s min</b></span><span><span aria-hidden="true">👥</span> '
+            '<b>%s</b></span><span><span aria-hidden="true">📊</span> '
+            '<b>%s</b></span><span>%s</span><span>%s</span></span>'
+            '</a></article>'
+            % (esc(r['shape']), esc(r['id']), esc(r['id']),
+               esc(r['name']), esc(r['img']), esc(tx.get('alt') or ''),
+               wh, esc(badge), esc(r['id']), esc(r['id']),
+               esc(r['name']), esc(tx.get('desc') or ''),
+               esc(r['time']), esc(r['servings']), esc(r['diff']),
+               esc(veg), esc(r['country'])))
+    return ''.join(cards)
+
+
+def homepage_faq_json_ld(data):
+    """FAQPage JSON-LD for the homepage FAQ (issue P): the same 10
+    cooking Q&As as the HTML articles and the /faqs page."""
+    entries = home_faq_entries(data, 'en')
+    fld = {"@context": "https://schema.org", "@type": "FAQPage",
+           "mainEntity": [{"@type": "Question", "name": q,
+                           "acceptedAnswer": {"@type": "Answer", "text": a}}
+                          for q, a in entries]}
+    return ('<script type="application/ld+json">%s</script>\n'
+            % js_json(fld))
+
+
 def build_slim(src, data):
     """Return the slim index.html (data externalised, H1 fixed, loader)."""
     out = src
@@ -2112,6 +2442,19 @@ def build_slim(src, data):
     # 4. Build marker (guards extract_all against re-running on slim output).
     out = out.replace('<html lang="en">',
                       '<html lang="en">\n<!-- ' + SLIM_MARKER + ' -->', 1)
+    # 5. Static recipe grid (issue M): inject the 32 cards into the
+    #    homepage grid placeholder so the raw HTML shows real content
+    #    without JS. The SPA's render() replaces this on load.
+    grid_anchor = '<div class="masonry" id="grid"><!-- cards injected by JS --></div>'
+    if grid_anchor not in out:
+        raise JSError("homepage grid anchor missing")
+    out = out.replace(grid_anchor,
+                      '<div class="masonry" id="grid">'
+                      + static_grid_html(data) + '</div>', 1)
+    # 6. Homepage FAQPage JSON-LD (issue P): inject before </head>.
+    if '</head>' not in out:
+        raise JSError("closing </head> missing")
+    out = out.replace('</head>', homepage_faq_json_ld(data) + '</head>', 1)
     return out
 
 
@@ -2167,6 +2510,43 @@ def _print_summary(fat_bytes, slim_bytes, data_files, static_pages):
           % (len(static_pages), sum(static_pages.values())))
 
 
+def generate_sitemap(data):
+    """Regenerate sitemap.xml from the same source of truth as the static
+    pages (issue Q): every route the build writes gets a <loc>, so the
+    sitemap cannot go stale. No <lastmod>: no per-page modification date
+    is recorded for these pages, and inventing one would be a fake date.
+    Returns the URL count."""
+    urls = ['/']
+    for r in data['recipes']:
+        urls.append('/recipe/' + r['id'])
+    for lang in LANGS[1:]:
+        urls.append('/' + LANG_PREFIX[lang] + '/')
+        for r in data['recipes']:
+            urls.append('/%s/recipe/%s' % (LANG_PREFIX[lang], r['id']))
+    for slug in sorted(data['cat_by_slug']):
+        urls.append('/category/' + slug)
+    for slug in sorted(data['country_by_slug']):
+        urls.append('/country/' + slug)
+    for name in ('about', 'privacy', 'contact', 'recipes', 'trending',
+                 'faqs', 'eid-recipes', 'ramadan-recipes'):
+        urls.append('/' + name)
+    urls.append('/guides/dum-cooking')
+    body = '\n'.join('  <url>\n    <loc>%s%s</loc>\n  </url>'
+                      % (SITE, u) for u in urls)
+    text = ('<?xml version="1.0" encoding="UTF-8"?>\n'
+            '<!-- Sitemap for Zaika Worlds, https://www.zaikaworlds.com/ -->\n'
+            '<!-- Generated by build_site.py from the same source of truth '
+            'as the static pages; do not hand-edit. -->\n'
+            '<!-- Clean URLs: home, /recipe/<slug>, /category/<slug>, '
+            '/country/<slug>, /about, /privacy, /contact, /recipes, '
+            '/trending, /faqs, hubs, guides, and /<lang>/recipe/<slug> '
+            'language pages. -->\n'
+            '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
+            + body + '\n</urlset>\n')
+    write(os.path.join(ROOT, 'sitemap.xml'), text)
+    return len(urls)
+
+
 def main(argv):
     mode = argv[1] if len(argv) > 1 else 'build'
     src, index_path = _read_index()
@@ -2204,6 +2584,7 @@ def main(argv):
 
     data_files = write_data_files(data)
     static_pages = write_static_pages(data)
+    sitemap_count = generate_sitemap(data)
     slim = build_slim(src, data)
     slim_bytes = len(slim.encode('utf-8'))
     if slim_bytes >= 500 * 1024:
@@ -2218,8 +2599,9 @@ def main(argv):
     print('vercel.json: %s'
           % ('; '.join(vercel_changes) if vercel_changes else 'no change'))
     print('static pages: %d recipes, %d categories, %d countries, '
-          '3 info pages' % (len(data['recipes']), len(data['cat_by_slug']),
-                            len(data['country_by_slug'])))
+          '3 info pages, %d sitemap URLs'
+          % (len(data['recipes']), len(data['cat_by_slug']),
+             len(data['country_by_slug']), sitemap_count))
     return 0
 
 
