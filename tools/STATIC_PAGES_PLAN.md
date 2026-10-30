@@ -1,8 +1,53 @@
-# Static per-recipe pages — plan (NOT DONE yet)
+# Static per-recipe pages — IMPLEMENTED 2026-10-30
 
-Status: **not implemented** in this run. The JS per-route SEO stopgap in
-`index.html` (`setRouteMeta()` — title, canonical, OG/Twitter metas, Recipe
-JSON-LD per route) stays in place and is the current live behaviour.
+Status: **implemented** by `build_site.py` (repo root, stdlib-only Python).
+The JS per-route SEO stopgap in `index.html` (`setRouteMeta()`) still runs
+in the SPA, but crawlers now get real static pages (see below).
+
+## What was built (2026-10-30)
+
+- `build_site.py` parses the data out of `index.html` (source of truth) and,
+  on every Vercel build (`buildCommand: "python3 build_site.py"` in
+  `vercel.json`), regenerates:
+  - `data/*.js` (30 files, ~3.0 MB total): `recipes.js`, `extra-en.js`,
+    `extra-<lang>.js` ×12, `ui-en.js`, `ui-<lang>.js` ×12,
+    `lang-data-hi.js`, `lang-data-ru.js`, `lang-new.js`.
+  - 58 thin static pages: `recipe/<slug>/index.html` ×32,
+    `category/<slug>/index.html` ×7, `country/<slug>/index.html` ×16,
+    `about/index.html`, `privacy/index.html`, `contact/index.html`. Each has
+    its own `<title>` (≤60 chars), meta description, canonical + OG/Twitter
+    tags, JSON-LD mirroring `setRouteMeta()`, the route's content, the photo
+    with an absolute `/assets/…` URL, and a prominent link back to the SPA
+    route. No `<base>` script, no SPA JS.
+  - A slim `index.html` (~160 KB, was 3,144,085 bytes): data blocks become
+    empty declarations, an async loader pulls `data/*.js` (English first,
+    other languages on demand), and the six raw `<h1>` elements become one
+    `<h1>` plus runtime heading promotion (`promoteH1()` in `showView()`).
+- `index.html` in the repo stays FAT (the daily new-recipe cron edits it
+  directly); the build produces the slim version in place at deploy time.
+  The build refuses to run on an already-slim file (marker
+  `ZAIKA_SLIM_BUILD`), so it cannot corrupt the source. Committed `data/` and
+  static pages are snapshots for local serving; Vercel regenerates them.
+- `vercel.json`: `buildCommand` + trailing-slash rewrites
+  (`/recipe/:slug/`, `/category/:slug/`, `/country/:slug/` → `/index.html`)
+  so unknown trailing-slash slugs show the SPA 404 view, not a bare 404.
+  The apex (`zaikaworlds.com` → www, 308) and http → https (308) redirects
+  are correct and unchanged; nothing on the site links to them.
+- Measured data blocks (2026-10-30, corrected — the earlier figures below
+  were from a stale measurement): main inline `<script>` 3,053,458 bytes;
+  `EXTRA_NEW` 1,935,646 bytes; `EXTRA` 640,664 bytes; `RECIPES` 59,888
+  bytes; `LANG_DATA` (hi/ru only) ~55 KB; `LANG_NEW_RAW/2/3` ~54 KB
+  (short-form name/desc/alt for the other 10 languages, merged into
+  `LANG_DATA` by a top-level loop that reads `RECIPES.length` — the loop now
+  runs inside `_mergeLangNew()`, called by the loader after the data loads);
+  `UI` ~91 KB (plus 78 `UI.en/ru/hi.<key>=…` patch statements, now carried
+  in the per-language UI data files); `INFO` ~117 KB; `LINK_TXT` ~6 KB
+  (kept inline, small); `_CL/_DF/_SV/_DS` + `IMG_DIMS` ~3 KB (kept inline).
+- Verified locally (jsdom, 51 checks) and on the Vercel preview before
+  pushing to main: home renders 32 cards, Hindi switch, recipe route +
+  video embed, search, Saved (localStorage `zaika-saved`), H1 promotion
+  (exactly 1 `<h1>` per view), all 58 static pages (title ≤60, unique,
+  canonical, 1 H1, valid JSON-LD), trailing slash, `?lang=hi` canonical.
 
 ## Why not now (measured, 2026-10-30)
 
@@ -42,31 +87,36 @@ JSON-LD per route) stays in place and is the current live behaviour.
   a re-run — but they would go stale when the export changes unless
   regeneration is wired into the export workflow.
 
-## Concrete plan (when this is picked up)
+## Concrete plan — done 2026-10-30
 
-1. Add a stdlib-only Python generator in the same style as
-   `tools/split_export.py`. It parses the data blocks out of `index.html`
-   (`RECIPES` + `EXTRA`; English text only for v1) and emits thin SEO pages
-   at `recipe/<slug>/index.html`, each with: its own `<title>` and
-   `<meta name="description">`, canonical + OG/Twitter tags pointing at the
-   `www.zaikaworlds.com` recipe URL (canonical domain changed to www on 2026-10-30 per user — the
-   user chose on 2026-10-29 to leave the domain as is), a Recipe JSON-LD
-   block built from the same data `setRouteMeta()` uses, the recipe text
-   (ingredients + steps), the recipe photo with absolute `/assets/…` URL,
-   and a prominent link back to the SPA route. No `<base>` script, no SPA JS.
-2. Wire the generator into README step 5: run it after `split_export.py` on
-   every export, so pages cannot go stale.
-3. Deploy to a Vercel preview first and verify: (a) the static file wins
-   over the rewrite for `/recipe/biryani`; (b) trailing-slash behaviour and
-   that images load (absolute URLs); (c) `/`, `/about`, `/privacy`,
-   `/contact` and SPA recipe routes still work; (d) the 404 view for
-   `/recipe/<unknown>` still shows; (e) sitemap already lists the URLs, so
-   no sitemap change is needed.
-4. Only after static pages ship, consider the performance follow-up: split
-   `EXTRA_NEW` (41% of the file) into lazy-loaded JSON fetched only when a
-   non-English language is selected. That is the larger performance win and
-   shares the same loader work — do it as its own change, not bundled with
-   static pages.
+1. ✅ Stdlib-only Python generator `build_site.py` (repo root, not `tools/`
+   — `tools/` is vercelignored, so the build script must live at the root).
+   It parses the data blocks out of `index.html` and emits thin SEO pages
+   at `recipe/<slug>/index.html` (plus category/country/about/privacy/
+   contact), each with its own `<title>` and `<meta name="description">`,
+   canonical + OG/Twitter tags pointing at the `www.zaikaworlds.com` URL, a
+   Recipe/CollectionPage JSON-LD block built from the same data
+   `setRouteMeta()` uses, the recipe text (ingredients + steps), the recipe
+   photo with absolute `/assets/…` URL, and a prominent link back to the
+   SPA route. No `<base>` script, no SPA JS.
+2. ✅ Staleness wired in via the Vercel build command, not a README step:
+   `vercel.json` has `buildCommand: "python3 build_site.py"`, so every
+   deploy (including a push from the daily new-recipe cron, which edits
+   `index.html` directly) regenerates `data/` and the static pages from the
+   current `index.html`. No extra manual step. The cron does NOT need to run
+   the generator or commit the generated files — but if it does, the build
+   regenerates them identically.
+3. ✅ Deployed to a Vercel preview first and verified: (a) the static file
+   wins over the rewrite for `/recipe/biryani`; (b) trailing-slash URLs
+   serve the correct page and images load (absolute URLs); (c) `/`, `/about`,
+   `/privacy`, `/contact` and SPA recipe routes still work; (d) the 404 view
+   for `/recipe/<unknown>` still shows; (e) sitemap already lists the URLs,
+   so no sitemap change was needed.
+4. ✅ The performance follow-up (split `EXTRA_NEW` into lazy-loaded files)
+   was done as part of this change, not separately: `EXTRA_NEW`, `EXTRA`,
+   `RECIPES`, `UI`, `INFO`, `LANG_DATA` and `LANG_NEW_RAW/2/3` are all
+   externalised into `data/*.js` with an async loader, and `index.html` is
+   ~160 KB (was 3,144,085 bytes).
 
 ## Related performance state (2026-10-30, batch 2)
 

@@ -196,7 +196,7 @@ h1,h2,h3{font-family:"Cormorant Garamond",Georgia,serif;font-weight:600;line-hei
 
 @media(max-width:640px){.topbar-in{gap:8px}.topnav{order:3;flex-basis:100%;margin-left:0}.lang-select{max-width:54vw}.lang-select select{max-width:40vw}}
 .info-view{padding:34px 0 8px}
-.info-view h1{font-size:clamp(34px,4.6vw,50px);margin:0 0 12px;font-weight:600}
+.info-view h1,.info-view h2.view-h1{font-size:clamp(34px,4.6vw,50px);margin:0 0 12px;font-weight:600}
 .info-view h2{font-size:clamp(26px,3vw,33px);margin:26px 0 8px;font-weight:600}
 .info-view h3{font-size:clamp(21px,2.4vw,26px);margin:22px 0 6px;font-weight:600}
 .info-view h2:first-of-type{margin-top:22px}
@@ -215,8 +215,8 @@ h1,h2,h3{font-family:"Cormorant Garamond",Georgia,serif;font-weight:600;line-hei
 /* hero */
 .hero{display:grid;grid-template-columns:1.05fr .95fr;gap:36px;align-items:center;padding:48px 0 16px}
 .hero-site{font-size:12px;font-weight:800;letter-spacing:.22em;text-transform:uppercase;color:var(--red);margin:0 0 12px}
-.hero h1{font-size:clamp(40px,5.6vw,60px);margin:0 0 14px;font-weight:600;line-height:1.05}
-.hero h1 em{color:var(--red);font-style:italic}
+.hero h1,.hero h2.view-h1{font-size:clamp(40px,5.6vw,60px);margin:0 0 14px;font-weight:600;line-height:1.05}
+.hero h1 em,.hero h2.view-h1 em{color:var(--red);font-style:italic}
 .hero p{color:var(--muted);font-size:18px;margin:0 0 22px;max-width:54ch;line-height:1.65}
 .hero-cta{display:flex;gap:10px;flex-wrap:wrap}
 .btn{display:inline-block;text-decoration:none;border-radius:10px;padding:13px 24px;font-weight:700;font-size:15px;border:0;letter-spacing:.02em}
@@ -293,7 +293,7 @@ footer{margin-top:52px;border-top:1px solid var(--line);padding:26px 0 40px;colo
 footer a{color:var(--muted)}
 /* recipe page */
 .recipe-view{padding:40px 0 8px}
-.recipe-view h1{font-size:clamp(34px,4.6vw,50px);margin:0 0 12px;font-weight:600}
+.recipe-view h1,.recipe-view h2.view-h1{font-size:clamp(34px,4.6vw,50px);margin:0 0 12px;font-weight:600}#listView h2.view-h1,#notFoundView h2.view-h1{font-size:2em;margin:.67em 0}
 .recipe-body .intro{color:var(--muted);font-size:17px;max-width:64ch;line-height:1.65}
 .recipe-hero{margin:0 0 18px}
 .recipe-hero img{width:100%;max-width:720px;height:400px;object-fit:cover;border-radius:20px;box-shadow:var(--shadow);border:1px solid var(--line)}
@@ -641,7 +641,7 @@ footer a{color:var(--muted)}
 
 
 <section class="wrap info-view" id="aboutView" hidden aria-labelledby="aboutH1">
-  <h1 id="aboutH1">About Us</h1>
+  <h2 class="view-h1" id="aboutH1">About Us</h2>
   <p id="aboutIntro"></p>
   <h2 id="aboutH2a"></h2>
   <p id="aboutP1"></p>
@@ -672,14 +672,14 @@ footer a{color:var(--muted)}
 </section>
 
 <section class="wrap info-view" id="privacyView" hidden aria-labelledby="privacyH1">
-  <h1 id="privacyH1">Privacy Policy</h1>
+  <h2 class="view-h1" id="privacyH1">Privacy Policy</h2>
   <p id="privacyIntro"></p>
   <div id="privacySecs"></div>
   <p class="info-links"><a href="/" data-home="1" data-kind="home">Home</a><a href="/" data-section="recipes" data-kind="recipes">Recipes</a><a href="/about" data-page="about" data-kind="about">About Us</a><a href="/" data-section="faqs" data-kind="faqs">FAQs</a></p>
 </section>
 
 <section class="wrap info-view" id="contactView" hidden aria-labelledby="contactH1">
-  <h1 id="contactH1">Contact Us</h1>
+  <h2 class="view-h1" id="contactH1">Contact Us</h2>
   <p id="contactIntro"></p>
   <p class="info-note" id="contactEmailP">Email: <a href="mailto:info.allcalctool@gmail.com">info.allcalctool@gmail.com</a></p>
   <p class="info-note" id="contactNotice"></p>
@@ -764,7 +764,7 @@ footer a{color:var(--muted)}
 </section>
 
 <section class="wrap info-view" id="notFoundView" hidden>
-  <h1 id="notFoundH1" tabindex="-1">Recipe not found</h1>
+  <h2 class="view-h1" id="notFoundH1" tabindex="-1">Recipe not found</h2>
   <p>This recipe does not exist on Zaika Worlds. It may have been moved, or the link may have a typing mistake.</p>
   <p>Try one of these popular recipes instead:</p>
   <ul>
@@ -777,7 +777,7 @@ footer a{color:var(--muted)}
 
 <section class="wrap info-view" id="listView" hidden>
   <nav class="breadcrumb" id="listBreadcrumb" aria-label="Breadcrumb"></nav>
-  <h1 id="listH1" tabindex="-1"></h1>
+  <h2 class="view-h1" id="listH1" tabindex="-1"></h2>
   <p id="listIntro"></p>
   <p class="result-note" id="listCount" aria-live="polite"></p>
   <div class="masonry" id="listGrid"></div>
@@ -1563,7 +1563,11 @@ function setRouteMeta(kind,pageName,recipeId,extra){
     cld.textContent=JSON.stringify(_cld);
   } else if(cld){cld.textContent="";}
 }
+var _VIEW_H1={home:"heroTitle",about:"aboutH1",privacy:"privacyH1",contact:"contactH1",list:"listH1",notfound:"notFoundH1",recipe:"recipeTitle"};
+function _swapHeading(id,tag){var el=document.getElementById(id);if(!el||el.tagName.toLowerCase()===tag)return;var n=document.createElement(tag);for(var i=0;i<el.attributes.length;i++){n.setAttribute(el.attributes[i].name,el.attributes[i].value);}while(el.firstChild)n.appendChild(el.firstChild);el.parentNode.replaceChild(n,el);}
+function promoteH1(view){var keep=_VIEW_H1[view];for(var v in _VIEW_H1){var id=_VIEW_H1[v];if(!id)continue;var el=document.getElementById(id);if(!el)continue;if(id===keep){_swapHeading(id,"h1");}else{_swapHeading(id,"h2");}}}
 function showView(name){
+  promoteH1(name);
   CURRENT_VIEW=name;
   if(name!=="recipe"){var _sh=document.getElementById("recipeTitle");if(_sh)_sh.remove();}
   var main=document.getElementById("homeView");
