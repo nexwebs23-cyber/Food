@@ -591,9 +591,9 @@ footer a{color:var(--muted)}
     </div>
     <div class="faq">
       <article><h3>How do I open a full recipe?</h3><p>Click any photo. The full recipe opens with ingredients, a step by step method, cooking time and servings.</p></article>
-      <article><h3>Can I save a recipe to look at later?</h3><p>Press the heart on a photo to show it as saved on this page. The save only lasts while this page is open, so copy the recipe if you want to keep it.</p></article>
-      <article><h3>Can I read recipes in other languages?</h3><p>Yes. Use the language menu at the top. Full recipe detail is translated in all 13 languages: English, Roman Urdu, Hindi, Spanish, French, Arabic, Portuguese, Russian, Chinese, Japanese, German, Turkish and Bengali, with ingredients and the step by step method in each language.</p></article>
-      <article><h3>Is there a video for every recipe?</h3><p>Yes. Every recipe will have a video, in all 13 languages: English, Roman Urdu, Hindi, Spanish, French, Arabic, Portuguese, Russian, Chinese, Japanese, German, Turkish and Bengali. Open any recipe and choose the video language inside the recipe. Until a video is added, every recipe already has the full written method, with ingredients, cooking time and servings.</p></article>
+      <article><h3>Can I save a recipe to look at later?</h3><p>Press the heart on a photo to save it. Saved recipes are kept in your browser on this device, so they stay saved when you close the page and come back.</p></article>
+      <article><h3>Can I read recipes in other languages?</h3><p>Yes. Use the language menu at the top. Recipes are available in 13 languages: English, Roman Urdu, Hindi, Spanish, French, Arabic, Portuguese, Russian, Chinese, Japanese, German, Turkish and Bengali. The full written method is in English, with names, descriptions and the step by step method translated where available.</p></article>
+      <article><h3>Is there a video for every recipe?</h3><p>Videos are being added. Fifteen recipes already have a video in all 13 languages: English, Roman Urdu, Hindi, Spanish, French, Arabic, Portuguese, Russian, Chinese, Japanese, German, Turkish and Bengali. Open any recipe and choose the video language inside the recipe. Every recipe already has the full written method, with ingredients, cooking time and servings, whether or not its video is ready yet.</p></article>
     </div>
   </section>
 </main>
@@ -1053,7 +1053,7 @@ function applyLang(){
 }
 function setLang(l){LANG=l;applyLang();}
 document.getElementById("langSelect").addEventListener("change",function(){setLang(this.value);});
-var saved=new Set();
+var saved=new Set(); try{var _sv=JSON.parse(localStorage.getItem("zaika-saved")||"[]"); if(Array.isArray(_sv)) _sv.forEach(function(id){saved.add(id);});}catch(e){} function persistSaved(){try{localStorage.setItem("zaika-saved",JSON.stringify(Array.from(saved)));}catch(e){}}
 var activeCat="all", showSavedOnly=false, currentId=null;
 var grid=document.getElementById("grid"), note=document.getElementById("resultNote"), empty=document.getElementById("empty");
 function esc(s){return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;");}
@@ -1298,6 +1298,7 @@ document.addEventListener("click",function(e){
     e.preventDefault(); e.stopPropagation();
     var id=saveBtn.getAttribute("data-save");
     if(saved.has(id)) saved.delete(id); else saved.add(id);
+    persistSaved();
     render(); return;
   }
   var openBtn=e.target.closest("[data-open]");
@@ -1345,6 +1346,7 @@ document.getElementById("resetFilters").addEventListener("click",function(){
 document.getElementById("recipeSave").addEventListener("click",function(){
   if(!currentId) return;
   if(saved.has(currentId)) saved.delete(currentId); else saved.add(currentId);
+  persistSaved();
   this.textContent=saved.has(currentId)?T().savedBtn:T().save;
   render();
 });
@@ -1383,6 +1385,13 @@ function setRouteMeta(kind,pageName,recipeId){
   var tt=document.getElementById("twitterTitleMeta");if(tt)tt.setAttribute("content",title);
   var td=document.getElementById("twitterDescMeta");if(td)td.setAttribute("content",desc);
   var ti=document.getElementById("twitterImageMeta");if(ti)ti.setAttribute("content",img);
+  var ld=document.getElementById("recipeJsonLd");
+  if(kind==="recipe"&&r){
+    var _tx=rText(r);
+    var _ld={"@context":"https://schema.org","@type":"Recipe","name":rName(r),"image":[img],"description":desc,"author":{"@type":"Organization","name":"Zaika Worlds"},"recipeYield":rServings(r),"totalTime":"PT"+(r.time||60)+"M","recipeIngredient":_tx.ing||[],"recipeInstructions":(_tx.steps||[]).map(function(st){return {"@type":"HowToStep","text":st};})};
+    if(!ld){ld=document.createElement("script");ld.id="recipeJsonLd";ld.type="application/ld+json";document.head.appendChild(ld);}
+    ld.textContent=JSON.stringify(_ld);
+  } else if(ld){ld.textContent="";}
 }
 function showView(name){
   CURRENT_VIEW=name;
