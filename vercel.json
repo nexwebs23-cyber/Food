@@ -30,6 +30,18 @@
   ],
   "rewrites": [
     {
+      "source": "/country/:slug/",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/category/:slug/",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/recipe/:slug/",
+      "destination": "/index.html"
+    },
+    {
       "destination": "/index.html",
       "source": "/recipe/:slug"
     },
@@ -53,5 +65,6 @@
       "destination": "/index.html",
       "source": "/contact"
     }
-  ]
+  ],
+  "buildCommand": "python3 build_site.py"
 }
