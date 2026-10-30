@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Sitemap for Zaika Worlds, https://www.zaikaworlds.com/ -->
-<!-- Clean URLs: home, /recipe/<slug>, /about, /privacy, /contact. -->
+<!-- Clean URLs: home, /recipe/<slug>, /category/<slug>, /country/<slug>, /about, /privacy, /contact. -->
 <!-- Recipe and info views are rendered by History API routing in the -->
 <!-- single index.html; Vercel rewrites serve /index.html for them. -->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
@@ -102,6 +102,75 @@
   </url>
   <url>
     <loc>https://www.zaikaworlds.com/recipe/meatpie</loc>
+  </url>
+  <url>
+    <loc>https://www.zaikaworlds.com/category/desi-dishes</loc>
+  </url>
+  <url>
+    <loc>https://www.zaikaworlds.com/category/world-food</loc>
+  </url>
+  <url>
+    <loc>https://www.zaikaworlds.com/category/bbq</loc>
+  </url>
+  <url>
+    <loc>https://www.zaikaworlds.com/category/street-food</loc>
+  </url>
+  <url>
+    <loc>https://www.zaikaworlds.com/category/desserts</loc>
+  </url>
+  <url>
+    <loc>https://www.zaikaworlds.com/category/breakfast</loc>
+  </url>
+  <url>
+    <loc>https://www.zaikaworlds.com/category/drinks</loc>
+  </url>
+  <url>
+    <loc>https://www.zaikaworlds.com/country/pakistan</loc>
+  </url>
+  <url>
+    <loc>https://www.zaikaworlds.com/country/india</loc>
+  </url>
+  <url>
+    <loc>https://www.zaikaworlds.com/country/italy</loc>
+  </url>
+  <url>
+    <loc>https://www.zaikaworlds.com/country/japan</loc>
+  </url>
+  <url>
+    <loc>https://www.zaikaworlds.com/country/mexico</loc>
+  </url>
+  <url>
+    <loc>https://www.zaikaworlds.com/country/thailand</loc>
+  </url>
+  <url>
+    <loc>https://www.zaikaworlds.com/country/china</loc>
+  </url>
+  <url>
+    <loc>https://www.zaikaworlds.com/country/france</loc>
+  </url>
+  <url>
+    <loc>https://www.zaikaworlds.com/country/spain</loc>
+  </url>
+  <url>
+    <loc>https://www.zaikaworlds.com/country/vietnam</loc>
+  </url>
+  <url>
+    <loc>https://www.zaikaworlds.com/country/canada</loc>
+  </url>
+  <url>
+    <loc>https://www.zaikaworlds.com/country/south-africa</loc>
+  </url>
+  <url>
+    <loc>https://www.zaikaworlds.com/country/greece</loc>
+  </url>
+  <url>
+    <loc>https://www.zaikaworlds.com/country/middle-east</loc>
+  </url>
+  <url>
+    <loc>https://www.zaikaworlds.com/country/brazil</loc>
+  </url>
+  <url>
+    <loc>https://www.zaikaworlds.com/country/australia</loc>
   </url>
   <url>
     <loc>https://www.zaikaworlds.com/about</loc>

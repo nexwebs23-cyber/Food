@@ -756,6 +756,15 @@ footer a{color:var(--muted)}
   <p><a href="/">Back to all recipes</a></p>
 </section>
 
+<section class="wrap info-view" id="listView" hidden>
+  <nav class="breadcrumb" id="listBreadcrumb" aria-label="Breadcrumb"></nav>
+  <h1 id="listH1" tabindex="-1"></h1>
+  <p id="listIntro"></p>
+  <p class="result-note" id="listCount" aria-live="polite"></p>
+  <div class="masonry" id="listGrid"></div>
+  <p class="info-links"><a href="/" data-home="1">Back to all recipes</a></p>
+</section>
+
 <footer class="site-footer">
   <div class="wrap">
     <div class="footer-grid">
@@ -782,17 +791,17 @@ footer a{color:var(--muted)}
       <nav class="footer-col" aria-labelledby="footerCatH">
         <h3 id="footerCatH">Categories</h3>
         <ul id="footerCatList">
-          <li><a href="/" data-footer-cat="desi">Desi Dishes</a></li>
-          <li><a href="/" data-footer-cat="bbq">BBQ</a></li>
-          <li><a href="/" data-footer-cat="nashta">Breakfast</a></li>
-          <li><a href="/" data-footer-cat="street">Street Food</a></li>
-          <li><a href="/" data-footer-cat="meetha">Desserts</a></li>
-          <li><a href="/" data-footer-cat="drinks">Drinks</a></li>
-          <li><a href="/" data-footer-cat="world">World Food</a></li>
+          <li><a href="/category/desi-dishes" data-list="category/desi-dishes">Desi Dishes</a></li>
+          <li><a href="/category/bbq" data-list="category/bbq">BBQ</a></li>
+          <li><a href="/category/breakfast" data-list="category/breakfast">Breakfast</a></li>
+          <li><a href="/category/street-food" data-list="category/street-food">Street Food</a></li>
+          <li><a href="/category/desserts" data-list="category/desserts">Desserts</a></li>
+          <li><a href="/category/drinks" data-list="category/drinks">Drinks</a></li>
+          <li><a href="/category/world-food" data-list="category/world-food">World Food</a></li>
         </ul>
       </nav>
     </div>
-    <p class="footer-social">Follow Zaika Worlds: <a href="https://www.youtube.com/@ZaikaWorlds" target="_blank" rel="noopener">YouTube</a> · <a href="https://www.facebook.com/profile.php?id=1445260131997347" target="_blank" rel="noopener">Facebook</a></p>
+    <p class="footer-social">Follow Zaika Worlds: <a href="https://www.youtube.com/@ZaikaWorlds" target="_blank" rel="noopener">YouTube</a> · <a href="https://www.facebook.com/profile.php?id=1445260131997347" target="_blank" rel="noopener">Facebook</a> · <a href="https://www.pinterest.com/zaikaworlds26/" target="_blank" rel="noopener">Pinterest</a></p>
     <p class="footer-copy" id="footerCopy">© 2026 Zaika Worlds</p>
   </div>
 </footer>
@@ -916,6 +925,34 @@ bn:{home:"\u09b9\u09cb\u09ae",countries:"\u09a6\u09c7\u09b6\u0997\u09c1\u09b2\u0
 function linkTxt(){return LINK_TXT[LANG]||LINK_TXT.en;}
 function fillTpl(tpl,c,cat){return tpl.split("{c}").join(c).split("{cat}").join(cat);}
 RECIPE_ALIASES={biryani:"Biryani",nihari:"Nihari",karahi:"Karahi",daal:"Daal",pizza:"Pizza",tacos:"Tacos",paella:"Paella"};
+var CAT_SLUG={desi:"desi-dishes",bbq:"bbq",nashta:"breakfast",street:"street-food",meetha:"desserts",drinks:"drinks",world:"world-food"};
+var CAT_BY_SLUG={"desi-dishes":"desi",bbq:"bbq",breakfast:"nashta","street-food":"street",desserts:"meetha",drinks:"drinks","world-food":"world"};
+var CAT_TITLE={desi:"Desi Dishes Recipes",bbq:"BBQ Recipes",nashta:"Breakfast Recipes",street:"Street Food Recipes",meetha:"Dessert Recipes",drinks:"Drinks Recipes",world:"World Food Recipes"};
+var COUNTRY_SLUG={Pakistan:"pakistan",India:"india",Italy:"italy",Japan:"japan",Mexico:"mexico",Thailand:"thailand",China:"china",France:"france",Spain:"spain",Vietnam:"vietnam",Canada:"canada","South Africa":"south-africa",Greece:"greece","Middle East":"middle-east",Brazil:"brazil",Australia:"australia"};
+var COUNTRY_BY_SLUG={pakistan:"Pakistan",india:"India",italy:"Italy",japan:"Japan",mexico:"Mexico",thailand:"Thailand",china:"China",france:"France",spain:"Spain",vietnam:"Vietnam",canada:"Canada","south-africa":"South Africa",greece:"Greece","middle-east":"Middle East",brazil:"Brazil",australia:"Australia"};
+var COUNTRY_ADJ={Pakistan:"Pakistani",India:"Indian",Italy:"Italian",Japan:"Japanese",Mexico:"Mexican",Thailand:"Thai",China:"Chinese",France:"French",Spain:"Spanish",Vietnam:"Vietnamese",Canada:"Canadian","South Africa":"South African",Greece:"Greek","Middle East":"Middle Eastern",Brazil:"Brazilian",Australia:"Australian"};
+var LIST_LEAD={"category/desi-dishes":"Desi Dishes is the home cooking at the heart of Zaika Worlds, with slow-cooked nihari and karahi, dum biryani and everyday daal from Pakistan and India.","category/world-food":"World Food gathers 20 well-known dishes from 14 countries, from Italian pizza and pasta to Japanese sushi, Mexican tacos and Thai pad thai.","category/bbq":"BBQ brings together two Pakistani barbecue favourites: Chapli Kabab and Chicken Tikka.","category/street-food":"Street Food has two favourites: Punjabi Samosa from India and Bun Kebab from Pakistan.","category/desserts":"Desserts has two Indian sweets: Gulab Jamun and Gajar Ka Halwa.","category/breakfast":"Breakfast has one classic Pakistani morning dish: Halwa Puri Nashta.","category/drinks":"Drinks has one cool Indian favourite: Mango Lassi."};
+function listHref(kind,slug){return cleanPath(kind+"/"+slug);}
+function categoryHref(cat){return listHref("category",CAT_SLUG[cat]||cat);}
+function countryHref(country){return listHref("country",COUNTRY_SLUG[country]||country);}
+function joinNames(list){return list.map(function(r){return rName(r);}).join(", ").replace(/, ([^,]*)$/," and $1");}
+function listInfo(kind,slug){
+  var recipes,label,title,lead;
+  if(kind==="category"){var cat=CAT_BY_SLUG[slug];if(!cat)return null;recipes=RECIPES.filter(function(r){return r.cat===cat;});var _lr=RECIPES.find(function(x){return x.cat===cat;});label=_lr?rCat(_lr):cat;title=CAT_TITLE[cat]||(label+" Recipes");lead=LIST_LEAD["category/"+slug]||("Recipes from the "+label+" collection.");}
+  else if(kind==="country"){var country=COUNTRY_BY_SLUG[slug];if(!country)return null;recipes=RECIPES.filter(function(r){return r.country===country;});label=country;title=COUNTRY_ADJ[country]+" Recipes";lead="Dishes from "+country+".";}
+  else return null;
+  if(!recipes.length)return null;
+  var n=recipes.length; var names=joinNames(recipes);
+  var desc=n+" "+(n===1?title.replace(/ Recipes$/," Recipe"):title)+" with full ingredients and step by step methods";
+  if(n<=7) desc+=": "+names; else if(kind==="category") desc+=" from 14 countries";
+  desc+=".";
+  var parts=[lead];
+  if(n===1) parts.push("The recipe on this page is "+names+".");
+  else if(n<=7) parts.push("Recipes on this page: "+names+".");
+  parts.push("Each recipe lists full ingredients, a step by step method, cooking time and servings.");
+  var first=recipes[0]; var ftx=rText(first);
+  return {kind:kind,slug:slug,label:label,title:title,desc:desc,intro:parts.join(" "),recipes:recipes,img:"https://www.zaikaworlds.com/"+first.img,imgAlt:ftx.alt||first.name,url:"https://www.zaikaworlds.com/"+kind+"/"+slug};
+}
 function linkRecipeNamesHtml(html,excludeId){
   var phrases=[];
   RECIPES.forEach(function(r){ if(r.id!==excludeId) phrases.push({text:rName(r),id:r.id}); });
@@ -939,7 +976,7 @@ function renderFooterLinks(){
   var catList=document.getElementById("footerCatList");
   if(catList){
     var catKeys=["desi","bbq","nashta","street","meetha","drinks","world"];
-    catList.innerHTML=catKeys.map(function(k,i){return '<li><a href="'+homePath()+'" data-footer-cat="'+k+'">'+esc(t.chips[i+1]||k)+'</a></li>';}).join("");
+    catList.innerHTML=catKeys.map(function(k,i){return '<li><a href="'+categoryHref(k)+'" data-list="category/'+CAT_SLUG[k]+'">'+esc(t.chips[i+1]||k)+'</a></li>';}).join("");
   }
 }
 function basePhrases(includePages){
@@ -971,8 +1008,8 @@ function linkifyTextNode(node,phrases){
   var frag=document.createDocumentFragment();
   if(before) frag.appendChild(document.createTextNode(before));
   var a=document.createElement("a"); a.textContent=text.slice(bestIdx,bestIdx+best.text.length);
-  if(best.kind==="country"){a.href=homePath();a.setAttribute("data-footer-country",best.key);}
-  else if(best.kind==="cat"){a.href=homePath();a.setAttribute("data-footer-cat",best.key);}
+  if(best.kind==="country"){a.href=countryHref(best.key);a.setAttribute("data-list","country/"+COUNTRY_SLUG[best.key]);}
+  else if(best.kind==="cat"){a.href=categoryHref(best.key);a.setAttribute("data-list","category/"+CAT_SLUG[best.key]);}
   else if(best.kind==="recipe"){a.href=recipeHref(best.key);a.setAttribute("data-open",best.key);}
   else if(best.kind==="page"){a.href=cleanPath(best.key);a.setAttribute("data-page",best.key);}
   else if(best.kind==="section"){a.href=homePath();a.setAttribute("data-section",best.key);}
@@ -1126,18 +1163,19 @@ function filtered(){
   if(sort==="az") list.sort(function(a,b){return rName(a).localeCompare(rName(b));});
   return list;
 }
+function cardHtml(r){
+  var heart=saved.has(r.id)?"♥":"♡";
+  var tx=rText(r);
+  return '<article class="pin">'+
+  '<div class="pin-img '+r.shape+'"><a class="img-open" href="'+recipeHref(r.id)+'" data-open="'+r.id+'" aria-label="'+esc("Open recipe: "+rName(r))+'"><img src="'+r.img+'" alt="'+esc(tx.alt)+'" loading="lazy" '+imgDims(r)+'></a>'+
+  '<span class="cat-badge">'+esc(r.cat==="world"?rCountry(r):rCat(r))+'</span>'+
+  '<button class="save-heart'+(saved.has(r.id)?" saved":"")+'" type="button" data-save="'+r.id+'" aria-label="'+esc((saved.has(r.id)?"Remove from Saved":"Save")+" : "+rName(r))+'">'+heart+'</button></div>'+
+  '<a class="pin-body" href="'+recipeHref(r.id)+'" data-open="'+r.id+'"><h3>'+rName(r)+'</h3><p>'+tx.desc+'</p>'+
+  '<span class="meta"><span><span aria-hidden="true">⏱</span> <b>'+r.time+' '+minuteWord()+'</b></span><span><span aria-hidden="true">👥</span> <b>'+rServings(r)+'</b></span><span><span aria-hidden="true">📊</span> <b>'+rDiff(r)+'</b></span><span>'+vegWord(r)+'</span><span>'+esc(rCountry(r))+'</span></span></a></article>';
+}
 function render(){
   var list=filtered();
-  grid.innerHTML=list.map(function(r){
-    var heart=saved.has(r.id)?"♥":"♡";
-    var tx=rText(r);
-    return '<article class="pin">'+
-    '<div class="pin-img '+r.shape+'"><a class="img-open" href="'+recipeHref(r.id)+'" data-open="'+r.id+'" aria-label="'+esc("Open recipe: "+rName(r))+'"><img src="'+r.img+'" alt="'+esc(tx.alt)+'" loading="lazy" '+imgDims(r)+'></a>'+
-    '<span class="cat-badge">'+esc(r.cat==="world"?rCountry(r):rCat(r))+'</span>'+
-    '<button class="save-heart'+(saved.has(r.id)?" saved":"")+'" type="button" data-save="'+r.id+'" aria-label="'+esc((saved.has(r.id)?"Remove from Saved":"Save")+" : "+rName(r))+'">'+heart+'</button></div>'+
-    '<a class="pin-body" href="'+recipeHref(r.id)+'" data-open="'+r.id+'"><h3>'+rName(r)+'</h3><p>'+tx.desc+'</p>'+
-    '<span class="meta"><span><span aria-hidden="true">⏱</span> <b>'+r.time+' '+minuteWord()+'</b></span><span><span aria-hidden="true">👥</span> <b>'+rServings(r)+'</b></span><span><span aria-hidden="true">📊</span> <b>'+rDiff(r)+'</b></span><span>'+vegWord(r)+'</span><span>'+esc(rCountry(r))+'</span></span></a></article>';
-  }).join("");
+  grid.innerHTML=list.map(cardHtml).join("");
   empty.classList.toggle("show",list.length===0);
   note.innerHTML=list.length?T().results(list.length,activeCat!=="all"?catName(activeCat):"",showSavedOnly):"";
   document.getElementById("savedCount").textContent=saved.size;
@@ -1254,7 +1292,7 @@ function openRecipe(id,push){
   document.getElementById("waShare").href="https://wa.me/?text="+encodeURIComponent("See this recipe: "+rName(r)+", Zaika Worlds: "+tx.desc+" "+recipeLink(id));
   document.getElementById("recipeSave").textContent=saved.has(id)?T().savedBtn:T().save;
   var _bc=document.getElementById("recipeBreadcrumb");
-  if(_bc){_bc.innerHTML='<a href="'+homePath()+'" data-home="1">'+esc(linkTxt().home)+'</a><span aria-hidden="true"> \u203a </span><a href="'+homePath()+'" data-footer-cat="'+r.cat+'">'+esc(rCat(r))+'</a><span aria-hidden="true"> \u203a </span><span aria-current="page">'+esc(rName(r))+'</span>';}
+  if(_bc){_bc.innerHTML='<a href="'+homePath()+'" data-home="1">'+esc(linkTxt().home)+'</a><span aria-hidden="true"> \u203a </span><a href="'+categoryHref(r.cat)+'" data-list="category/'+CAT_SLUG[r.cat]+'">'+esc(rCat(r))+'</a><span aria-hidden="true"> \u203a </span><span aria-current="page">'+esc(rName(r))+'</span>';}
   var sameCountry=RECIPES.filter(function(x){return x.country===r.country && x.id!==r.id;});
   var sameCat=RECIPES.filter(function(x){return x.cat===r.cat && x.id!==r.id;});
   var _seen={}; var rel=[];
@@ -1267,13 +1305,13 @@ function openRecipe(id,push){
   }).join("");
   var _lt=linkTxt();
   var _mch=document.getElementById("moreCountryH");
-  if(_mch){_mch.innerHTML='<a href="'+homePath()+'" data-footer-country="'+r.country+'">'+esc(fillTpl(_lt.moreCountry,rCountry(r),""))+'</a>';}
+  if(_mch){_mch.innerHTML='<a href="'+countryHref(r.country)+'" data-list="country/'+COUNTRY_SLUG[r.country]+'">'+esc(fillTpl(_lt.moreCountry,rCountry(r),""))+'</a>';}
   var _mcl=document.getElementById("moreCountryLinks");
-  if(_mcl){_mcl.innerHTML=sameCountry.length?sameCountry.map(function(x){return '<a href="'+recipeHref(x.id)+'" data-open="'+x.id+'">'+esc(rName(x))+'</a>';}).join(""):'<a href="'+homePath()+'" data-footer-country="'+r.country+'">'+esc(fillTpl(_lt.allCountry,rCountry(r),""))+'</a>';}
+  if(_mcl){_mcl.innerHTML=sameCountry.length?sameCountry.map(function(x){return '<a href="'+recipeHref(x.id)+'" data-open="'+x.id+'">'+esc(rName(x))+'</a>';}).join(""):'<a href="'+countryHref(r.country)+'" data-list="country/'+COUNTRY_SLUG[r.country]+'">'+esc(fillTpl(_lt.allCountry,rCountry(r),""))+'</a>';}
   var _mch2=document.getElementById("moreCategoryH");
-  if(_mch2){_mch2.innerHTML='<a href="'+homePath()+'" data-footer-cat="'+r.cat+'">'+esc(fillTpl(_lt.moreCategory,"",rCat(r)))+'</a>';}
+  if(_mch2){_mch2.innerHTML='<a href="'+categoryHref(r.cat)+'" data-list="category/'+CAT_SLUG[r.cat]+'">'+esc(fillTpl(_lt.moreCategory,"",rCat(r)))+'</a>';}
   var _mcl2=document.getElementById("moreCategoryLinks");
-  if(_mcl2){_mcl2.innerHTML=sameCat.length?sameCat.map(function(x){return '<a href="'+recipeHref(x.id)+'" data-open="'+x.id+'">'+esc(rName(x))+'</a>';}).join(""):'<a href="'+homePath()+'" data-footer-cat="'+r.cat+'">'+esc(fillTpl(_lt.allCategory,"",rCat(r)))+'</a>';}
+  if(_mcl2){_mcl2.innerHTML=sameCat.length?sameCat.map(function(x){return '<a href="'+recipeHref(x.id)+'" data-open="'+x.id+'">'+esc(rName(x))+'</a>';}).join(""):'<a href="'+categoryHref(r.cat)+'" data-list="category/'+CAT_SLUG[r.cat]+'">'+esc(fillTpl(_lt.allCategory,"",rCat(r)))+'</a>';}
   var _idx=RECIPES.indexOf(r); var _prev=_idx>0?RECIPES[_idx-1]:null; var _next=_idx>=0&&_idx<RECIPES.length-1?RECIPES[_idx+1]:null;
   var _pn=document.getElementById("prevNextNav");
   if(_pn){_pn.innerHTML=(_prev?'<a class="prev-link" href="'+recipeHref(_prev.id)+'" data-open="'+_prev.id+'">'+esc(_lt.prev)+': '+esc(rName(_prev))+'</a>':"")+(_next?'<a class="next-link" href="'+recipeHref(_next.id)+'" data-open="'+_next.id+'">'+esc(_lt.next)+': '+esc(rName(_next))+'</a>':"");}
@@ -1303,9 +1341,35 @@ function closeRecipe(silent){
   showView("home");
   if(!silent&&_lastOpener){var _lo=_lastOpener;_lastOpener=null;if(document.contains(_lo))_lo.focus();}
 }
+var _currentList=null;
+function renderListGrid(info){
+  var g=document.getElementById("listGrid"); if(g) g.innerHTML=info.recipes.map(cardHtml).join("");
+  var c=document.getElementById("listCount"); if(c) c.innerHTML="<b>"+info.recipes.length+" recipe"+(info.recipes.length===1?"":"s")+"</b> shown.";
+}
+function openList(kind,slug,push){
+  var info=listInfo(kind,slug); if(!info) return;
+  closeRecipe(true);
+  _currentList=info;
+  var bc=document.getElementById("listBreadcrumb");
+  if(bc){bc.innerHTML='<a href="'+homePath()+'" data-home="1">'+esc(linkTxt().home)+'</a><span aria-hidden="true"> \u203a </span><span aria-current="page">'+esc(info.label)+'</span>';}
+  var h=document.getElementById("listH1"); if(h) h.textContent=info.title;
+  var intro=document.getElementById("listIntro"); if(intro) intro.textContent=info.intro;
+  renderListGrid(info);
+  setRouteMeta("list",null,null,info);
+  if(push!==false){try{var _lp=listHref(kind,slug);if(location.pathname!==_lp)history.pushState(null,"",_lp);}catch(e){}}
+  showView("list");
+}
 document.getElementById("videoPlayBtn").addEventListener("click",onVideoPlayClick);
 document.getElementById("videoBackBtn").addEventListener("click",hideVideoSoon);
 document.addEventListener("click",function(e){
+  var listLink=e.target.closest("[data-list]");
+  if(listLink){
+    if(e.metaKey||e.ctrlKey||e.shiftKey||e.altKey) return;
+    e.preventDefault();
+    var lp=listLink.getAttribute("data-list").split("/");
+    if(lp.length===2) openList(lp[0],lp[1]);
+    return;
+  }
   var footCat=e.target.closest("[data-footer-cat]");
   if(footCat){
     if(e.metaKey||e.ctrlKey||e.shiftKey||e.altKey) return;
@@ -1354,7 +1418,7 @@ document.addEventListener("click",function(e){
     var id=saveBtn.getAttribute("data-save");
     if(saved.has(id)) saved.delete(id); else saved.add(id);
     persistSaved();
-    render(); return;
+    render(); if(CURRENT_VIEW==="list"&&_currentList){renderListGrid(_currentList);} return;
   }
   var openBtn=e.target.closest("[data-open]");
   if(openBtn){ if(e.metaKey||e.ctrlKey||e.shiftKey||e.altKey) return; e.preventDefault(); openRecipe(openBtn.getAttribute("data-open")); return; }
@@ -1416,20 +1480,21 @@ document.getElementById("copyRecipe").addEventListener("click",function(){
 });
 
 
-var BASE_PATH=(function(){var p=location.pathname;var m=/^(.*\/)(?:recipe\/[a-z0-9-]+|about|privacy|contact)$/.exec(p);if(m)return m[1];if(/\/index\.html$/.test(p))return p.replace(/index\.html$/,"");return p.charAt(p.length-1)==="/"?p:p+"/";})();
+var BASE_PATH=(function(){var p=location.pathname;var m=/^(.*\/)(?:recipe\/[a-z0-9-]+|category\/[a-z0-9-]+|country\/[a-z0-9-]+|about|privacy|contact)$/.exec(p);if(m)return m[1];if(/\/index\.html$/.test(p))return p.replace(/index\.html$/,"");return p.charAt(p.length-1)==="/"?p:p+"/";})();
 function homePath(){return BASE_PATH;}
 function cleanPath(route){return BASE_PATH+route;}
 function recipeHref(id){return cleanPath("recipe/"+id);}
 function recipeLink(id){return "https://www.zaikaworlds.com/recipe/"+id;}
 var CURRENT_VIEW="home"; var _lastOpener=null;
-function setRouteMeta(kind,pageName,recipeId){
+function setRouteMeta(kind,pageName,recipeId,extra){
   var title,path,desc,img,imgAlt;
   var _defDesc="Cook famous dishes from Pakistan and India, plus favourites from around the world, with big photos and step by step methods.";
   var _defImg="https://www.zaikaworlds.com/assets/hero-49347f9b.webp";
   var _defAlt="A large plate of chicken biryani with saffron rice, fresh coriander and onion";
   if(kind==="recipe"){var r=RECIPES.find(function(x){return x.id===recipeId;});var nm=r?rName(r):"Recipe";title=nm+" | Zaika Worlds";if(title.length>60){title=nm.slice(0,44)+" | Zaika Worlds";}path="recipe/"+recipeId;var tx=r?rText(r):null;desc=tx&&tx.desc?tx.desc:_defDesc;img=r?("https://www.zaikaworlds.com/"+r.img):_defImg;imgAlt=tx&&tx.alt?tx.alt:_defAlt;}
+  else if(kind==="list"){var li=extra;title=li.title+" | Zaika Worlds";path=li.kind+"/"+li.slug;desc=li.desc;img=li.img;imgAlt=li.imgAlt;}
   else if(kind==="page"){title=infoText(pageName).h1+" | Zaika Worlds";path=pageName;desc=_defDesc;img=_defImg;imgAlt=_defAlt;}
-  else if(kind==="notfound"){title="Recipe not found | Zaika Worlds";path="recipe/"+recipeId;desc="This recipe does not exist on Zaika Worlds. Try Chicken Biryani, Beef Nihari or Chicken Karahi instead.";img=_defImg;imgAlt=_defAlt;}
+  else if(kind==="notfound"){title="Recipe not found | Zaika Worlds";path=extra?extra:"recipe/"+recipeId;desc="This recipe does not exist on Zaika Worlds. Try Chicken Biryani, Beef Nihari or Chicken Karahi instead.";img=_defImg;imgAlt=_defAlt;}
   else{title="Zaika Worlds: Desi and World Food Recipes";path="";desc=_defDesc;img=_defImg;imgAlt=_defAlt;}
   document.title=title;
   var _rm=document.getElementById("robotsMeta");if(_rm)_rm.setAttribute("content",kind==="notfound"?"noindex, follow":"index, follow");
@@ -1459,7 +1524,20 @@ function setRouteMeta(kind,pageName,recipeId){
     ]};
     if(!bld){bld=document.createElement("script");bld.id="breadcrumbJsonLd";bld.type="application/ld+json";document.head.appendChild(bld);}
     bld.textContent=JSON.stringify(_bld);
+  } else if(kind==="list"&&extra){
+    var _bld2={"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
+      {"@type":"ListItem","position":1,"name":linkTxt().home,"item":"https://www.zaikaworlds.com/"},
+      {"@type":"ListItem","position":2,"name":extra.label,"item":url}
+    ]};
+    if(!bld){bld=document.createElement("script");bld.id="breadcrumbJsonLd";bld.type="application/ld+json";document.head.appendChild(bld);}
+    bld.textContent=JSON.stringify(_bld2);
   } else if(bld){bld.textContent="";}
+  var cld=document.getElementById("collectionJsonLd");
+  if(kind==="list"&&extra){
+    var _cld={"@context":"https://schema.org","@type":"CollectionPage","name":extra.title,"url":url,"description":extra.desc,"isPartOf":{"@type":"WebSite","name":"Zaika Worlds","url":"https://www.zaikaworlds.com/"},"mainEntity":{"@type":"ItemList","numberOfItems":extra.recipes.length,"itemListElement":extra.recipes.map(function(rr,i){return {"@type":"ListItem","position":i+1,"url":"https://www.zaikaworlds.com/recipe/"+rr.id,"name":rName(rr)};})}};
+    if(!cld){cld=document.createElement("script");cld.id="collectionJsonLd";cld.type="application/ld+json";document.head.appendChild(cld);}
+    cld.textContent=JSON.stringify(_cld);
+  } else if(cld){cld.textContent="";}
 }
 function showView(name){
   CURRENT_VIEW=name;
@@ -1467,10 +1545,12 @@ function showView(name){
   var main=document.getElementById("homeView");
   ["about","privacy","contact"].forEach(function(v){var el=document.getElementById(v+"View"); if(el) el.hidden=(v!==name);});
   var rv=document.getElementById("recipeView"); if(rv) rv.hidden=(name!=="recipe");
+  var _lv=document.getElementById("listView"); if(_lv) _lv.hidden=(name!=="list");
   var _nf=document.getElementById("notFoundView"); if(_nf) _nf.hidden=(name!=="notfound");
   if(main) main.hidden=(name!=="home");
   if(name==="recipe"){window.scrollTo(0,0);return;}
   if(name==="notfound"){window.scrollTo(0,0);var _nh=document.getElementById("notFoundH1");if(_nh){_nh.setAttribute("tabindex","-1");_nh.focus();}}
+  else if(name==="list"){window.scrollTo(0,0);var _lh=document.getElementById("listH1");if(_lh){_lh.setAttribute("tabindex","-1");_lh.focus();}}
   else if(name!=="home"){renderInfo();setRouteMeta("page",name);window.scrollTo(0,0);var _ph=document.getElementById(name+"H1");if(_ph){_ph.setAttribute("tabindex","-1");_ph.focus();}}
   else{setRouteMeta("home");}
 }
@@ -1486,6 +1566,7 @@ function routeFromLocation(){
   rest=rest.replace(/^\/+/, "").replace(/\/+$/, "");
   if(rest===""||rest==="index.html") return {kind:"home",path:""};
   var m2=/^recipe\/([a-z0-9-]+)$/.exec(rest); if(m2) return {kind:"recipe",id:m2[1],path:"recipe/"+m2[1]};
+  var m3=/^(category|country)\/([a-z0-9-]+)$/.exec(rest); if(m3) return {kind:"list",listKind:m3[1],slug:m3[2],path:rest};
   if(rest==="about"||rest==="privacy"||rest==="contact") return {kind:"page",name:rest,path:rest};
   return {kind:"home",path:""};
 }
@@ -1496,6 +1577,10 @@ function applyRoute(){
     var r=RECIPES.find(function(x){return x.id===loc.id;});
     if(r){openRecipe(r.id,false);return;}
     setRouteMeta("notfound",null,loc.id);showView("notfound");return;
+  }
+  if(loc.kind==="list"){
+    if(listInfo(loc.listKind,loc.slug)){openList(loc.listKind,loc.slug,false);return;}
+    setRouteMeta("notfound",null,loc.slug,loc.listKind+"/"+loc.slug);showView("notfound");return;
   }
   if(loc.kind==="page"){closeRecipe(true);showView(loc.name);return;}
   closeRecipe(true);showView("home");
