@@ -1982,7 +1982,7 @@ def new_list_pages(data):
                  "cooking time and servings. Click any recipe to open the "
                  "full method and start cooking.")
     pages['recipes/index.html'] = list_page(data, make_list(
-        'All Recipes | Zaika Worlds', fit_desc(intro_all, ''),
+        'All Recipes', fit_desc(intro_all, ''),
         SITE + '/recipes', 'All Recipes', intro_all, all_recipes,
         first_img, first_alt))
     # The 3 trending dishes are the UI trendCards (Chicken Biryani,
@@ -1991,14 +1991,14 @@ def new_list_pages(data):
     intro_trend = ui_str(data, 'en', 'trendP',
                          'If you are new here, start with these three.')
     pages['trending/index.html'] = list_page(data, make_list(
-        'Trending Recipes | Zaika Worlds', fit_desc(intro_trend, ''),
+        'Trending Recipes', fit_desc(intro_trend, ''),
         SITE + '/trending', 'Trending', intro_trend, trend_recipes,
         trend_recipes[0]['img'],
         r_text_en(trend_recipes[0], data['extra']).get('alt') or ''))
     for slug, hub in HUBS.items():
         hub_recipes = [by_id[i] for i in hub['recipes']]
         pages['%s/index.html' % slug] = list_page(data, make_list(
-            hub['title'] + ' | Zaika Worlds',
+            hub['title'],
             fit_desc(hub['intro'], ''), SITE + '/' + slug,
             hub['title'], hub['intro'], hub_recipes,
             hub_recipes[0]['img'],
