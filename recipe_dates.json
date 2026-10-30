@@ -1,360 +1,375 @@
 {
-  "_note": "Real dates only. Article published = the git root commit that first added all 32 recipes (no per-recipe add date exists; modified is omitted). Video uploadDate = the date that recipe's YouTube videos went Public (publish-progress.md + dated logs). Recipes with no videos embedded on the site (daal, tacos, and the 16 not yet published) have no video entry.",
-  "article": {
-    "biryani": {
-      "published": "2026-10-28",
-      "source": "git root commit 860a4e7 (2026-10-28 10:48:58 +0500) — first commit adding index.html; all 32 recipes added together, no per-recipe date exists"
-    },
-    "nihari": {
-      "published": "2026-10-28",
-      "source": "git root commit 860a4e7 (2026-10-28 10:48:58 +0500) — first commit adding index.html; all 32 recipes added together, no per-recipe date exists"
-    },
-    "karahi": {
-      "published": "2026-10-28",
-      "source": "git root commit 860a4e7 (2026-10-28 10:48:58 +0500) — first commit adding index.html; all 32 recipes added together, no per-recipe date exists"
-    },
-    "daal": {
-      "published": "2026-10-28",
-      "source": "git root commit 860a4e7 (2026-10-28 10:48:58 +0500) — first commit adding index.html; all 32 recipes added together, no per-recipe date exists"
-    },
-    "chapli": {
-      "published": "2026-10-28",
-      "source": "git root commit 860a4e7 (2026-10-28 10:48:58 +0500) — first commit adding index.html; all 32 recipes added together, no per-recipe date exists"
-    },
-    "tikka": {
-      "published": "2026-10-28",
-      "source": "git root commit 860a4e7 (2026-10-28 10:48:58 +0500) — first commit adding index.html; all 32 recipes added together, no per-recipe date exists"
-    },
-    "halwapuri": {
-      "published": "2026-10-28",
-      "source": "git root commit 860a4e7 (2026-10-28 10:48:58 +0500) — first commit adding index.html; all 32 recipes added together, no per-recipe date exists"
-    },
-    "samosa": {
-      "published": "2026-10-28",
-      "source": "git root commit 860a4e7 (2026-10-28 10:48:58 +0500) — first commit adding index.html; all 32 recipes added together, no per-recipe date exists"
-    },
-    "bunkebab": {
-      "published": "2026-10-28",
-      "source": "git root commit 860a4e7 (2026-10-28 10:48:58 +0500) — first commit adding index.html; all 32 recipes added together, no per-recipe date exists"
-    },
-    "gulabjamun": {
-      "published": "2026-10-28",
-      "source": "git root commit 860a4e7 (2026-10-28 10:48:58 +0500) — first commit adding index.html; all 32 recipes added together, no per-recipe date exists"
-    },
-    "gajarhalwa": {
-      "published": "2026-10-28",
-      "source": "git root commit 860a4e7 (2026-10-28 10:48:58 +0500) — first commit adding index.html; all 32 recipes added together, no per-recipe date exists"
-    },
-    "lassi": {
-      "published": "2026-10-28",
-      "source": "git root commit 860a4e7 (2026-10-28 10:48:58 +0500) — first commit adding index.html; all 32 recipes added together, no per-recipe date exists"
-    },
-    "pizza": {
-      "published": "2026-10-28",
-      "source": "git root commit 860a4e7 (2026-10-28 10:48:58 +0500) — first commit adding index.html; all 32 recipes added together, no per-recipe date exists"
-    },
-    "carbonara": {
-      "published": "2026-10-28",
-      "source": "git root commit 860a4e7 (2026-10-28 10:48:58 +0500) — first commit adding index.html; all 32 recipes added together, no per-recipe date exists"
-    },
-    "sushi": {
-      "published": "2026-10-28",
-      "source": "git root commit 860a4e7 (2026-10-28 10:48:58 +0500) — first commit adding index.html; all 32 recipes added together, no per-recipe date exists"
-    },
-    "ramen": {
-      "published": "2026-10-28",
-      "source": "git root commit 860a4e7 (2026-10-28 10:48:58 +0500) — first commit adding index.html; all 32 recipes added together, no per-recipe date exists"
-    },
-    "tacos": {
-      "published": "2026-10-28",
-      "source": "git root commit 860a4e7 (2026-10-28 10:48:58 +0500) — first commit adding index.html; all 32 recipes added together, no per-recipe date exists"
-    },
-    "pozole": {
-      "published": "2026-10-28",
-      "source": "git root commit 860a4e7 (2026-10-28 10:48:58 +0500) — first commit adding index.html; all 32 recipes added together, no per-recipe date exists"
-    },
-    "padthai": {
-      "published": "2026-10-28",
-      "source": "git root commit 860a4e7 (2026-10-28 10:48:58 +0500) — first commit adding index.html; all 32 recipes added together, no per-recipe date exists"
-    },
-    "pekingduck": {
-      "published": "2026-10-28",
-      "source": "git root commit 860a4e7 (2026-10-28 10:48:58 +0500) — first commit adding index.html; all 32 recipes added together, no per-recipe date exists"
-    },
-    "dimsum": {
-      "published": "2026-10-28",
-      "source": "git root commit 860a4e7 (2026-10-28 10:48:58 +0500) — first commit adding index.html; all 32 recipes added together, no per-recipe date exists"
-    },
-    "coqauvin": {
-      "published": "2026-10-28",
-      "source": "git root commit 860a4e7 (2026-10-28 10:48:58 +0500) — first commit adding index.html; all 32 recipes added together, no per-recipe date exists"
-    },
-    "bouillabaisse": {
-      "published": "2026-10-28",
-      "source": "git root commit 860a4e7 (2026-10-28 10:48:58 +0500) — first commit adding index.html; all 32 recipes added together, no per-recipe date exists"
-    },
-    "paella": {
-      "published": "2026-10-28",
-      "source": "git root commit 860a4e7 (2026-10-28 10:48:58 +0500) — first commit adding index.html; all 32 recipes added together, no per-recipe date exists"
-    },
-    "beefpho": {
-      "published": "2026-10-28",
-      "source": "git root commit 860a4e7 (2026-10-28 10:48:58 +0500) — first commit adding index.html; all 32 recipes added together, no per-recipe date exists"
-    },
-    "poutine": {
-      "published": "2026-10-28",
-      "source": "git root commit 860a4e7 (2026-10-28 10:48:58 +0500) — first commit adding index.html; all 32 recipes added together, no per-recipe date exists"
-    },
-    "bobotie": {
-      "published": "2026-10-28",
-      "source": "git root commit 860a4e7 (2026-10-28 10:48:58 +0500) — first commit adding index.html; all 32 recipes added together, no per-recipe date exists"
-    },
-    "moussaka": {
-      "published": "2026-10-28",
-      "source": "git root commit 860a4e7 (2026-10-28 10:48:58 +0500) — first commit adding index.html; all 32 recipes added together, no per-recipe date exists"
-    },
-    "hummus": {
-      "published": "2026-10-28",
-      "source": "git root commit 860a4e7 (2026-10-28 10:48:58 +0500) — first commit adding index.html; all 32 recipes added together, no per-recipe date exists"
-    },
-    "falafel": {
-      "published": "2026-10-28",
-      "source": "git root commit 860a4e7 (2026-10-28 10:48:58 +0500) — first commit adding index.html; all 32 recipes added together, no per-recipe date exists"
-    },
-    "feijoada": {
-      "published": "2026-10-28",
-      "source": "git root commit 860a4e7 (2026-10-28 10:48:58 +0500) — first commit adding index.html; all 32 recipes added together, no per-recipe date exists"
-    },
-    "meatpie": {
-      "published": "2026-10-28",
-      "source": "git root commit 860a4e7 (2026-10-28 10:48:58 +0500) — first commit adding index.html; all 32 recipes added together, no per-recipe date exists"
-    }
+ "_note": "Real dates only. Article published = the git root commit that first added all 32 recipes (no per-recipe add date exists; modified is omitted). Video uploadDate = the date that recipe's YouTube videos went Public (publish-progress.md + dated logs). Recipes with no videos embedded on the site (daal and the 16 not yet published) have no video entry.",
+ "article": {
+  "biryani": {
+   "published": "2026-10-28",
+   "source": "git root commit 860a4e7 (2026-10-28 10:48:58 +0500) — first commit adding index.html; all 32 recipes added together, no per-recipe date exists"
   },
-  "video": {
-    "nihari": {
-      "en": "2026-10-28",
-      "ru": "2026-10-28",
-      "hi": "2026-10-28",
-      "es": "2026-10-28",
-      "fr": "2026-10-28",
-      "ar": "2026-10-28",
-      "pt": "2026-10-28",
-      "rus": "2026-10-28",
-      "zh": "2026-10-28",
-      "ja": "2026-10-28",
-      "de": "2026-10-28",
-      "tr": "2026-10-28",
-      "bn": "2026-10-28"
-    },
-    "biryani": {
-      "en": "2026-10-29",
-      "ru": "2026-10-29",
-      "hi": "2026-10-29",
-      "es": "2026-10-29",
-      "fr": "2026-10-29",
-      "ar": "2026-10-29",
-      "pt": "2026-10-29",
-      "rus": "2026-10-29",
-      "zh": "2026-10-29",
-      "ja": "2026-10-29",
-      "de": "2026-10-29",
-      "tr": "2026-10-29",
-      "bn": "2026-10-29"
-    },
-    "karahi": {
-      "en": "2026-10-29",
-      "ru": "2026-10-29",
-      "hi": "2026-10-29",
-      "es": "2026-10-29",
-      "fr": "2026-10-29",
-      "ar": "2026-10-29",
-      "pt": "2026-10-29",
-      "rus": "2026-10-29",
-      "zh": "2026-10-29",
-      "ja": "2026-10-29",
-      "de": "2026-10-29",
-      "tr": "2026-10-29",
-      "bn": "2026-10-29"
-    },
-    "halwapuri": {
-      "en": "2026-10-29",
-      "ru": "2026-10-29",
-      "hi": "2026-10-29",
-      "es": "2026-10-29",
-      "fr": "2026-10-29",
-      "ar": "2026-10-29",
-      "pt": "2026-10-29",
-      "rus": "2026-10-29",
-      "zh": "2026-10-29",
-      "ja": "2026-10-29",
-      "de": "2026-10-29",
-      "tr": "2026-10-29",
-      "bn": "2026-10-29"
-    },
-    "lassi": {
-      "en": "2026-10-29",
-      "ru": "2026-10-29",
-      "hi": "2026-10-29",
-      "es": "2026-10-29",
-      "fr": "2026-10-29",
-      "ar": "2026-10-29",
-      "pt": "2026-10-29",
-      "rus": "2026-10-29",
-      "zh": "2026-10-29",
-      "ja": "2026-10-29",
-      "de": "2026-10-29",
-      "tr": "2026-10-29",
-      "bn": "2026-10-29"
-    },
-    "chapli": {
-      "en": "2026-10-29",
-      "ru": "2026-10-29",
-      "hi": "2026-10-29",
-      "es": "2026-10-29",
-      "fr": "2026-10-29",
-      "ar": "2026-10-29",
-      "pt": "2026-10-29",
-      "rus": "2026-10-29",
-      "zh": "2026-10-29",
-      "ja": "2026-10-29",
-      "de": "2026-10-29",
-      "tr": "2026-10-29",
-      "bn": "2026-10-29"
-    },
-    "tikka": {
-      "en": "2026-10-29",
-      "ru": "2026-10-29",
-      "hi": "2026-10-29",
-      "es": "2026-10-29",
-      "fr": "2026-10-29",
-      "ar": "2026-10-29",
-      "pt": "2026-10-29",
-      "rus": "2026-10-29",
-      "zh": "2026-10-29",
-      "ja": "2026-10-29",
-      "de": "2026-10-29",
-      "tr": "2026-10-29",
-      "bn": "2026-10-29"
-    },
-    "gulabjamun": {
-      "en": "2026-10-29",
-      "ru": "2026-10-29",
-      "hi": "2026-10-29",
-      "es": "2026-10-29",
-      "fr": "2026-10-29",
-      "ar": "2026-10-29",
-      "pt": "2026-10-29",
-      "rus": "2026-10-29",
-      "zh": "2026-10-29",
-      "ja": "2026-10-29",
-      "de": "2026-10-29",
-      "tr": "2026-10-29",
-      "bn": "2026-10-29"
-    },
-    "gajarhalwa": {
-      "en": "2026-10-29",
-      "ru": "2026-10-29",
-      "hi": "2026-10-29",
-      "es": "2026-10-29",
-      "fr": "2026-10-29",
-      "ar": "2026-10-29",
-      "pt": "2026-10-29",
-      "rus": "2026-10-29",
-      "zh": "2026-10-29",
-      "ja": "2026-10-29",
-      "de": "2026-10-29",
-      "tr": "2026-10-29",
-      "bn": "2026-10-29"
-    },
-    "samosa": {
-      "en": "2026-10-29",
-      "ru": "2026-10-29",
-      "hi": "2026-10-29",
-      "es": "2026-10-29",
-      "fr": "2026-10-29",
-      "ar": "2026-10-29",
-      "pt": "2026-10-29",
-      "rus": "2026-10-29",
-      "zh": "2026-10-29",
-      "ja": "2026-10-29",
-      "de": "2026-10-29",
-      "tr": "2026-10-29",
-      "bn": "2026-10-30"
-    },
-    "carbonara": {
-      "en": "2026-10-30",
-      "ru": "2026-10-30",
-      "hi": "2026-10-30",
-      "es": "2026-10-30",
-      "fr": "2026-10-30",
-      "ar": "2026-10-30",
-      "pt": "2026-10-30",
-      "rus": "2026-10-30",
-      "zh": "2026-10-30",
-      "ja": "2026-10-30",
-      "de": "2026-10-30",
-      "tr": "2026-10-30",
-      "bn": "2026-10-30"
-    },
-    "pizza": {
-      "en": "2026-10-30",
-      "ru": "2026-10-30",
-      "hi": "2026-10-30",
-      "es": "2026-10-30",
-      "fr": "2026-10-30",
-      "ar": "2026-10-30",
-      "pt": "2026-10-30",
-      "rus": "2026-10-30",
-      "zh": "2026-10-30",
-      "ja": "2026-10-30",
-      "de": "2026-10-30",
-      "tr": "2026-10-30",
-      "bn": "2026-10-30"
-    },
-    "bunkebab": {
-      "en": "2026-10-30",
-      "ru": "2026-10-30",
-      "hi": "2026-10-30",
-      "es": "2026-10-30",
-      "fr": "2026-10-30",
-      "ar": "2026-10-30",
-      "pt": "2026-10-30",
-      "rus": "2026-10-30",
-      "zh": "2026-10-30",
-      "ja": "2026-10-30",
-      "de": "2026-10-30",
-      "tr": "2026-10-30",
-      "bn": "2026-10-30"
-    },
-    "sushi": {
-      "en": "2026-10-30",
-      "ru": "2026-10-30",
-      "hi": "2026-10-30",
-      "es": "2026-10-30",
-      "fr": "2026-10-30",
-      "ar": "2026-10-30",
-      "pt": "2026-10-30",
-      "rus": "2026-10-30",
-      "zh": "2026-10-30",
-      "ja": "2026-10-30",
-      "de": "2026-10-30",
-      "tr": "2026-10-30",
-      "bn": "2026-10-30"
-    },
-    "ramen": {
-      "en": "2026-10-30",
-      "ru": "2026-10-30",
-      "hi": "2026-10-30",
-      "es": "2026-10-30",
-      "fr": "2026-10-30",
-      "ar": "2026-10-30",
-      "pt": "2026-10-30",
-      "rus": "2026-10-30",
-      "zh": "2026-10-30",
-      "ja": "2026-10-30",
-      "de": "2026-10-30",
-      "tr": "2026-10-30",
-      "bn": "2026-10-30"
-    }
+  "nihari": {
+   "published": "2026-10-28",
+   "source": "git root commit 860a4e7 (2026-10-28 10:48:58 +0500) — first commit adding index.html; all 32 recipes added together, no per-recipe date exists"
+  },
+  "karahi": {
+   "published": "2026-10-28",
+   "source": "git root commit 860a4e7 (2026-10-28 10:48:58 +0500) — first commit adding index.html; all 32 recipes added together, no per-recipe date exists"
+  },
+  "daal": {
+   "published": "2026-10-28",
+   "source": "git root commit 860a4e7 (2026-10-28 10:48:58 +0500) — first commit adding index.html; all 32 recipes added together, no per-recipe date exists"
+  },
+  "chapli": {
+   "published": "2026-10-28",
+   "source": "git root commit 860a4e7 (2026-10-28 10:48:58 +0500) — first commit adding index.html; all 32 recipes added together, no per-recipe date exists"
+  },
+  "tikka": {
+   "published": "2026-10-28",
+   "source": "git root commit 860a4e7 (2026-10-28 10:48:58 +0500) — first commit adding index.html; all 32 recipes added together, no per-recipe date exists"
+  },
+  "halwapuri": {
+   "published": "2026-10-28",
+   "source": "git root commit 860a4e7 (2026-10-28 10:48:58 +0500) — first commit adding index.html; all 32 recipes added together, no per-recipe date exists"
+  },
+  "samosa": {
+   "published": "2026-10-28",
+   "source": "git root commit 860a4e7 (2026-10-28 10:48:58 +0500) — first commit adding index.html; all 32 recipes added together, no per-recipe date exists"
+  },
+  "bunkebab": {
+   "published": "2026-10-28",
+   "source": "git root commit 860a4e7 (2026-10-28 10:48:58 +0500) — first commit adding index.html; all 32 recipes added together, no per-recipe date exists"
+  },
+  "gulabjamun": {
+   "published": "2026-10-28",
+   "source": "git root commit 860a4e7 (2026-10-28 10:48:58 +0500) — first commit adding index.html; all 32 recipes added together, no per-recipe date exists"
+  },
+  "gajarhalwa": {
+   "published": "2026-10-28",
+   "source": "git root commit 860a4e7 (2026-10-28 10:48:58 +0500) — first commit adding index.html; all 32 recipes added together, no per-recipe date exists"
+  },
+  "lassi": {
+   "published": "2026-10-28",
+   "source": "git root commit 860a4e7 (2026-10-28 10:48:58 +0500) — first commit adding index.html; all 32 recipes added together, no per-recipe date exists"
+  },
+  "pizza": {
+   "published": "2026-10-28",
+   "source": "git root commit 860a4e7 (2026-10-28 10:48:58 +0500) — first commit adding index.html; all 32 recipes added together, no per-recipe date exists"
+  },
+  "carbonara": {
+   "published": "2026-10-28",
+   "source": "git root commit 860a4e7 (2026-10-28 10:48:58 +0500) — first commit adding index.html; all 32 recipes added together, no per-recipe date exists"
+  },
+  "sushi": {
+   "published": "2026-10-28",
+   "source": "git root commit 860a4e7 (2026-10-28 10:48:58 +0500) — first commit adding index.html; all 32 recipes added together, no per-recipe date exists"
+  },
+  "ramen": {
+   "published": "2026-10-28",
+   "source": "git root commit 860a4e7 (2026-10-28 10:48:58 +0500) — first commit adding index.html; all 32 recipes added together, no per-recipe date exists"
+  },
+  "tacos": {
+   "published": "2026-10-28",
+   "source": "git root commit 860a4e7 (2026-10-28 10:48:58 +0500) — first commit adding index.html; all 32 recipes added together, no per-recipe date exists"
+  },
+  "pozole": {
+   "published": "2026-10-28",
+   "source": "git root commit 860a4e7 (2026-10-28 10:48:58 +0500) — first commit adding index.html; all 32 recipes added together, no per-recipe date exists"
+  },
+  "padthai": {
+   "published": "2026-10-28",
+   "source": "git root commit 860a4e7 (2026-10-28 10:48:58 +0500) — first commit adding index.html; all 32 recipes added together, no per-recipe date exists"
+  },
+  "pekingduck": {
+   "published": "2026-10-28",
+   "source": "git root commit 860a4e7 (2026-10-28 10:48:58 +0500) — first commit adding index.html; all 32 recipes added together, no per-recipe date exists"
+  },
+  "dimsum": {
+   "published": "2026-10-28",
+   "source": "git root commit 860a4e7 (2026-10-28 10:48:58 +0500) — first commit adding index.html; all 32 recipes added together, no per-recipe date exists"
+  },
+  "coqauvin": {
+   "published": "2026-10-28",
+   "source": "git root commit 860a4e7 (2026-10-28 10:48:58 +0500) — first commit adding index.html; all 32 recipes added together, no per-recipe date exists"
+  },
+  "bouillabaisse": {
+   "published": "2026-10-28",
+   "source": "git root commit 860a4e7 (2026-10-28 10:48:58 +0500) — first commit adding index.html; all 32 recipes added together, no per-recipe date exists"
+  },
+  "paella": {
+   "published": "2026-10-28",
+   "source": "git root commit 860a4e7 (2026-10-28 10:48:58 +0500) — first commit adding index.html; all 32 recipes added together, no per-recipe date exists"
+  },
+  "beefpho": {
+   "published": "2026-10-28",
+   "source": "git root commit 860a4e7 (2026-10-28 10:48:58 +0500) — first commit adding index.html; all 32 recipes added together, no per-recipe date exists"
+  },
+  "poutine": {
+   "published": "2026-10-28",
+   "source": "git root commit 860a4e7 (2026-10-28 10:48:58 +0500) — first commit adding index.html; all 32 recipes added together, no per-recipe date exists"
+  },
+  "bobotie": {
+   "published": "2026-10-28",
+   "source": "git root commit 860a4e7 (2026-10-28 10:48:58 +0500) — first commit adding index.html; all 32 recipes added together, no per-recipe date exists"
+  },
+  "moussaka": {
+   "published": "2026-10-28",
+   "source": "git root commit 860a4e7 (2026-10-28 10:48:58 +0500) — first commit adding index.html; all 32 recipes added together, no per-recipe date exists"
+  },
+  "hummus": {
+   "published": "2026-10-28",
+   "source": "git root commit 860a4e7 (2026-10-28 10:48:58 +0500) — first commit adding index.html; all 32 recipes added together, no per-recipe date exists"
+  },
+  "falafel": {
+   "published": "2026-10-28",
+   "source": "git root commit 860a4e7 (2026-10-28 10:48:58 +0500) — first commit adding index.html; all 32 recipes added together, no per-recipe date exists"
+  },
+  "feijoada": {
+   "published": "2026-10-28",
+   "source": "git root commit 860a4e7 (2026-10-28 10:48:58 +0500) — first commit adding index.html; all 32 recipes added together, no per-recipe date exists"
+  },
+  "meatpie": {
+   "published": "2026-10-28",
+   "source": "git root commit 860a4e7 (2026-10-28 10:48:58 +0500) — first commit adding index.html; all 32 recipes added together, no per-recipe date exists"
   }
+ },
+ "video": {
+  "nihari": {
+   "en": "2026-10-28",
+   "ru": "2026-10-28",
+   "hi": "2026-10-28",
+   "es": "2026-10-28",
+   "fr": "2026-10-28",
+   "ar": "2026-10-28",
+   "pt": "2026-10-28",
+   "rus": "2026-10-28",
+   "zh": "2026-10-28",
+   "ja": "2026-10-28",
+   "de": "2026-10-28",
+   "tr": "2026-10-28",
+   "bn": "2026-10-28"
+  },
+  "biryani": {
+   "en": "2026-10-29",
+   "ru": "2026-10-29",
+   "hi": "2026-10-29",
+   "es": "2026-10-29",
+   "fr": "2026-10-29",
+   "ar": "2026-10-29",
+   "pt": "2026-10-29",
+   "rus": "2026-10-29",
+   "zh": "2026-10-29",
+   "ja": "2026-10-29",
+   "de": "2026-10-29",
+   "tr": "2026-10-29",
+   "bn": "2026-10-29"
+  },
+  "karahi": {
+   "en": "2026-10-29",
+   "ru": "2026-10-29",
+   "hi": "2026-10-29",
+   "es": "2026-10-29",
+   "fr": "2026-10-29",
+   "ar": "2026-10-29",
+   "pt": "2026-10-29",
+   "rus": "2026-10-29",
+   "zh": "2026-10-29",
+   "ja": "2026-10-29",
+   "de": "2026-10-29",
+   "tr": "2026-10-29",
+   "bn": "2026-10-29"
+  },
+  "halwapuri": {
+   "en": "2026-10-29",
+   "ru": "2026-10-29",
+   "hi": "2026-10-29",
+   "es": "2026-10-29",
+   "fr": "2026-10-29",
+   "ar": "2026-10-29",
+   "pt": "2026-10-29",
+   "rus": "2026-10-29",
+   "zh": "2026-10-29",
+   "ja": "2026-10-29",
+   "de": "2026-10-29",
+   "tr": "2026-10-29",
+   "bn": "2026-10-29"
+  },
+  "lassi": {
+   "en": "2026-10-29",
+   "ru": "2026-10-29",
+   "hi": "2026-10-29",
+   "es": "2026-10-29",
+   "fr": "2026-10-29",
+   "ar": "2026-10-29",
+   "pt": "2026-10-29",
+   "rus": "2026-10-29",
+   "zh": "2026-10-29",
+   "ja": "2026-10-29",
+   "de": "2026-10-29",
+   "tr": "2026-10-29",
+   "bn": "2026-10-29"
+  },
+  "chapli": {
+   "en": "2026-10-29",
+   "ru": "2026-10-29",
+   "hi": "2026-10-29",
+   "es": "2026-10-29",
+   "fr": "2026-10-29",
+   "ar": "2026-10-29",
+   "pt": "2026-10-29",
+   "rus": "2026-10-29",
+   "zh": "2026-10-29",
+   "ja": "2026-10-29",
+   "de": "2026-10-29",
+   "tr": "2026-10-29",
+   "bn": "2026-10-29"
+  },
+  "tikka": {
+   "en": "2026-10-29",
+   "ru": "2026-10-29",
+   "hi": "2026-10-29",
+   "es": "2026-10-29",
+   "fr": "2026-10-29",
+   "ar": "2026-10-29",
+   "pt": "2026-10-29",
+   "rus": "2026-10-29",
+   "zh": "2026-10-29",
+   "ja": "2026-10-29",
+   "de": "2026-10-29",
+   "tr": "2026-10-29",
+   "bn": "2026-10-29"
+  },
+  "gulabjamun": {
+   "en": "2026-10-29",
+   "ru": "2026-10-29",
+   "hi": "2026-10-29",
+   "es": "2026-10-29",
+   "fr": "2026-10-29",
+   "ar": "2026-10-29",
+   "pt": "2026-10-29",
+   "rus": "2026-10-29",
+   "zh": "2026-10-29",
+   "ja": "2026-10-29",
+   "de": "2026-10-29",
+   "tr": "2026-10-29",
+   "bn": "2026-10-29"
+  },
+  "gajarhalwa": {
+   "en": "2026-10-29",
+   "ru": "2026-10-29",
+   "hi": "2026-10-29",
+   "es": "2026-10-29",
+   "fr": "2026-10-29",
+   "ar": "2026-10-29",
+   "pt": "2026-10-29",
+   "rus": "2026-10-29",
+   "zh": "2026-10-29",
+   "ja": "2026-10-29",
+   "de": "2026-10-29",
+   "tr": "2026-10-29",
+   "bn": "2026-10-29"
+  },
+  "samosa": {
+   "en": "2026-10-29",
+   "ru": "2026-10-29",
+   "hi": "2026-10-29",
+   "es": "2026-10-29",
+   "fr": "2026-10-29",
+   "ar": "2026-10-29",
+   "pt": "2026-10-29",
+   "rus": "2026-10-29",
+   "zh": "2026-10-29",
+   "ja": "2026-10-29",
+   "de": "2026-10-29",
+   "tr": "2026-10-29",
+   "bn": "2026-10-30"
+  },
+  "carbonara": {
+   "en": "2026-10-30",
+   "ru": "2026-10-30",
+   "hi": "2026-10-30",
+   "es": "2026-10-30",
+   "fr": "2026-10-30",
+   "ar": "2026-10-30",
+   "pt": "2026-10-30",
+   "rus": "2026-10-30",
+   "zh": "2026-10-30",
+   "ja": "2026-10-30",
+   "de": "2026-10-30",
+   "tr": "2026-10-30",
+   "bn": "2026-10-30"
+  },
+  "pizza": {
+   "en": "2026-10-30",
+   "ru": "2026-10-30",
+   "hi": "2026-10-30",
+   "es": "2026-10-30",
+   "fr": "2026-10-30",
+   "ar": "2026-10-30",
+   "pt": "2026-10-30",
+   "rus": "2026-10-30",
+   "zh": "2026-10-30",
+   "ja": "2026-10-30",
+   "de": "2026-10-30",
+   "tr": "2026-10-30",
+   "bn": "2026-10-30"
+  },
+  "bunkebab": {
+   "en": "2026-10-30",
+   "ru": "2026-10-30",
+   "hi": "2026-10-30",
+   "es": "2026-10-30",
+   "fr": "2026-10-30",
+   "ar": "2026-10-30",
+   "pt": "2026-10-30",
+   "rus": "2026-10-30",
+   "zh": "2026-10-30",
+   "ja": "2026-10-30",
+   "de": "2026-10-30",
+   "tr": "2026-10-30",
+   "bn": "2026-10-30"
+  },
+  "sushi": {
+   "en": "2026-10-30",
+   "ru": "2026-10-30",
+   "hi": "2026-10-30",
+   "es": "2026-10-30",
+   "fr": "2026-10-30",
+   "ar": "2026-10-30",
+   "pt": "2026-10-30",
+   "rus": "2026-10-30",
+   "zh": "2026-10-30",
+   "ja": "2026-10-30",
+   "de": "2026-10-30",
+   "tr": "2026-10-30",
+   "bn": "2026-10-30"
+  },
+  "ramen": {
+   "en": "2026-10-30",
+   "ru": "2026-10-30",
+   "hi": "2026-10-30",
+   "es": "2026-10-30",
+   "fr": "2026-10-30",
+   "ar": "2026-10-30",
+   "pt": "2026-10-30",
+   "rus": "2026-10-30",
+   "zh": "2026-10-30",
+   "ja": "2026-10-30",
+   "de": "2026-10-30",
+   "tr": "2026-10-30",
+   "bn": "2026-10-30"
+  },
+  "tacos": {
+   "en": "2026-10-30",
+   "ru": "2026-10-30",
+   "hi": "2026-10-30",
+   "es": "2026-10-30",
+   "fr": "2026-10-30",
+   "ar": "2026-10-30",
+   "pt": "2026-10-30",
+   "rus": "2026-10-30",
+   "zh": "2026-10-30",
+   "ja": "2026-10-30",
+   "de": "2026-10-30",
+   "tr": "2026-10-30",
+   "bn": "2026-10-30"
+  }
+ }
 }
