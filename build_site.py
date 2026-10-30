@@ -35,7 +35,7 @@ What it does
    Filesystem beats Vercel rewrites, so a direct visit to /recipe/<slug>
    serves the static page; SPA navigation (pushState) still works.
    Recipe pages: og:type article + article:published_time from
-   tools/recipe_dates.json (real git-history date only; never invented),
+   recipe_dates.json at the repo root (real git-history date only; never invented),
    split one-per-line ingredients, embedded YouTube iframe + VideoObject
    (uploadDate only from a real publish record), FAQPage JSON-LD.
    The slim homepage gets a static 32-card recipe grid (raw HTML, no JS)
@@ -65,7 +65,7 @@ build on a violation — see validate_build())
   URL); every category/country page uses a representative recipe photo.
   Recipe photos are unique AI-generated images made for Zaika Worlds —
   never claim they are photographs of real dishes.
-- Dates: article:published_time comes only from tools/recipe_dates.json
+- Dates: article:published_time comes only from recipe_dates.json (repo root)
   (real git-history / publish records). Never invent a date; omit it if
   no real record exists. VideoObject uploadDate likewise.
 - Language pages are auto-generated for every language whose data is
@@ -75,7 +75,8 @@ build on a violation — see validate_build())
   FAQ questions/answers, or backlink/authority numbers. FAQ content comes
   only from the recipes' EXTRA faq data.
 - The daily new-recipe cron must record the real add date (and the real
-  YouTube publish date per language) in tools/recipe_dates.json, and add
+  YouTube publish date per language) in recipe_dates.json (repo root, NOT
+  tools/ — tools/ is vercelignored), and add
   the recipe's videos to the videos map, so the next build picks them up.
 
 
@@ -778,14 +779,17 @@ def ui_cta(data, lang):
 
 
 def load_recipe_dates():
-    """Article + video dates from tools/recipe_dates.json (real records
-    only). Article published = 2026-10-28 for all 32 (the git root commit
-    860a4e7 that first added them — no per-recipe add date exists in git
-    history, so no per-recipe modified date is recorded either and
-    modified_time is omitted). Video uploadDate = the date that recipe's
-    videos went Public, from ~/workspace/food-blog-videos/publish-
-    progress.md (per language where the record gives one)."""
-    path = os.path.join(ROOT, 'tools', 'recipe_dates.json')
+    """Article + video dates from recipe_dates.json at the repo root (real
+    records only). The file lives at the root — NOT under tools/ — because
+    tools/ is vercelignored and the Vercel build would not see it (that
+    silently dropped all article/video dates from the production build
+    on 2026-10-30). Article published = 2026-10-28 for all 32 (the git
+    root commit 860a4e7 that first added them — no per-recipe add date
+    exists in git history, so no per-recipe modified date is recorded
+    either and modified_time is omitted). Video uploadDate = the date that
+    recipe's videos went Public, from ~/workspace/food-blog-videos/
+    publish-progress.md (per language where the record gives one)."""
+    path = os.path.join(ROOT, 'recipe_dates.json')
     if not os.path.exists(path):
         return {'article': {}, 'video': {}}
     with open(path, encoding='utf-8') as f:
@@ -2593,6 +2597,22 @@ def validate_build(data):
     match the UI trendCards; sitemap URLs match the pages built."""
     problems = []
     dates = load_recipe_dates()
+    if not os.path.exists(os.path.join(ROOT, 'recipe_dates.json')):
+        problems.append('recipe_dates.json missing from the repo root '
+                        '(tools/ is vercelignored — the file must live at '
+                        'the root or all article/video dates are silently '
+                        'dropped from the production build)')
+    for r in data['recipes']:
+        vids = r.get('videos') or {}
+        for lang in LANGS:
+            if vids.get(lang):
+                vd = (dates.get('video') or {}).get(r['id'], {})
+                if not (isinstance(vd, dict) and vd.get(lang)):
+                    problems.append('%s: video %s has no uploadDate in '
+                                    'recipe_dates.json' % (r['id'], lang))
+        if r['id'] not in (dates.get('article') or {}):
+            problems.append('%s: no article date in recipe_dates.json'
+                            % r['id'])
     pages = {}  # rel path -> html
 
     def add(rel, html):

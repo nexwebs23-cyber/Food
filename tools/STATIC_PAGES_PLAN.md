@@ -66,7 +66,7 @@ audit date 30 Oct 2026) resolved in one go, verified locally and live.
   the "Open interactive recipe" CTA.
 - **E. og:type article** on recipe pages + article:published_time 2026-10-28
   for all 32 (git root commit 860a4e7 — the real first-add date; modified
-  omitted, no per-recipe date exists). Recorded in tools/recipe_dates.json.
+  omitted, no per-recipe date exists). Recorded in recipe_dates.json (repo root — tools/ is vercelignored).
 - **F. Titles/descriptions**: recipe pattern "<Dish> Recipe (<Adj>, <time> Min)
   | Zaika Worlds" (all ≤60); descriptions 140-155 (all 32 English in range,
   unique); list/info/new pages each unique 140-155; homepage title/H1 include
