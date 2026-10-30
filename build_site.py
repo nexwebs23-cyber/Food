@@ -1200,6 +1200,12 @@ def update_vercel():
     if cfg.get('buildCommand') != 'python3 build_site.py':
         cfg['buildCommand'] = 'python3 build_site.py'
         changed.append('buildCommand=python3 build_site.py')
+    # The build generates files in place (repo root). Without this, Vercel
+    # looks for a "public" output directory after the build and fails with
+    # STATIC_BUILD_NO_OUT_DIR.
+    if cfg.get('outputDirectory') != '.':
+        cfg['outputDirectory'] = '.'
+        changed.append('outputDirectory=.')
     rewrites = cfg.setdefault('rewrites', [])
     have = {(r.get('source'), r.get('destination')) for r in rewrites}
     for src_pat in ('/recipe/:slug/', '/category/:slug/', '/country/:slug/'):

@@ -66,5 +66,6 @@
       "source": "/contact"
     }
   ],
-  "buildCommand": "python3 build_site.py"
+  "buildCommand": "python3 build_site.py",
+  "outputDirectory": "."
 }
