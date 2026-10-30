@@ -369,6 +369,8 @@ def split_ingredients(items, lang):
 
 _TITLE_STOP = {'that', 'with', 'and', 'the', 'a', 'an', 'in', 'on', 'of',
                'to', 'for', 'from', 'at', 'by', 'or', 'as', 'is', 'it'}
+# Characters that end a sentence (Latin + Devanagari danda + CJK).
+SENT_END = set('.!?।。！？')
 
 
 def fit_desc(desc, tail):
@@ -376,27 +378,67 @@ def fit_desc(desc, tail):
     boundary (backing off weak trailing words). Returns the fitted text;
     callers must check the length (a very short desc cannot reach 140)."""
     desc = (desc or '').strip()
-    if desc and desc[-1] not in '.!?':
+    if desc and desc[-1] not in SENT_END:
         desc += '.'
     d = desc + tail
     if len(d) > 155:
         room = 155 - len(tail)
         cut = desc[:room]
         sp = cut.rfind(' ')
-        if sp > 40:
+        # Cut at a word boundary only if it is near the end (losing at
+        # most ~25 chars); otherwise keep the hard cut (CJK text has no
+        # spaces, and cutting back to a distant space would drop a whole
+        # appended sentence).
+        if sp > room - 25 and sp > 40:
             cut = cut[:sp]
-        while True:
-            words = cut.rsplit(' ', 1)
-            if (len(words) == 2
-                    and words[1].strip(' ,;:').lower() in _TITLE_STOP
-                    and len(cut) > 60):
-                cut = words[0]
-            else:
-                break
+            # Back off weak trailing words ("... the dum aroma that.").
+            while True:
+                words = cut.rsplit(' ', 1)
+                if (len(words) == 2
+                        and words[1].strip(' ,;:').lower() in _TITLE_STOP
+                        and len(cut) > 60):
+                    cut = words[0]
+                else:
+                    break
         cut = cut.rstrip(' ,;:')
-        if cut and cut[-1] not in '.!?':
+        if cut and cut[-1] not in SENT_END:
             cut += '.'
         d = cut + tail
+        if len(d) > 155:
+            # CJK text has no spaces to cut at: hard-trim the desc part.
+            cut = cut[:155 - len(tail)]
+            d = cut + tail
+    return d
+
+
+def list_desc(base, sentences):
+    """Fit a list-page description to 140-155 chars from real text: start
+    with base, append real sentences (in priority order) until >=140,
+    trimming the last sentence at a word boundary to fit <=155."""
+    d = (base or '').strip()
+    if d and d[-1] not in SENT_END:
+        d += '.'
+    for s in sentences or []:
+        if len(d) >= 140:
+            break
+        s = (s or '').strip()
+        if not s:
+            continue
+        if s[-1] not in SENT_END:
+            s += '.'
+        if len(d) + 1 + len(s) <= 155:
+            d = d + ' ' + s
+        else:
+            room = 155 - len(d) - 1
+            if room >= 25:
+                cut = s[:room]
+                sp = cut.rfind(' ')
+                if sp > 15:
+                    cut = cut[:sp]
+                cut = cut.rstrip(' ,;:')
+                if cut and cut[-1] not in SENT_END:
+                    cut += '.'
+                d = d + ' ' + cut
     return d
 
 
@@ -421,10 +463,63 @@ def recipe_desc_en(recipe, tx):
     return fit_desc(tx.get('desc') or '', tail)
 
 
+def recipe_title_lang(recipe, data, lang):
+    """Recipe title in a language: English uses the full pattern; other
+    languages use the translated name + brand (the pattern's style/time
+    words have no translation in the data). Capped at 60 chars."""
+    name = lang_name(recipe, data, lang)
+    if lang == 'en':
+        return recipe_title_en(recipe, data)
+    t = '%s | Zaika Worlds' % name
+    if len(t) <= 60:
+        return t
+    return name if len(name) <= 60 else name[:60]
+
+
+def recipe_desc_lang(recipe, data, lang):
+    """Recipe meta description in a language: the translated desc + time,
+    servings and difficulty in that language, fitted to <=155 chars. If
+    the result is below 140, the first sentence of the translated intro
+    (real text) is appended and the whole is re-fitted; the 140 floor is
+    enforced for English only, because translated descs vary in length
+    and the text must not be padded with invented words."""
+    if lang == 'en':
+        return recipe_desc_en(recipe, r_text_en(recipe, data['extra']))
+    tx = r_text_lang(recipe, data, lang)
+    desc = tx.get('desc') or lang_desc(recipe, data, lang)
+    minute = data['ui_min'].get(lang, 'min')
+    tail = (' %d %s, %s, %s.' % (recipe['time'], minute,
+                                 lang_servings(recipe, data, lang),
+                                 lang_diff(recipe, data, lang)))
+    d = fit_desc(desc, tail)
+    if len(d) < 140:
+        # Append real intro sentences (in order) until >=140; fit_desc
+        # trims the last one to <=155. CJK text is denser, so it may
+        # still land below 140 — that is reported, not padded.
+        parts = [desc]
+        for s in split_sentences(tx.get('intro') or ''):
+            if len(' '.join(parts) + tail) >= 140:
+                break
+            parts.append(s)
+        if len(parts) > 1:
+            d = fit_desc(' '.join(parts), tail)
+    return d
+
+
+def split_sentences(text):
+    """Split text into sentences (Latin . ! ? need a space/end after;
+    Devanagari । and CJK 。！？ end on their own)."""
+    t = (text or '').strip()
+    if not t:
+        return []
+    parts = re.split(r'(?<=[.!?])(?=\s|$)|(?<=[।。！？])', t)
+    return [p.strip() for p in parts if p.strip()]
+
+
 def first_sentence(text):
     """First sentence of a text (used to pad short descriptions)."""
-    m = re.match(r'^.*?[.!?](?:\s|$)', (text or '').strip())
-    return m.group(0).strip() if m else (text or '').strip()
+    s = split_sentences(text)
+    return s[0] if s else (text or '').strip()
 
 
 def fit_text(text, tail='', lo=140, hi=155):
@@ -432,6 +527,297 @@ def fit_text(text, tail='', lo=140, hi=155):
     still below lo, append the first sentence of the extra text given in
     tail2 (a second call). Used for list/info pages."""
     return fit_desc(text, tail)
+
+
+# ---------------------------------------------------------------------------
+# Multilingual URLs + hreflang (SEO audit round 2, issue N)
+# ---------------------------------------------------------------------------
+# URL prefixes per site language code. English stays at the root (hreflang
+# "en", x-default). Internal "ru" is Roman Urdu (hreflang "ur-Latn") — it
+# must NOT be confused with ISO "ru", which is Russian (internal "rus").
+LANG_PREFIX = {'en': '', 'ru': 'roman-urdu', 'hi': 'hi', 'es': 'es',
+               'fr': 'fr', 'ar': 'ar', 'pt': 'pt', 'rus': 'ru',
+               'zh': 'zh', 'ja': 'ja', 'de': 'de', 'tr': 'tr', 'bn': 'bn'}
+LANG_HREFLANG = {'en': 'en', 'ru': 'ur-Latn', 'hi': 'hi', 'es': 'es',
+                 'fr': 'fr', 'ar': 'ar', 'pt': 'pt', 'rus': 'ru',
+                 'zh': 'zh', 'ja': 'ja', 'de': 'de', 'tr': 'tr',
+                 'bn': 'bn'}
+LANG_NAME = {'en': 'English', 'ru': 'Roman Urdu', 'hi': 'Hindi',
+             'es': 'Spanish', 'fr': 'French', 'ar': 'Arabic',
+             'pt': 'Portuguese', 'rus': 'Russian', 'zh': 'Chinese',
+             'ja': 'Japanese', 'de': 'German', 'tr': 'Turkish',
+             'bn': 'Bengali'}
+
+
+def lang_url(path, lang):
+    """URL of a route in a language: lang_url('/recipe/biryani', 'hi')
+    -> 'https://www.zaikaworlds.com/hi/recipe/biryani' (English: root)."""
+    prefix = LANG_PREFIX[lang]
+    if not prefix:
+        return SITE + path
+    return SITE + '/' + prefix + path
+
+
+def hreflang_links(path):
+    """[(hreflang, url)] for every language variant of a route + x-default
+    (which points at the English root URL)."""
+    out = [(LANG_HREFLANG[lang], lang_url(path, lang)) for lang in LANGS]
+    out.append(('x-default', SITE + path))
+    return out
+
+
+def r_text_lang(recipe, data, lang):
+    """Long-form text for a recipe in any language (what rText() returns
+    for LANG). English/hi/ru come from EXTRA objects; the other 10 from
+    EXTRA_NEW (already normalised to the same 10 keys)."""
+    if lang == 'en':
+        return r_text_en(recipe, data['extra'])
+    if lang in EXTRA_OBJ_LANGS:
+        d = data['extra'].get(recipe['id'], {}).get(lang, {})
+        return dict(d)
+    return dict(data['extra_new'][lang].get(recipe['id'], {}))
+
+
+def _lang_new_arr(recipe, data, lang):
+    """LANG_NEW [name, desc, alt] for a recipe/language, or None. The raw
+    objects are keyed by recipe id first: RAW[rid][lang]."""
+    for raw in (data['lang_new_raw'], data['lang_new_raw2'],
+                data['lang_new_raw3']):
+        per = raw.get(recipe['id'], {})
+        arr = per.get(lang)
+        if arr:
+            return arr
+    return None
+
+
+def _lang_new_serv(recipe, data):
+    """Servings count (int) from LANG_NEW_RAW (or the English string)."""
+    for raw in (data['lang_new_raw'], data['lang_new_raw2'],
+                data['lang_new_raw3']):
+        per = raw.get(recipe['id'], {})
+        if isinstance(per.get('serv'), int):
+            return per['serv']
+    m = re.match(r'(\d+)', recipe['servings'] or '')
+    return int(m.group(1)) if m else 4
+
+
+def _lang_new_diff_idx(recipe, data):
+    """Difficulty index 0=Easy, 1=Medium, 2=Hard (LANG_NEW_RAW or English)."""
+    for raw in (data['lang_new_raw'], data['lang_new_raw2'],
+                data['lang_new_raw3']):
+        per = raw.get(recipe['id'], {})
+        if isinstance(per.get('diff'), int):
+            return per['diff']
+    return {'Easy': 0, 'Medium': 1, 'Hard': 2}.get(recipe['diff'], 1)
+
+
+def lang_name(recipe, data, lang):
+    """Recipe name in a language (short-form LANG_DATA / LANG_NEW)."""
+    if lang == 'en':
+        return recipe['name']
+    if lang in LANG_DATA_LANGS:
+        d = data['lang_data'].get(recipe['id'], {}).get(lang, {})
+        if d.get('name'):
+            return d['name']
+    arr = _lang_new_arr(recipe, data, lang)
+    if arr and arr[0]:
+        return arr[0]
+    return recipe['name']
+
+
+def lang_desc(recipe, data, lang):
+    """Recipe short desc in a language (short-form data)."""
+    if lang == 'en':
+        return recipe['desc']
+    if lang in LANG_DATA_LANGS:
+        d = data['lang_data'].get(recipe['id'], {}).get(lang, {})
+        if d.get('desc'):
+            return d['desc']
+    arr = _lang_new_arr(recipe, data, lang)
+    if arr and len(arr) > 1 and arr[1]:
+        return arr[1]
+    return recipe['desc']
+
+
+def lang_servings(recipe, data, lang):
+    """Servings string in a language (e.g. '4 log' for Roman Urdu).
+    Mirrors the SPA's _mergeLangNew(): count + the language's word."""
+    if lang == 'en':
+        return recipe['servings']
+    if lang in LANG_DATA_LANGS:
+        d = data['lang_data'].get(recipe['id'], {}).get(lang, {})
+        if d.get('servings'):
+            return d['servings']
+    word = data['sv'].get(lang)
+    if word:
+        return '%d %s' % (_lang_new_serv(recipe, data), word)
+    return recipe['servings']
+
+
+def lang_diff(recipe, data, lang):
+    """Difficulty word in a language (translated). Mirrors _mergeLangNew()."""
+    if lang == 'en':
+        return recipe['diff']
+    if lang in LANG_DATA_LANGS:
+        d = data['lang_data'].get(recipe['id'], {}).get(lang, {})
+        if d.get('diff'):
+            return d['diff']
+    words = data['df'].get(lang)
+    if words:
+        return words[_lang_new_diff_idx(recipe, data)]
+    return recipe['diff']
+
+
+def lang_alt(recipe, data, lang):
+    """Photo alt text in a language (short-form data; English fallback)."""
+    if lang == 'en':
+        return recipe.get('alt') or recipe['name']
+    if lang in LANG_DATA_LANGS:
+        d = data['lang_data'].get(recipe['id'], {}).get(lang, {})
+        if d.get('alt'):
+            return d['alt']
+    arr = _lang_new_arr(recipe, data, lang)
+    if arr and len(arr) > 2 and arr[2]:
+        return arr[2]
+    return recipe.get('alt') or recipe['name']
+
+
+def lang_cat_label(recipe, data, lang):
+    """Category label in a language (short-form data; English fallback)."""
+    if lang == 'en':
+        return recipe['catLabel']
+    if lang in LANG_DATA_LANGS:
+        d = data['lang_data'].get(recipe['id'], {}).get(lang, {})
+        if d.get('catLabel'):
+            return d['catLabel']
+    labels = data['cl'].get(lang, {})
+    if recipe['cat'] in labels:
+        return labels[recipe['cat']]
+    return recipe['catLabel']
+
+
+def load_recipe_dates():
+    """Article + video dates from tools/recipe_dates.json (real records
+    only). Article published = 2026-10-28 for all 32 (the git root commit
+    860a4e7 that first added them — no per-recipe add date exists in git
+    history, so no per-recipe modified date is recorded either and
+    modified_time is omitted). Video uploadDate = the date that recipe's
+    videos went Public, from ~/workspace/food-blog-videos/publish-
+    progress.md (per language where the record gives one)."""
+    path = os.path.join(ROOT, 'tools', 'recipe_dates.json')
+    if not os.path.exists(path):
+        return {'article': {}, 'video': {}}
+    with open(path, encoding='utf-8') as f:
+        return json.load(f)
+
+
+# ---------------------------------------------------------------------------
+# Homepage FAQ (SEO audit round 2, issue P) + hubs/guides (issue O)
+# ---------------------------------------------------------------------------
+# Real cooking questions from the recipes' own EXTRA.en.faq data, given as
+# (recipe id, faq index) so the text is always pulled from the data, never
+# copied by hand. The two keyword targets the audit names are both here:
+# biryani 0 = "Can I make biryani without saffron?", biryani 2 =
+# "Why is my rice sticky?". The two questions that are duplicated across
+# recipes ("Can I make the broth ahead?", "Can I use a pressure cooker?")
+# are deliberately NOT used. The last entry is the one site-usage question
+# kept for new visitors (the language menu) — its text is the existing
+# UI.en.faq language answer, verbatim, not a new invention.
+HOME_FAQ_RECIPES = [('biryani', 0), ('biryani', 2), ('nihari', 0),
+                    ('karahi', 0), ('samosa', 0), ('gulabjamun', 0),
+                    ('gulabjamun', 1), ('carbonara', 1), ('pizza', 0)]
+HOME_FAQ_USAGE = (
+    "Can I read recipes in other languages?",
+    "Yes. Use the language menu at the top. Full recipe detail is "
+    "translated in all 13 languages: English, Roman Urdu, Hindi, Spanish, "
+    "French, Arabic, Portuguese, Russian, Chinese, Japanese, German, "
+    "Turkish and Bengali, with ingredients and the step by step method in "
+    "each language.")
+
+
+def home_faq_entries(data):
+    """The homepage /faqs FAQ entries: [(question, answer)] in English."""
+    out = []
+    for rid, idx in HOME_FAQ_RECIPES:
+        faq = data['extra'].get(rid, {}).get('en', {}).get('faq') or []
+        if idx < len(faq):
+            out.append((faq[idx][0], faq[idx][1]))
+    out.append(HOME_FAQ_USAGE)
+    return out
+
+
+# Seasonal hubs (issue O): curated lists from the real 32 recipes only.
+# No dish is invented; each recipe is listed with the reason it fits.
+HUBS = {
+    'eid-recipes': {
+        'title': 'Eid Recipes',
+        'intro': ("Eid food from Zaika Worlds: festive mains, barbecue and "
+                  "sweets from the recipes on this site. Biryani and nihari "
+                  "for the main table, chapli kabab and chicken tikka from "
+                  "the barbecue, gulab jamun and gajar ka halwa for sweet, "
+                  "and halwa puri, samosa, bun kebab and mango lassi to "
+                  "share through the day."),
+        'recipes': ['biryani', 'nihari', 'karahi', 'chapli', 'tikka',
+                    'halwapuri', 'gulabjamun', 'gajarhalwa', 'samosa',
+                    'bunkebab', 'lassi'],
+    },
+    'ramadan-recipes': {
+        'title': 'Ramadan Recipes',
+        'intro': ("Ramadan food from Zaika Worlds: iftar and sehri dishes "
+                  "from the recipes on this site. Samosa and bun kebab for "
+                  "iftar, daal fry and chapli kabab for the main meal, "
+                  "halwa puri for sehri, mango lassi to drink, and gulab "
+                  "jamun and gajar ka halwa for sweet after iftar."),
+        'recipes': ['daal', 'samosa', 'bunkebab', 'chapli', 'tikka',
+                    'halwapuri', 'lassi', 'gulabjamun', 'gajarhalwa',
+                    'biryani', 'nihari', 'karahi'],
+    },
+}
+
+
+def dum_guide_sections(data):
+    """The dum-cooking guide (issue O): real tips/notes/steps from the
+    biryani, karahi and nihari recipe data, attributed to each recipe.
+    Returns [(heading, [paragraphs])]."""
+    def tx(rid):
+        r = next(x for x in data['recipes'] if x['id'] == rid)
+        return r_text_en(r, data['extra'])
+    b, k, n = tx('biryani'), tx('karahi'), tx('nihari')
+    return [
+        ("What dum cooking is", [
+            "Dum is cooking sealed on low heat, so the steam stays in the "
+            "pot and finishes the dish. The Chicken Biryani recipe puts it "
+            "plainly: the rice finishes cooking on dum, and a cloth over "
+            "the lid stops the steam escaping.",
+        ]),
+        ("Biryani on dum", [
+            "From the Chicken Biryani recipe: do not over-boil the rice, "
+            "because it finishes cooking on dum. Seal the lid with a cloth "
+            "or foil, cook on low heat on dum for 20 minutes without "
+            "opening the lid, then rest for 10 minutes off the heat. "
+            "Chicken on the bone stays juicier during dum, and aged "
+            "basmati gives separate grains.",
+        ]),
+        ("Karahi on dum", [
+            "From the Chicken Karahi recipe: sprinkle garam masala, cover, "
+            "and give 5 minutes of dum on low heat. The chicken should be "
+            "cooked through and still juicy. Do not add water to karahi: "
+            "the tomatoes' own water is enough.",
+        ]),
+        ("Slow cooking like nihari", [
+            "From the Beef Nihari recipe: cover the pot and cook on low "
+            "heat for 2 hours, stirring now and then, and add hot water if "
+            "the level drops below the meat. Nihari is known for its "
+            "thick, glossy gravy, so add the flour slowly and stir "
+            "constantly while it goes in.",
+        ]),
+        ("What to remember", [
+            "Seal the lid, keep the heat low, and do not open the pot "
+            "while it is on dum. Rest the dish before serving, and taste "
+            "the rice water before the dum: it should taste slightly "
+            "salty, because plain rice needs that seasoning.",
+        ]),
+    ]
 
 
 
@@ -708,6 +1094,13 @@ def extract_all(src):
     cat_slug = parse_literal(src, 'var CAT_SLUG=')
     country_slug = parse_literal(src, 'var COUNTRY_SLUG=')
 
+    # Short-form translations for the 10 LANG_NEW languages (used by the
+    # _mergeLangNew() loop): _CL[lang][cat] category labels,
+    # _DF[lang][0|1|2] difficulty words, _SV[lang] servings word.
+    cl = parse_literal(src, 'var _CL=')
+    df = parse_literal(src, 'var _DF=')
+    sv = parse_literal(src, 'var _SV=')
+
     # UI: raw per-language objects (the `results` value is a JS function, so
     # UI must be carried as raw text, not parsed). Initial literal holds
     # en/ru/hi; the other 10 languages are UI.<lang>={...} assignments.
@@ -738,6 +1131,14 @@ def extract_all(src):
             raise JSError("no ';' after UI patch at %d" % m.start())
         ui_patches.setdefault(m.group(1), {})[m.group(2)] = val
         ui_patch_spans.append((m.start(), semi + 1))
+
+    # UI "min" word per language (the translated word for "minute", used
+    # by the SPA's minuteWord() and by language meta descriptions).
+    ui_min = {}
+    for lang, raw in ui_raw.items():
+        m = re.search(r'\bmin\s*:\s*"([^"]+)"', raw)
+        if m:
+            ui_min[lang] = m.group(1)
 
     # EXTRA_NEW: per-language arrays -> normalized 10-key objects.
     # Initial literal holds es/fr (4 recipes each); es/fr/ar/pt add 28-32
@@ -777,14 +1178,14 @@ def extract_all(src):
     data = {
         'recipes': recipes, 'extra': extra, 'lang_data': lang_data,
         'info': info, 'img_dims': img_dims, 'ui_raw': ui_raw,
-        'ui_patches': ui_patches,
+        'ui_patches': ui_patches, 'ui_min': ui_min,
         'extra_new': extra_new,
         'lang_new_raw': lang_new_raw, 'lang_new_raw2': lang_new_raw2,
         'lang_new_raw3': lang_new_raw3,
         'cat_by_slug': cat_by_slug, 'cat_title': cat_title,
         'list_lead': list_lead, 'country_by_slug': country_by_slug,
         'country_adj': country_adj, 'cat_slug': cat_slug,
-        'country_slug': country_slug,
+        'country_slug': country_slug, 'cl': cl, 'df': df, 'sv': sv,
     }
     validate(data)
     return data
@@ -873,8 +1274,44 @@ def join_names(recipes):
     return re.sub(r', ([^,]*)$', r' and \1', s)
 
 
+def fit_long(base, extras):
+    """Fit a description to 140-155 chars from real text: start with base,
+    append extra sentences (in order) until >=140, then trim to <=155 at a
+    word boundary. Returns the fitted text (may be <140 if the real text
+    runs out — callers report that)."""
+    d = (base or '').strip()
+    if d and d[-1] not in SENT_END:
+        d += '.'
+    for ex in extras or []:
+        if len(d) >= 140:
+            break
+        s = (ex or '').strip()
+        if not s:
+            continue
+        if s[-1] not in SENT_END:
+            s += '.'
+        if len(d) + 1 + len(s) <= 155:
+            d = d + ' ' + s
+        else:
+            room = 155 - len(d) - 1
+            if room > 30:
+                cut = s[:room]
+                sp = cut.rfind(' ')
+                if sp > 20:
+                    cut = cut[:sp]
+                cut = cut.rstrip(' ,;:')
+                if cut and cut[-1] not in SENT_END:
+                    cut += '.'
+                d = d + ' ' + cut
+    if len(d) > 155:
+        d = fit_desc(d, '')
+    return d
+
+
 def list_info(data, kind, slug):
-    """Mirror listInfo() for English: label/title/desc/intro/recipes/img."""
+    """Mirror listInfo() for English: label/title/desc/intro/recipes/img.
+    Country intros are unique per country (recipe names + the first
+    recipe's own description); descriptions are fitted to 140-155 chars."""
     recipes = data['recipes']
     if kind == 'category':
         cat = data['cat_by_slug'].get(slug)
@@ -900,22 +1337,39 @@ def list_info(data, kind, slug):
     n = len(rs)
     names = join_names(rs)
     t = title[:-len(' Recipes')] + ' Recipe' if n == 1 else title
-    desc = ('%d %s with full ingredients and step by step methods'
-            % (n, t))
+    base_desc = ('%d %s with full ingredients and step by step methods'
+                 % (n, t))
     if n <= 7:
-        desc += ': ' + names
+        base_desc += ': ' + names
     elif kind == 'category':
-        desc += ' from 14 countries'
-    desc += '.'
+        base_desc += ' from 14 countries'
+    base_desc += '.'
+    if len(base_desc) > 155:
+        # A long name list (Pakistan, 7 recipes) does not fit: drop the
+        # names from the base and let the appended sentences fill it.
+        base_desc = ('%d %s with full ingredients and step by step methods.'
+                     % (n, t))
+    first = rs[0]
+    ftx = r_text_en(first, data['extra'])
+    # Description: base + the lead sentence (category) or the first
+    # recipe's own description (country), fitted to 140-155.
+    if kind == 'category':
+        desc = list_desc(base_desc, [lead, first_sentence(ftx.get('desc')),
+                                     first_sentence(ftx.get('intro'))])
+    else:
+        desc = list_desc(base_desc, [first_sentence(ftx.get('desc')),
+                                     first_sentence(ftx.get('intro'))])
     parts = [lead]
+    if kind == 'country':
+        # Unique intro: the recipe names plus the first recipe's own
+        # description sentence (different for every country).
+        parts.append(first_sentence(ftx.get('desc')))
     if n == 1:
         parts.append('The recipe on this page is ' + names + '.')
     elif n <= 7:
         parts.append('Recipes on this page: ' + names + '.')
     parts.append('Each recipe lists full ingredients, a step by step method, '
                  'cooking time and servings.')
-    first = rs[0]
-    ftx = r_text_en(first, data['extra'])
     return {'kind': kind, 'slug': slug, 'label': label, 'title': title,
             'desc': desc, 'intro': ' '.join(parts), 'recipes': rs,
             'img': SITE + '/' + first['img'],
@@ -1038,20 +1492,43 @@ SITE_FOOTER = ('<footer class="site">Zaika Worlds — home food recipes and '
                'Pinterest</a></footer>')
 
 
-def page_shell(title, desc, url, og_img, og_alt, json_ld_blocks, body):
-    """Full static HTML page. title must already be capped at 60 chars."""
+def page_shell(title, desc, url, og_img, og_alt, json_ld_blocks, body,
+               og_type='website', article_dates=None, hreflang=None,
+               html_lang='en'):
+    """Full static HTML page. title must already be capped at 60 chars.
+    og_type is 'article' on recipe pages (with article:published_time /
+    article:modified_time only when article_dates gives real dates) and
+    'website' elsewhere. hreflang is [(hreflang, url)] for every language
+    variant of the page + x-default."""
     assert len(title) <= 60, "title too long (%d): %r" % (len(title), title)
     ld = ''.join(
         '<script type="application/ld+json">%s</script>\n' % js_json(b)
         for b in json_ld_blocks)
-    return ('<!DOCTYPE html>\n<html lang="en">\n<head>\n<meta charset="utf-8">\n'
+    og_extra = ''
+    if og_type == 'article' and article_dates:
+        if article_dates.get('published'):
+            og_extra += ('<meta property="article:published_time" '
+                         'content="%s">\n'
+                         % esc(article_dates['published']))
+        if article_dates.get('modified'):
+            og_extra += ('<meta property="article:modified_time" '
+                         'content="%s">\n'
+                         % esc(article_dates['modified']))
+    alt_links = ''
+    if hreflang:
+        alt_links = ''.join(
+            '<link rel="alternate" hreflang="%s" href="%s">\n'
+            % (esc(code), esc(href)) for code, href in hreflang)
+    return ('<!DOCTYPE html>\n<html lang="%s">\n<head>\n<meta charset="utf-8">\n'
             '<meta name="viewport" content="width=device-width,'
-            ' initial-scale=1">\n'
+            ' initial-scale=1, viewport-fit=cover">\n'
             '<title>' + esc(title) + '</title>\n'
             '<meta name="description" content="' + esc(desc) + '">\n'
             '<meta name="robots" content="index, follow">\n'
             '<link rel="canonical" href="' + esc(url) + '">\n'
-            '<meta property="og:type" content="website">\n'
+            + alt_links +
+            '<meta property="og:type" content="' + esc(og_type) + '">\n'
+            + og_extra +
             '<meta property="og:title" content="' + esc(title) + '">\n'
             '<meta property="og:description" content="' + esc(desc) + '">\n'
             '<meta property="og:url" content="' + esc(url) + '">\n'
@@ -1064,7 +1541,7 @@ def page_shell(title, desc, url, og_img, og_alt, json_ld_blocks, body):
             + ld +
             '<style>' + STATIC_CSS + '</style>\n'
             '</head>\n<body>\n<div class="wrap">\n' + SITE_HEADER + '\n'
-            + body + '\n' + SITE_FOOTER + '\n</div>\n</body>\n</html>\n')
+            + body + '\n' + SITE_FOOTER + '\n</div>\n</body>\n</html>\n' % html_lang)
 
 
 def recipe_json_ld(recipe, tx, url):
