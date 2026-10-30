@@ -49,7 +49,7 @@ JSON-LD per route) stays in place and is the current live behaviour.
    (`RECIPES` + `EXTRA`; English text only for v1) and emits thin SEO pages
    at `recipe/<slug>/index.html`, each with: its own `<title>` and
    `<meta name="description">`, canonical + OG/Twitter tags pointing at the
-   `zaikaworlds.com` recipe URL (do NOT change the canonical domain — the
+   `www.zaikaworlds.com` recipe URL (canonical domain changed to www on 2026-10-30 per user — the
    user chose on 2026-10-29 to leave the domain as is), a Recipe JSON-LD
    block built from the same data `setRouteMeta()` uses, the recipe text
    (ingredients + steps), the recipe photo with absolute `/assets/…` URL,

@@ -1,0 +1,51 @@
+# Zaika Worlds
+
+> Cook famous dishes from Pakistan and India, plus favourites from around the world, with big photos and step by step methods. 32 recipes in 13 languages: English, Roman Urdu, Hindi, Spanish, French, Arabic, Portuguese, Russian, Chinese, Japanese, German, Turkish and Bengali. Fifteen recipes also have a video in all 13 languages.
+
+- [Zaika Worlds](https://www.zaikaworlds.com/): home page with all 32 recipes, search, categories and trending dishes
+- [About](https://www.zaikaworlds.com/about): how the recipes are written
+- [Privacy Policy](https://www.zaikaworlds.com/privacy): what this site does and does not collect
+- [Contact](https://www.zaikaworlds.com/contact): write about a recipe, a correction, or a question about this site
+- [Sitemap](https://www.zaikaworlds.com/sitemap.xml): all pages
+- [RSS feed](https://www.zaikaworlds.com/feed.xml): all 32 recipes
+
+## Recipes
+
+- [Chicken Biryani](https://www.zaikaworlds.com/recipe/biryani) (Pakistan, 60 min): Biryani is not just food, it is a feast. Marinate the chicken in yoghurt and spices, boil the rice halfway, then put it on dum, masala below, rice on top, and the colour in between
+- [Beef Nihari](https://www.zaikaworlds.com/recipe/nihari) (Pakistan, 90 min): Nihari is not fast food, it is food of patience. Cook the meat on low heat for hours, until it falls off the bone and the gravy takes on its deep colour and flavour.
+- [Chicken Karahi](https://www.zaikaworlds.com/recipe/karahi) (Pakistan, 40 min): The secret of karahi is fresh tomatoes and high heat. No onion is needed, the tomato water itself becomes the masala, and ginger and green chillies at the end complete it.
+- [Daal Fry (Tadka Daal)](https://www.zaikaworlds.com/recipe/daal) (India, 35 min): Daal is every home's daily food, but the tadka makes it special. Boil the daal until soft, then temper cumin, garlic and whole red chillies in ghee, the aroma alone is enough.
+- [Chapli Kabab](https://www.zaikaworlds.com/recipe/chapli) (Pakistan, 30 min): Chapli kebab means flat, soft and spicy. Mix tomato, pomegranate seeds and whole spices into the mince, flatten it by hand, then fry both sides on a tawa.
+- [Chicken Tikka](https://www.zaikaworlds.com/recipe/tikka) (Pakistan, 45 min): Good tikka comes from marination. Keep chicken in yoghurt, red chilli and garam masala for at least 1 hour, then grill on high heat, lightly charred outside, juicy inside.
+- [Halwa Puri Nashta](https://www.zaikaworlds.com/recipe/halwapuri) (Pakistan, 50 min): Halwa puri is not breakfast, it is a tradition. Puffed puri, soft halwa and spiced chickpeas, the combination of all three is the soul of this breakfast.
+- [Punjabi Samosa](https://www.zaikaworlds.com/recipe/samosa) (India, 45 min): A samosa lives in its crisp pastry and spiced potato. Knead the flour firm, mix garam masala and coriander into the potato, then fry on low heat, the pastry will be golden and cris
+- [Bun Kebab](https://www.zaikaworlds.com/recipe/bunkebab) (Pakistan, 25 min): Bun kebab is Karachi's identity. Fry shami kebabs on a tawa, place them in a bun, add onion, tomato and tamarind chutney, every bite has the perfect balance of masala and chutney.
+- [Gulab Jamun](https://www.zaikaworlds.com/recipe/gulabjamun) (India, 40 min): Gulab jamun turn soft when the khoya is good and the syrup is lightly warm. Fry the jamuns on low heat, then put them in syrup for 1 hour, they will drink the syrup and swell.
+- [Gajar Ka Halwa](https://www.zaikaworlds.com/recipe/gajarhalwa) (India, 55 min): Gajar ka halwa needs patience. Cook the carrots in milk on low heat; when the milk dries, add ghee and sugar, and finish with khoya and almonds, the best winter aroma.
+- [Mango Lassi](https://www.zaikaworlds.com/recipe/lassi) (India, 15 min): Mango lassi is summer's answer. Take ripe, sweet mangoes, add cold yoghurt and cardamom aroma, 1 minute in the blender, and comfort in a glass.
+- [Margherita Pizza](https://www.zaikaworlds.com/recipe/pizza) (Italy, 75 min): Margherita pizza is proof that simple food can be extraordinary. It was made famous in Naples, where a hot oven, a thin crust, bright tomato sauce and good mozzarella do all the wo
+- [Spaghetti Carbonara](https://www.zaikaworlds.com/recipe/carbonara) (Italy, 25 min): Real carbonara has no cream. It comes from Rome, and its sauce is made only from eggs, pecorino cheese, black pepper and the fat from guanciale or pancetta, mixed with hot pasta un
+- [Sushi](https://www.zaikaworlds.com/recipe/sushi) (Japan, 50 min): Sushi is about rice first and fish second. In Japan, the rice is seasoned with vinegar, sugar and salt, fanned cool, and handled gently so every grain stays separate and glossy. Th
+- [Ramen](https://www.zaikaworlds.com/recipe/ramen) (Japan, 45 min): Ramen is comfort in a bowl, and a good home version does not need a broth that simmers all day. This chicken ramen builds flavour quickly, with garlic, ginger and spring onions fri
+- [Tacos al Pastor](https://www.zaikaworlds.com/recipe/tacos) (Mexico, 40 min): Tacos al pastor began with Lebanese shawarma cooking in Mexico City, and it became something entirely Mexican, pork marinated in dried chillies and achiote, cooked until charred at
+- [Pozole](https://www.zaikaworlds.com/recipe/pozole) (Mexico, 150 min): Pozole is a celebration soup from Mexico, made with hominy, the large white corn kernels that puff and soften in a long simmer, and pork that cooks until it shreds with a spoon. Th
+- [Pad Thai](https://www.zaikaworlds.com/recipe/padthai) (Thailand, 30 min): Pad thai is Thailand's most famous noodle dish, and its magic is balance, sweet, sour, salty and a little heat, all in one hot wok. The sauce is made from tamarind, fish sauce, pal
+- [Peking Duck](https://www.zaikaworlds.com/recipe/pekingduck) (China, 180 min): Peking duck is one of China's great celebration dishes, famous for skin so crisp it shatters, and meat that stays juicy underneath. The secret is drying the skin and glazing it bef
+- [Dim Sum](https://www.zaikaworlds.com/recipe/dimsum) (China, 60 min): Dim sum means food that touches the heart, and it is meant to be shared, small bamboo steamers arriving at the table one after another, each with a different bite inside. This home
+- [Coq au Vin](https://www.zaikaworlds.com/recipe/coqauvin) (France, 120 min): Coq au vin is classic French comfort food, chicken braised slowly in red wine until it falls from the bone, with mushrooms, pearl onions and bacon in a sauce that tastes of the win
+- [Bouillabaisse](https://www.zaikaworlds.com/recipe/bouillabaisse) (France, 75 min): Bouillabaisse comes from Marseille, where fishermen made soup from the fish that did not sell, and it is now one of France's most loved celebration dishes. The broth is the star, b
+- [Seafood Paella](https://www.zaikaworlds.com/recipe/paella) (Spain, 55 min): Paella comes from Valencia in Spain, where it is cooked outdoors in a wide shallow pan, and the rice, not the seafood, is the real star. Saffron gives it the golden colour, a good
+- [Beef Pho](https://www.zaikaworlds.com/recipe/beefpho) (Vietnam, 180 min): Pho is Vietnam's most famous soup, and its heart is a clear broth that tastes of charred onion and ginger, star anise, cinnamon, cloves and fish sauce, simmered gently with beef bo
+- [Poutine](https://www.zaikaworlds.com/recipe/poutine) (Canada, 45 min): Poutine comes from Quebec in Canada, and it is gloriously simple, hot crisp fries, fresh cheese curds that squeak when you bite them, and a rich brown gravy poured over the top so
+- [Bobotie](https://www.zaikaworlds.com/recipe/bobotie) (South Africa, 75 min): Bobotie is South Africa's beloved baked mince dish, with roots in Cape Malay cooking, where spiced mince is sweetened with fruit, enriched with soaked bread, and baked under a gold
+- [Moussaka](https://www.zaikaworlds.com/recipe/moussaka) (Greece, 90 min): Moussaka is Greece's great layered bake, soft aubergine, a rich tomato and lamb or beef mince sauce scented with cinnamon, and a thick bechamel top that turns golden in the oven. I
+- [Hummus](https://www.zaikaworlds.com/recipe/hummus) (Middle East, 20 min): Good hummus is all about texture, silky, light and whipped, never grainy or heavy. It comes from the Levant, where chickpeas, tahini, lemon and garlic are blended with ice water un
+- [Falafel](https://www.zaikaworlds.com/recipe/falafel) (Middle East, 40 min): Real falafel is made from raw soaked chickpeas, never tinned or cooked chickpeas, and that is what gives it a light, fluffy inside and a crisp, craggy crust. The chickpeas are grou
+- [Feijoada](https://www.zaikaworlds.com/recipe/feijoada) (Brazil, 180 min): Feijoada is Brazil's national dish, a rich black bean stew with a mix of pork, sausage and smoked meats, cooked slowly until the beans are creamy and the meats are tender. It is tr
+- [Aussie Meat Pie](https://www.zaikaworlds.com/recipe/meatpie) (Australia, 90 min): The Aussie meat pie is an icon, handheld, golden and eaten at football games, bakeries and kitchen tables all over Australia. Inside a crisp shortcrust base and a flaky puff pastry
+
+## Notes
+
+- Every recipe has ingredients with quantities, a step by step method, cooking time and servings.
+- Recipe videos are added per recipe; 15 recipes have a video in all 13 languages and the rest are being added.
+- Saved recipes are stored in the visitor's own browser (localStorage), not on this site.

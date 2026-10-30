@@ -1,13 +1,13 @@
 # Zaika Worlds: deploy with GitHub and Vercel
 
 The site name is Zaika Worlds and the domain is
-`https://zaikaworlds.com/`. This folder is a normal static website. It contains one page
+`https://www.zaikaworlds.com/`. This folder is a normal static website. It contains one page
 (`index.html`), its photos (`assets/`), and the three Beef Nihari videos
 (`videos/`). There is no build step and no framework. Follow the steps
 below in order. Words in angle brackets, like
 `<YOUR-GITHUB-REPO-NAME>`, are placeholders. Replace them with your own
 names. The site name and domain are already chosen: Zaika Worlds and
-`https://zaikaworlds.com/`.
+`https://www.zaikaworlds.com/`.
 
 ## What is in this folder
 
@@ -20,9 +20,9 @@ names. The site name and domain are already chosen: Zaika Worlds and
 - `vercel.json`: tells Vercel this is a plain static site.
 - `robots.txt`: allows search engines to crawl the site. It does not
   mention a sitemap. The sitemap is at
-  `https://zaikaworlds.com/sitemap.xml`.
+  `https://www.zaikaworlds.com/sitemap.xml`.
 - `sitemap.xml`: lists only the homepage, at
-  `https://zaikaworlds.com/`. Recipes are not listed
+  `https://www.zaikaworlds.com/`. Recipes are not listed
   in it, because they have no separate URLs. This is a limitation of
   the one-page demo design, not an error in this folder.
 - `tools/split_export.py`: the script used to split the single-file
@@ -131,8 +131,8 @@ yourself.
 6. When Vercel shows the domain as valid, open `https://` followed
    by your domain in a browser. The site should load over HTTPS.
 7. The sitemap in this folder already uses
-   `https://zaikaworlds.com/`. After the domain is live, check
-   `https://zaikaworlds.com/sitemap.xml` in a browser, then submit
+   `https://www.zaikaworlds.com/`. After the domain is live, check
+   `https://www.zaikaworlds.com/sitemap.xml` in a browser, then submit
    that sitemap in Google Search Console
    under your domain, if you use Search Console.
 

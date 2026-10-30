@@ -1,115 +1,115 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Sitemap for Zaika Worlds, https://zaikaworlds.com/ -->
+<!-- Sitemap for Zaika Worlds, https://www.zaikaworlds.com/ -->
 <!-- Clean URLs: home, /recipe/<slug>, /about, /privacy, /contact. -->
 <!-- Recipe and info views are rendered by History API routing in the -->
 <!-- single index.html; Vercel rewrites serve /index.html for them. -->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://zaikaworlds.com/</loc>
+    <loc>https://www.zaikaworlds.com/</loc>
   </url>
   <url>
-    <loc>https://zaikaworlds.com/recipe/biryani</loc>
+    <loc>https://www.zaikaworlds.com/recipe/biryani</loc>
   </url>
   <url>
-    <loc>https://zaikaworlds.com/recipe/nihari</loc>
+    <loc>https://www.zaikaworlds.com/recipe/nihari</loc>
   </url>
   <url>
-    <loc>https://zaikaworlds.com/recipe/karahi</loc>
+    <loc>https://www.zaikaworlds.com/recipe/karahi</loc>
   </url>
   <url>
-    <loc>https://zaikaworlds.com/recipe/daal</loc>
+    <loc>https://www.zaikaworlds.com/recipe/daal</loc>
   </url>
   <url>
-    <loc>https://zaikaworlds.com/recipe/chapli</loc>
+    <loc>https://www.zaikaworlds.com/recipe/chapli</loc>
   </url>
   <url>
-    <loc>https://zaikaworlds.com/recipe/tikka</loc>
+    <loc>https://www.zaikaworlds.com/recipe/tikka</loc>
   </url>
   <url>
-    <loc>https://zaikaworlds.com/recipe/halwapuri</loc>
+    <loc>https://www.zaikaworlds.com/recipe/halwapuri</loc>
   </url>
   <url>
-    <loc>https://zaikaworlds.com/recipe/samosa</loc>
+    <loc>https://www.zaikaworlds.com/recipe/samosa</loc>
   </url>
   <url>
-    <loc>https://zaikaworlds.com/recipe/bunkebab</loc>
+    <loc>https://www.zaikaworlds.com/recipe/bunkebab</loc>
   </url>
   <url>
-    <loc>https://zaikaworlds.com/recipe/gulabjamun</loc>
+    <loc>https://www.zaikaworlds.com/recipe/gulabjamun</loc>
   </url>
   <url>
-    <loc>https://zaikaworlds.com/recipe/gajarhalwa</loc>
+    <loc>https://www.zaikaworlds.com/recipe/gajarhalwa</loc>
   </url>
   <url>
-    <loc>https://zaikaworlds.com/recipe/lassi</loc>
+    <loc>https://www.zaikaworlds.com/recipe/lassi</loc>
   </url>
   <url>
-    <loc>https://zaikaworlds.com/recipe/pizza</loc>
+    <loc>https://www.zaikaworlds.com/recipe/pizza</loc>
   </url>
   <url>
-    <loc>https://zaikaworlds.com/recipe/carbonara</loc>
+    <loc>https://www.zaikaworlds.com/recipe/carbonara</loc>
   </url>
   <url>
-    <loc>https://zaikaworlds.com/recipe/sushi</loc>
+    <loc>https://www.zaikaworlds.com/recipe/sushi</loc>
   </url>
   <url>
-    <loc>https://zaikaworlds.com/recipe/ramen</loc>
+    <loc>https://www.zaikaworlds.com/recipe/ramen</loc>
   </url>
   <url>
-    <loc>https://zaikaworlds.com/recipe/tacos</loc>
+    <loc>https://www.zaikaworlds.com/recipe/tacos</loc>
   </url>
   <url>
-    <loc>https://zaikaworlds.com/recipe/pozole</loc>
+    <loc>https://www.zaikaworlds.com/recipe/pozole</loc>
   </url>
   <url>
-    <loc>https://zaikaworlds.com/recipe/padthai</loc>
+    <loc>https://www.zaikaworlds.com/recipe/padthai</loc>
   </url>
   <url>
-    <loc>https://zaikaworlds.com/recipe/pekingduck</loc>
+    <loc>https://www.zaikaworlds.com/recipe/pekingduck</loc>
   </url>
   <url>
-    <loc>https://zaikaworlds.com/recipe/dimsum</loc>
+    <loc>https://www.zaikaworlds.com/recipe/dimsum</loc>
   </url>
   <url>
-    <loc>https://zaikaworlds.com/recipe/coqauvin</loc>
+    <loc>https://www.zaikaworlds.com/recipe/coqauvin</loc>
   </url>
   <url>
-    <loc>https://zaikaworlds.com/recipe/bouillabaisse</loc>
+    <loc>https://www.zaikaworlds.com/recipe/bouillabaisse</loc>
   </url>
   <url>
-    <loc>https://zaikaworlds.com/recipe/paella</loc>
+    <loc>https://www.zaikaworlds.com/recipe/paella</loc>
   </url>
   <url>
-    <loc>https://zaikaworlds.com/recipe/beefpho</loc>
+    <loc>https://www.zaikaworlds.com/recipe/beefpho</loc>
   </url>
   <url>
-    <loc>https://zaikaworlds.com/recipe/poutine</loc>
+    <loc>https://www.zaikaworlds.com/recipe/poutine</loc>
   </url>
   <url>
-    <loc>https://zaikaworlds.com/recipe/bobotie</loc>
+    <loc>https://www.zaikaworlds.com/recipe/bobotie</loc>
   </url>
   <url>
-    <loc>https://zaikaworlds.com/recipe/moussaka</loc>
+    <loc>https://www.zaikaworlds.com/recipe/moussaka</loc>
   </url>
   <url>
-    <loc>https://zaikaworlds.com/recipe/hummus</loc>
+    <loc>https://www.zaikaworlds.com/recipe/hummus</loc>
   </url>
   <url>
-    <loc>https://zaikaworlds.com/recipe/falafel</loc>
+    <loc>https://www.zaikaworlds.com/recipe/falafel</loc>
   </url>
   <url>
-    <loc>https://zaikaworlds.com/recipe/feijoada</loc>
+    <loc>https://www.zaikaworlds.com/recipe/feijoada</loc>
   </url>
   <url>
-    <loc>https://zaikaworlds.com/recipe/meatpie</loc>
+    <loc>https://www.zaikaworlds.com/recipe/meatpie</loc>
   </url>
   <url>
-    <loc>https://zaikaworlds.com/about</loc>
+    <loc>https://www.zaikaworlds.com/about</loc>
   </url>
   <url>
-    <loc>https://zaikaworlds.com/privacy</loc>
+    <loc>https://www.zaikaworlds.com/privacy</loc>
   </url>
   <url>
-    <loc>https://zaikaworlds.com/contact</loc>
+    <loc>https://www.zaikaworlds.com/contact</loc>
   </url>
 </urlset>

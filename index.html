@@ -6,20 +6,20 @@
 <meta name="color-scheme" content="light dark" />
 <script>(function(){var p=location.pathname;var m=/^(.*\/)(?:recipe\/[a-z0-9-]+|about|privacy|contact)$/.exec(p);var b;if(m){b=m[1];}else if(/\/index\.html$/.test(p)){b=p.replace(/index\.html$/,"");}else{b=p.charAt(p.length-1)==="/"?p:p+"/";}var e=document.createElement("base");e.setAttribute("href",b);document.head.appendChild(e);})();</script>
 <meta name="description" content="Cook famous dishes from Pakistan and India, plus favourites from around the world, with big photos and step by step methods." />
-<link id="canonicalLink" rel="canonical" href="https://zaikaworlds.com/" />
+<link id="canonicalLink" rel="canonical" href="https://www.zaikaworlds.com/" />
 <link rel="alternate" type="application/rss+xml" title="Zaika Worlds Recipes" href="/feed.xml" />
 <meta id="robotsMeta" name="robots" content="index, follow" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="Zaika Worlds" />
 <meta id="ogTitleMeta" property="og:title" content="Zaika Worlds: Desi and World Food Recipes" />
 <meta id="ogDescMeta" property="og:description" content="Cook famous dishes from Pakistan and India, plus favourites from around the world, with big photos and step by step methods." />
-<meta id="ogUrlMeta" property="og:url" content="https://zaikaworlds.com/" />
-<meta id="ogImageMeta" property="og:image" content="https://zaikaworlds.com/assets/hero-49347f9b.webp" />
+<meta id="ogUrlMeta" property="og:url" content="https://www.zaikaworlds.com/" />
+<meta id="ogImageMeta" property="og:image" content="https://www.zaikaworlds.com/assets/hero-49347f9b.webp" />
 <meta id="ogImageAltMeta" property="og:image:alt" content="A large plate of chicken biryani with saffron rice, fresh coriander and onion" />
 <meta name="twitter:card" id="twitterCardMeta" content="summary_large_image" />
 <meta name="twitter:title" id="twitterTitleMeta" content="Zaika Worlds: Desi and World Food Recipes" />
 <meta name="twitter:description" id="twitterDescMeta" content="Cook famous dishes from Pakistan and India, plus favourites from around the world, with big photos and step by step methods." />
-<meta name="twitter:image" id="twitterImageMeta" content="https://zaikaworlds.com/assets/hero-49347f9b.webp" />
+<meta name="twitter:image" id="twitterImageMeta" content="https://www.zaikaworlds.com/assets/hero-49347f9b.webp" />
 <link rel="icon" type="image/png" sizes="64x64" href="assets/asset-fde4c831.png" />
 <link rel="apple-touch-icon" sizes="180x180" href="assets/asset-c4cda413.png" />
 <link rel="manifest" href="/manifest.json" />
@@ -446,7 +446,7 @@ footer a{color:var(--muted)}
 <main class="wrap" id="homeView" tabindex="-1">
   <section class="hero" aria-labelledby="heroTitle">
     <div>
-      <div class="hero-site">Zaika Worlds · zaikaworlds.com</div>
+      <div class="hero-site">Zaika Worlds · www.zaikaworlds.com</div>
       <h1 id="heroTitle">Home food, with <em>big photos</em> and easy steps.</h1>
       <p>Cook famous dishes from Pakistan and India, plus favourite dishes from around the world. Each dish has a big photo, a step by step method, cooking time and servings. Click any photo to open the full recipe and start cooking.</p>
       <div class="hero-cta">
@@ -1395,20 +1395,20 @@ var BASE_PATH=(function(){var p=location.pathname;var m=/^(.*\/)(?:recipe\/[a-z0
 function homePath(){return BASE_PATH;}
 function cleanPath(route){return BASE_PATH+route;}
 function recipeHref(id){return cleanPath("recipe/"+id);}
-function recipeLink(id){return "https://zaikaworlds.com/recipe/"+id;}
+function recipeLink(id){return "https://www.zaikaworlds.com/recipe/"+id;}
 var CURRENT_VIEW="home"; var _lastOpener=null;
 function setRouteMeta(kind,pageName,recipeId){
   var title,path,desc,img,imgAlt;
   var _defDesc="Cook famous dishes from Pakistan and India, plus favourites from around the world, with big photos and step by step methods.";
-  var _defImg="https://zaikaworlds.com/assets/hero-49347f9b.webp";
+  var _defImg="https://www.zaikaworlds.com/assets/hero-49347f9b.webp";
   var _defAlt="A large plate of chicken biryani with saffron rice, fresh coriander and onion";
-  if(kind==="recipe"){var r=RECIPES.find(function(x){return x.id===recipeId;});var nm=r?rName(r):"Recipe";title=nm+" | Zaika Worlds";if(title.length>60){title=nm.slice(0,44)+" | Zaika Worlds";}path="recipe/"+recipeId;var tx=r?rText(r):null;desc=tx&&tx.desc?tx.desc:_defDesc;img=r?("https://zaikaworlds.com/"+r.img):_defImg;imgAlt=tx&&tx.alt?tx.alt:_defAlt;}
+  if(kind==="recipe"){var r=RECIPES.find(function(x){return x.id===recipeId;});var nm=r?rName(r):"Recipe";title=nm+" | Zaika Worlds";if(title.length>60){title=nm.slice(0,44)+" | Zaika Worlds";}path="recipe/"+recipeId;var tx=r?rText(r):null;desc=tx&&tx.desc?tx.desc:_defDesc;img=r?("https://www.zaikaworlds.com/"+r.img):_defImg;imgAlt=tx&&tx.alt?tx.alt:_defAlt;}
   else if(kind==="page"){title=infoText(pageName).h1+" | Zaika Worlds";path=pageName;desc=_defDesc;img=_defImg;imgAlt=_defAlt;}
   else if(kind==="notfound"){title="Recipe not found | Zaika Worlds";path="recipe/"+recipeId;desc="This recipe does not exist on Zaika Worlds. Try Chicken Biryani, Beef Nihari or Chicken Karahi instead.";img=_defImg;imgAlt=_defAlt;}
   else{title="Zaika Worlds: Desi and World Food Recipes";path="";desc=_defDesc;img=_defImg;imgAlt=_defAlt;}
   document.title=title;
   var _rm=document.getElementById("robotsMeta");if(_rm)_rm.setAttribute("content",kind==="notfound"?"noindex, follow":"index, follow");
-  var url="https://zaikaworlds.com/"+path;
+  var url="https://www.zaikaworlds.com/"+path;
   var c=document.getElementById("canonicalLink");if(c)c.setAttribute("href",url);
   var ou=document.getElementById("ogUrlMeta");if(ou)ou.setAttribute("content",url);
   var ot=document.getElementById("ogTitleMeta");if(ot)ot.setAttribute("content",title);
