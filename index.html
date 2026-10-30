@@ -174,6 +174,13 @@ h1,h2,h3{font-family:"Cormorant Garamond",Georgia,serif;font-weight:600;line-hei
 .topnav{margin-left:auto;display:flex;gap:4px;flex-wrap:wrap}
 .topnav a{color:var(--header-ink);text-decoration:none;font-weight:600;font-size:14px;padding:8px 10px;border-radius:10px}
 .topnav a:hover{background:rgba(246,234,217,.12)}
+.nav-drop{position:relative}
+.nav-drop-btn{color:var(--header-ink);background:none;border:0;font-weight:600;font-size:14px;padding:8px 10px;border-radius:10px;cursor:pointer;font-family:inherit}
+.nav-drop-btn:hover{background:rgba(246,234,217,.12)}
+.nav-drop-menu{position:absolute;top:100%;right:0;min-width:190px;background:var(--header-bg);border:1px solid var(--header-line,rgba(255,255,255,.2));border-radius:12px;padding:6px;box-shadow:0 12px 30px rgba(0,0,0,.25);z-index:60;display:none}
+.nav-drop-menu a{display:block;color:var(--header-ink);text-decoration:none;font-weight:600;font-size:14px;padding:8px 10px;border-radius:8px}
+.nav-drop-menu a:hover{background:rgba(246,234,217,.12)}
+.nav-drop.open .nav-drop-menu,.nav-drop:hover .nav-drop-menu,.nav-drop:focus-within .nav-drop-menu{display:block}
 .search-row{display:flex;gap:10px;flex-wrap:wrap;margin:6px 0 0;padding-bottom:12px}
 .search-box{flex:1;min-width:230px;display:flex;align-items:center;gap:9px;background:var(--header-surface);border:1.5px solid var(--header-line);border-radius:12px;padding:10px 15px;color:var(--header-ink)}
 .search-box input{border:0;outline:0;background:transparent;color:var(--header-ink);width:100%;font:inherit;font-size:15px}
@@ -443,6 +450,18 @@ footer a{color:var(--muted)}
         <a href="/about" data-page="about">About Us</a>
         <a href="/privacy" data-page="privacy">Privacy Policy</a>
         <a href="/contact" data-page="contact">Contact Us</a>
+        <div class="nav-drop">
+          <button class="nav-drop-btn" type="button" aria-haspopup="true" aria-expanded="false" id="catDropBtn">Categories</button>
+          <div class="nav-drop-menu" id="catDropMenu">
+            <a href="/category/desi-dishes" data-list="category/desi-dishes">Desi Dishes</a>
+            <a href="/category/world-food" data-list="category/world-food">World Food</a>
+            <a href="/category/bbq" data-list="category/bbq">BBQ</a>
+            <a href="/category/street-food" data-list="category/street-food">Street Food</a>
+            <a href="/category/desserts" data-list="category/desserts">Desserts</a>
+            <a href="/category/breakfast" data-list="category/breakfast">Breakfast</a>
+            <a href="/category/drinks" data-list="category/drinks">Drinks</a>
+          </div>
+        </div>
       </nav>
     </div>
     <div class="search-row">
@@ -1067,7 +1086,7 @@ function applyLang(){
   var t=T();
   var LANG_META={en:["en","ltr"],ru:["ur-Latn","ltr"],hi:["hi","ltr"],es:["es","ltr"],fr:["fr","ltr"],ar:["ar","rtl"],pt:["pt","ltr"],rus:["ru","ltr"],zh:["zh-Hans","ltr"],ja:["ja","ltr"],de:["de","ltr"],tr:["tr","ltr"],bn:["bn","ltr"]};var _lm=LANG_META[LANG]||LANG_META.en;document.documentElement.lang=_lm[0];document.documentElement.dir=_lm[1];
   var _ls=document.getElementById("langSelect"); if(_ls) _ls.value=LANG;
-  var nav=document.querySelectorAll(".topnav a"); nav.forEach(function(a,i){if(t.nav[i]) a.textContent=t.nav[i];});
+  var nav=document.querySelectorAll(".topnav > a"); nav.forEach(function(a,i){if(t.nav[i]) a.textContent=t.nav[i];}); var _cdb=document.getElementById("catDropBtn"); if(_cdb&&t.footerCatH) _cdb.textContent=t.footerCatH;
   var s=document.getElementById("search"); s.placeholder=t.searchPh; s.setAttribute("aria-label",t.searchLabel);
   document.querySelector("#savedToggle span").textContent="♥ "+t.saved;
   document.getElementById("heroTitle").innerHTML=t.heroTitle;
@@ -1362,10 +1381,12 @@ function openList(kind,slug,push){
 document.getElementById("videoPlayBtn").addEventListener("click",onVideoPlayClick);
 document.getElementById("videoBackBtn").addEventListener("click",hideVideoSoon);
 document.addEventListener("click",function(e){
+  if(!e.target.closest(".nav-drop")) closeCatDrop();
   var listLink=e.target.closest("[data-list]");
   if(listLink){
     if(e.metaKey||e.ctrlKey||e.shiftKey||e.altKey) return;
     e.preventDefault();
+    closeCatDrop();
     var lp=listLink.getAttribute("data-list").split("/");
     if(lp.length===2) openList(lp[0],lp[1]);
     return;
@@ -1429,7 +1450,10 @@ document.addEventListener("click",function(e){
     var pg=navLink.getAttribute("data-page"); if(pg){navigatePage(pg);return;}
   }
 });
+function closeCatDrop(){var d=document.querySelector(".nav-drop");if(d)d.classList.remove("open");var b=document.getElementById("catDropBtn");if(b)b.setAttribute("aria-expanded","false");}
+document.getElementById("catDropBtn").addEventListener("click",function(e){e.stopPropagation();var d=document.querySelector(".nav-drop");var open=d.classList.toggle("open");this.setAttribute("aria-expanded",open?"true":"false");});
 document.addEventListener("keydown",function(e){
+  if(e.key==="Escape") closeCatDrop();
   if(e.key==="Escape" && CURRENT_VIEW==="recipe") closeRecipe();
 
 });
