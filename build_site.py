@@ -81,6 +81,362 @@ CONTACT_EMAIL = "info.allcalctool@gmail.com"
 
 
 # ---------------------------------------------------------------------------
+# Ingredient splitting (SEO audit round 2, issue G)
+# ---------------------------------------------------------------------------
+# Recipe ingredients are authored as a few comma-joined groups per recipe
+# (e.g. "Chicken 750g, yoghurt 1 cup"), but Recipe schema and the recipe
+# pages need ONE ingredient per <li>. The build splits each group on the
+# language's list separator (", " / "، " / "，" / "、") and on the language's
+# word for "and", then re-attaches qualifier fragments to the ingredient
+# they modify instead of leaving them as orphan items:
+#   "Basmati rice 3 cups, soaked" -> "Basmati rice 3 cups (soaked)"
+#   "Salt, bay leaves, cardamom and cloves, for the rice water"
+#       -> "Salt", "bay leaves", "cardamom", "cloves (for the rice water)"
+# A fragment is a qualifier if it starts/ends with the language's "for"
+# marker, is the word for "optional", or is a bare participle/adjective
+# (soaked, chopped, ...) listed in ING_QUALIFIERS. Real ingredients that
+# carry their purpose ("Oil for frying", "Parsley to serve") are NOT
+# qualifiers: they name an ingredient, so they stay as their own item.
+# The sets below were derived from the actual 32x13 ingredient strings
+# (see the SEO round-2 data report); a future recipe that introduces a new
+# bare qualifier is caught by --check, which fails on any split item that
+# matches these rules. Authoring rule: never write a bare qualifier as its
+# own comma group — attach it to the ingredient it modifies in the source.
+
+ING_SEPS = {
+    'en': [', ', ' and '], 'ru': [', ', ' aur '], 'hi': [', ', ' और '],
+    'es': [', ', ' y '], 'fr': [', ', ' et '], 'ar': ['، '],
+    'pt': [', ', ' e '], 'rus': [', ', ' и '], 'zh': ['，', '、', '和'],
+    'ja': ['、', 'と'], 'de': [', ', ' und '], 'tr': [', ', ' ve '],
+    'bn': [', ', ' ও '],
+}
+# "for ..." markers: (prefixes, suffixes) per language. Arabic "for" is the
+# prefix "ل" but lemon ("ليمون") also starts with it, so Arabic uses the
+# exact set in ING_FOR_EXACT instead of a prefix rule.
+ING_FOR_PREFIX = {
+    'en': ('for ',), 'es': ('para ',), 'fr': ('pour ',),
+    'pt': ('para ',), 'rus': ('для ',), 'de': ('für ', 'zum '),
+    'zh': ('用于',),
+}
+ING_FOR_SUFFIX = {
+    'ru': (' ke liye',), 'hi': (' के लिए',), 'tr': (' için',),
+    'bn': (' জন্য',), 'ja': ('用',),
+}
+ING_FOR_EXACT = {
+    'ar': {'لسيو ماي', 'للتزيين', 'للتقديم', 'للتلميع', 'لماء الأرز',
+           'لمايونيز حار', 'لهار غاو'},
+}
+ING_OPTIONAL = {
+    'en': 'optional', 'ru': 'optional', 'hi': 'वैकल्पिक', 'es': 'opcional',
+    'fr': 'en option', 'ar': 'اختياري', 'pt': 'opcional',
+    'rus': 'по желанию', 'zh': '可选', 'ja': '任意', 'de': 'optional',
+    'tr': 'isteğe bağlı', 'bn': 'ঐচ্ছিক',
+}
+# Bare qualifier fragments (lowercase) per language. Only fragments that
+# actually occur in the 32 recipes are listed, plus a few common English
+# participles for future recipes.
+ING_QUALIFIERS = {
+'en': {'soaked', 'soaked overnight', 'chopped', 'sliced', 'fried', 'diced',
+       'diced small', 'grated', 'finely chopped', 'finely grated',
+       'thinly sliced', 'lightly beaten', 'freshly cracked', 'beaten',
+       'browned', 'cleaned', 'cooked', 'crushed', 'cubed', 'flaked',
+       'flat', 'hot', 'peeled', 'rinsed', 'torn', 'uncooked',
+       'well stirred', 'soft boiled', 'melted', 'brown', 'toasted',
+       'blanched', 'minced', 'roasted', 'grilled', 'steamed', 'boiled',
+       'washed', 'trimmed', 'halved', 'quartered', 'crumbled', 'ground',
+       'softened', 'cut into chunks', 'cut into large chunks',
+       'cut into strips', 'cut into thin sticks', 'at room temperature',
+       'bone in', 'floury variety', 'burgundy style if possible',
+       'plus more to serve'},
+'ru': {'bhigoye hue', 'raat bhar bhigoye hue', 'kate hue', 'kati hui',
+       'kaddukas', 'bareek kaddukas', 'kaddukas ki hui',
+       'bareek kate hue', 'kooti hui', 'kuchle hue', 'taazi kooti hui',
+       'chhane hue', 'chheele hue', 'dhoya hua', 'phenta hua',
+       'halke phente hue', 'saaf ki hui', 'tooti hui', 'brown ki hui',
+       'pake hue', 'naram ubale hue', 'achhi tarah hilayi hui',
+       'tukdon mein kata hua', 'tukdon mein kati hui',
+       'strips mein kata hua', 'patli kati hui',
+       'patli sticks mein kata hua', 'cube mein kata hua',
+       'dice mein kata hua', 'chhote dice mein kata hua',
+       'bare tukdon mein kata hua', 'slice mein kati hui',
+       'chhote tukde', 'kachhe', 'garam', 'chapte', 'floury qism',
+       'haddi ke sath', 'room temperature par',
+       'mumkin ho to burgundy style', 'flaked', 'chhana',
+       'aur serve ke liye zyada'},
+'hi': {'भिगोए हुए', 'रात भर भिगोए हुए', 'कटे हुए', 'कटी हुई', 'कद्दूकस',
+       'बारीक कद्दूकस', 'कद्दूकस की हुई', 'बारीक कटे हुए', 'कुटी हुई',
+       'कुचले हुए', 'ताज़ी कुटी हुई', 'छाने हुए', 'छीले हुए',
+       'धोया हुआ', 'फेंटा हुआ', 'हल्के फेंटे हुए', 'साफ़ की हुई',
+       'तोड़ा हुआ', 'ब्राउन की हुई', 'पके हुए', 'नरम उबले हुए',
+       'अच्छी तरह हिलाई हुई', 'टुकड़ों में कटा हुआ',
+       'टुकड़ों में कटी हुई', 'स्ट्रिप्स में कटा हुआ', 'पतली कटी हुई',
+       'पतली स्टिक्स में कटा हुआ', 'क्यूब में कटा हुआ',
+       'डाइस में कटा हुआ', 'छोटे डाइस में कटा हुआ',
+       'बड़े टुकड़ों में कटा हुआ', 'स्लाइस में कटी हुई', 'छोटे टुकड़े',
+       'कच्चे', 'गर्म', 'चपटे', 'फ्लाउरी किस्म', 'हड्डी के साथ',
+       'कमरे के तापमान पर', 'मुमकिन हो तो बरगंडी स्टाइल', 'फ्लेक्ड',
+       'छाना', 'और परोसने के लिए ज़्यादा'},
+'es': {'remojado', 'remojados toda la noche', 'picados', 'picadas finas',
+       'cortado en trozos', 'cortado en tiras',
+       'cortado en bastones finos', 'cortada en trozos',
+       'cortada en trozos grandes', 'rallado', 'rallados', 'ralladas',
+       'rallado fino', 'batido', 'batidos ligeramente', 'bien removido',
+       'cocidos', 'cocidos blandos', 'sin cocer', 'desgarrada',
+       'doradas', 'en cubos', 'en dados', 'en dados pequeños',
+       'en lonchas finas', 'en láminas', 'en rodajas', 'enjuagado',
+       'escurrido', 'escurridos', 'limpios', 'machacados', 'peladas',
+       'triturados', 'planos', 'caliente', 'con hueso',
+       'a temperatura ambiente', 'variedad harinosa',
+       'más para servir'},
+'fr': {'battu', 'bien remué', 'concassées', 'coupé en fins bâtonnets',
+       'coupé en lanières', 'coupé en morceaux', 'coupé en petits dés',
+       'coupée en gros morceaux', 'cuits', 'dorés', 'déchirée',
+       'décortiquées', 'effilées', 'en cubes', 'en dés',
+       'en fines tranches', 'finement hachées', 'finement râpé',
+       'fraîchement moulu', 'hachées', 'hachés', 'légèrement battus',
+       'nettoyées', 'non cuit', 'râpé', 'râpées', 'rincé', 'tranchée',
+       'tranchées', 'trempé', 'trempés une nuit', 'écrasées', 'égoutté',
+       'égouttés', 'avec os', 'chaud', 'plates',
+       'style bourgogne si possible', 'variété farineuse',
+       'à température ambiante', 'plus pour servir', 'mollets'},
+'ar': {'منقوع', 'منقوع طوال الليل', 'منقوعة طوال الليل', 'مقطع', 'مقطعة',
+       'مقطع إلى أعواد رفيعة', 'مقطع إلى شرائح', 'مقطع إلى قطع',
+       'مقطع إلى قطع كبيرة', 'مقطع شرائح رفيعة', 'مقطع صغيرا',
+       'مبشور', 'مبشور ناعما', 'مبشورة', 'مجروش', 'مجروش طازجا',
+       'محركة جيدا', 'محمر', 'مخفوق قليلا', 'مخفوقة', 'مسطحة',
+       'مسلوق طريا', 'مصفى', 'مصفى ومشطوف', 'مطهو', 'مفروم',
+       'مفروم ناعما', 'مفرومة', 'مقشر', 'مكعبات', 'ممزقة', 'منظف',
+       'مهروسة', 'غير مطهو', 'بالعظم', 'ساخن', 'صنف دقيقي',
+       'في درجة حرارة الغرفة', 'على طراز بورغندي إن أمكن',
+       'بالإضافة إلى المزيد للتقديم'},
+'pt': {'demolhado', 'demolhado durante a noite', 'picados',
+       'finamente picados', 'cortado em pedaços', 'cortado em tiras',
+       'cortado em palitos finos', 'cortada em pedaços grandes',
+       'ralado', 'ralados', 'raladas', 'finamente ralado', 'batido',
+       'bem mexido', 'cozido', 'cozidos moles', 'cru', 'descascados',
+       'douradas', 'em cubos', 'em cubos pequenos', 'escorrido',
+       'esmagados', 'fatiada', 'fatiada finamente', 'fatiadas',
+       'laminadas', 'levemente batidos', 'limpos', 'passado por água',
+       'rasgada', 'achatados', 'com osso', 'quente',
+       'estilo borgonha se possível', 'variedade farinhenta',
+       'à temperatura ambiente', 'mais para servir', 'acabada de moer'},
+'rus': {'замоченный', 'замоченный на ночь', 'замоченная на ночь',
+        'варёный', 'взбитое', 'дроблёные', 'дроблёный',
+        'мелко нарезанные', 'мелко нарезанный', 'мелко натёртый',
+        'нарезанная', 'нарезанная крупными кусками',
+        'нарезанная кубиками', 'нарезанная кусками', 'нарезанные',
+        'нарезанный', 'нарезанный кубиками', 'нарезанный кусками',
+        'нарезанный полосками', 'очищенные', 'порванная', 'промытое',
+        'сваренные всмятку', 'свежемолотый', 'слегка взбитые',
+        'слитое', 'слитый', 'сырой', 'тонко нарезанная', 'тёртая',
+        'тёртые', 'тёртый', 'хлопьями', 'хорошо размешанная',
+        'плоская', 'горячий', 'мучнистый сорт', 'на кости',
+        'при комнатной температуре', 'бургундского стиля',
+        'если возможно', 'плюс ещё для подачи', 'в которой варится рис'},
+'zh': {'切丁', '切块', '切小丁', '切得很碎', '切成大块', '切成条', '切成细条',
+       '切片', '切碎', '切薄片', '压碎', '去壳', '充分搅匀', '已浸泡',
+       '浸泡过夜', '沥干', '沥干并冲洗', '清理干净', '打散', '轻轻打散',
+       '擦碎', '磨得很细', '磨碎', '新鲜磨碎', '撕碎', '煮好', '未煮',
+       '炸至金黄', '煮成溏心蛋', '扁的', '热的', '室温', '粉质品种',
+       '最好是勃艮第风格', '另加一些用于上桌', '大的'},
+'ja': {'きつね色に炒めたもの', 'きれいにしたもの', 'さいの目切り',
+       'すりおろしたもの', 'ちぎったもの', 'つぶしたもの',
+       'よく混ぜたもの', '刻んだもの', '塊に切ったもの',
+       '大きめの塊に切ったもの', '小さくさいの目切り', '平たいもの',
+       '挽きたて', '水に浸したもの', '水を切ったもの',
+       '水を切ってすすいだもの', '溶いたもの', '軽く溶いたもの',
+       '皮をむいたもの', '短冊切り', '砕いたもの',
+       '細い棒状に切ったもの', '細かくすりおろしたもの',
+       '細かく刻んだもの', '角切り', '調理済み', '薄切り', 'スライス',
+       'フレーク状', '半熟ゆで卵', '丸ご', 'できればブルゴーニュ風',
+       '室温', '粉質の品種', '熱いもの', '炊く前', '一晩浸したもの',
+       'つかみ', 'さらに出すためのもの'},
+'de': {'abgespült', 'abgetropft', 'dünn geschnitten', 'eingeweicht',
+       'fein gehackt', 'fein gerieben', 'flach', 'frisch gemahlen',
+       'gebräunt', 'gehackt', 'gehobelt', 'gekocht', 'geputzt',
+       'gerieben', 'geschält', 'gewürfelt', 'gezupft', 'gut gerührt',
+       'heiß', 'in scheiben', 'in streifen geschnitten',
+       'in stücke geschnitten', 'in dünne stifte geschnitten',
+       'in große stücke geschnitten', 'klein gewürfelt',
+       'leicht verquirlt', 'mehlige sorte', 'mit knochen',
+       'plus mehr zum servieren', 'ungekocht', 'verquirlt',
+       'weich gekocht', 'wenn möglich', 'zerdrückt', 'zerstoßen',
+       'über nacht eingeweicht', 'bei zimmertemperatur',
+       'burgunder art'},
+'tr': {'ayıklanmış', 'bir gece ıslatılmış', 'dilimlenmiş', 'doğranmış',
+       'durulanmış', 'ezilmiş', 'hafifçe çırpılmış', 'ince dilimlenmiş',
+       'ince doğranmış', 'ince rendelenmiş', 'iyice karıştırılmış',
+       'küp doğranmış', 'küçük doğranmış', 'kızartılmış',
+       'parçalanmış', 'parçalar hâlinde kesilmiş', 'pişmemiş',
+       'pişmiş', 'pul pul', 'rendelenmiş', 'süzülmüş', 'temizlenmiş',
+       'çırpılmış', 'ıslatılmış', 'şeritler hâlinde kesilmiş',
+       'yumuşak haşlanmış', 'taze kırılmış', 'kemikli', 'sıcak',
+       'oda sıcaklığında', 'unlu çeşit', 'yassı',
+       'mümkünse burgonya tarzı'},
+'bn': {'কাটা', 'কিউব করা', 'কিউব করে কাটা', 'কুচি করা',
+       'খোসা ছাড়ানো', 'ছেঁকে ধোয়া', 'ছেঁকে নেওয়া', 'ছেঁড়া',
+       'ছোট কিউব করা', 'টুকরো করে কাটা', 'থেঁতো করা',
+       'পাতলা করে কাটা', 'পাতলা কাঠি করে কাটা', 'ফালি করা',
+       'ফালি করে কাটা', 'ফেটানো', 'হালকা ফেটানো',
+       'বড় টুকরো করে কাটা', 'ভাজা', 'ভেজানো', 'সারারাত ভেজানো',
+       'পরিষ্কার করা', 'রান্না করা', 'রান্না না করা', 'নরম সেদ্ধ',
+       'টাটকা ভাঙা', 'ভালো করে নাড়া', 'মিহি করে কাটা', 'গরম',
+       'ঘরের তাপমাত্রায়', 'চ্যাপ্টা', 'ময়দাযুক্ত জাত', 'হাড়সহ',
+       'পারলে বার্গান্ডি ধাঁচের', 'সঙ্গে পরিবেশনের জন্য আরও'},
+}
+
+
+def _split_top(s, seps):
+    """Split s on seps, but never inside parentheses. Japanese 'と' is only
+    a list join when it is not part of a word or fraction: never split it
+    after a digit ('1と1/2'), before 'の' ('丸ごと') or before 'つ'
+    ('ひとつかみ')."""
+    out, cur, depth, i = [], '', 0, 0
+    while i < len(s):
+        ch = s[i]
+        if ch == '(':
+            depth += 1
+        elif ch == ')':
+            depth = max(0, depth - 1)
+        if depth == 0:
+            hit = None
+            for sep in seps:
+                if s.startswith(sep, i):
+                    if sep == 'と':
+                        prev = s[i - 1] if i > 0 else ''
+                        nxt = s[i + 1] if i + 1 < len(s) else ''
+                        if prev.isdigit() or nxt in ('の', 'つ'):
+                            continue
+                    hit = sep
+                    break
+            if hit:
+                out.append(cur)
+                cur = ''
+                i += len(hit)
+                continue
+        cur += ch
+        i += 1
+    out.append(cur)
+    return [x.strip() for x in out if x.strip()]
+
+
+def is_qualifier(item, lang):
+    """True if a split ingredient piece is a qualifier fragment, not an
+    ingredient of its own (see the ING_QUALIFIERS comment above)."""
+    low = item.strip().lower()
+    if not low:
+        return False
+    if low == ING_OPTIONAL.get(lang, ''):
+        return True
+    if low in ING_FOR_EXACT.get(lang, set()):
+        return True
+    for p in ING_FOR_PREFIX.get(lang, ()):
+        if low.startswith(p):
+            return True
+    for suf in ING_FOR_SUFFIX.get(lang, ()):
+        if low.endswith(suf):
+            return True
+    return low in ING_QUALIFIERS.get(lang, set())
+
+
+def split_ingredients(items, lang):
+    """Split ingredient strings into one ingredient per item, attaching
+    qualifier fragments to the previous item as a parenthetical."""
+    out = []
+    for s in items or []:
+        for piece in _split_top(s, ING_SEPS[lang]):
+            if is_qualifier(piece, lang) and out:
+                prev = out[-1]
+                if prev.endswith(')'):
+                    out[-1] = prev[:-1] + ', ' + piece + ')'
+                else:
+                    out[-1] = prev + ' (' + piece + ')'
+            else:
+                out.append(piece)
+    return out
+
+
+# ---------------------------------------------------------------------------
+# Titles + meta descriptions (SEO audit round 2, issue F)
+# ---------------------------------------------------------------------------
+# Recipe title: "<Dish> Recipe (<CountryAdj>, <time> Min) | Zaika Worlds",
+# capped at 60 chars — if the full pattern is too long, drop the time,
+# then shorten the style. Recipe description: the recipe's real desc +
+# " Ready in <time> min, serves <servings>, <diff> difficulty. Start
+# cooking now.", fitted to 140-155 chars by trimming the desc at a word
+# boundary (weak trailing words backed off) — never by inventing text.
+# List/info descriptions are fitted the same way from their real intros.
+
+_TITLE_STOP = {'that', 'with', 'and', 'the', 'a', 'an', 'in', 'on', 'of',
+               'to', 'for', 'from', 'at', 'by', 'or', 'as', 'is', 'it'}
+
+
+def fit_desc(desc, tail):
+    """desc + tail, fitted to 140-155 chars by trimming desc at a word
+    boundary (backing off weak trailing words). Returns the fitted text;
+    callers must check the length (a very short desc cannot reach 140)."""
+    desc = (desc or '').strip()
+    if desc and desc[-1] not in '.!?':
+        desc += '.'
+    d = desc + tail
+    if len(d) > 155:
+        room = 155 - len(tail)
+        cut = desc[:room]
+        sp = cut.rfind(' ')
+        if sp > 40:
+            cut = cut[:sp]
+        while True:
+            words = cut.rsplit(' ', 1)
+            if (len(words) == 2
+                    and words[1].strip(' ,;:').lower() in _TITLE_STOP
+                    and len(cut) > 60):
+                cut = words[0]
+            else:
+                break
+        cut = cut.rstrip(' ,;:')
+        if cut and cut[-1] not in '.!?':
+            cut += '.'
+        d = cut + tail
+    return d
+
+
+def recipe_title_en(recipe, data):
+    """'<Dish> Recipe (<CountryAdj>, <time> Min) | Zaika Worlds', <=60."""
+    adj = data['country_adj'].get(recipe['country'], recipe['country'])
+    full = '%s Recipe (%s, %d Min) | Zaika Worlds' % (
+        recipe['name'], adj, recipe['time'])
+    if len(full) <= 60:
+        return full
+    no_time = '%s Recipe (%s) | Zaika Worlds' % (recipe['name'], adj)
+    if len(no_time) <= 60:
+        return no_time
+    return '%s Recipe | Zaika Worlds' % recipe['name']
+
+
+def recipe_desc_en(recipe, tx):
+    """Recipe meta description, 140-155 chars, from the recipe's own desc,
+    time, servings and difficulty."""
+    tail = (' Ready in %d min, serves %s, %s difficulty. Start cooking now.'
+            % (recipe['time'], recipe['servings'], recipe['diff']))
+    return fit_desc(tx.get('desc') or '', tail)
+
+
+def first_sentence(text):
+    """First sentence of a text (used to pad short descriptions)."""
+    m = re.match(r'^.*?[.!?](?:\s|$)', (text or '').strip())
+    return m.group(0).strip() if m else (text or '').strip()
+
+
+def fit_text(text, tail='', lo=140, hi=155):
+    """Fit a description from real text: text + tail, trimmed to hi; if
+    still below lo, append the first sentence of the extra text given in
+    tail2 (a second call). Used for list/info pages."""
+    return fit_desc(text, tail)
+
+
+
+
+# ---------------------------------------------------------------------------
 # JS literal parser (stdlib only). Handles double/single-quoted strings with
 # escapes, unquoted identifier keys, trailing commas, numbers, true/false/null.
 # ---------------------------------------------------------------------------
