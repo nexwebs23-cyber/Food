@@ -55,6 +55,7 @@ import json
 import os
 import re
 import sys
+from urllib.parse import quote
 
 ROOT = os.path.dirname(os.path.abspath(__file__))
 SITE = "https://www.zaikaworlds.com"
@@ -694,6 +695,24 @@ def lang_cat_label(recipe, data, lang):
     if recipe['cat'] in labels:
         return labels[recipe['cat']]
     return recipe['catLabel']
+
+
+def ui_str(data, lang, key, default=''):
+    """A UI string in a language (e.g. the 'Ingredients' heading). Patch
+    keys (en/ru/hi) are parsed values; the rest are regex-extracted from
+    the raw UI literal. Falls back to English, then to default."""
+    if lang in data['ui_patches'] and key in data['ui_patches'][lang]:
+        v = data['ui_patches'][lang][key]
+        if isinstance(v, str):
+            return v
+    raw = data['ui_raw'].get(lang, '')
+    m = re.search(r'\b' + re.escape(key) + r'\s*:\s*"((?:[^"\\]|\\.)*)"',
+                  raw)
+    if m:
+        return m.group(1)
+    if lang != 'en':
+        return ui_str(data, 'en', key, default)
+    return default
 
 
 def load_recipe_dates():
@@ -1519,9 +1538,11 @@ def page_shell(title, desc, url, og_img, og_alt, json_ld_blocks, body,
         alt_links = ''.join(
             '<link rel="alternate" hreflang="%s" href="%s">\n'
             % (esc(code), esc(href)) for code, href in hreflang)
-    return ('<!DOCTYPE html>\n<html lang="%s">\n<head>\n<meta charset="utf-8">\n'
+    head = ('<!DOCTYPE html>\n<html lang="%s">\n<head>\n<meta charset="utf-8">\n'
             '<meta name="viewport" content="width=device-width,'
             ' initial-scale=1, viewport-fit=cover">\n'
+            % html_lang)
+    return (head +
             '<title>' + esc(title) + '</title>\n'
             '<meta name="description" content="' + esc(desc) + '">\n'
             '<meta name="robots" content="index, follow">\n'
@@ -1541,43 +1562,91 @@ def page_shell(title, desc, url, og_img, og_alt, json_ld_blocks, body,
             + ld +
             '<style>' + STATIC_CSS + '</style>\n'
             '</head>\n<body>\n<div class="wrap">\n' + SITE_HEADER + '\n'
-            + body + '\n' + SITE_FOOTER + '\n</div>\n</body>\n</html>\n' % html_lang)
+            + body + '\n' + SITE_FOOTER + '\n</div>\n</body>\n</html>\n')
 
 
-def recipe_json_ld(recipe, tx, url):
-    """Mirror setRouteMeta() kind='recipe' (English text)."""
+def recipe_json_ld(data, recipe, tx, url, lang='en', meta_desc=None,
+                   video_date=None):
+    """Recipe + BreadcrumbList + VideoObject + FAQPage JSON-LD. Ingredients
+    are the split one-per-line list (issue G); totalTime comes from the
+    recipe's real time (no invented prep/cook split); recipeYield is the
+    recipe's servings. VideoObject only when this language's video exists;
+    uploadDate only when a real publish date is recorded."""
+    name = lang_name(recipe, data, lang)
+    ing = split_ingredients(tx.get('ing') or [], lang)
     ld = {"@context": "https://schema.org", "@type": "Recipe",
-          "name": recipe['name'],
+          "name": name,
           "image": [SITE + '/' + recipe['img']],
-          "description": tx.get('desc') or DEF_DESC,
+          "description": meta_desc or tx.get('desc') or DEF_DESC,
           "author": {"@type": "Organization", "name": "Zaika Worlds"},
-          "recipeYield": recipe['servings'],
+          "recipeYield": lang_servings(recipe, data, lang),
           "totalTime": "PT%dM" % (recipe['time'] or 60),
-          "recipeIngredient": tx.get('ing') or [],
+          "recipeIngredient": ing,
           "recipeInstructions": [{"@type": "HowToStep", "text": s}
                                  for s in (tx.get('steps') or [])]}
     bld = {"@context": "https://schema.org", "@type": "BreadcrumbList",
            "itemListElement": [
                {"@type": "ListItem", "position": 1, "name": "Home",
-                "item": SITE + "/"},
+                "item": lang_url('/', lang)},
                {"@type": "ListItem", "position": 2,
-                "name": recipe['catLabel']},
-               {"@type": "ListItem", "position": 3, "name": recipe['name'],
+                "name": lang_cat_label(recipe, data, lang)},
+               {"@type": "ListItem", "position": 3, "name": name,
                 "item": url}]}
-    return [ld, bld]
+    blocks = [ld, bld]
+    vid = (recipe.get('videos') or {}).get(lang)
+    if vid:
+        vld = {"@context": "https://schema.org", "@type": "VideoObject",
+               "name": name,
+               "description": meta_desc or tx.get('desc') or DEF_DESC,
+               "thumbnailUrl": "https://i.ytimg.com/vi/%s/hqdefault.jpg"
+                               % vid,
+               "contentUrl": "https://www.youtube.com/watch?v=%s" % vid,
+               "embedUrl": "https://www.youtube-nocookie.com/embed/%s" % vid,
+               "duration": "PT1M"}
+        if video_date:
+            vld["uploadDate"] = video_date
+        blocks.append(vld)
+    faq = tx.get('faq') or []
+    if faq:
+        fld = {"@context": "https://schema.org", "@type": "FAQPage",
+               "mainEntity": [{"@type": "Question", "name": q,
+                               "acceptedAnswer": {"@type": "Answer",
+                                                  "text": a}}
+                              for q, a in faq]}
+        blocks.append(fld)
+    return blocks
 
 
-def recipe_page(data, recipe):
-    tx = r_text_en(recipe, data['extra'])
-    url = SITE + '/recipe/' + recipe['id']
-    title = cap_title(recipe['name'])
-    desc = tx.get('desc') or DEF_DESC
+def recipe_page(data, recipe, lang='en', dates=None):
+    """Static recipe page, in any language. English uses the full title /
+    description pattern; other languages use the translated name, text,
+    video and meta (all from the site's own translations)."""
+    tx = r_text_lang(recipe, data, lang)
+    name = lang_name(recipe, data, lang)
+    path = '/recipe/' + recipe['id']
+    url = lang_url(path, lang)
+    if lang == 'en':
+        title = recipe_title_en(recipe, data)
+        desc = recipe_desc_en(recipe, tx)
+    else:
+        title = recipe_title_lang(recipe, data, lang)
+        desc = recipe_desc_lang(recipe, data, lang)
     img_url = SITE + '/' + recipe['img']
+    img_alt = lang_alt(recipe, data, lang)
     dims = data['img_dims'].get(recipe['img'], [])
     wh = (' width="%d" height="%d"' % (dims[0], dims[1])
           if len(dims) == 2 else '')
     cat_slug = data['cat_slug'].get(recipe['cat'], '')
     ctry_slug = data['country_slug'].get(recipe['country'], '')
+    home_url = lang_url('/', lang)
+    cat_label = lang_cat_label(recipe, data, lang)
+    minute = data['ui_min'].get(lang, 'min')
+    dates = dates or {}
+    article = (dates.get('article') or {}).get(recipe['id'], {})
+    video_dates = (dates.get('video') or {}).get(recipe['id'], {})
+    vid = (recipe.get('videos') or {}).get(lang)
+    video_date = video_dates.get(lang) if isinstance(video_dates, dict) \
+        else None
 
     def section(heading, items, tag):
         if not items:
@@ -1593,55 +1662,80 @@ def recipe_page(data, recipe):
     def faq_block(faq):
         if not faq:
             return ''
-        out = ['<h2>Frequently asked questions</h2>']
+        out = ['<h2>%s</h2>' % esc(ui_str(data, lang, 'recipeFaqH',
+                                         'Frequently asked questions'))]
         for q, a in faq:
             out.append('<h3>%s</h3>\n<p>%s</p>' % (esc(q), esc(a)))
         return '\n'.join(out) + '\n'
 
-    video = ''
-    vid = (recipe.get('videos') or {}).get('en')
+    h = lambda key, default: ui_str(data, lang, key, default)
     if vid:
-        video = ('<p><a href="https://youtu.be/%s">Watch the recipe video '
-                 'on YouTube</a></p>\n' % esc(vid))
+        video = ('<h2>%s</h2>\n'
+                 '<iframe src="https://www.youtube-nocookie.com/embed/%s'
+                 '?modestbranding=1&amp;rel=0" '
+                 'title="%s" width="560" height="315" loading="lazy" '
+                 'allow="accelerometer; autoplay; clipboard-write; '
+                 'encrypted-media; gyroscope; picture-in-picture" '
+                 'allowfullscreen '
+                 'style="width:100%%;aspect-ratio:16/9;height:auto;'
+                 'border:0;border-radius:10px"></iframe>\n'
+                 '<p><a href="https://youtu.be/%s">%s</a></p>\n'
+                 % (esc(h('videoH', 'Recipe Video')), esc(vid),
+                    esc(name), esc(vid), esc(h('videoPlay',
+                                               'Watch the recipe video'))))
     else:
-        video = ('<p class="muted">Video coming soon — this recipe is being '
-                 'filmed, so check back soon to watch every step.</p>\n')
-
+        video = ('<p class="muted">%s</p>\n'
+                 % esc(h('videoSoon', 'Video coming soon — this recipe is '
+                           'being filmed, so check back soon to watch '
+                           'every step.')))
+    wa_text = 'See this recipe: %s, Zaika Worlds: %s' % (name, url)
+    wa_url = 'https://wa.me/?text=' + quote(wa_text)
+    spa_href = ('/#recipe/%s' % recipe['id'] if lang == 'en'
+                else '/?lang=%s#recipe/%s' % (lang, recipe['id']))
     body = (
-        '<nav class="crumb"><a href="/">Home</a> &rsaquo; '
+        '<nav class="crumb"><a href="%s">Home</a> &rsaquo; '
         '<a href="/category/%s">%s</a> &rsaquo; '
         '<span>%s</span></nav>\n'
         '<h1>%s</h1>\n'
-        '<p class="facts">%s &middot; %s &middot; %s &middot; %s</p>\n'
+        '<p class="facts">%s %s &middot; %s &middot; %s &middot; %s</p>\n'
         '<img class="hero" src="%s" alt="%s"%s loading="eager">\n'
         '<p>%s</p>\n'
-        '<a class="cta" href="/#recipe/%s">Open the interactive recipe '
+        '<a class="cta" href="%s">Open the interactive recipe '
         '&mdash; switch language, watch the video, save it</a>\n'
         '%s%s%s%s%s%s%s%s%s%s'
         '<h2>More</h2>\n'
         '<p><a href="/category/%s">More %s recipes</a> &middot; '
         '<a href="/country/%s">More %s recipes</a> &middot; '
-        '<a href="/">All recipes</a></p>\n'
-        % (esc(cat_slug), esc(recipe['catLabel']), esc(recipe['name']),
-           esc(recipe['name']), esc(recipe['time']) + ' min',
-           esc(recipe['servings']), esc(recipe['catLabel']),
-           esc(recipe['country']), esc(img_url), esc(tx.get('alt') or ''),
-           wh, esc(tx.get('intro') or ''), esc(recipe['id']),
+        '<a href="/recipes">All recipes</a></p>\n'
+        '<p>Share this recipe: <a href="%s">%s</a> &middot; '
+        '<a href="%s">Share on WhatsApp</a></p>\n'
+        % (esc(home_url), esc(cat_slug), esc(cat_label), esc(name),
+           esc(name), esc(recipe['time']), esc(minute),
+           esc(lang_servings(recipe, data, lang)), esc(cat_label),
+           esc(recipe['country']), esc(img_url), esc(img_alt),
+           wh, esc(tx.get('intro') or ''), esc(spa_href),
            video,
-           section('Ingredients', tx.get('ing'), 'ul'),
-           section('Method', tx.get('steps'), 'ol'),
-           para('Tip', tx.get('tip')),
-           para('Serving', tx.get('serving')),
-           para('Storage', tx.get('storage')),
-           para('Notes', tx.get('notes')),
-           para('Variations', tx.get('variations')),
-           para('Common mistakes', tx.get('mistakes')),
+           section(h('ingH', 'Ingredients'),
+                   split_ingredients(tx.get('ing'), lang), 'ul'),
+           section(h('methH', 'Method'), tx.get('steps'), 'ol'),
+           para(h('tipH', "Chef's tip"), tx.get('tip')),
+           para(h('servingH', 'Serving'), tx.get('serving')),
+           para(h('storageH', 'Storage'), tx.get('storage')),
+           section(h('notesH', 'Notes'), tx.get('notes'), 'ul'),
+           section(h('varH', 'Variations'), tx.get('variations'), 'ul'),
+           section(h('mistakesH', 'Common mistakes'),
+                   tx.get('mistakes'), 'ul'),
            faq_block(tx.get('faq')),
-           esc(cat_slug), esc(recipe['catLabel']),
-           esc(ctry_slug), esc(recipe['country'])))
-    return page_shell(title, desc, url, img_url, tx.get('alt') or '',
-                      recipe_json_ld(recipe, tx, url), body)
-
+           esc(cat_slug), esc(cat_label),
+           esc(ctry_slug), esc(recipe['country']),
+           esc(url), esc(url), esc(wa_url)))
+    return page_shell(title, desc, url, img_url, img_alt,
+                      recipe_json_ld(data, recipe, tx, url, lang, desc,
+                                     video_date),
+                      body, og_type='article',
+                      article_dates=article or None,
+                      hreflang=hreflang_links(path),
+                      html_lang=LANG_HREFLANG[lang])
 
 def list_json_ld(li):
     cld = {"@context": "https://schema.org", "@type": "CollectionPage",
