@@ -23,13 +23,61 @@ What it does
      category/<slug>/index.html x7
      country/<slug>/index.html  x16
      about/index.html, privacy/index.html, contact/index.html
+     recipes/index.html, trending/index.html, faqs/index.html
+     eid-recipes/index.html, ramadan-recipes/index.html (seasonal hubs)
+     guides/dum-cooking/index.html (technique guide from real recipe tips)
+     <lang>/recipe/<slug>/index.html  x12 languages x32 recipes
+     <lang>/index.html  x12 language homepages
+   Language prefixes: roman-urdu (ur-Latn), hi, ru (Russian), es, fr, ar,
+   pt, zh, ja, de, tr, bn. English stays at the root (hreflang "en",
+   x-default). Internal "ru" (Roman Urdu) is NEVER reused as ISO "ru"
+   (Russian). Each language page carries hreflang for every variant.
    Filesystem beats Vercel rewrites, so a direct visit to /recipe/<slug>
    serves the static page; SPA navigation (pushState) still works.
-3. Rewrites index.html in place into a slim SPA shell (~160KB instead of
+   Recipe pages: og:type article + article:published_time from
+   tools/recipe_dates.json (real git-history date only; never invented),
+   split one-per-line ingredients, embedded YouTube iframe + VideoObject
+   (uploadDate only from a real publish record), FAQPage JSON-LD.
+   The slim homepage gets a static 32-card recipe grid (raw HTML, no JS)
+   and FAQPage JSON-LD for the homepage FAQ.
+3. Regenerates sitemap.xml from the same source of truth as the static
+   pages (461 URLs: 59 original + 384 language recipe pages + 12 language
+   homepages + 6 new pages). No <lastmod> is written: no per-page
+   modification date is recorded, and inventing one would be a fake date.
+4. Rewrites index.html in place into a slim SPA shell (~160KB instead of
    ~3.1MB): the data blocks become empty declarations, an async loader pulls
    data/*.js (English first, other languages on demand), the six raw <h1>
    elements become one <h1> plus runtime heading promotion, and the tail
    merge loop is replaced by the loader init.
+
+Authoring rules for new recipes (enforced by --check, which FAILS the
+build on a violation — see validate_build())
+---------------------------------------------------------------
+- Ingredients: write them as combined strings in index.html (the build
+  splits them one-per-line at build time); a qualifier fragment
+  ("soaked", "for the rice water") must stay attached to its ingredient,
+  never as its own line. The splitter is in split_ingredients().
+- Titles: "<Dish> Recipe (<CountryAdj>, <time> Min) | Zaika Worlds",
+  <=60 chars; the generator shortens (drop time, then style) and never
+  exceeds 60. Descriptions: 140-155 chars, from the recipe's own desc +
+  time + servings + difficulty + CTA, unique per recipe.
+- OG image: every recipe page uses its own photo (absolute /assets/...
+  URL); every category/country page uses a representative recipe photo.
+  Recipe photos are unique AI-generated images made for Zaika Worlds —
+  never claim they are photographs of real dishes.
+- Dates: article:published_time comes only from tools/recipe_dates.json
+  (real git-history / publish records). Never invent a date; omit it if
+  no real record exists. VideoObject uploadDate likewise.
+- Language pages are auto-generated for every language whose data is
+  complete (all 12 non-English languages are complete today). Never
+  machine-translate: language pages use only the site's own translations.
+- No invented facts anywhere: no fake author credentials, step photos,
+  FAQ questions/answers, or backlink/authority numbers. FAQ content comes
+  only from the recipes' EXTRA faq data.
+- The daily new-recipe cron must record the real add date (and the real
+  YouTube publish date per language) in tools/recipe_dates.json, and add
+  the recipe's videos to the videos map, so the next build picks them up.
+
 
 Idempotency / staleness
 -----------------------
