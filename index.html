@@ -1574,7 +1574,7 @@ function setRouteMeta(kind,pageName,recipeId,extra){
   var ld=document.getElementById("recipeJsonLd");
   if(kind==="recipe"&&r){
     var _tx=rText(r);
-    var _ld={"@context":"https://schema.org","@type":"Recipe","name":rName(r),"image":[img],"description":desc,"author":{"@type":"Organization","name":"Zaika Worlds"},"recipeYield":rServings(r),"totalTime":"PT"+(r.time||60)+"M","recipeIngredient":_tx.ing||[],"recipeInstructions":(_tx.steps||[]).map(function(st,i){return {"@type":"HowToStep","name":"Step "+(i+1),"url":url+"#step-"+(i+1),"text":st};}),"recipeCategory":rCat(r),"recipeCuisine":(COUNTRY_ADJ[r.country]||r.country),"keywords":rName(r)+", "+(COUNTRY_ADJ[r.country]||r.country)+" recipe, "+rCat(r),"datePublished":r.published||undefined};
+    var _ld={"@context":"https://schema.org","@type":"Recipe","name":rName(r),"image":[img],"description":desc,"author":{"@type":"Organization","name":"Zaika Worlds","url":"https://www.zaikaworlds.com"},"recipeYield":rServings(r),"totalTime":"PT"+(r.time||60)+"M","recipeIngredient":_tx.ing||[],"recipeInstructions":(_tx.steps||[]).map(function(st,i){return {"@type":"HowToStep","name":"Step "+(i+1),"url":url+"#step-"+(i+1),"text":st};}),"recipeCategory":rCat(r),"recipeCuisine":(COUNTRY_ADJ[r.country]||r.country),"keywords":rName(r)+", "+(COUNTRY_ADJ[r.country]||r.country)+" recipe, "+rCat(r),"datePublished":r.published||undefined};
     var _vid=videoId(r); if(_vid){_ld.video={"@id":url+"#video"};}
     if(!ld){ld=document.createElement("script");ld.id="recipeJsonLd";ld.type="application/ld+json";document.head.appendChild(ld);}
     ld.textContent=JSON.stringify(_ld);
@@ -1598,7 +1598,7 @@ function setRouteMeta(kind,pageName,recipeId,extra){
   } else if(bld){bld.textContent="";}
   var vld=document.getElementById("videoJsonLd");
   if(kind==="recipe"&&r&&_vid){
-    var _vld={"@context":"https://schema.org","@type":"VideoObject","@id":url+"#video","name":rName(r),"author":{"@type":"Organization","name":"Zaika Worlds"},"description":desc,"thumbnailUrl":"https://i.ytimg.com/vi/"+_vid+"/hqdefault.jpg","contentUrl":"https://www.youtube.com/watch?v="+_vid,"url":"https://www.youtube.com/watch?v="+_vid,"embedUrl":"https://www.youtube-nocookie.com/embed/"+_vid,"duration":"PT1M"};
+    var _vld={"@context":"https://schema.org","@type":"VideoObject","@id":url+"#video","name":rName(r),"author":{"@type":"Organization","name":"Zaika Worlds","url":"https://www.zaikaworlds.com"},"description":desc,"thumbnailUrl":"https://i.ytimg.com/vi/"+_vid+"/hqdefault.jpg","contentUrl":"https://www.youtube.com/watch?v="+_vid,"url":"https://www.youtube.com/watch?v="+_vid,"embedUrl":"https://www.youtube-nocookie.com/embed/"+_vid,"duration":"PT1M"};
     if(!vld){vld=document.createElement("script");vld.id="videoJsonLd";vld.type="application/ld+json";document.head.appendChild(vld);}
     vld.textContent=JSON.stringify(_vld);
   } else if(vld){vld.textContent="";}

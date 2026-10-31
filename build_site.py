@@ -1905,7 +1905,8 @@ def recipe_json_ld(data, recipe, tx, url, lang='en', meta_desc=None,
           "name": name,
           "image": [SITE + '/' + recipe['img']],
           "description": meta_desc or tx.get('desc') or DEF_DESC,
-          "author": {"@type": "Organization", "name": "Zaika Worlds"},
+          "author": {"@type": "Organization", "name": "Zaika Worlds",
+                     "url": SITE},
           "recipeYield": lang_servings(recipe, data, lang),
           "totalTime": "PT%dM" % (recipe['time'] or 60),
           "recipeIngredient": ing,
@@ -1946,7 +1947,8 @@ def recipe_json_ld(data, recipe, tx, url, lang='en', meta_desc=None,
         vld = {"@context": "https://schema.org", "@type": "VideoObject",
                "@id": url + "#video",
                "name": name,
-               "author": {"@type": "Organization", "name": "Zaika Worlds"},
+               "author": {"@type": "Organization", "name": "Zaika Worlds",
+                          "url": SITE},
                "description": meta_desc or tx.get('desc') or DEF_DESC,
                "thumbnailUrl": "https://i.ytimg.com/vi/%s/hqdefault.jpg"
                                % vid,
@@ -3098,6 +3100,8 @@ def validate_build(data):
                                         % (rel, el.get('position')))
             if obj.get('@type') == 'Recipe':
                 _rv = (obj.get('video') or {}).get('@id')
+                if not (obj.get('author') or {}).get('url'):
+                    problems.append('%s: Recipe author missing url' % rel)
                 for f in ('name', 'image', 'description',
                           'recipeIngredient', 'recipeInstructions',
                           'totalTime', 'recipeYield', 'datePublished',
@@ -3121,6 +3125,9 @@ def validate_build(data):
                 _vo = obj.get('@id')
                 if not (obj.get('author') or {}).get('name'):
                     problems.append('%s: VideoObject missing author' % rel)
+                if not (obj.get('author') or {}).get('url'):
+                    problems.append('%s: VideoObject author missing url'
+                                    % rel)
                 _ud = obj.get('uploadDate')
                 if _ud and not re.match(
                         r'^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}[+-]\d{2}:\d{2}$',
