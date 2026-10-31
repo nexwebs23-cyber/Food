@@ -1659,6 +1659,9 @@ SITE_HEADER = ('<header class="site"><a class="brand" href="/">Zaika '
                '<span>Worlds</span></a></header>')
 SITE_FOOTER = ('<footer class="site">Zaika Worlds — home food recipes and '
                'world food recipes, in 13 languages. '
+               '<a href="/eid-recipes">Eid Recipes</a> · '
+               '<a href="/ramadan-recipes">Ramadan Recipes</a> · '
+               '<a href="/guides/dum-cooking">Dum Cooking Guide</a> · '
                '<a href="https://www.youtube.com/@ZaikaWorlds">YouTube</a> · '
                '<a href="https://www.facebook.com/profile.php?id='
                '1445260131997347">Facebook</a> · '
@@ -1884,6 +1887,13 @@ def recipe_page(data, recipe, lang='en', dates=None):
            esc(cat_slug), esc(cat_label),
            esc(ctry_slug), esc(recipe['country']),
            esc(url), esc(url), esc(wa_url)))
+    if recipe['id'] in ('biryani', 'karahi', 'nihari'):
+        # Contextual link to the dum-cooking guide (these three are the
+        # dum dishes the guide is built from). Keeps the guide linked
+        # from real content, not just the footer.
+        body = body.replace('<a href="/recipes">All recipes</a></p>',
+                            '<a href="/recipes">All recipes</a> &middot; '
+                            '<a href="/guides/dum-cooking">Dum Cooking Guide</a></p>', 1)
     return page_shell(title, desc, url, img_url, img_alt,
                       recipe_json_ld(data, recipe, tx, url, lang, desc,
                                      video_date),
@@ -2508,6 +2518,16 @@ def build_slim(src, data):
     if '</head>' not in out:
         raise JSError("closing </head> missing")
     out = out.replace('</head>', homepage_faq_json_ld(data) + '</head>', 1)
+    # 7. Hreflang for the English homepage (Screaming Frog "Missing
+    #    reciprocal link", 2026-10-31): the 12 language homepages link
+    #    hreflang="en" to /, but / carried no hreflang at all, so none
+    #    of them had a return link. The fat source keeps no hreflang
+    #    in <head>; the slim homepage gets the full set here, built by
+    #    the same hreflang_links('/') the language homepages use, so
+    #    every return link matches exactly.
+    hl = ''.join('<link rel="alternate" hreflang="%s" href="%s">\n'
+                 % (code, href) for code, href in hreflang_links('/'))
+    out = out.replace('</head>', hl + '</head>', 1)
     return out
 
 
@@ -2725,7 +2745,62 @@ def validate_build(data):
     if got != want:
         problems.append('sitemap mismatch: %d extra, %d missing'
                         % (len(got - want), len(want - got)))
-    return problems, len(pages)
+    # Hreflang reciprocity + orphan check (Screaming Frog "Missing
+    # reciprocal link" + "Orphan page", 2026-10-31). The slim homepage
+    # is part of the graph: it is the only page the static set does
+    # not otherwise build. Every hreflang alternate must be a built
+    # page and must link back to the source URL; every built page
+    # except the homepage seed must have an incoming internal link.
+    n_pages = len(pages)
+    slim_html = build_slim(open(os.path.join(ROOT, 'index.html'),
+                                encoding='utf-8').read(), data)
+    pages['index.html'] = slim_html
+
+    def _path_of(rel):
+        if rel == 'index.html':
+            return '/'
+        return '/' + (rel[:-len('/index.html')]
+                      if rel.endswith('/index.html') else rel)
+
+    def _norm(u):
+        return u.rstrip('/') or '/'
+
+    path_to_rel = {_norm(_path_of(rel)): rel for rel in pages}
+    hl_re = re.compile(r'<link rel="alternate" hreflang="([^"]+)" href="([^"]+)">')
+    link_re = re.compile(r'<a [^>]*href="([^"]*)"')
+    incoming = {rel: 0 for rel in pages}
+    for rel, html in sorted(pages.items()):
+        src_path = _norm(_path_of(rel))
+        for code, href in hl_re.findall(html):
+            if code == 'x-default':
+                continue
+            if not href.startswith(SITE):
+                problems.append('%s: hreflang %s points outside the site: %s'
+                                % (rel, code, href))
+                continue
+            tgt = _norm(href[len(SITE):])
+            if tgt not in path_to_rel:
+                problems.append('%s: hreflang %s points at %s, not a built page'
+                                % (rel, code, href))
+                continue
+            back = hl_re.findall(pages[path_to_rel[tgt]])
+            if src_path not in [_norm(h[len(SITE):]) for _, h in back
+                                if h.startswith(SITE)]:
+                problems.append('%s: hreflang %s -> %s has no return link'
+                                % (rel, code, href))
+        for href in link_re.findall(html):
+            href = href.split('#')[0].split('?')[0]
+            if href.startswith(SITE):
+                href = href[len(SITE):]
+            if not href.startswith('/'):
+                continue
+            tgt = _norm(href)
+            if tgt in path_to_rel and path_to_rel[tgt] != rel:
+                incoming[path_to_rel[tgt]] += 1
+    for rel, n in sorted(incoming.items()):
+        if rel != 'index.html' and n == 0:
+            problems.append('%s: orphan page, no incoming internal link' % rel)
+    return problems, n_pages
 
 
 
