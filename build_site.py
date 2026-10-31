@@ -1778,7 +1778,9 @@ SITE_FOOTER = ('<footer class="site">Zaika Worlds — home food recipes and '
                '<a href="https://www.facebook.com/profile.php?id='
                '1445260131997347">Facebook</a> · '
                '<a href="https://www.pinterest.com/zaikaworlds26/">'
-               'Pinterest</a></footer>')
+               'Pinterest</a> · '
+               '<a href="https://www.tiktok.com/@zaikaworlds">'
+               'TikTok</a></footer>')
 # NOTE (2026-10-31, audit "5 pages have only one incoming internal
 # link"): /about, /contact, /faqs, /privacy and /trending used to be
 # linked only from the homepage footer, so the audit counted one
