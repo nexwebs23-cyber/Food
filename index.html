@@ -8,7 +8,7 @@
 <meta name="p:domain_verify" content="86505414e959ff3d2490bdfa6aa021b7"/>
 <meta name="google-site-verification" content="rqqzWJXi3rSjJAr70jPzL3PxZ5isN7l0aLDCgOfb1DA" />
 <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-KYH4YJMWB4"></script>
+<script>window.addEventListener("load",function(){var s=document.createElement("script");s.async=true;s.src="https://www.googletagmanager.com/gtag/js?id=G-KYH4YJMWB4";document.head.appendChild(s);});</script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
@@ -137,10 +137,12 @@
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;0,800;1,400&display=swap">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+<noscript><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet"></noscript>
 <style>
 :root{
-  --bg:#faf3e7; --surface:#fffdf8; --surface2:#f6e9d6; --ink:#2b241d; --muted:#7d6753;
+  --bg:#faf3e7; --surface:#fffdf8; --surface2:#f6e9d6; --ink:#2b241d; --muted:#77614e;
   --line:#e7d5ba; --red:#b84f28; --red-dark:#96401f; --orange:#d96c3f; --green:#357a4e;
   --gold:#c07a1a; --chip:#f9e8d2; --shadow:0 14px 32px rgba(68,38,18,.14);
   --radius:20px;
@@ -160,7 +162,7 @@ img{max-width:100%;display:block}
 a{color:var(--red)}
 button{font:inherit;cursor:pointer}
 a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
-.skip-link{position:absolute;left:-9999px;top:0;background:var(--accent);color:var(--accent-ink);padding:10px 16px;font-weight:700;z-index:100;border-radius:0 0 12px 0}
+.skip-link{position:absolute;left:-9999px;top:0;background:var(--red-dark);color:#fff;padding:10px 16px;font-weight:700;z-index:100;border-radius:0 0 12px 0}
 .skip-link:focus{left:0;outline:2px solid #fff}
 .honeypot{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
 .form-error{color:var(--red);font-weight:700;margin-top:10px}
@@ -186,7 +188,7 @@ h1,h2,h3{font-family:"Cormorant Garamond",Georgia,serif;font-weight:600;line-hei
 .search-box input{border:0;outline:0;background:transparent;color:var(--header-ink);width:100%;font:inherit;font-size:15px}
 .search-box input::placeholder{color:var(--header-muted)}
 .saved-btn{background:transparent;color:var(--header-ink);border:1.5px solid var(--header-line);border-radius:12px;padding:10px 16px;font-weight:700;font-size:14px}
-.saved-btn[aria-pressed="true"]{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+.saved-btn[aria-pressed="true"]{background:var(--red);color:#fff;border-color:var(--red)}
 .lang-select{display:flex;align-items:center;gap:7px;border:1.5px solid var(--header-line);background:var(--header-surface);color:var(--header-ink);border-radius:12px;padding:6px 8px 6px 12px;font-weight:700;font-size:13px;max-width:230px}
 .lang-select svg{flex:none;width:16px;height:16px;color:var(--accent)}
 .lang-select select{border:0;outline:0;background:transparent;color:inherit;font:inherit;max-width:165px;text-overflow:ellipsis;cursor:pointer;padding:2px 0}
@@ -387,7 +389,7 @@ footer a{color:var(--muted)}
 .site-footer{background:var(--header-bg);border-top:3px solid var(--accent);margin-top:52px;padding:40px 0 34px;color:var(--header-muted);font-size:14px}
 .site-footer h2{font-size:32px;margin:0 0 8px;color:var(--header-ink);font-weight:600}
 .site-footer h3{font-size:21px;margin:0 0 10px;color:var(--header-ink);font-family:"Cormorant Garamond",Georgia,serif;font-weight:600}
-.site-footer h4{font-size:16px;margin:18px 0 6px;color:var(--header-ink)}
+#footerLangH{font-size:16px;margin:18px 0 6px;font-family:inherit;color:var(--header-ink)}
 .site-footer p{margin:0 0 10px}
 .site-footer a{color:var(--header-muted)}
 .footer-grid{display:grid;grid-template-columns:1.2fr .7fr .8fr;gap:28px}
@@ -430,9 +432,10 @@ footer a{color:var(--muted)}
 .info-links{display:flex;flex-wrap:wrap;gap:10px;margin:22px 0 0}
 .info-links a{border:1.5px solid var(--line);background:var(--surface);border-radius:10px;padding:9px 15px;font-weight:700;font-size:14px;color:var(--ink);text-decoration:none}
 .info-links a:hover{border-color:var(--red)}
-.info-view p a,.info-view li a,.hero p a,#world-food p a,#trending p a,.faq p a,.site-footer p a{color:var(--red);font-weight:700}
+.info-view p a,.info-view li a,.hero p a,#world-food p a,#trending p a,.faq p a{color:var(--red);font-weight:700}
 @media print{.prev-next,.more-block,.explore,.breadcrumb{display:none!important}}
 
+@media (prefers-color-scheme: dark){.skip-link{background:#8a4526;color:#fff6ea}.saved-btn[aria-pressed="true"]{background:#8a4526;color:#fff6ea}}
 </style>
 </head>
 <body id="top">
@@ -486,7 +489,7 @@ footer a{color:var(--muted)}
       </div>
     </div>
     <div class="hero-photo">
-      <img src="/assets/hero-49347f9b.webp" alt="A large plate of chicken biryani with saffron rice, fresh coriander and onion" width="1920" height="2560" fetchpriority="high">
+      <img src="/assets/hero-49347f9b-1200.webp" alt="A large plate of chicken biryani with saffron rice, fresh coriander and onion" width="1200" height="900" fetchpriority="high">
       <div class="hero-caption">
         <div><strong>Chicken Biryani</strong><br><span>Karachi style · 60 minutes · Medium</span></div>
         <a href="/recipe/biryani" data-open="biryani">Open Recipe</a>
@@ -601,19 +604,19 @@ footer a{color:var(--muted)}
     </div>
     <div class="trending">
       <a class="trend-card" href="/recipe/biryani" data-open="biryani">
-        <img src="/assets/hero-49347f9b.webp" alt="A plate of chicken biryani with saffron rice and fresh coriander" loading="lazy" width="1920" height="2560">
+        <img src="/assets/thumbs/hero-49347f9b-600.webp" alt="A plate of chicken biryani with saffron rice and fresh coriander" loading="lazy" width="600" height="450">
         <div class="num">01</div>
         <h3>Chicken Biryani</h3>
         <p>A family meal built on spiced chicken, fragrant rice and a slow dum. The method shows when to layer the rice and how long to rest the pot before serving.</p>
       </a>
       <a class="trend-card" href="/recipe/nihari" data-open="nihari">
-        <img src="/assets/trend-card-1-20dab29d.webp" alt="A bowl of beef nihari with deep masala and ginger" loading="lazy" width="579" height="1024">
+        <img src="/assets/thumbs/trend-card-1-20dab29d-600.webp" alt="A bowl of beef nihari with deep masala and ginger" loading="lazy" width="600" height="450">
         <div class="num">02</div>
         <h3>Beef Nihari</h3>
         <p>A slow cooked gravy with tender beef, served with naan. The method shows how to build the masala, thicken the gravy and add fresh garnish at the table.</p>
       </a>
       <a class="trend-card" href="/recipe/gulabjamun" data-open="gulabjamun">
-        <img src="/assets/trend-card-2-009bdad8.webp" alt="Gulab jamun in syrup with rose aroma" loading="lazy" width="1200" height="1800">
+        <img src="/assets/thumbs/trend-card-2-009bdad8-600.webp" alt="Gulab jamun in syrup with rose aroma" loading="lazy" width="600" height="450">
         <div class="num">03</div>
         <h3>Gulab Jamun</h3>
         <p>Soft, syrup soaked sweets for Eid, weddings and family dinners. The method shows how to knead the dough gently and keep the syrup warm, not boiling.</p>
@@ -707,14 +710,14 @@ footer a{color:var(--muted)}
       
       <nav class="breadcrumb" id="recipeBreadcrumb" aria-label="Breadcrumb"></nav>
       <figure class="recipe-hero">
-        <img id="recipeImg" src="/assets/hero-49347f9b.webp" alt="A plate of chicken biryani with saffron rice and fresh coriander" loading="lazy" width="1920" height="2560">
+        <img id="recipeImg" src="/assets/hero-49347f9b.webp" alt="A plate of chicken biryani with saffron rice and fresh coriander" loading="lazy" width="1792" height="1344">
       </figure>
       <div class="facts" id="recipeFacts"></div>
       <p class="intro" id="recipeIntro"></p>
       <div class="video-area" id="videoArea">
         <h3 id="videoHeading">Recipe Video</h3>
         <div class="video-frame">
-          <img id="videoThumbImg" src="/assets/hero-49347f9b.webp" alt="A plate of chicken biryani with saffron rice and fresh coriander" loading="lazy" width="1920" height="2560">
+          <img id="videoThumbImg" src="/assets/hero-49347f9b.webp" alt="A plate of chicken biryani with saffron rice and fresh coriander" loading="lazy" width="1792" height="1344">
           <iframe id="recipeVideo" class="recipe-video" title="Recipe video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen hidden></iframe>
           <button class="video-play" id="videoPlayBtn" type="button" aria-label="Watch the recipe video">
             <span class="play-icon" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span>
@@ -798,7 +801,7 @@ footer a{color:var(--muted)}
         <h2 id="footerTitle">Zaika Worlds</h2>
         <p id="footerDesc">Zaika Worlds is a home cooking collection with big photos and step by step methods, from desi dishes to world food.</p>
         <p id="footerGuide">Every recipe on this page is a home cooking guide. It lists the ingredients first, then the cooking method in clear steps, with cooking time and servings.</p>
-        <h4 id="footerLangH">Read in 13 languages</h4>
+        <h3 id="footerLangH">Read in 13 languages</h3>
         <p id="footerLangP">English, Roman Urdu, हिन्दी, Español, Français, العربية, Português, Русский, 中文, 日本語, Deutsch, Türkçe, বাংলা. Use the language menu at the top to change the language.</p>
       </div>
       <nav class="footer-col footer-quick" aria-labelledby="footerQuickH">
@@ -885,7 +888,7 @@ var _CL={es:{desi:"Platos desi",bbq:"Barbacoa",nashta:"Desayuno",street:"Comida 
 var _DF={es:["Fácil","Media","Difícil"],fr:["Facile","Moyenne","Difficile"],ar:["سهلة","متوسطة","صعبة"],pt:["Fácil","Média","Difícil"],rus:["Лёгкая","Средняя","Сложная"],zh:["简单","中等","困难"],ja:["簡単","中級","難しい"],de:["Leicht","Mittel","Schwer"],tr:["Kolay","Orta","Zor"],bn:["সহজ","মাঝারি","কঠিন"]};
 var _SV={es:"personas",fr:"personnes",ar:"أشخاص",pt:"pessoas",rus:"порции",zh:"人",ja:"人分",de:"Personen",tr:"kişi",bn:"জন"};
 var _DS={en:"dish",ru:"dish",hi:"डिश",es:"plato",fr:"plat",ar:"طبق",pt:"prato",rus:"блюдо",zh:"道菜",ja:"品",de:"Gericht",tr:"yemek",bn:"পদ"};
-var IMG_DIMS={"assets/hero-49347f9b.webp":[1920,2560],"assets/trend-card-1-20dab29d.webp":[579,1024],"assets/chicken-karahi-72a3c2f2.webp":[1080,795],"assets/daal-fry-tadka-daal-699cd89e.webp":[614,768],"assets/chapli-kabab-23a29baa.webp":[600,450],"assets/chicken-tikka-07347e22.webp":[1200,1652],"assets/halwa-puri-nashta-43dc5fe8.webp":[1360,800],"assets/punjabi-samosa-307fb89d.webp":[800,600],"assets/bun-kebab-fca6f5e9.webp":[1200,1200],"assets/trend-card-2-009bdad8.webp":[1200,1800],"assets/gajar-ka-halwa-fc5f08bf.webp":[1200,1405],"assets/mango-lassi-bb084ab7.webp":[1200,1800],"assets/margherita-pizza-22ce327b.webp":[800,1000],"assets/spaghetti-carbonara-50bc65b0.webp":[1024,1024],"assets/sushi-2508fc3b.webp":[1019,1359],"assets/ramen-e463426c.webp":[1200,1680],"assets/tacos-al-pastor-24ef06b9.webp":[1200,1800],"assets/pozole-6cd83ab8.webp":[1600,1067],"assets/pad-thai-c0416eb6.webp":[1200,1800],"assets/peking-duck-b271e564.webp":[1748,1240],"assets/dim-sum-ffc63fc5.webp":[938,625],"assets/coq-au-vin-a92f118c.webp":[720,1080],"assets/bouillabaisse-dd6562d3.webp":[1200,1800],"assets/seafood-paella-c85cf84d.webp":[1875,1500],"assets/beef-pho-95032754.webp":[1000,1500],"assets/poutine-ba527eac.webp":[1672,941],"assets/bobotie-e54f148e.webp":[1200,1566],"assets/moussaka-23654943.webp":[1024,1024],"assets/hummus-7690ed83.webp":[680,1020],"assets/falafel-d3905990.webp":[768,1152],"assets/feijoada-bb4f21f2.webp":[1200,1800],"assets/aussie-meat-pie-e0439b27.webp":[900,1260],"assets/haleem-8bea0d50.webp":[1920,1280]};
+var IMG_DIMS={"assets/aussie-meat-pie-e0439b27.webp":[1792,1344],"assets/beef-pho-95032754.webp":[1792,1344],"assets/bobotie-e54f148e.webp":[1792,1344],"assets/bouillabaisse-dd6562d3.webp":[1792,1344],"assets/bun-kebab-fca6f5e9.webp":[1792,1344],"assets/chapli-kabab-23a29baa.webp":[1792,1344],"assets/chicken-karahi-72a3c2f2.webp":[1792,1344],"assets/chicken-tikka-07347e22.webp":[1792,1344],"assets/coq-au-vin-a92f118c.webp":[1792,1344],"assets/daal-fry-tadka-daal-699cd89e.webp":[1792,1344],"assets/dim-sum-ffc63fc5.webp":[1792,1344],"assets/falafel-d3905990.webp":[1792,1344],"assets/feijoada-bb4f21f2.webp":[1792,1344],"assets/gajar-ka-halwa-fc5f08bf.webp":[1792,1344],"assets/haleem-8bea0d50.webp":[1920,1280],"assets/halwa-puri-nashta-43dc5fe8.webp":[1792,1344],"assets/hero-49347f9b.webp":[1792,1344],"assets/hummus-7690ed83.webp":[1792,1344],"assets/mango-lassi-bb084ab7.webp":[1792,1344],"assets/margherita-pizza-22ce327b.webp":[1792,1344],"assets/moussaka-23654943.webp":[1792,1344],"assets/pad-thai-c0416eb6.webp":[1792,1344],"assets/peking-duck-b271e564.webp":[1792,1344],"assets/poutine-ba527eac.webp":[1792,1344],"assets/pozole-6cd83ab8.webp":[1792,1344],"assets/punjabi-samosa-307fb89d.webp":[1792,1344],"assets/ramen-e463426c.webp":[1792,1344],"assets/seafood-paella-c85cf84d.webp":[1792,1344],"assets/spaghetti-carbonara-50bc65b0.webp":[1792,1344],"assets/sushi-2508fc3b.webp":[1792,1344],"assets/tacos-al-pastor-24ef06b9.webp":[1792,1344],"assets/trend-card-1-20dab29d.webp":[1792,1344],"assets/trend-card-2-009bdad8.webp":[1792,1344]};
 var LANG_NEW_ALL={};[LANG_NEW_RAW,LANG_NEW_RAW2,LANG_NEW_RAW3].forEach(function(_src){for(var _k in _src){var _t=LANG_NEW_ALL[_k]||(LANG_NEW_ALL[_k]={});for(var _l in _src[_k]){_t[_l]=_src[_k][_l];}}});
 for(var _id in LANG_NEW_ALL){var _e=LANG_NEW_ALL[_id];var _base=null;for(var _bi=0;_bi<RECIPES.length;_bi++){if(RECIPES[_bi].id===_id){_base=RECIPES[_bi];break;}}var _cat=_e.cat||(_base?_base.cat:"desi");var _di=_e.diff;if(_di===undefined&&_base){_di={Easy:0,Medium:1,Hard:2}[_base.diff];if(_di===undefined)_di=1;}var _sv=_e.serv;if(_sv===undefined&&_base)_sv=parseInt(_base.servings,10)||4;for(var _l in _e){if(_l==="cat"||_l==="diff"||_l==="serv")continue;var _a=_e[_l];LANG_DATA[_id][_l]={name:_a[0],catLabel:_CL[_l][_cat],diff:_DF[_l][_di],servings:_sv+" "+_SV[_l],desc:_a[1],alt:_a[2]};}}
 
@@ -1075,6 +1078,8 @@ function rDiff(r){var d=rLangData(r);return d&&d.diff?d.diff:r.diff;}
 function rServings(r){var d=rLangData(r);return d&&d.servings?d.servings:r.servings;}
 function rCountry(r){var c=T().countries;return c&&c[r.country]?c[r.country]:r.country;}
 function imgDims(r){var d=IMG_DIMS[r.img];return d?('width="'+d[0]+'" height="'+d[1]+'"'):"";}
+function thumbPath(img){return img.replace("assets/","assets/thumbs/").replace(/\.webp$/,"-600.webp");}
+function thumbDims(r){var d=IMG_DIMS[r.img];return d?('width="600" height="'+Math.round(600*d[1]/d[0])+'"'):"";}
 function videoId(r){if(r.videos) return r.videos[LANG]||r.videos.en||r.video||null; return r.video||null;}
 function videoEmbedUrl(id){return "https://www.youtube-nocookie.com/embed/"+id+"?enablejsapi=1&modestbranding=1&rel=0";}
 var ytPlayer=null, ytPlayerReady=false, ytCreating=false, ytApiReady=false, ytApiLoading=false, ytCurrentId=null, ytIntent=null, ytPlayRequest=false, ytLastPos=0, ytLastPlaying=false, ytPosTimer=null;
@@ -1197,7 +1202,7 @@ function cardHtml(r){
   var heart=saved.has(r.id)?"♥":"♡";
   var tx=rText(r);
   return '<article class="pin">'+
-  '<div class="pin-img '+r.shape+'"><a class="img-open" href="'+recipeHref(r.id)+'" data-open="'+r.id+'" aria-label="'+esc("Open recipe: "+rName(r))+'"><img src="'+cleanPath(r.img)+'" alt="'+esc(tx.alt)+'" loading="lazy" '+imgDims(r)+'></a>'+
+  '<div class="pin-img '+r.shape+'"><a class="img-open" href="'+recipeHref(r.id)+'" data-open="'+r.id+'" aria-label="'+esc("Open recipe: "+rName(r))+'"><img src="'+cleanPath(thumbPath(r.img))+'" alt="'+esc(tx.alt)+'" loading="lazy" decoding="async" '+thumbDims(r)+'></a>'+
   '<span class="cat-badge">'+esc(r.cat==="world"?rCountry(r):rCat(r))+'</span>'+
   '<button class="save-heart'+(saved.has(r.id)?" saved":"")+'" type="button" data-save="'+r.id+'" aria-label="'+esc((saved.has(r.id)?"Remove from Saved":"Save")+" : "+rName(r))+'">'+heart+'</button></div>'+
   '<a class="pin-body" href="'+recipeHref(r.id)+'" data-open="'+r.id+'"><h3>'+rName(r)+'</h3><p>'+tx.desc+'</p>'+
@@ -1290,8 +1295,14 @@ function hideVideoSoon(){
   renderVideo(r,rText(r));
   document.getElementById("videoPlayBtn").focus();
 }
+function _extraReady(lang,id){return !!(typeof EXTRA!=="undefined"&&EXTRA&&EXTRA[id]&&EXTRA[id][lang]);}
+/* In the slim build _ensureExtra is replaced by the lazy loader
+   in build_site.py (LOADER_JS), which fetches data/extra-<lang>.js on demand;
+   in the FAT source EXTRA is inline, so this stub resolves at once. */
+function _ensureExtra(lang){return Promise.resolve();}
 function openRecipe(id,push){
   var r=RECIPES.find(function(x){return x.id===id;}); if(!r) return;
+  if(!_extraReady(LANG,id)){_ensureExtra(LANG).then(function(){if(currentId===id)openRecipe(id,false);});}
   currentId=id;
   var _ae=document.activeElement;if(_ae&&_ae.closest&&_ae.closest('[data-open]'))_lastOpener=_ae;
   setRouteMeta("recipe",null,id);
@@ -1331,7 +1342,7 @@ function openRecipe(id,push){
   RECIPES.forEach(function(x){if(x.id!==r.id&&!_seen[x.id]){_seen[x.id]=1;rel.push(x);}});
   rel=rel.slice(0,6);
   document.getElementById("relatedGrid").innerHTML=rel.map(function(x){
-    return '<a class="rel" href="'+recipeHref(x.id)+'" data-open="'+x.id+'"><img src="'+cleanPath(x.img)+'" alt="'+esc(rText(x).alt)+'" loading="lazy" '+imgDims(x)+'><span>'+rName(x)+' \u00b7 '+x.time+' '+minuteWord()+'</span></a>';
+    return '<a class="rel" href="'+recipeHref(x.id)+'" data-open="'+x.id+'"><img src="'+cleanPath(thumbPath(x.img))+'" alt="'+esc(rText(x).alt)+'" loading="lazy" decoding="async" '+thumbDims(x)+'><span>'+rName(x)+' \u00b7 '+x.time+' '+minuteWord()+'</span></a>';
   }).join("");
   var _lt=linkTxt();
   var _mch=document.getElementById("moreCountryH");

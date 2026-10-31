@@ -1554,12 +1554,22 @@ def write_data_files(data):
         write(path, text)
         out[rel] = len(text.encode('utf-8'))
 
-    # Core (English) — loaded by the SPA on every visit.
+    # Core (English) — recipes.js + ui-en.js load on every visit; extra-en.js
+    # is lazy-loaded by the SPA on first recipe open (_ensureExtra in
+    # LOADER_JS), so the 152 KB long-form text is not on the critical path.
     w('recipes.js', 'var RECIPES=' + js_json(data['recipes']) + ';\n')
-    extra_en = {rid: {'en': d['en']} for rid, d in data['extra'].items()
+    # Flat {rid: fields} (like the other languages): _mergeExtraLang
+    # assigns EXTRA[rid].en = obj[rid], so the {en:} wrapper the old
+    # `var EXTRA=` format needed would double-nest and hide the text.
+    extra_en = {rid: d['en'] for rid, d in data['extra'].items()
                 if 'en' in d}
-    extra_en = _split_ing_obj(extra_en, 'en')
-    w('extra-en.js', 'var EXTRA=' + js_json(extra_en) + ';\n')
+    split_en = {}
+    for rid, fields in extra_en.items():
+        f = dict(fields)
+        if f.get('ing'):
+            f['ing'] = split_ingredients(f['ing'], 'en')
+        split_en[rid] = f
+    w('extra-en.js', 'var ZAIKA_EXTRA_EN=' + js_json(split_en) + ';\n')
     en_patches = ''.join('UI.en.%s=%s;\n' % (k, js_json(v))
                          for k, v in sorted(data['ui_patches']['en'].items()))
     w('ui-en.js',
@@ -1989,15 +1999,13 @@ def list_page(data, li):
     title = cap_title(li['title'])
     cards = []
     for r in li['recipes']:
-        dims = data['img_dims'].get(r['img'], [])
-        wh = (' width="%d" height="%d"' % (dims[0], dims[1])
-              if len(dims) == 2 else '')
+        wh = thumb_wh(r['img'], data['img_dims'])
         cards.append(
             '<div class="card"><a href="/recipe/%s">'
-            '<img src="%s" alt="%s"%s loading="lazy"></a>'
+            '<img src="%s" alt="%s"%s loading="lazy" decoding="async"></a>'
             '<div><a href="/recipe/%s">%s</a>'
             '<p>%s &middot; %s &middot; %s</p></div></div>'
-            % (esc(r['id']), esc(SITE + '/' + r['img']),
+            % (esc(r['id']), esc(SITE + '/' + thumb_img(r['img'])),
                esc(r_text_en(r, data['extra']).get('alt') or ''), wh,
                esc(r['id']), esc(r['name']), esc(r['time']) + ' min',
                esc(r['servings']), esc(r['country'])))
@@ -2223,16 +2231,14 @@ def language_home_page(data, lang):
     desc = fit_desc(ui_str(data, lang, 'heroSub', ''), '')
     cards = []
     for r in sorted(data['recipes'], key=lambda x: lang_name(x, data, lang)):
-        dims = data['img_dims'].get(r['img'], [])
-        wh = (' width="%d" height="%d"' % (dims[0], dims[1])
-              if len(dims) == 2 else '')
+        wh = thumb_wh(r['img'], data['img_dims'])
         cards.append(
             '<div class="card"><a href="%s">'
-            '<img src="%s" alt="%s"%s loading="lazy"></a>'
+            '<img src="%s" alt="%s"%s loading="lazy" decoding="async"></a>'
             '<div><a href="%s">%s</a>'
             '<p>%s %s &middot; %s &middot; %s</p></div></div>'
             % (esc(lang_url('/recipe/' + r['id'], lang)),
-               esc(SITE + '/' + r['img']),
+               esc(SITE + '/' + thumb_img(r['img'])),
                esc(lang_alt(r, data, lang)), wh,
                esc(lang_url('/recipe/' + r['id'], lang)),
                esc(lang_name(r, data, lang)),
@@ -2396,15 +2402,27 @@ function _loadScript(src){return new Promise(function(res,rej){var s=document.cr
 var _loadedLangs={};
 function _mergeExtraLang(lang,obj){for(var id in obj){if(!EXTRA[id])EXTRA[id]={};EXTRA[id][lang]=obj[id];}}
 function _mergeLangData(lang,obj){for(var id in obj){if(!LANG_DATA[id])LANG_DATA[id]={};LANG_DATA[id][lang]=obj[id];}}
+var _loadedExtra={};
+function _ensureExtra(lang){
+  if(_loadedExtra[lang])return Promise.resolve();
+  _loadedExtra[lang]=true;
+  return _loadScript("data/extra-"+lang+".js").then(function(){var g=window["ZAIKA_EXTRA_"+lang.toUpperCase()];if(g)_mergeExtraLang(lang,g);});
+}
+var _loadedLangNew=false;
+function _ensureLangNew(){
+  if(_loadedLangNew)return Promise.resolve();
+  _loadedLangNew=true;
+  return _loadScript("data/lang-new.js").then(function(){try{_mergeLangNew();}catch(e){if(window.console&&console.error)console.error(e);}});
+}
 function _ensureLangData(lang){
   if(lang==="en"||_loadedLangs[lang])return Promise.resolve();
   _loadedLangs[lang]=true;
-  var jobs=[_loadScript("data/extra-"+lang+".js").then(function(){var g=window["ZAIKA_EXTRA_"+lang.toUpperCase()];if(g)_mergeExtraLang(lang,g);}),_loadScript("data/ui-"+lang+".js").then(function(){var u=window["ZAIKA_UI_"+lang.toUpperCase()];var inf=window["ZAIKA_INFO_"+lang.toUpperCase()];if(u)UI[lang]=u;if(inf)INFO[lang]=inf;})];
+  var jobs=[_ensureExtra(lang),_loadScript("data/ui-"+lang+".js").then(function(){var u=window["ZAIKA_UI_"+lang.toUpperCase()];var inf=window["ZAIKA_INFO_"+lang.toUpperCase()];if(u)UI[lang]=u;if(inf)INFO[lang]=inf;})];
   if(lang==="hi"||lang==="ru"){jobs.push(_loadScript("data/lang-data-"+lang+".js").then(function(){var g=window["ZAIKA_LANGDATA_"+lang.toUpperCase()];if(g)_mergeLangData(lang,g);}));}
-  return Promise.all(jobs);
+  return _ensureLangNew().then(function(){return Promise.all(jobs);});
 }
 (function _initZaika(){
-  Promise.all([_loadScript("data/recipes.js"),_loadScript("data/extra-en.js"),_loadScript("data/ui-en.js"),_loadScript("data/lang-new.js")]).then(function(){try{_mergeLangNew();}catch(e){if(window.console&&console.error)console.error(e);}return _ensureLangData(LANG);}).then(function(){applyLang();applyRoute();}).catch(function(e){if(window.console&&console.error)console.error(e);if(RECIPES&&RECIPES.length){applyLang();applyRoute();}else{document.body.innerHTML="<p style='font-family:sans-serif;padding:40px'>Zaika Worlds could not load its recipe data. Please refresh the page.</p>";}});
+  Promise.all([_loadScript("data/recipes.js"),_loadScript("data/ui-en.js")]).then(function(){return _ensureLangData(LANG);}).then(function(){applyLang();applyRoute();}).catch(function(e){if(window.console&&console.error)console.error(e);if(RECIPES&&RECIPES.length){applyLang();applyRoute();}else{document.body.innerHTML="<p style='font-family:sans-serif;padding:40px'>Zaika Worlds could not load its recipe data. Please refresh the page.</p>";}});
 })();
 """
 
@@ -2439,6 +2457,22 @@ def _stmt_span(src, anchor, opener):
     return i, semi + 1
 
 
+def thumb_img(img):
+    """600px thumbnail path for a recipe photo (PageSpeed 2026-10-31:
+    cards display at most ~563px wide, so the 1792px originals were
+    ~5x oversized. Thumbs live in assets/thumbs/<base>-600.webp and are
+    generated from the same unique AI photo."""
+    return img.replace('assets/', 'assets/thumbs/').replace('.webp', '-600.webp')
+
+
+def thumb_wh(img, img_dims):
+    """width/height attrs for the 600px thumbnail of img (kills CLS)."""
+    dims = img_dims.get(img, [])
+    if len(dims) == 2 and dims[0]:
+        return ' width="600" height="%d"' % round(600 * dims[1] / dims[0])
+    return ''
+
+
 def static_grid_html(data):
     """The homepage recipe grid as static HTML (issue M): all 33 recipe
     cards in the same <article class="pin"> markup the SPA's cardHtml()
@@ -2448,16 +2482,14 @@ def static_grid_html(data):
     cards = []
     for r in sorted(data['recipes'], key=lambda x: x['name']):
         tx = r_text_en(r, data['extra'])
-        dims = data['img_dims'].get(r['img'], [])
-        wh = (' width="%d" height="%d"' % (dims[0], dims[1])
-              if len(dims) == 2 else '')
+        wh = thumb_wh(r['img'], data['img_dims'])
         badge = r['country'] if r['cat'] == 'world' else r['catLabel']
         veg = '🥬 Veg' if r['veg'] == 'veg' else '🍖 Non-Veg'
         cards.append(
             '<article class="pin">'
             '<div class="pin-img %s"><a class="img-open" href="/recipe/%s" '
             'data-open="%s" aria-label="Open recipe: %s">'
-            '<img src="/%s" alt="%s" loading="lazy"%s></a>'
+            '<img src="/%s" alt="%s" loading="lazy" decoding="async"%s></a>'
             '<span class="cat-badge">%s</span></div>'
             '<a class="pin-body" href="/recipe/%s" data-open="%s">'
             '<h3>%s</h3><p>%s</p>'
@@ -2467,7 +2499,7 @@ def static_grid_html(data):
             '<b>%s</b></span><span>%s</span><span>%s</span></span>'
             '</a></article>'
             % (esc(r['shape']), esc(r['id']), esc(r['id']),
-               esc(r['name']), esc(r['img']), esc(tx.get('alt') or ''),
+               esc(r['name']), esc(thumb_img(r['img'])), esc(tx.get('alt') or ''),
                wh, esc(badge), esc(r['id']), esc(r['id']),
                esc(r['name']), esc(tx.get('desc') or ''),
                esc(r['time']), esc(r['servings']), esc(r['diff']),
@@ -2714,6 +2746,41 @@ def generate_sitemap(data):
     return len(urls)
 
 
+def webp_dims(path):
+    """Width/height of a WebP file, stdlib only (VP8 / VP8L / VP8X)."""
+    with open(path, 'rb') as f:
+        head = f.read(30)
+    if head[:4] != b'RIFF' or head[8:12] != b'WEBP':
+        raise ValueError('%s: not a WebP' % path)
+    kind = head[12:16]
+    if kind == b'VP8X':
+        return (int.from_bytes(head[24:27], 'little') + 1,
+                int.from_bytes(head[27:30], 'little') + 1)
+    if kind == b'VP8L':
+        v = int.from_bytes(head[21:25], 'little')
+        return ((v & 0x3FFF) + 1, ((v >> 14) & 0x3FFF) + 1)
+    if kind == b'VP8 ':
+        return (int.from_bytes(head[26:28], 'little') & 0x3FFF,
+                int.from_bytes(head[28:30], 'little') & 0x3FFF)
+    raise ValueError('%s: unknown WebP chunk %r' % (path, kind))
+
+
+def _lum(hexs):
+    """Relative luminance of a #rrggbb colour (WCAG)."""
+    hexs = hexs.lstrip('#')
+    rgb = [int(hexs[i:i + 2], 16) / 255 for i in (0, 2, 4)]
+    rgb = [c / 12.92 if c <= 0.03928 else ((c + 0.055) / 1.055) ** 2.4
+           for c in rgb]
+    return 0.2126 * rgb[0] + 0.7152 * rgb[1] + 0.0722 * rgb[2]
+
+
+def _contrast(fg, bg):
+    l1, l2 = _lum(fg), _lum(bg)
+    if l1 < l2:
+        l1, l2 = l2, l1
+    return (l1 + 0.05) / (l2 + 0.05)
+
+
 def validate_build(data):
     """Full build validation (issue Q + future-proofing): generates every
     static page in memory and FAILS on regressions, so a bad recipe or a
@@ -2741,6 +2808,36 @@ def validate_build(data):
         if r['id'] not in (dates.get('article') or {}):
             problems.append('%s: no article date in recipe_dates.json'
                             % r['id'])
+    # PageSpeed (2026-10-31): IMG_DIMS must be the real file dimensions
+    # (stale dims caused CLS) and every recipe photo must have a 600px
+    # thumbnail in assets/thumbs/ (cards display at most ~563px wide).
+    for r in data['recipes']:
+        img = r['img']
+        path = os.path.join(ROOT, img)
+        try:
+            real = webp_dims(path)
+        except Exception as e:
+            problems.append('%s: cannot read image dims: %s' % (img, e))
+            continue
+        want = data['img_dims'].get(img, [])
+        if list(real) != list(want):
+            problems.append('%s: IMG_DIMS %r != real dims %r (stale dims '
+                            'cause layout shift)' % (img, want, list(real)))
+        thumb = thumb_img(img)
+        tpath = os.path.join(ROOT, thumb)
+        if not os.path.exists(tpath):
+            problems.append('%s: missing thumbnail %s (cards must use the '
+                            '600px thumb, not the full photo)' % (img, thumb))
+        else:
+            try:
+                td = webp_dims(tpath)
+            except Exception as e:
+                problems.append('%s: cannot read thumbnail dims: %s'
+                                % (thumb, e))
+                td = None
+            if td and td != (600, round(600 * real[1] / real[0])):
+                problems.append('%s: thumbnail dims %r, expected 600x%d'
+                                % (thumb, td, round(600 * real[1] / real[0])))
     pages = {}  # rel path -> html
 
     def add(rel, html):
@@ -2827,6 +2924,13 @@ def validate_build(data):
         if html.count('<h1') != 1:
             problems.append('%s: %d <h1, expected 1'
                             % (rel, html.count('<h1')))
+        levels = [int(m.group(1)) for m in
+                  re.finditer(r'<h([1-6])\b', html)]
+        for a, b in zip(levels, levels[1:]):
+            if b > a + 1:
+                problems.append('%s: heading order skips h%d -> h%d '
+                                '(PageSpeed accessibility)' % (rel, a, b))
+                break
         problems.extend(_anchor_problems(rel, html))
         quals = ING_QUALIFIERS.get(lang, set())
         for b in re.findall(r'<script type="application/ld\+json">(.*?)</script>',
@@ -2914,6 +3018,72 @@ def validate_build(data):
                                 encoding='utf-8').read(), data)
     pages['index.html'] = slim_html
     problems.extend(_anchor_problems('index.html', slim_html))
+    # PageSpeed (2026-10-31) slim-homepage guards.
+    # (a) Card images must be 600px thumbs; the only full-size recipe
+    # photos allowed in <img> tags are the LCP hero (1200w variant) and
+    # the recipeImg/videoThumbImg placeholders (swapped by JS at runtime).
+    for m in re.finditer(r'<img([^>]*)>', slim_html):
+        _tag = m.group(1)
+        _sm = re.search(r'src="([^"]+)"', _tag)
+        if not _sm:
+            continue
+        s = _sm.group(1)
+        if (s.startswith('/assets/') and s.endswith('.webp')
+                and '/thumbs/' not in s
+                and 'hero-49347f9b-1200.webp' not in s
+                and 'id="recipeImg"' not in _tag
+                and 'id="videoThumbImg"' not in _tag):
+            problems.append('index.html: full-size photo in <img>: %s '
+                            '(cards must use the 600px thumb)' % s)
+    # (b) Init must load only recipes.js + ui-en.js; extra-en.js and
+    # lang-new.js are lazy (on recipe open / language switch).
+    if ('Promise.all([_loadScript("data/recipes.js"),'
+            '_loadScript("data/ui-en.js")])') not in slim_html:
+        problems.append('index.html: slim init must load only recipes.js '
+                        '+ ui-en.js (extra-en.js / lang-new.js are lazy)')
+    # (c) extra-en.js must be the mergeable ZAIKA_EXTRA_EN format, or
+    # _ensureExtra would wipe other languages when it loads.
+    try:
+        with open(os.path.join(ROOT, 'data', 'extra-en.js'),
+                  encoding='utf-8') as f:
+            _ee = f.read(40)
+        if not _ee.startswith('var ZAIKA_EXTRA_EN='):
+            problems.append('data/extra-en.js: must start with '
+                            'var ZAIKA_EXTRA_EN= (mergeable format)')
+    except Exception as e:
+        problems.append('data/extra-en.js unreadable: %s' % e)
+    # (d) Contrast: the fixed pairs in the light theme must pass WCAG
+    # AA (4.5 normal text, 3.0 large text). The footer links must not
+    # be red-on-dark (the old .site-footer p a rule).
+    _css = re.search(r'<style[^>]*>(.*?)</style>', slim_html, re.S)
+    if _css:
+        _root = re.search(r':root\{([^}]*?)\}', _css.group(1), re.S)
+        _vars = dict(re.findall(r'--([a-z0-9-]+):(#[0-9a-fA-F]{6})',
+                                _root.group(1))) if _root else {}
+        _pairs = [('muted', 'surface2', 4.5, 'fact label'),
+                  ('muted', 'surface', 4.5, 'muted on surface'),
+                  ('muted', 'bg', 4.5, 'muted on bg'),
+                  ('red', 'surface', 4.5, 'red links on surface'),
+                  ('red', 'bg', 4.5, 'red links on bg'),
+                  ('header-ink', 'header-bg', 4.5, 'footer links'),
+                  ('accent', 'header-bg', 3.0, 'wordmark (large text)')]
+        for fg, bg, need, why in _pairs:
+            if fg in _vars and bg in _vars:
+                _r = _contrast(_vars[fg], _vars[bg])
+                if _r < need:
+                    problems.append('contrast: %s on %s is %.2f, need %.1f '
+                                    '(%s)' % (fg, bg, _r, need, why))
+        # white text on the deep backgrounds used for skip-link and the
+        # pressed Save button (light theme uses --red-dark / --red).
+        for bg, why in (('red-dark', 'skip-link'),
+                         ('red', 'pressed Save button')):
+            if bg in _vars and _contrast('#ffffff', _vars[bg]) < 4.5:
+                problems.append('contrast: white on --%s is %.2f, need 4.5 '
+                                '(%s)' % (bg, _contrast('#ffffff',
+                                                        _vars[bg]), why))
+        if '.site-footer p a' in _css.group(1):
+            problems.append('contrast: .site-footer p a must not be styled '
+                            'red (red on the dark footer fails WCAG)')
 
     def _path_of(rel):
         if rel == 'index.html':
