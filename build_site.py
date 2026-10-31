@@ -5,7 +5,7 @@ What it does
 ------------
 1. Parses the big data blocks out of index.html (RECIPES, EXTRA, LANG_DATA, UI,
    INFO, EXTRA_NEW) and writes them as lazily-loaded files under data/:
-     data/recipes.js        RECIPES (all 32, English base + video ids)
+     data/recipes.js        RECIPES (all 33, English base + video ids)
      data/extra-en.js       EXTRA for English only
      data/extra-<lang>.js   long-form text for one language (12 files)
      data/ui-en.js          UI.en + INFO.en
@@ -19,14 +19,14 @@ What it does
 2. Emits thin static SEO pages for every served route, each with its own
    <title> (<=60 chars), meta description, canonical + OG/Twitter tags and
    JSON-LD built from the same data setRouteMeta() uses:
-     recipe/<slug>/index.html   x32
+     recipe/<slug>/index.html   x33
      category/<slug>/index.html x7
      country/<slug>/index.html  x16
      about/index.html, privacy/index.html, contact/index.html
      recipes/index.html, trending/index.html, faqs/index.html
      eid-recipes/index.html, ramadan-recipes/index.html (seasonal hubs)
      guides/dum-cooking/index.html (technique guide from real recipe tips)
-     <lang>/recipe/<slug>/index.html  x12 languages x32 recipes
+     <lang>/recipe/<slug>/index.html  x12 languages x33 recipes
      <lang>/index.html  x12 language homepages
    Language prefixes: roman-urdu (ur-Latn), hi, ru (Russian), es, fr, ar,
    pt, zh, ja, de, tr, bn. English stays at the root (hreflang "en",
@@ -38,10 +38,10 @@ What it does
    recipe_dates.json at the repo root (real git-history date only; never invented),
    split one-per-line ingredients, embedded YouTube iframe + VideoObject
    (uploadDate only from a real publish record), FAQPage JSON-LD.
-   The slim homepage gets a static 32-card recipe grid (raw HTML, no JS)
+   The slim homepage gets a static 33-card recipe grid (raw HTML, no JS)
    and FAQPage JSON-LD for the homepage FAQ.
 3. Regenerates sitemap.xml from the same source of truth as the static
-   pages (461 URLs: 59 original + 384 language recipe pages + 12 language
+   pages (474 URLs: 60 original + 396 language recipe pages + 12 language
    homepages + 6 new pages). No <lastmod> is written: no per-page
    modification date is recorded, and inventing one would be a fake date.
 4. Rewrites index.html in place into a slim SPA shell (~160KB instead of
@@ -1283,7 +1283,7 @@ def extract_all(src):
             ui_min[lang] = m.group(1)
 
     # EXTRA_NEW: per-language arrays -> normalized 10-key objects.
-    # Initial literal holds es/fr (4 recipes each); es/fr/ar/pt add 28-32
+    # Initial literal holds es/fr (4 recipes each); es/fr/ar/pt add 29-33
     # per-recipe assignments; bn/de/ja/rus/tr/zh are whole-language literals.
     en_raw = {}
     init_raw, _, _ = find_literal(src, 'var EXTRA_NEW={')
@@ -1336,10 +1336,10 @@ def extract_all(src):
 def validate(data):
     """Sanity checks: counts, coverage, required fields. Fail loudly."""
     recipes = data['recipes']
-    if len(recipes) != 32:
-        raise JSError("expected 32 recipes, got %d" % len(recipes))
+    if len(recipes) != 33:
+        raise JSError("expected 33 recipes, got %d" % len(recipes))
     ids = [r['id'] for r in recipes]
-    if len(set(ids)) != 32:
+    if len(set(ids)) != 33:
         raise JSError("duplicate recipe ids")
     for r in recipes:
         for k in ('id', 'name', 'country', 'cat', 'catLabel', 'time',
@@ -1351,11 +1351,11 @@ def validate(data):
     for lang in EXTRA_OBJ_LANGS:
         have = {rid for rid, d in data['extra'].items() if lang in d}
         if have != set(ids):
-            raise JSError("EXTRA.%s covers %d/32 recipes" % (lang, len(have)))
+            raise JSError("EXTRA.%s covers %d/33 recipes" % (lang, len(have)))
     for lang in EXTRA_NEW_LANGS:
         have = set(data['extra_new'].get(lang, {}))
         if have != set(ids):
-            raise JSError("EXTRA_NEW.%s covers %d/32 recipes"
+            raise JSError("EXTRA_NEW.%s covers %d/33 recipes"
                           % (lang, len(have)))
     for lang in LANGS:
         if lang not in data['ui_raw']:
@@ -1374,7 +1374,7 @@ def validate(data):
     for lang in LANG_DATA_LANGS:
         have = {rid for rid, d in data['lang_data'].items() if lang in d}
         if have != set(ids):
-            raise JSError("LANG_DATA.%s covers %d/32 recipes"
+            raise JSError("LANG_DATA.%s covers %d/33 recipes"
                           % (lang, len(have)))
     # LANG_NEW_RAW* cover the other 10 languages (short-form name/desc/alt).
     expect = {'LANG_NEW_RAW': {'es', 'fr', 'ar'},
@@ -1383,7 +1383,7 @@ def validate(data):
     for key, langs in expect.items():
         raw = data[key.lower()]
         if set(raw) != set(ids):
-            raise JSError("%s covers %d/32 recipes" % (key, len(raw)))
+            raise JSError("%s covers %d/33 recipes" % (key, len(raw)))
         have = {L for d in raw.values() for L in d
                 if L not in ('cat', 'diff', 'serv')}
         if have != langs:
@@ -2040,7 +2040,7 @@ def new_list_pages(data):
     first_img = all_recipes[0]['img']
     first_alt = r_text_en(all_recipes[0], data['extra']).get('alt') or ''
     pages = {}
-    intro_all = ("All 32 Zaika Worlds recipes: Pakistani, Indian and world "
+    intro_all = ("All 33 Zaika Worlds recipes: Pakistani, Indian and world "
                  "food dishes with full ingredients, step by step methods, "
                  "cooking time and servings. Click any recipe to open the "
                  "full method and start cooking.")
@@ -2132,7 +2132,7 @@ def guide_page(data):
 
 def language_home_page(data, lang):
     """Static homepage for a language (issue N): the translated hero
-    title + hero sub-text, a static grid of all 32 recipes linking to
+    title + hero sub-text, a static grid of all 33 recipes linking to
     the language recipe pages, and hreflang for every variant. The
     English homepage is the slim index.html; this is for the 12
     non-English languages only."""
@@ -2178,7 +2178,7 @@ def write_static_pages(data):
     """Write all static pages. Returns {path: bytes}. English recipe
     pages at /recipe/<slug>; language recipe pages at
     /<prefix>/recipe/<slug> and language homepages at /<prefix>/ (all 12
-    non-English languages — their data is complete, 32/32)."""
+    non-English languages — their data is complete, 33/33)."""
     out = {}
     dates = load_recipe_dates()
 
@@ -2360,7 +2360,7 @@ def _stmt_span(src, anchor, opener):
 
 
 def static_grid_html(data):
-    """The homepage recipe grid as static HTML (issue M): all 32 recipe
+    """The homepage recipe grid as static HTML (issue M): all 33 recipe
     cards in the same <article class="pin"> markup the SPA's cardHtml()
     produces, so the homepage shows real content in raw HTML without JS.
     The SPA's render() replaces this grid on load, so filters keep
@@ -2505,7 +2505,7 @@ def build_slim(src, data):
     # 4. Build marker (guards extract_all against re-running on slim output).
     out = out.replace('<html lang="en">',
                       '<html lang="en">\n<!-- ' + SLIM_MARKER + ' -->', 1)
-    # 5. Static recipe grid (issue M): inject the 32 cards into the
+    # 5. Static recipe grid (issue M): inject the 33 cards into the
     #    homepage grid placeholder so the raw HTML shows real content
     #    without JS. The SPA's render() replaces this on load.
     grid_anchor = '<div class="masonry" id="grid"><!-- cards injected by JS --></div>'

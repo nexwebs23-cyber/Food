@@ -5,7 +5,7 @@
     <link>https://www.zaikaworlds.com/</link>
     <description>Cook famous dishes from Pakistan and India, plus favourites from around the world, with big photos and step by step methods.</description>
     <language>en</language>
-    <lastBuildDate>Fri, 30 Oct 2026 15:33:23 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 31 Oct 2026 06:02:59 GMT</lastBuildDate>
     <item>
       <title>Chicken Biryani</title>
       <link>https://www.zaikaworlds.com/recipe/biryani</link>
@@ -261,6 +261,14 @@
       <description>The Aussie meat pie is an icon, handheld, golden and eaten at football games, bakeries and kitchen tables all over Australia. Inside a crisp shortcrust base and a flaky puff pastry lid is a rich beef filling, slow cooked with onion, tomato, Worcestershire sauce and a little Vegemite for depth, thick enough to hold its shape when the pie is cut, but juicy enough to need tomato sauce on top. Make the filling ahead and cool it fully, because warm filling melts the pastry, then bake until the lid is deep golden. Serve it hot, with tomato sauce, and eat it with your hands, the Australian way.</description>
       <enclosure url="https://www.zaikaworlds.com/assets/aussie-meat-pie-e0439b27.webp" type="image/webp" length="307906" />
       <media:content url="https://www.zaikaworlds.com/assets/aussie-meat-pie-e0439b27.webp" type="image/webp" medium="image" />
+    </item>
+    <item>
+      <title>Haleem</title>
+      <link>https://www.zaikaworlds.com/recipe/haleem</link>
+      <guid isPermaLink="true">https://www.zaikaworlds.com/recipe/haleem</guid>
+      <description>Haleem is not fast food, it is food of patience. Wheat, barley and lentils soak overnight, beef cooks until it shreds, and everything is mashed together until the pot turns into one thick, silky porridge with the famous stringy texture.</description>
+      <enclosure url="https://www.zaikaworlds.com/assets/haleem-8bea0d50.webp" type="image/webp" length="641888" />
+      <media:content url="https://www.zaikaworlds.com/assets/haleem-8bea0d50.webp" type="image/webp" medium="image" />
     </item>
   </channel>
 </rss>
