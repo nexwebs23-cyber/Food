@@ -879,6 +879,27 @@ def load_recipe_dates():
         return json.load(f)
 
 
+def load_nutrition():
+    """Per-serving nutrition estimates from nutrition.json at the repo
+    root (computed 2026-10-31 from each recipe's REAL ingredient list +
+    servings, USDA FoodData Central values — see nutrition-working.md).
+    The file lives at the root — NOT under tools/ — for the same reason
+    as recipe_dates.json (tools/ is vercelignored). Values are estimates:
+    a field that could not be computed is OMITTED from the file (sodium
+    for 8 recipes with no salt listed) and is omitted everywhere downstream
+    too — never guessed, never zero-filled. Raises if the file is missing
+    or a recipe is uncovered, so a bad nutrition file cannot silently
+    drop the field from production."""
+    path = os.path.join(ROOT, 'nutrition.json')
+    if not os.path.exists(path):
+        raise JSError("nutrition.json missing from the repo root")
+    with open(path, encoding='utf-8') as f:
+        nut = json.load(f)
+    if not isinstance(nut, dict) or not nut:
+        raise JSError("nutrition.json is empty or not an object")
+    return nut
+
+
 # ---------------------------------------------------------------------------
 # Homepage FAQ (SEO audit round 2, issue P) + hubs/guides (issue O)
 # ---------------------------------------------------------------------------
@@ -1423,6 +1444,12 @@ def extract_all(src):
         _a = _art.get(_r['id']) or {}
         if _a.get('published'):
             _r['published'] = _a['published']
+    # Per-serving nutrition (GSC 'Missing field "nutrition"', 2026-10-31):
+    # computed from the real ingredient lists (nutrition.json, USDA
+    # values); a recipe with no entry gets no nutrition anywhere —
+    # never invented. data['nutrition'] is shared by the static
+    # builders and the SPA (data/recipes.js carries it as NUTRITION).
+    data['nutrition'] = load_nutrition()
     validate(data)
     return data
 
@@ -1440,6 +1467,21 @@ def validate(data):
                   'servings', 'img', 'desc', 'intro', 'ing', 'steps', 'tip'):
             if k not in r:
                 raise JSError("recipe %s missing %r" % (r.get('id'), k))
+    # Nutrition coverage (GSC 'Missing field "nutrition"', 2026-10-31):
+    # every recipe must have a computed per-serving entry with at least
+    # calories, protein, fat and carbs. A missing entry is a build
+    # failure, not a silent omission — the field must never disappear
+    # from production unnoticed.
+    nut = data.get('nutrition') or {}
+    for r in recipes:
+        n = nut.get(r['id'])
+        if not n:
+            raise JSError("recipe %s missing nutrition data" % r['id'])
+        for k in ('calories', 'proteinContent', 'fatContent',
+                  'carbohydrateContent'):
+            if k not in n:
+                raise JSError("recipe %s nutrition missing %r"
+                              % (r['id'], k))
         if not r['ing'] or not r['steps']:
             raise JSError("recipe %s has empty ing/steps" % r['id'])
     for lang in EXTRA_OBJ_LANGS:
@@ -1646,7 +1688,12 @@ def write_data_files(data):
     # Core (English) — recipes.js + ui-en.js load on every visit; extra-en.js
     # is lazy-loaded by the SPA on first recipe open (_ensureExtra in
     # LOADER_JS), so the 152 KB long-form text is not on the critical path.
-    w('recipes.js', 'var RECIPES=' + js_json(data['recipes']) + ';\n')
+    # recipes.js also carries NUTRITION (per-serving values, nutrition.json)
+    # so the SPA's client-side JSON-LD and recipe view share the static
+    # pages' single source of truth.
+    w('recipes.js', 'var RECIPES=' + js_json(data['recipes']) + ';\n'
+                    'var NUTRITION='
+                    + js_json(data.get('nutrition') or {}) + ';\n')
     # Flat {rid: fields} (like the other languages): _mergeExtraLang
     # assigns EXTRA[rid].en = obj[rid], so the {en:} wrapper the old
     # `var EXTRA=` format needed would double-nest and hide the text.
@@ -1891,6 +1938,54 @@ def _as_datetime(d):
     return d
 
 
+# Nutrition (GSC 'Missing field "nutrition"', 2026-10-31): per-serving
+# estimates computed from the real ingredient lists (nutrition.json,
+# USDA values). Order is the display order. Only fields present in the
+# data are emitted — sodium is absent for 8 recipes (no salt listed)
+# and is omitted there, never guessed.
+_NUT_FIELDS = (('calories', 'Calories', 'calories'),
+               ('proteinContent', 'Protein', 'g'),
+               ('fatContent', 'Fat', 'g'),
+               ('saturatedFatContent', 'Saturated fat', 'g'),
+               ('carbohydrateContent', 'Carbs', 'g'),
+               ('sugarContent', 'Sugar', 'g'),
+               ('fiberContent', 'Fiber', 'g'),
+               ('sodiumContent', 'Sodium', 'mg'))
+
+
+def _fmt_num(v):
+    f = float(v)
+    return str(int(f)) if f == int(f) else ("%.1f" % f)
+
+
+def nutrition_ld(nut):
+    """NutritionInformation JSON-LD from the computed per-serving values.
+    schema.org wants strings with units ('917 calories', '43.8 g')."""
+    if not nut:
+        return None
+    out = {"@type": "NutritionInformation"}
+    for key, _label, unit in _NUT_FIELDS:
+        if key in nut:
+            out[key] = "%s %s" % (_fmt_num(nut[key]), unit)
+    return out
+
+
+def nutrition_line(nut):
+    """One visible line, '917 calories · Protein 43.8 g · …' — the
+    calories value carries its own word, the rest take a label."""
+    if not nut:
+        return ''
+    parts = []
+    for key, label, unit in _NUT_FIELDS:
+        if key not in nut:
+            continue
+        if key == 'calories':
+            parts.append("%s calories" % _fmt_num(nut[key]))
+        else:
+            parts.append("%s %s %s" % (label, _fmt_num(nut[key]), unit))
+    return ' · '.join(parts)
+
+
 def recipe_json_ld(data, recipe, tx, url, lang='en', meta_desc=None,
                    video_date=None, article_date=None):
     """Recipe + BreadcrumbList + VideoObject + FAQPage JSON-LD. Ingredients
@@ -1928,6 +2023,12 @@ def recipe_json_ld(data, recipe, tx, url, lang='en', meta_desc=None,
           "recipeCuisine": cuisine,
           "keywords": "%s, %s recipe, %s" % (name, cuisine,
                                               recipe['catLabel'])}
+    # GSC 'Missing field "nutrition"' (2026-10-31): per-serving values
+    # computed from this recipe's real ingredients (nutrition.json);
+    # only fields present in the data are emitted.
+    _nut = (data.get('nutrition') or {}).get(recipe['id'])
+    if _nut:
+        ld["nutrition"] = nutrition_ld(_nut)
     if article_date:
         # Real publish date only (recipe_dates.json); never invented.
         ld["datePublished"] = article_date
@@ -2027,6 +2128,17 @@ def recipe_page(data, recipe, lang='en', dates=None):
             return ''
         return '<h2>%s</h2>\n<p>%s</p>\n' % (esc(heading), esc(text))
 
+    def nutrition_block(nut):
+        # GSC 'Missing field "nutrition"' (2026-10-31): visible
+        # per-serving values next to the ingredients, from the computed
+        # data — same numbers as the JSON-LD, never invented.
+        if not nut:
+            return ''
+        return ('<h2>%s</h2>\n<p>%s</p>\n'
+                % (esc(h('nutritionH',
+                         'Nutrition (approx. per serving)')),
+                   esc(nutrition_line(nut))))
+
     def faq_block(faq):
         if not faq:
             return ''
@@ -2080,7 +2192,7 @@ def recipe_page(data, recipe, lang='en', dates=None):
         '<p>%s</p>\n'
         '<a class="cta" href="%s">Open the interactive recipe '
         '&mdash; switch language, watch the video, save it</a>\n'
-        '%s%s%s%s%s%s%s%s%s%s'
+        '%s%s%s%s%s%s%s%s%s%s%s'
         '<h2>More</h2>\n'
         '<p><a href="/category/%s">More %s recipes</a> &middot; '
         '<a href="/country/%s">More %s recipes</a> &middot; '
@@ -2100,6 +2212,8 @@ def recipe_page(data, recipe, lang='en', dates=None):
            video,
            section(h('ingH', 'Ingredients'),
                    split_ingredients(tx.get('ing'), lang), 'ul'),
+           nutrition_block((data.get('nutrition') or {})
+                           .get(recipe['id'])),
            section(h('methH', 'Method'), tx.get('steps'), 'ol', 'step'),
            para(h('tipH', "Chef's tip"), tx.get('tip')),
            para(h('servingH', 'Serving'), tx.get('serving')),
@@ -2955,6 +3069,11 @@ def validate_build(data):
                         '(tools/ is vercelignored — the file must live at '
                         'the root or all article/video dates are silently '
                         'dropped from the production build)')
+    if not os.path.exists(os.path.join(ROOT, 'nutrition.json')):
+        problems.append('nutrition.json missing from the repo root '
+                        '(tools/ is vercelignored — the file must live at '
+                        'the root or the Recipe nutrition field is silently '
+                        'dropped from the production build)')
     for r in data['recipes']:
         vids = r.get('videos') or {}
         for lang in LANGS:
@@ -3132,6 +3251,36 @@ def validate_build(data):
                     if ing.strip().lower() in quals:
                         problems.append('%s: qualifier orphan in '
                                         'ingredients: %r' % (rel, ing))
+                # Nutrition (GSC 'Missing field "nutrition"', 2026-10-31):
+                # the Recipe block must carry the computed per-serving
+                # values, matching nutrition.json field for field, and
+                # the visible line must be on the page. (English rels are
+                # 'recipe/<id>/index.html' — no leading slash — so split
+                # on 'recipe/', not '/recipe/'.)
+                _rid = rel.split('recipe/')[1].split('/')[0]
+                _exp = (data.get('nutrition') or {}).get(_rid)
+                if not _exp:
+                    problems.append('%s: recipe %s has no nutrition data'
+                                    % (rel, _rid))
+                else:
+                    _nld = obj.get('nutrition') or {}
+                    if _nld.get('@type') != 'NutritionInformation':
+                        problems.append('%s: Recipe nutrition missing '
+                                        '@type NutritionInformation' % rel)
+                    _units = {k: u for k, _l, u in _NUT_FIELDS}
+                    for _k, _v in _exp.items():
+                        _want = "%s %s" % (_fmt_num(_v), _units[_k])
+                        if _nld.get(_k) != _want:
+                            problems.append('%s: Recipe nutrition %s is %r, '
+                                            'expected %r'
+                                            % (rel, _k, _nld.get(_k), _want))
+                    for _k in _nld:
+                        if _k != '@type' and _k not in _exp:
+                            problems.append('%s: Recipe nutrition has '
+                                            'uncomputed field %s' % (rel, _k))
+                if 'Nutrition (approx. per serving)' not in html:
+                    problems.append('%s: visible nutrition line missing'
+                                    % rel)
             if obj.get('@type') == 'VideoObject':
                 _vo = obj.get('@id')
                 if not (obj.get('author') or {}).get('name'):

@@ -737,6 +737,7 @@ footer a{color:var(--muted)}
         <div><h4 id="ingHeading">Ingredients</h4><ul id="recipeIng"></ul></div>
         <div><h4 id="methodHeading">Method</h4><ol id="recipeSteps"></ol></div>
       </div>
+      <div class="tip" id="nutritionBlock" hidden><h4 id="nutritionHeading">Nutrition (approx. per serving)</h4><p id="recipeNutrition"></p></div>
       <div class="tip"><h4 id="tipHeading">Chef's tip</h4><span id="recipeTip"></span></div>
       <h3 id="goodHeading">Good to know</h3>
       <div class="extra-sections">
@@ -1169,6 +1170,7 @@ function applyLang(){
   document.getElementById("varHeading").textContent=t.varH;
   document.getElementById("mistakesHeading").textContent=t.mistakesH;
   document.getElementById("recipeFaqHeading").textContent=t.recipeFaqH;
+  var _nh=document.getElementById("nutritionHeading");if(_nh)_nh.textContent=t.nutritionH||"Nutrition (approx. per serving)";
   document.getElementById("waShare").textContent=t.wa;
   document.getElementById("copyRecipe").textContent=t.copy;
   document.getElementById("copiedMsg").textContent=t.copied;
@@ -1328,6 +1330,8 @@ function openRecipe(id,push){
   var _pd=document.getElementById("recipePubDate");if(_pd){var _pub=r.published||"";_pd.textContent=_pub?((T().publishedOn||"Published on")+" "+fmtPubDate(_pub)):"";_pd.hidden=!_pub;}
   document.getElementById("recipeIng").innerHTML=tx.ing.map(function(i){return "<li>"+esc(i)+"</li>";}).join("");
   document.getElementById("recipeSteps").innerHTML=tx.steps.map(function(s,i){return "<li id=\"step-"+(i+1)+"\">"+esc(s)+"</li>";}).join("");
+  var _nb=document.getElementById("nutritionBlock");var _nn=(typeof NUTRITION!=="undefined")?NUTRITION[id]:null;
+  if(_nb){if(_nn){var _nf2=function(v){return Math.round(v*10)/10;};var _parts=[];if(_nn.calories!=null)_parts.push(_nf2(_nn.calories)+" calories");if(_nn.proteinContent!=null)_parts.push("Protein "+_nf2(_nn.proteinContent)+" g");if(_nn.fatContent!=null)_parts.push("Fat "+_nf2(_nn.fatContent)+" g");if(_nn.saturatedFatContent!=null)_parts.push("Saturated fat "+_nf2(_nn.saturatedFatContent)+" g");if(_nn.carbohydrateContent!=null)_parts.push("Carbs "+_nf2(_nn.carbohydrateContent)+" g");if(_nn.sugarContent!=null)_parts.push("Sugar "+_nf2(_nn.sugarContent)+" g");if(_nn.fiberContent!=null)_parts.push("Fiber "+_nf2(_nn.fiberContent)+" g");if(_nn.sodiumContent!=null)_parts.push("Sodium "+_nf2(_nn.sodiumContent)+" mg");document.getElementById("recipeNutrition").textContent=_parts.join(" · ");_nb.hidden=false;}else{_nb.hidden=true;}}
   document.getElementById("recipeTip").textContent=tx.tip;
   document.getElementById("recipeServing").textContent=tx.serving||"";
   document.getElementById("recipeStorage").textContent=tx.storage||"";
@@ -1576,6 +1580,8 @@ function setRouteMeta(kind,pageName,recipeId,extra){
     var _tx=rText(r);
     var _ld={"@context":"https://schema.org","@type":"Recipe","name":rName(r),"image":[img],"description":desc,"author":{"@type":"Organization","name":"Zaika Worlds","url":"https://www.zaikaworlds.com"},"recipeYield":rServings(r),"totalTime":"PT"+(r.time||60)+"M","recipeIngredient":_tx.ing||[],"recipeInstructions":(_tx.steps||[]).map(function(st,i){return {"@type":"HowToStep","name":"Step "+(i+1),"url":url+"#step-"+(i+1),"image":[img],"text":st};}),"recipeCategory":rCat(r),"recipeCuisine":(COUNTRY_ADJ[r.country]||r.country),"keywords":rName(r)+", "+(COUNTRY_ADJ[r.country]||r.country)+" recipe, "+rCat(r),"datePublished":r.published||undefined};
     var _vid=videoId(r); if(_vid){_ld.video={"@id":url+"#video"};}
+    var _nut=(typeof NUTRITION!=="undefined")?NUTRITION[r.id]:null;
+    if(_nut){var _nf=function(v){return Math.round(v*10)/10;};var _nld={"@type":"NutritionInformation"};if(_nut.calories!=null)_nld.calories=_nf(_nut.calories)+" calories";if(_nut.proteinContent!=null)_nld.proteinContent=_nf(_nut.proteinContent)+" g";if(_nut.fatContent!=null)_nld.fatContent=_nf(_nut.fatContent)+" g";if(_nut.saturatedFatContent!=null)_nld.saturatedFatContent=_nf(_nut.saturatedFatContent)+" g";if(_nut.carbohydrateContent!=null)_nld.carbohydrateContent=_nf(_nut.carbohydrateContent)+" g";if(_nut.sugarContent!=null)_nld.sugarContent=_nf(_nut.sugarContent)+" g";if(_nut.fiberContent!=null)_nld.fiberContent=_nf(_nut.fiberContent)+" g";if(_nut.sodiumContent!=null)_nld.sodiumContent=_nf(_nut.sodiumContent)+" mg";_ld.nutrition=_nld;}
     if(!ld){ld=document.createElement("script");ld.id="recipeJsonLd";ld.type="application/ld+json";document.head.appendChild(ld);}
     ld.textContent=JSON.stringify(_ld);
   } else if(ld){ld.textContent="";}

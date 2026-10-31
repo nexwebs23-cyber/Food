@@ -1,0 +1,324 @@
+{
+  "biryani": {
+    "calories": 917,
+    "proteinContent": 43.8,
+    "fatContent": 22.2,
+    "saturatedFatContent": 10.3,
+    "carbohydrateContent": 130.7,
+    "sugarContent": 10.6,
+    "fiberContent": 6.1
+  },
+  "nihari": {
+    "calories": 723,
+    "proteinContent": 53.6,
+    "fatContent": 49.7,
+    "saturatedFatContent": 24.3,
+    "carbohydrateContent": 11.4,
+    "sugarContent": 2.0,
+    "fiberContent": 2.3
+  },
+  "karahi": {
+    "calories": 478,
+    "proteinContent": 31.0,
+    "fatContent": 34.6,
+    "saturatedFatContent": 18.1,
+    "carbohydrateContent": 9.9,
+    "sugarContent": 5.6,
+    "fiberContent": 2.6,
+    "sodiumContent": 692
+  },
+  "daal": {
+    "calories": 363,
+    "proteinContent": 18.3,
+    "fatContent": 11.7,
+    "saturatedFatContent": 6.5,
+    "carbohydrateContent": 48.8,
+    "sugarContent": 2.1,
+    "fiberContent": 8.6,
+    "sodiumContent": 590
+  },
+  "chapli": {
+    "calories": 376,
+    "proteinContent": 25.1,
+    "fatContent": 26.1,
+    "saturatedFatContent": 8.2,
+    "carbohydrateContent": 10.0,
+    "sugarContent": 3.5,
+    "fiberContent": 1.7,
+    "sodiumContent": 673
+  },
+  "tikka": {
+    "calories": 279,
+    "proteinContent": 43.6,
+    "fatContent": 8.9,
+    "saturatedFatContent": 3.6,
+    "carbohydrateContent": 3.6,
+    "sugarContent": 1.8,
+    "fiberContent": 0.5
+  },
+  "halwapuri": {
+    "calories": 1017,
+    "proteinContent": 21.4,
+    "fatContent": 31.5,
+    "saturatedFatContent": 16.3,
+    "carbohydrateContent": 163.3,
+    "sugarContent": 57.0,
+    "fiberContent": 11.9
+  },
+  "samosa": {
+    "calories": 317,
+    "proteinContent": 7.4,
+    "fatContent": 7.6,
+    "saturatedFatContent": 1.0,
+    "carbohydrateContent": 54.1,
+    "sugarContent": 2.3,
+    "fiberContent": 4.5
+  },
+  "bunkebab": {
+    "calories": 462,
+    "proteinContent": 26.7,
+    "fatContent": 19.5,
+    "saturatedFatContent": 7.6,
+    "carbohydrateContent": 45.0,
+    "sugarContent": 9.0,
+    "fiberContent": 5.0,
+    "sodiumContent": 740
+  },
+  "gulabjamun": {
+    "calories": 340,
+    "proteinContent": 5.4,
+    "fatContent": 18.7,
+    "saturatedFatContent": 8.4,
+    "carbohydrateContent": 39.7,
+    "sugarContent": 35.4,
+    "fiberContent": 0.1
+  },
+  "gajarhalwa": {
+    "calories": 603,
+    "proteinContent": 12.6,
+    "fatContent": 28.6,
+    "saturatedFatContent": 16.1,
+    "carbohydrateContent": 78.9,
+    "sugarContent": 67.3,
+    "fiberContent": 6.1
+  },
+  "lassi": {
+    "calories": 212,
+    "proteinContent": 6.7,
+    "fatContent": 5.9,
+    "saturatedFatContent": 3.5,
+    "carbohydrateContent": 36.2,
+    "sugarContent": 34.8,
+    "fiberContent": 2.2
+  },
+  "pizza": {
+    "calories": 769,
+    "proteinContent": 28.7,
+    "fatContent": 25.9,
+    "saturatedFatContent": 9.9,
+    "carbohydrateContent": 103.4,
+    "sugarContent": 3.6,
+    "fiberContent": 5.2,
+    "sodiumContent": 1371
+  },
+  "carbonara": {
+    "calories": 673,
+    "proteinContent": 26.7,
+    "fatContent": 27.9,
+    "saturatedFatContent": 10.9,
+    "carbohydrateContent": 77.3,
+    "sugarContent": 2.8,
+    "fiberContent": 3.5,
+    "sodiumContent": 1356
+  },
+  "sushi": {
+    "calories": 626,
+    "proteinContent": 23.5,
+    "fatContent": 19.4,
+    "saturatedFatContent": 3.7,
+    "carbohydrateContent": 84.5,
+    "sugarContent": 7.9,
+    "fiberContent": 2.0,
+    "sodiumContent": 1213
+  },
+  "ramen": {
+    "calories": 696,
+    "proteinContent": 49.1,
+    "fatContent": 19.7,
+    "saturatedFatContent": 4.3,
+    "carbohydrateContent": 76.4,
+    "sugarContent": 2.9,
+    "fiberContent": 4.4,
+    "sodiumContent": 3199
+  },
+  "tacos": {
+    "calories": 678,
+    "proteinContent": 36.6,
+    "fatContent": 33.0,
+    "saturatedFatContent": 10.9,
+    "carbohydrateContent": 63.0,
+    "sugarContent": 14.5,
+    "fiberContent": 9.2,
+    "sodiumContent": 736
+  },
+  "pozole": {
+    "calories": 503,
+    "proteinContent": 31.8,
+    "fatContent": 29.8,
+    "saturatedFatContent": 10.2,
+    "carbohydrateContent": 27.6,
+    "sugarContent": 3.9,
+    "fiberContent": 5.3,
+    "sodiumContent": 1225
+  },
+  "padthai": {
+    "calories": 466,
+    "proteinContent": 26.5,
+    "fatContent": 8.1,
+    "saturatedFatContent": 1.7,
+    "carbohydrateContent": 74.5,
+    "sugarContent": 16.7,
+    "fiberContent": 3.7,
+    "sodiumContent": 1081
+  },
+  "pekingduck": {
+    "calories": 867,
+    "proteinContent": 38.1,
+    "fatContent": 54.0,
+    "saturatedFatContent": 18.0,
+    "carbohydrateContent": 51.0,
+    "sugarContent": 18.5,
+    "fiberContent": 1.9,
+    "sodiumContent": 1867
+  },
+  "dimsum": {
+    "calories": 477,
+    "proteinContent": 27.8,
+    "fatContent": 11.9,
+    "saturatedFatContent": 3.8,
+    "carbohydrateContent": 63.8,
+    "sugarContent": 1.9,
+    "fiberContent": 1.2,
+    "sodiumContent": 774
+  },
+  "coqauvin": {
+    "calories": 637,
+    "proteinContent": 47.5,
+    "fatContent": 31.3,
+    "saturatedFatContent": 12.0,
+    "carbohydrateContent": 16.2,
+    "sugarContent": 5.3,
+    "fiberContent": 2.2,
+    "sodiumContent": 1665
+  },
+  "bouillabaisse": {
+    "calories": 422,
+    "proteinContent": 46.6,
+    "fatContent": 13.7,
+    "saturatedFatContent": 2.0,
+    "carbohydrateContent": 29.1,
+    "sugarContent": 7.0,
+    "fiberContent": 3.7,
+    "sodiumContent": 1242
+  },
+  "paella": {
+    "calories": 491,
+    "proteinContent": 29.0,
+    "fatContent": 12.5,
+    "saturatedFatContent": 2.1,
+    "carbohydrateContent": 64.1,
+    "sugarContent": 4.4,
+    "fiberContent": 3.0,
+    "sodiumContent": 821
+  },
+  "beefpho": {
+    "calories": 524,
+    "proteinContent": 22.7,
+    "fatContent": 12.2,
+    "saturatedFatContent": 4.7,
+    "carbohydrateContent": 78.1,
+    "sugarContent": 5.4,
+    "fiberContent": 2.8,
+    "sodiumContent": 893
+  },
+  "poutine": {
+    "calories": 583,
+    "proteinContent": 20.7,
+    "fatContent": 34.3,
+    "saturatedFatContent": 16.3,
+    "carbohydrateContent": 48.3,
+    "sugarContent": 3.1,
+    "fiberContent": 5.7,
+    "sodiumContent": 1540
+  },
+  "bobotie": {
+    "calories": 435,
+    "proteinContent": 30.7,
+    "fatContent": 24.7,
+    "saturatedFatContent": 9.0,
+    "carbohydrateContent": 22.9,
+    "sugarContent": 12.6,
+    "fiberContent": 2.4,
+    "sodiumContent": 598
+  },
+  "moussaka": {
+    "calories": 569,
+    "proteinContent": 34.2,
+    "fatContent": 30.6,
+    "saturatedFatContent": 14.6,
+    "carbohydrateContent": 40.7,
+    "sugarContent": 13.7,
+    "fiberContent": 8.1,
+    "sodiumContent": 433
+  },
+  "hummus": {
+    "calories": 273,
+    "proteinContent": 9.4,
+    "fatContent": 17.2,
+    "saturatedFatContent": 2.5,
+    "carbohydrateContent": 23.3,
+    "sugarContent": 3.5,
+    "fiberContent": 7.0,
+    "sodiumContent": 396
+  },
+  "falafel": {
+    "calories": 364,
+    "proteinContent": 13.6,
+    "fatContent": 14.7,
+    "saturatedFatContent": 1.8,
+    "carbohydrateContent": 47.1,
+    "sugarContent": 8.7,
+    "fiberContent": 12.2,
+    "sodiumContent": 674
+  },
+  "feijoada": {
+    "calories": 580,
+    "proteinContent": 32.3,
+    "fatContent": 31.3,
+    "saturatedFatContent": 10.8,
+    "carbohydrateContent": 43.9,
+    "sugarContent": 4.0,
+    "fiberContent": 10.4,
+    "sodiumContent": 842
+  },
+  "meatpie": {
+    "calories": 525,
+    "proteinContent": 29.1,
+    "fatContent": 31.4,
+    "saturatedFatContent": 14.2,
+    "carbohydrateContent": 28.3,
+    "sugarContent": 4.5,
+    "fiberContent": 1.7,
+    "sodiumContent": 673
+  },
+  "haleem": {
+    "calories": 951,
+    "proteinContent": 46.8,
+    "fatContent": 59.5,
+    "saturatedFatContent": 31.3,
+    "carbohydrateContent": 58.6,
+    "sugarContent": 6.7,
+    "fiberContent": 12.3,
+    "sodiumContent": 1865
+  }
+}
