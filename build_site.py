@@ -1878,7 +1878,7 @@ def page_shell(title, desc, url, og_img, og_alt, json_ld_blocks, body,
 
 
 def recipe_json_ld(data, recipe, tx, url, lang='en', meta_desc=None,
-                   video_date=None):
+                   video_date=None, article_date=None):
     """Recipe + BreadcrumbList + VideoObject + FAQPage JSON-LD. Ingredients
     are the split one-per-line list (issue G); totalTime comes from the
     recipe's real time (no invented prep/cook split); recipeYield is the
@@ -1886,6 +1886,7 @@ def recipe_json_ld(data, recipe, tx, url, lang='en', meta_desc=None,
     uploadDate only when a real publish date is recorded."""
     name = lang_name(recipe, data, lang)
     ing = split_ingredients(tx.get('ing') or [], lang)
+    cuisine = data['country_adj'].get(recipe['country'], recipe['country'])
     ld = {"@context": "https://schema.org", "@type": "Recipe",
           "name": name,
           "image": [SITE + '/' + recipe['img']],
@@ -1894,14 +1895,30 @@ def recipe_json_ld(data, recipe, tx, url, lang='en', meta_desc=None,
           "recipeYield": lang_servings(recipe, data, lang),
           "totalTime": "PT%dM" % (recipe['time'] or 60),
           "recipeIngredient": ing,
-          "recipeInstructions": [{"@type": "HowToStep", "text": s}
-                                 for s in (tx.get('steps') or [])]}
+          "recipeInstructions": [{"@type": "HowToStep",
+                                  "name": "Step %d" % (i + 1),
+                                  "url": url + "#step-%d" % (i + 1),
+                                  "text": s}
+                                 for i, s in
+                                 enumerate(tx.get('steps') or [])],
+          "recipeCategory": recipe['catLabel'],
+          "recipeCuisine": cuisine,
+          "keywords": "%s, %s recipe, %s" % (name, cuisine,
+                                              recipe['catLabel'])}
+    if article_date:
+        # Real publish date only (recipe_dates.json); never invented.
+        ld["datePublished"] = article_date
+    # Category crumb links the English category URL (the visible breadcrumb
+    # does the same): language category pages do not exist (/hi/category/…
+    # is a 404), so a language-prefixed item URL would be a dead link.
+    cat_slug = data['cat_slug'].get(recipe['cat'], '')
     bld = {"@context": "https://schema.org", "@type": "BreadcrumbList",
            "itemListElement": [
                {"@type": "ListItem", "position": 1, "name": "Home",
                 "item": lang_url('/', lang)},
                {"@type": "ListItem", "position": 2,
-                "name": lang_cat_label(recipe, data, lang)},
+                "name": lang_cat_label(recipe, data, lang),
+                "item": SITE + '/category/' + cat_slug},
                {"@type": "ListItem", "position": 3, "name": name,
                 "item": url}]}
     blocks = [ld, bld]
@@ -1909,6 +1926,7 @@ def recipe_json_ld(data, recipe, tx, url, lang='en', meta_desc=None,
     if vid:
         vld = {"@context": "https://schema.org", "@type": "VideoObject",
                "name": name,
+               "author": {"@type": "Organization", "name": "Zaika Worlds"},
                "description": meta_desc or tx.get('desc') or DEF_DESC,
                "thumbnailUrl": "https://i.ytimg.com/vi/%s/hqdefault.jpg"
                                % vid,
@@ -1960,10 +1978,17 @@ def recipe_page(data, recipe, lang='en', dates=None):
     video_date = video_dates.get(lang) if isinstance(video_dates, dict) \
         else None
 
-    def section(heading, items, tag):
+    def section(heading, items, tag, id_prefix=None):
         if not items:
             return ''
-        lis = ''.join('<li>%s</li>' % esc(x) for x in items)
+        if id_prefix:
+            # Step anchors (id="step-N") so the HowToStep JSON-LD urls
+            # point at real elements on the page.
+            lis = ''.join('<li id="%s-%d">%s</li>' % (id_prefix, i + 1,
+                                                      esc(x))
+                          for i, x in enumerate(items))
+        else:
+            lis = ''.join('<li>%s</li>' % esc(x) for x in items)
         return '<h2>%s</h2>\n<%s>\n%s\n</%s>\n' % (esc(heading), tag, lis, tag)
 
     def para(heading, text):
@@ -2044,7 +2069,7 @@ def recipe_page(data, recipe, lang='en', dates=None):
            video,
            section(h('ingH', 'Ingredients'),
                    split_ingredients(tx.get('ing'), lang), 'ul'),
-           section(h('methH', 'Method'), tx.get('steps'), 'ol'),
+           section(h('methH', 'Method'), tx.get('steps'), 'ol', 'step'),
            para(h('tipH', "Chef's tip"), tx.get('tip')),
            para(h('servingH', 'Serving'), tx.get('serving')),
            para(h('storageH', 'Storage'), tx.get('storage')),
@@ -2065,7 +2090,8 @@ def recipe_page(data, recipe, lang='en', dates=None):
                             '<a href="/guides/dum-cooking">Dum Cooking Guide</a></p>', 1)
     return page_shell(title, desc, url, img_url, img_alt,
                       recipe_json_ld(data, recipe, tx, url, lang, desc,
-                                     video_date),
+                                     video_date,
+                                     article_date=article.get('published')),
                       body, og_type='article',
                       article_dates=article or None,
                       hreflang=hreflang_links(path),
@@ -3041,17 +3067,35 @@ def validate_build(data):
             except Exception as e:
                 problems.append('%s: JSON-LD does not parse: %s' % (rel, e))
                 continue
+            if obj.get('@type') == 'BreadcrumbList':
+                for el in obj.get('itemListElement') or []:
+                    if not el.get('item'):
+                        problems.append('%s: BreadcrumbList itemListElement '
+                                        'position %s missing item'
+                                        % (rel, el.get('position')))
             if obj.get('@type') == 'Recipe':
                 for f in ('name', 'image', 'description',
                           'recipeIngredient', 'recipeInstructions',
-                          'totalTime', 'recipeYield'):
+                          'totalTime', 'recipeYield', 'datePublished',
+                          'recipeCategory', 'recipeCuisine', 'keywords'):
                     if not obj.get(f):
                         problems.append('%s: Recipe JSON-LD missing %s'
                                         % (rel, f))
+                for i, st in enumerate(obj.get('recipeInstructions') or []):
+                    if not st.get('name') or not st.get('url'):
+                        problems.append('%s: HowToStep %d missing name/url'
+                                        % (rel, i + 1))
+                    elif ('id="step-%d"' % (i + 1)) not in html:
+                        problems.append('%s: HowToStep url anchor step-%d '
+                                        'has no matching <li id> on the page'
+                                        % (rel, i + 1))
                 for ing in obj.get('recipeIngredient') or []:
                     if ing.strip().lower() in quals:
                         problems.append('%s: qualifier orphan in '
                                         'ingredients: %r' % (rel, ing))
+            if obj.get('@type') == 'VideoObject':
+                if not (obj.get('author') or {}).get('name'):
+                    problems.append('%s: VideoObject missing author' % rel)
         if '/recipe/' in rel:
             _rid = rel.split('/recipe/')[1].split('/')[0]
             _pub = ((dates.get('article') or {}).get(_rid, {})
