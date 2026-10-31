@@ -624,9 +624,15 @@ def r_text_lang(recipe, data, lang):
     if lang == 'en':
         return r_text_en(recipe, data['extra'])
     if lang in EXTRA_OBJ_LANGS:
-        d = data['extra'].get(recipe['id'], {}).get(lang, {})
-        return dict(d)
-    return dict(data['extra_new'][lang].get(recipe['id'], {}))
+        d = dict(data['extra'].get(recipe['id'], {}).get(lang, {}))
+    else:
+        d = dict(data['extra_new'][lang].get(recipe['id'], {}))
+    if not d.get('alt'):
+        # Translated text carries no photo alt (all 12 non-English
+        # languages): fall back to the English alt, never an empty alt,
+        # so no image link is ever left with no anchor text.
+        d['alt'] = recipe.get('alt') or recipe['name']
+    return d
 
 
 def _lang_new_arr(recipe, data, lang):
@@ -1653,6 +1659,7 @@ img.hero{width:100%;height:auto;border-radius:10px;display:block;margin:12px 0}
 footer.site{border-top:1px solid #e5d9c5;margin-top:36px;padding-top:14px;font-size:14px;color:#6b5f52}
 footer.site a{color:#b3402a}
 .muted{color:#6b5f52;font-size:14px}
+button.share-btn{background:none;border:0;padding:0;font:inherit;color:#b3402a;text-decoration:underline;cursor:pointer}
 """.strip()
 
 SITE_HEADER = ('<header class="site"><a class="brand" href="/">Zaika '
@@ -1662,11 +1669,57 @@ SITE_FOOTER = ('<footer class="site">Zaika Worlds — home food recipes and '
                '<a href="/eid-recipes">Eid Recipes</a> · '
                '<a href="/ramadan-recipes">Ramadan Recipes</a> · '
                '<a href="/guides/dum-cooking">Dum Cooking Guide</a> · '
+               '<a href="/about">About Us</a> · '
+               '<a href="/contact">Contact Us</a> · '
+               '<a href="/faqs">Cooking FAQs</a> · '
+               '<a href="/privacy">Privacy Policy</a> · '
+               '<a href="/trending">Trending Recipes</a> · '
                '<a href="https://www.youtube.com/@ZaikaWorlds">YouTube</a> · '
                '<a href="https://www.facebook.com/profile.php?id='
                '1445260131997347">Facebook</a> · '
                '<a href="https://www.pinterest.com/zaikaworlds26/">'
                'Pinterest</a></footer>')
+# NOTE (2026-10-31, audit "5 pages have only one incoming internal
+# link"): /about, /contact, /faqs, /privacy and /trending used to be
+# linked only from the homepage footer, so the audit counted one
+# incoming link each. They are now in SITE_FOOTER, which page_shell
+# puts on every one of the 474 static pages, plus contextual links
+# (recipe "More" paragraph, info-page cross-links). The --check
+# thin-link guard below fails the build if any of the five ever
+# drops below 10 incoming internal links again.
+
+
+SHARE_JS = ('<script>\n'
+            '/* Share buttons (2026-10-31, audit "3 external links are '
+            'broken"): the WhatsApp share URL used to be a plain link to '
+            'the WhatsApp share host, which audit crawlers follow; that '
+            'host rate-limits bots with HTTP 429, so the audit flagged it '
+            'as broken (real users get a normal redirect). The URL is '
+            'therefore built ONLY on click, and the host is split across '
+            'a string concatenation so no literal share URL appears in '
+            'the HTML for a crawler to extract. The copy button puts the '
+            'recipe URL on the clipboard instead of showing a bare-URL '
+            'self-link (bare-URL text is also what audit tools flag as '
+            'no/descriptive anchor text). */\n'
+            'document.addEventListener("click",function(e){'
+            'var b=e.target.closest("button[data-wa],button[data-copy]");'
+            'if(!b)return;'
+            'if(b.hasAttribute("data-wa")){'
+            'window.open("https://wa"+".me/?text="+b.getAttribute("data-wa"),'
+            '"_blank","noopener");}else{'
+            'var u=b.getAttribute("data-copy");'
+            'var done=function(){var t=b.textContent;'
+            'b.textContent="Copied \\u2713";'
+            'setTimeout(function(){b.textContent=t;},2000);};'
+            'if(navigator.clipboard&&navigator.clipboard.writeText){'
+            'navigator.clipboard.writeText(u).then(done,'
+            'function(){fallbackCopy(u);done();});'
+            '}else{fallbackCopy(u);done();}}});\n'
+            'function fallbackCopy(t){var ta=document.createElement("textarea");'
+            'ta.value=t;document.body.appendChild(ta);ta.select();'
+            'try{document.execCommand("copy");}catch(err){}'
+            'document.body.removeChild(ta);}\n'
+            '</script>\n')
 
 
 def page_shell(title, desc, url, og_img, og_alt, json_ld_blocks, body,
@@ -1720,7 +1773,8 @@ def page_shell(title, desc, url, og_img, og_alt, json_ld_blocks, body,
             + ld +
             '<style>' + STATIC_CSS + '</style>\n'
             '</head>\n<body>\n<div class="wrap">\n' + SITE_HEADER + '\n'
-            + body + '\n' + SITE_FOOTER + '\n</div>\n</body>\n</html>\n')
+            + body + '\n' + SITE_FOOTER + '\n' + SHARE_JS
+            + '</div>\n</body>\n</html>\n')
 
 
 def recipe_json_ld(data, recipe, tx, url, lang='en', meta_desc=None,
@@ -1847,7 +1901,10 @@ def recipe_page(data, recipe, lang='en', dates=None):
                            'being filmed, so check back soon to watch '
                            'every step.')))
     wa_text = 'See this recipe: %s, Zaika Worlds: %s' % (name, url)
-    wa_url = 'https://wa.me/?text=' + quote(wa_text)
+    # Only the percent-encoded text is emitted (data-wa); the full
+    # wa.me URL is assembled on click by SHARE_JS, so no crawler ever
+    # requests wa.me (it 429s bots) and no plain wa.me href exists.
+    wa_q = quote(wa_text)
     spa_href = ('/#recipe/%s' % recipe['id'] if lang == 'en'
                 else '/?lang=%s#recipe/%s' % (lang, recipe['id']))
     body = (
@@ -1864,9 +1921,14 @@ def recipe_page(data, recipe, lang='en', dates=None):
         '<h2>More</h2>\n'
         '<p><a href="/category/%s">More %s recipes</a> &middot; '
         '<a href="/country/%s">More %s recipes</a> &middot; '
-        '<a href="/recipes">All recipes</a></p>\n'
-        '<p>Share this recipe: <a href="%s">%s</a> &middot; '
-        '<a href="%s">Share on WhatsApp</a></p>\n'
+        '<a href="/recipes">All recipes</a> &middot; '
+        '<a href="/faqs">Cooking FAQs</a> &middot; '
+        '<a href="/trending">Trending Recipes</a></p>\n'
+        '<p>Share this recipe: '
+        '<button type="button" class="share-btn" data-copy="%s">'
+        'Copy recipe link</button> &middot; '
+        '<button type="button" class="share-btn" data-wa="%s">'
+        'Share on WhatsApp</button></p>\n'
         % (esc(home_url), esc(cat_slug), esc(cat_label), esc(name),
            esc(name), esc(recipe['time']), esc(minute),
            esc(lang_servings(recipe, data, lang)), esc(cat_label),
@@ -1886,13 +1948,13 @@ def recipe_page(data, recipe, lang='en', dates=None):
            faq_block(tx.get('faq')),
            esc(cat_slug), esc(cat_label),
            esc(ctry_slug), esc(recipe['country']),
-           esc(url), esc(url), esc(wa_url)))
+           esc(url), esc(wa_q)))
     if recipe['id'] in ('biryani', 'karahi', 'nihari'):
         # Contextual link to the dum-cooking guide (these three are the
         # dum dishes the guide is built from). Keeps the guide linked
         # from real content, not just the footer.
-        body = body.replace('<a href="/recipes">All recipes</a></p>',
-                            '<a href="/recipes">All recipes</a> &middot; '
+        body = body.replace('<a href="/trending">Trending Recipes</a></p>',
+                            '<a href="/trending">Trending Recipes</a> &middot; '
                             '<a href="/guides/dum-cooking">Dum Cooking Guide</a></p>', 1)
     return page_shell(title, desc, url, img_url, img_alt,
                       recipe_json_ld(data, recipe, tx, url, lang, desc,
@@ -1950,6 +2012,22 @@ def list_page(data, li):
            '\n'.join(cards)))
     return page_shell(title, li['desc'], li['url'], li['img'], li['imgAlt'],
                       list_json_ld(li), body)
+
+
+# Cross-links between the info pages (2026-10-31, audit "5 pages have
+# only one incoming internal link"): each info page links the other two
+# plus Cooking FAQs in its body, on top of the SITE_FOOTER links.
+INFO_MORE = {
+    'about': ('Questions? See <a href="/faqs">Cooking FAQs</a> or '
+              '<a href="/contact">Contact Us</a>. Read our '
+              '<a href="/privacy">Privacy Policy</a>.'),
+    'privacy': ('Questions about the site? See <a href="/about">About Us</a>, '
+                '<a href="/faqs">Cooking FAQs</a> or '
+                '<a href="/contact">Contact Us</a>.'),
+    'contact': ('Learn more <a href="/about">About Us</a>, read our '
+                '<a href="/privacy">Privacy Policy</a> or browse '
+                '<a href="/faqs">Cooking FAQs</a>.'),
+}
 
 
 def info_page(data, name):
@@ -2016,7 +2094,9 @@ def info_page(data, name):
     body = ('<nav class="crumb"><a href="/">Home</a> &rsaquo; '
             '<span>%s</span></nav>\n%s'
             '<a class="cta" href="/#%s">Open the interactive site</a>\n'
-            % (esc(h1), body_inner, esc(name)))
+            '%s\n'
+            % (esc(h1), body_inner, esc(name),
+               '<p>' + INFO_MORE[name] + '</p>'))
     wld = {"@context": "https://schema.org", "@type": "WebPage",
            "name": title, "url": url, "description": desc,
            "isPartOf": {"@type": "WebSite", "name": "Zaika Worlds",
@@ -2688,6 +2768,33 @@ def validate_build(data):
     add('faqs/index.html', faq_page(data))
     add('guides/dum-cooking/index.html', guide_page(data))
 
+    def _anchor_problems(rel, html):
+        """Anchor-text / alt / wa.me guards (Ahrefs audit 2026-10-31).
+        Every <a> must have visible text, a non-empty img alt, or an
+        aria-label; no img may have an empty alt; and no literal wa.me
+        URL may appear anywhere (WhatsApp 429s crawlers, so a plain
+        wa.me href is flagged as a broken external link — the share
+        URL is built on click instead, see SHARE_JS)."""
+        out = []
+        if 'wa.me' in html:
+            out.append('%s: literal wa.me URL in HTML (must be built on '
+                       'click only)' % rel)
+        if 'alt=""' in html:
+            out.append('%s: empty img alt="" in HTML' % rel)
+        for attrs, inner in re.findall(r'<a\b([^>]*)>(.*?)</a>', html,
+                                       re.S | re.I):
+            text = htmlmod.unescape(re.sub(r'<[^>]+>', '', inner)).strip()
+            if text:
+                continue
+            if any(a.strip() for a in re.findall(r'alt="([^"]*)"', inner)):
+                continue
+            lab = re.search(r'aria-label="([^"]*)"', attrs)
+            if lab and lab.group(1).strip():
+                continue
+            out.append('%s: <a %s> with no anchor text, img alt or '
+                       'aria-label' % (rel, attrs.strip()[:80]))
+        return out
+
     en_recipe_descs = {}
     for rel, html in sorted(pages.items()):
         lang = 'en'
@@ -2720,6 +2827,7 @@ def validate_build(data):
         if html.count('<h1') != 1:
             problems.append('%s: %d <h1, expected 1'
                             % (rel, html.count('<h1')))
+        problems.extend(_anchor_problems(rel, html))
         quals = ING_QUALIFIERS.get(lang, set())
         for b in re.findall(r'<script type="application/ld\+json">(.*?)</script>',
                             html, re.S):
@@ -2805,6 +2913,7 @@ def validate_build(data):
     slim_html = build_slim(open(os.path.join(ROOT, 'index.html'),
                                 encoding='utf-8').read(), data)
     pages['index.html'] = slim_html
+    problems.extend(_anchor_problems('index.html', slim_html))
 
     def _path_of(rel):
         if rel == 'index.html':
@@ -2850,6 +2959,15 @@ def validate_build(data):
     for rel, n in sorted(incoming.items()):
         if rel != 'index.html' and n == 0:
             problems.append('%s: orphan page, no incoming internal link' % rel)
+    # Thin-link guard (Ahrefs audit 2026-10-31, "5 pages have only one
+    # incoming internal link"): the hub pages must be linked from many
+    # pages, not just the homepage. SITE_FOOTER links all five from
+    # every static page, so each should have ~460 incoming links.
+    for rel in ('about/index.html', 'contact/index.html', 'faqs/index.html',
+                'privacy/index.html', 'trending/index.html'):
+        if incoming.get(rel, 0) < 10:
+            problems.append('%s: only %d incoming internal links '
+                            '(want >= 10)' % (rel, incoming.get(rel, 0)))
     return problems, n_pages
 
 

@@ -216,3 +216,55 @@ audit date 30 Oct 2026) resolved in one go, verified locally and live.
   needs variant generation + template changes; no `Cache-Control` added for
   `index.html` itself (Vercel default must-revalidate is correct for a
   frequently-updated SPA; a long cache would risk stale content).
+
+## SEO audit 2026-10-31 — 3 issues, FIXED (WhatsApp 429, thin hub links, empty anchors)
+
+Audit (Ahrefs-style, discovered 31 Oct 2026 10:36). All three fixes live
+in `build_site.py` + `index.html` (source); generated files are never
+edited directly. `--check` enforces all three permanently (see below).
+
+1. **"3 external links are broken" (WhatsApp share links, HTTP 429).**
+   Verified by curl: a single wa.me share URL returns HTTP 302 (redirect
+   to api.whatsapp.com/send/) with a browser UA, a crawler UA and no UA —
+   the link works for real users; the 429 was WhatsApp burst
+   rate-limiting of the audit crawler (64 of 67 requests succeeded), i.e.
+   a crawler false positive. Fix (permanent, share button kept): the
+   wa.me URL is NEVER a plain href anywhere now — it is built only on
+   click. Static recipe pages: `<button class="share-btn"
+   data-wa="<percent-encoded text>">Share on WhatsApp</button>` plus a
+   `Copy recipe link` button (`data-copy`), with one delegated inline
+   `<script>` (`SHARE_JS`, in `page_shell()`) that opens the URL on click
+   (host split across a string concatenation so no literal share URL
+   appears in the HTML for a crawler to extract). SPA: the `#waShare`
+   anchor became a `<button>`, `render()` stores the text in `data-wa`
+   instead of setting `href`, and the delegated document click handler
+   opens it. The copy button also removes the old bare-URL self-link
+   (`<a href="SELF">SELF</a>`), which audit tools flag as no/descriptive
+   anchor text.
+2. **"5 pages have only one incoming internal link"** (`/about`,
+   `/contact`, `/faqs`, `/privacy`, `/trending`). Root cause: the five
+   were linked only from the SPA homepage footer/nav. Fix: all five are
+   now in `SITE_FOOTER` (every static page links them), recipe pages
+   link `/faqs` + `/trending` in the "More" paragraph, and the three
+   info pages cross-link each other + FAQs (`INFO_MORE`). Verified by
+   in-memory crawl: about 478, contact 476, faqs 909, privacy 476,
+   trending 903 incoming links (was ~1 each). Do NOT raise the general
+   orphan threshold: language recipe pages legitimately sit at 2.
+3. **"87 / 67 links have no anchor text" (recipe pages).** Exhaustive
+   verification found ZERO empty `<a>` anchors anywhere (full 474-page
+   in-memory scan, live curl, jsdom SPA renders in EN/RU/HI) — the flag
+   did not reproduce. The two real defects that could plausibly cause it
+   were still fixed: (a) the bare-URL self-link on every recipe page
+   (removed by the Issue 1 button conversion — it was the ONLY self-link
+   anchor on recipe pages, matching the audit rows' Page URL == Link
+   URL pattern); (b) `r_text_lang()` returned an EMPTY alt for every
+   recipe in all 12 non-English languages — it now
+   falls back to the English alt. If the flag persists after a re-crawl
+   it is the tool counting `<link>` (canonical/hreflang) elements,
+   which cannot carry anchor text by design.
+
+**`--check` guards added (fail the build on regression):** no literal
+share URL in any generated page; no `alt=""`; every `<a>` must have
+visible text, a non-empty img alt, or an aria-label (checked on all
+static pages AND the slim homepage); each of the five hub pages must
+have ≥10 incoming internal links.

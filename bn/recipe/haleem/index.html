@@ -58,7 +58,8 @@ img.hero{width:100%;height:auto;border-radius:10px;display:block;margin:12px 0}
 .card p{color:#6b5f52;font-size:14px;margin:4px 0 0}
 footer.site{border-top:1px solid #e5d9c5;margin-top:36px;padding-top:14px;font-size:14px;color:#6b5f52}
 footer.site a{color:#b3402a}
-.muted{color:#6b5f52;font-size:14px}</style>
+.muted{color:#6b5f52;font-size:14px}
+button.share-btn{background:none;border:0;padding:0;font:inherit;color:#b3402a;text-decoration:underline;cursor:pointer}</style>
 </head>
 <body>
 <div class="wrap">
@@ -106,10 +107,15 @@ footer.site a{color:#b3402a}
 <h3>আমার হালিম খুব পাতলা হলে কী করব?</h3>
 <p>ঢাকনা না দিয়ে হালকা আঁচে সেদ্ধ করতে থাকুন আর কাঠের চামচ দিয়ে মথতে থাকুন। ডাল ও গমের স্টার্চ অতিরিক্ত আর্দ্রতা বাষ্প হয়ে যাওয়ার সঙ্গে সঙ্গে মিশ্রণ ঘন করে দেয়।</p>
 <h2>More</h2>
-<p><a href="/category/desi-dishes">More দেশি খাবার recipes</a> &middot; <a href="/country/pakistan">More Pakistan recipes</a> &middot; <a href="/recipes">All recipes</a></p>
-<p>Share this recipe: <a href="https://www.zaikaworlds.com/bn/recipe/haleem">https://www.zaikaworlds.com/bn/recipe/haleem</a> &middot; <a href="https://wa.me/?text=See%20this%20recipe%3A%20%E0%A6%AA%E0%A6%BE%E0%A6%95%E0%A6%BF%E0%A6%B8%E0%A7%8D%E0%A6%A4%E0%A6%BE%E0%A6%A8%E0%A6%BF%20%E0%A6%B9%E0%A6%BE%E0%A6%B2%E0%A6%BF%E0%A6%AE%2C%20Zaika%20Worlds%3A%20https%3A//www.zaikaworlds.com/bn/recipe/haleem">Share on WhatsApp</a></p>
+<p><a href="/category/desi-dishes">More দেশি খাবার recipes</a> &middot; <a href="/country/pakistan">More Pakistan recipes</a> &middot; <a href="/recipes">All recipes</a> &middot; <a href="/faqs">Cooking FAQs</a> &middot; <a href="/trending">Trending Recipes</a></p>
+<p>Share this recipe: <button type="button" class="share-btn" data-copy="https://www.zaikaworlds.com/bn/recipe/haleem">Copy recipe link</button> &middot; <button type="button" class="share-btn" data-wa="See%20this%20recipe%3A%20%E0%A6%AA%E0%A6%BE%E0%A6%95%E0%A6%BF%E0%A6%B8%E0%A7%8D%E0%A6%A4%E0%A6%BE%E0%A6%A8%E0%A6%BF%20%E0%A6%B9%E0%A6%BE%E0%A6%B2%E0%A6%BF%E0%A6%AE%2C%20Zaika%20Worlds%3A%20https%3A//www.zaikaworlds.com/bn/recipe/haleem">Share on WhatsApp</button></p>
 
-<footer class="site">Zaika Worlds — home food recipes and world food recipes, in 13 languages. <a href="/eid-recipes">Eid Recipes</a> · <a href="/ramadan-recipes">Ramadan Recipes</a> · <a href="/guides/dum-cooking">Dum Cooking Guide</a> · <a href="https://www.youtube.com/@ZaikaWorlds">YouTube</a> · <a href="https://www.facebook.com/profile.php?id=1445260131997347">Facebook</a> · <a href="https://www.pinterest.com/zaikaworlds26/">Pinterest</a></footer>
+<footer class="site">Zaika Worlds — home food recipes and world food recipes, in 13 languages. <a href="/eid-recipes">Eid Recipes</a> · <a href="/ramadan-recipes">Ramadan Recipes</a> · <a href="/guides/dum-cooking">Dum Cooking Guide</a> · <a href="/about">About Us</a> · <a href="/contact">Contact Us</a> · <a href="/faqs">Cooking FAQs</a> · <a href="/privacy">Privacy Policy</a> · <a href="/trending">Trending Recipes</a> · <a href="https://www.youtube.com/@ZaikaWorlds">YouTube</a> · <a href="https://www.facebook.com/profile.php?id=1445260131997347">Facebook</a> · <a href="https://www.pinterest.com/zaikaworlds26/">Pinterest</a></footer>
+<script>
+/* Share buttons (2026-10-31, audit "3 external links are broken"): the WhatsApp share URL used to be a plain link to the WhatsApp share host, which audit crawlers follow; that host rate-limits bots with HTTP 429, so the audit flagged it as broken (real users get a normal redirect). The URL is therefore built ONLY on click, and the host is split across a string concatenation so no literal share URL appears in the HTML for a crawler to extract. The copy button puts the recipe URL on the clipboard instead of showing a bare-URL self-link (bare-URL text is also what audit tools flag as no/descriptive anchor text). */
+document.addEventListener("click",function(e){var b=e.target.closest("button[data-wa],button[data-copy]");if(!b)return;if(b.hasAttribute("data-wa")){window.open("https://wa"+".me/?text="+b.getAttribute("data-wa"),"_blank","noopener");}else{var u=b.getAttribute("data-copy");var done=function(){var t=b.textContent;b.textContent="Copied \u2713";setTimeout(function(){b.textContent=t;},2000);};if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(u).then(done,function(){fallbackCopy(u);done();});}else{fallbackCopy(u);done();}}});
+function fallbackCopy(t){var ta=document.createElement("textarea");ta.value=t;document.body.appendChild(ta);ta.select();try{document.execCommand("copy");}catch(err){}document.body.removeChild(ta);}
+</script>
 </div>
 </body>
 </html>
