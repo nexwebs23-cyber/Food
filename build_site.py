@@ -1879,6 +1879,18 @@ def page_shell(title, desc, url, og_img, og_alt, json_ld_blocks, body,
             + '</div>\n</body>\n</html>\n')
 
 
+def _as_datetime(d):
+    """Date-only 'YYYY-MM-DD' -> 'YYYY-MM-DDT00:00:00+05:00' (midnight
+    Asia/Karachi, where the videos were published); values that already
+    carry a time/timezone pass through unchanged. The date itself is never
+    altered — only the time precision Google requires for VideoObject
+    uploadDate is added (Rich Results Test 2026-10-31 flagged date-only
+    uploadDate as 'Invalid datetime value ... missing a timezone')."""
+    if re.match(r'^\d{4}-\d{2}-\d{2}$', d or ''):
+        return d + 'T00:00:00+05:00'
+    return d
+
+
 def recipe_json_ld(data, recipe, tx, url, lang='en', meta_desc=None,
                    video_date=None, article_date=None):
     """Recipe + BreadcrumbList + VideoObject + FAQPage JSON-LD. Ingredients
@@ -1939,10 +1951,11 @@ def recipe_json_ld(data, recipe, tx, url, lang='en', meta_desc=None,
                "thumbnailUrl": "https://i.ytimg.com/vi/%s/hqdefault.jpg"
                                % vid,
                "contentUrl": "https://www.youtube.com/watch?v=%s" % vid,
+               "url": "https://www.youtube.com/watch?v=%s" % vid,
                "embedUrl": "https://www.youtube-nocookie.com/embed/%s" % vid,
                "duration": "PT1M"}
         if video_date:
-            vld["uploadDate"] = video_date
+            vld["uploadDate"] = _as_datetime(video_date)
         blocks.append(vld)
     faq = tx.get('faq') or []
     if faq:
@@ -3108,6 +3121,14 @@ def validate_build(data):
                 _vo = obj.get('@id')
                 if not (obj.get('author') or {}).get('name'):
                     problems.append('%s: VideoObject missing author' % rel)
+                _ud = obj.get('uploadDate')
+                if _ud and not re.match(
+                        r'^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}[+-]\d{2}:\d{2}$',
+                        _ud):
+                    problems.append('%s: VideoObject uploadDate %r is not '
+                                    'a full datetime with timezone' % (rel, _ud))
+                if not obj.get('url'):
+                    problems.append('%s: VideoObject missing url' % rel)
         if _vo and _rv != _vo:
             problems.append('%s: Recipe video @id %r does not match '
                             'VideoObject @id %r' % (rel, _rv, _vo))

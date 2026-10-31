@@ -1598,7 +1598,7 @@ function setRouteMeta(kind,pageName,recipeId,extra){
   } else if(bld){bld.textContent="";}
   var vld=document.getElementById("videoJsonLd");
   if(kind==="recipe"&&r&&_vid){
-    var _vld={"@context":"https://schema.org","@type":"VideoObject","@id":url+"#video","name":rName(r),"author":{"@type":"Organization","name":"Zaika Worlds"},"description":desc,"thumbnailUrl":"https://i.ytimg.com/vi/"+_vid+"/hqdefault.jpg","contentUrl":"https://www.youtube.com/watch?v="+_vid,"embedUrl":"https://www.youtube-nocookie.com/embed/"+_vid,"duration":"PT1M"};
+    var _vld={"@context":"https://schema.org","@type":"VideoObject","@id":url+"#video","name":rName(r),"author":{"@type":"Organization","name":"Zaika Worlds"},"description":desc,"thumbnailUrl":"https://i.ytimg.com/vi/"+_vid+"/hqdefault.jpg","contentUrl":"https://www.youtube.com/watch?v="+_vid,"url":"https://www.youtube.com/watch?v="+_vid,"embedUrl":"https://www.youtube-nocookie.com/embed/"+_vid,"duration":"PT1M"};
     if(!vld){vld=document.createElement("script");vld.id="videoJsonLd";vld.type="application/ld+json";document.head.appendChild(vld);}
     vld.textContent=JSON.stringify(_vld);
   } else if(vld){vld.textContent="";}
