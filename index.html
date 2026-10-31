@@ -1574,7 +1574,7 @@ function setRouteMeta(kind,pageName,recipeId,extra){
   var ld=document.getElementById("recipeJsonLd");
   if(kind==="recipe"&&r){
     var _tx=rText(r);
-    var _ld={"@context":"https://schema.org","@type":"Recipe","name":rName(r),"image":[img],"description":desc,"author":{"@type":"Organization","name":"Zaika Worlds","url":"https://www.zaikaworlds.com"},"recipeYield":rServings(r),"totalTime":"PT"+(r.time||60)+"M","recipeIngredient":_tx.ing||[],"recipeInstructions":(_tx.steps||[]).map(function(st,i){return {"@type":"HowToStep","name":"Step "+(i+1),"url":url+"#step-"+(i+1),"text":st};}),"recipeCategory":rCat(r),"recipeCuisine":(COUNTRY_ADJ[r.country]||r.country),"keywords":rName(r)+", "+(COUNTRY_ADJ[r.country]||r.country)+" recipe, "+rCat(r),"datePublished":r.published||undefined};
+    var _ld={"@context":"https://schema.org","@type":"Recipe","name":rName(r),"image":[img],"description":desc,"author":{"@type":"Organization","name":"Zaika Worlds","url":"https://www.zaikaworlds.com"},"recipeYield":rServings(r),"totalTime":"PT"+(r.time||60)+"M","recipeIngredient":_tx.ing||[],"recipeInstructions":(_tx.steps||[]).map(function(st,i){return {"@type":"HowToStep","name":"Step "+(i+1),"url":url+"#step-"+(i+1),"image":[img],"text":st};}),"recipeCategory":rCat(r),"recipeCuisine":(COUNTRY_ADJ[r.country]||r.country),"keywords":rName(r)+", "+(COUNTRY_ADJ[r.country]||r.country)+" recipe, "+rCat(r),"datePublished":r.published||undefined};
     var _vid=videoId(r); if(_vid){_ld.video={"@id":url+"#video"};}
     if(!ld){ld=document.createElement("script");ld.id="recipeJsonLd";ld.type="application/ld+json";document.head.appendChild(ld);}
     ld.textContent=JSON.stringify(_ld);

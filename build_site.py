@@ -1913,6 +1913,14 @@ def recipe_json_ld(data, recipe, tx, url, lang='en', meta_desc=None,
           "recipeInstructions": [{"@type": "HowToStep",
                                   "name": "Step %d" % (i + 1),
                                   "url": url + "#step-%d" % (i + 1),
+                                  # GSC 'Either "image" or "video" should be
+                                  # specified (in "recipeInstructions")'
+                                  # (2026-10-31): every step carries the
+                                  # recipe's own real photo — the same image
+                                  # as the Recipe image. No per-step photo
+                                  # exists and none is invented. This also
+                                  # fixes recipes with no video yet (hummus).
+                                  "image": [SITE + '/' + recipe['img']],
                                   "text": s}
                                  for i, s in
                                  enumerate(tx.get('steps') or [])],
@@ -3117,6 +3125,9 @@ def validate_build(data):
                         problems.append('%s: HowToStep url anchor step-%d '
                                         'has no matching <li id> on the page'
                                         % (rel, i + 1))
+                    if not st.get('image') and not st.get('video'):
+                        problems.append('%s: HowToStep %d has neither image '
+                                        'nor video' % (rel, i + 1))
                 for ing in obj.get('recipeIngredient') or []:
                     if ing.strip().lower() in quals:
                         problems.append('%s: qualifier orphan in '
