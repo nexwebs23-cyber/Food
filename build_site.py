@@ -1926,7 +1926,13 @@ def recipe_json_ld(data, recipe, tx, url, lang='en', meta_desc=None,
     blocks = [ld, bld]
     vid = (recipe.get('videos') or {}).get(lang)
     if vid:
+        # Recipe "video" (GSC "Missing field 'video'", 2026-10-31): the
+        # Recipe links the VideoObject by @id (page url + "#video") instead
+        # of carrying a second copy. A standalone VideoObject alone does
+        # not satisfy the Recipe's video field.
+        ld["video"] = {"@id": url + "#video"}
         vld = {"@context": "https://schema.org", "@type": "VideoObject",
+               "@id": url + "#video",
                "name": name,
                "author": {"@type": "Organization", "name": "Zaika Worlds"},
                "description": meta_desc or tx.get('desc') or DEF_DESC,
@@ -3062,6 +3068,8 @@ def validate_build(data):
                 break
         problems.extend(_anchor_problems(rel, html))
         quals = ING_QUALIFIERS.get(lang, set())
+        _rv = None
+        _vo = None
         for b in re.findall(r'<script type="application/ld\+json">(.*?)</script>',
                             html, re.S):
             try:
@@ -3076,6 +3084,7 @@ def validate_build(data):
                                         'position %s missing item'
                                         % (rel, el.get('position')))
             if obj.get('@type') == 'Recipe':
+                _rv = (obj.get('video') or {}).get('@id')
                 for f in ('name', 'image', 'description',
                           'recipeIngredient', 'recipeInstructions',
                           'totalTime', 'recipeYield', 'datePublished',
@@ -3096,8 +3105,15 @@ def validate_build(data):
                         problems.append('%s: qualifier orphan in '
                                         'ingredients: %r' % (rel, ing))
             if obj.get('@type') == 'VideoObject':
+                _vo = obj.get('@id')
                 if not (obj.get('author') or {}).get('name'):
                     problems.append('%s: VideoObject missing author' % rel)
+        if _vo and _rv != _vo:
+            problems.append('%s: Recipe video @id %r does not match '
+                            'VideoObject @id %r' % (rel, _rv, _vo))
+        if _rv and not _vo:
+            problems.append('%s: Recipe video @id %r has no VideoObject '
+                            'on the page' % (rel, _rv))
         if '/recipe/' in rel:
             _rid = rel.split('/recipe/')[1].split('/')[0]
             _pub = ((dates.get('article') or {}).get(_rid, {})
