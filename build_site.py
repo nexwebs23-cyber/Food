@@ -128,6 +128,83 @@ DEF_DESC = ("Cook famous dishes from Pakistan and India, plus favourites from "
 DEF_IMG = SITE + "/assets/hero-49347f9b.webp"
 DEF_ALT = ("A large plate of chicken biryani with saffron rice, fresh "
            "coriander and onion")
+
+_MONTHS = ('January', 'February', 'March', 'April', 'May', 'June', 'July',
+           'August', 'September', 'October', 'November', 'December')
+
+
+def fmt_date(iso):
+    """'2026-10-28' -> '28 October 2026' (visible publish date, issue
+    #15). Returns '' for a missing/invalid date — never invent one."""
+    try:
+        y, m, d = iso.split('-')
+        return '%d %s %s' % (int(d), _MONTHS[int(m) - 1], y)
+    except Exception:
+        return ''
+
+
+# og:image assignment for non-recipe hub pages (audit issue #6,
+# 2026-10-31): the audit found EVERY non-recipe page sharing the same
+# biryani photo. Each hub page now gets a DISTINCT recipe photo; the
+# category/country picks are from that group's own recipes. The table
+# is the stable assignment (no churn when the daily cron adds a
+# recipe); hub_og() falls back deterministically for a hub page not
+# listed here (a new category/country), and --check fails the build
+# on any duplicate, so an exhausted pool is caught, not silently
+# shared. Language variants of a page share its og:image by design.
+HUB_OG = {
+    '/': 'biryani',
+    '/category/bbq': 'chapli',
+    '/category/desi-dishes': 'daal',
+    '/category/drinks': 'lassi',
+    '/category/desserts': 'gajarhalwa',
+    '/category/breakfast': 'halwapuri',
+    '/category/street-food': 'bunkebab',
+    '/category/world-food': 'pizza',
+    '/country/pakistan': 'haleem',
+    '/country/india': 'gulabjamun',
+    '/country/australia': 'meatpie',
+    '/country/brazil': 'feijoada',
+    '/country/canada': 'poutine',
+    '/country/china': 'dimsum',
+    '/country/france': 'bouillabaisse',
+    '/country/greece': 'moussaka',
+    '/country/italy': 'carbonara',
+    '/country/japan': 'ramen',
+    '/country/mexico': 'pozole',
+    '/country/middle-east': 'falafel',
+    '/country/south-africa': 'bobotie',
+    '/country/spain': 'paella',
+    '/country/thailand': 'padthai',
+    '/country/vietnam': 'beefpho',
+    '/about': 'coqauvin',
+    '/recipes': 'hummus',
+    '/trending': 'karahi',
+    '/faqs': 'nihari',
+    '/eid-recipes': 'pekingduck',
+    '/ramadan-recipes': 'samosa',
+    '/guides/dum-cooking': 'sushi',
+    '/privacy': 'tacos',
+    '/contact': 'tikka',
+}
+
+
+def hub_og(data, path, group_recipes=None):
+    """(og_image_url, og_image_alt, recipe_id) for a hub page."""
+    by_id = {r['id']: r for r in data['recipes']}
+    used = set(HUB_OG.values())
+    rid = HUB_OG.get(path)
+    rep_recipe = by_id.get(rid) if rid else None
+    if rep_recipe is None:
+        for r in list(group_recipes or []) + list(data['recipes']):
+            if r['id'] not in used:
+                rep_recipe = r
+                break
+    if rep_recipe is None:
+        return (DEF_IMG, DEF_ALT, None)
+    tx = r_text_en(rep_recipe, data['extra'])
+    return (SITE + '/' + rep_recipe['img'],
+            tx.get('alt') or rep_recipe['name'], rep_recipe['id'])
 CONTACT_EMAIL = "info.allcalctool@gmail.com"
 
 
@@ -1335,6 +1412,17 @@ def extract_all(src):
         'country_adj': country_adj, 'cat_slug': cat_slug,
         'country_slug': country_slug, 'cl': cl, 'df': df, 'sv': sv,
     }
+    # Visible publish dates (issue #15): every recipe carries its real
+    # article published date from recipe_dates.json, so the SPA
+    # (data/recipes.js) and the static builders share one source. A
+    # recipe with no recorded date gets no 'published' field and shows
+    # no date, rather than an invented one.
+    _dates = load_recipe_dates()
+    _art = _dates.get('article') or {}
+    for _r in recipes:
+        _a = _art.get(_r['id']) or {}
+        if _a.get('published'):
+            _r['published'] = _a['published']
     validate(data)
     return data
 
@@ -1371,8 +1459,8 @@ def validate(data):
     # UI patches: en/ru/hi each gain the same 26 keys after the literal.
     for lang in ('en', 'ru', 'hi'):
         keys = set(data['ui_patches'].get(lang, {}))
-        if len(keys) != 26:
-            raise JSError("UI.%s patches: %d keys, expected 26"
+        if len(keys) != 27:
+            raise JSError("UI.%s patches: %d keys, expected 27"
                           % (lang, len(keys)))
     if set(data['ui_patches']) != {'en', 'ru', 'hi'}:
         raise JSError("UI patches cover %s, expected en/ru/hi"
@@ -1518,10 +1606,11 @@ def list_info(data, kind, slug):
         parts.append('Recipes on this page: ' + names + '.')
     parts.append('Each recipe lists full ingredients, a step by step method, '
                  'cooking time and servings.')
+    hub_img, hub_alt, _ = hub_og(data, '/' + kind + '/' + slug, rs)
     return {'kind': kind, 'slug': slug, 'label': label, 'title': title,
             'desc': desc, 'intro': ' '.join(parts), 'recipes': rs,
-            'img': SITE + '/' + first['img'],
-            'imgAlt': ftx.get('alt') or first['name'],
+            'img': hub_img,
+            'imgAlt': hub_alt,
             'url': SITE + '/' + kind + '/' + slug}
 
 
@@ -1660,6 +1749,7 @@ ul,ol{margin:0 0 16px;padding-left:24px}
 li{margin:0 0 6px}
 img.hero{width:100%;height:auto;border-radius:10px;display:block;margin:12px 0}
 .facts{color:#6b5f52;font-size:15px;margin:0 0 12px}
+.pubdate{color:#6b5f52;font-size:14px;margin:0 0 12px}
 .cta{display:block;background:#b3402a;color:#fff;text-align:center;padding:12px 16px;border-radius:8px;text-decoration:none;font-weight:700;margin:20px 0}
 .cta:hover{background:#93331f}
 .card{display:flex;gap:14px;align-items:flex-start;border:1px solid #e5d9c5;border-radius:10px;padding:12px;margin:0 0 14px;background:#fff}
@@ -1917,12 +2007,19 @@ def recipe_page(data, recipe, lang='en', dates=None):
     wa_q = quote(wa_text)
     spa_href = ('/#recipe/%s' % recipe['id'] if lang == 'en'
                 else '/?lang=%s#recipe/%s' % (lang, recipe['id']))
+    pub = recipe.get('published') or article.get('published')
+    pubdate = ''
+    if pub:
+        pubdate = ('<p class="pubdate">%s %s</p>\n'
+                   % (esc(h('publishedOn', 'Published on')),
+                      esc(fmt_date(pub))))
     body = (
         '<nav class="crumb"><a href="%s">Home</a> &rsaquo; '
         '<a href="/category/%s">%s</a> &rsaquo; '
         '<span>%s</span></nav>\n'
         '<h1>%s</h1>\n'
         '<p class="facts">%s %s &middot; %s &middot; %s &middot; %s</p>\n'
+        '%s'
         '<img class="hero" src="%s" alt="%s"%s loading="eager">\n'
         '<p>%s</p>\n'
         '<a class="cta" href="%s">Open the interactive recipe '
@@ -1942,7 +2039,7 @@ def recipe_page(data, recipe, lang='en', dates=None):
         % (esc(home_url), esc(cat_slug), esc(cat_label), esc(name),
            esc(name), esc(recipe['time']), esc(minute),
            esc(lang_servings(recipe, data, lang)), esc(cat_label),
-           esc(recipe['country']), esc(img_url), esc(img_alt),
+           esc(recipe['country']), pubdate, esc(img_url), esc(img_alt),
            wh, esc(tx.get('intro') or ''), esc(spa_href),
            video,
            section(h('ingH', 'Ingredients'),
@@ -2109,7 +2206,8 @@ def info_page(data, name):
            "name": title, "url": url, "description": desc,
            "isPartOf": {"@type": "WebSite", "name": "Zaika Worlds",
                         "url": SITE + "/"}}
-    return page_shell(title, desc, url, DEF_IMG, DEF_ALT, [wld], body)
+    hub_img, hub_alt, _ = hub_og(data, '/' + name)
+    return page_shell(title, desc, url, hub_img, hub_alt, [wld], body)
 
 
 def make_list(title, desc, url, label, intro, recipes, img, img_alt):
@@ -2132,28 +2230,29 @@ def new_list_pages(data):
                  "food dishes with full ingredients, step by step methods, "
                  "cooking time and servings. Click any recipe to open the "
                  "full method and start cooking.")
+    _hi, _ha, _ = hub_og(data, '/recipes')
     pages['recipes/index.html'] = list_page(data, make_list(
         'All Recipes', fit_desc(intro_all, ''),
         SITE + '/recipes', 'All Recipes', intro_all, all_recipes,
-        first_img, first_alt))
+        _hi, _ha))
     # The 3 trending dishes are the UI trendCards (Chicken Biryani,
     # Beef Nihari, Gulab Jamun).
     trend_recipes = [by_id[i] for i in TREND_IDS]
     intro_trend = ui_str(data, 'en', 'trendP',
                          'If you are new here, start with these three.')
+    _hi, _ha, _ = hub_og(data, '/trending')
     pages['trending/index.html'] = list_page(data, make_list(
         'Trending Recipes', fit_desc(intro_trend, ''),
         SITE + '/trending', 'Trending', intro_trend, trend_recipes,
-        trend_recipes[0]['img'],
-        r_text_en(trend_recipes[0], data['extra']).get('alt') or ''))
+        _hi, _ha))
     for slug, hub in HUBS.items():
         hub_recipes = [by_id[i] for i in hub['recipes']]
+        _hi, _ha, _ = hub_og(data, '/' + slug)
         pages['%s/index.html' % slug] = list_page(data, make_list(
             hub['title'],
             fit_desc(hub['intro'], ''), SITE + '/' + slug,
             hub['title'], hub['intro'], hub_recipes,
-            hub_recipes[0]['img'],
-            r_text_en(hub_recipes[0], data['extra']).get('alt') or ''))
+            _hi, _ha))
     return pages
 
 
@@ -2182,8 +2281,9 @@ def faq_page(data):
            "description": fit_desc(intro, ''),
            "isPartOf": {"@type": "WebSite", "name": "Zaika Worlds",
                         "url": SITE + "/"}}
+    hub_img, hub_alt, _ = hub_og(data, '/faqs')
     return page_shell('Cooking FAQs | Zaika Worlds', fit_desc(intro, ''),
-                      SITE + '/faqs', DEF_IMG, DEF_ALT, [wld, fld],
+                      SITE + '/faqs', hub_img, hub_alt, [wld, fld],
                       ''.join(parts))
 
 
@@ -2213,9 +2313,10 @@ def guide_page(data):
            "description": fit_desc(intro, ''),
            "isPartOf": {"@type": "WebSite", "name": "Zaika Worlds",
                         "url": SITE + "/"}}
+    hub_img, hub_alt, _ = hub_og(data, '/guides/dum-cooking')
     return page_shell('Dum Cooking Guide | Zaika Worlds',
                       fit_desc(intro, ''), SITE + '/guides/dum-cooking',
-                      DEF_IMG, DEF_ALT, [wld], ''.join(parts))
+                      hub_img, hub_alt, [wld], ''.join(parts))
 
 
 def language_home_page(data, lang):
@@ -2578,8 +2679,8 @@ def build_slim(src, data):
         semi = out.find(';', v_end)
         spans.append((m.start(), semi + 1, ''))
         _patch_n += 1
-    if _patch_n != 78:
-        raise JSError("expected 78 UI patch statements, found %d" % _patch_n)
+    if _patch_n != 81:
+        raise JSError("expected 81 UI patch statements, found %d" % _patch_n)
     # EXTRA_NEW per-recipe assignments + whole-language literals — delete.
     for m in re.finditer(r'(?<=[\n;])EXTRA_NEW\.([a-z]+)\.([a-z0-9_-]+)\s*=\s*\[', out):
         j = out.find('[', m.start())
@@ -2951,6 +3052,18 @@ def validate_build(data):
                     if ing.strip().lower() in quals:
                         problems.append('%s: qualifier orphan in '
                                         'ingredients: %r' % (rel, ing))
+        if '/recipe/' in rel:
+            _rid = rel.split('/recipe/')[1].split('/')[0]
+            _pub = ((dates.get('article') or {}).get(_rid, {})
+                    .get('published'))
+            if _pub:
+                _want_pub = ('<p class="pubdate">%s %s</p>'
+                             % (esc(ui_str(data, lang, 'publishedOn',
+                                          'Published on')),
+                                esc(fmt_date(_pub))))
+                if _want_pub not in html:
+                    problems.append('%s: missing visible publish date %r'
+                                    % (rel, _want_pub))
         if rel.startswith('recipe/'):
             if not (140 <= len(desc) <= 155):
                 problems.append('%s: English recipe description %d chars '
@@ -3084,6 +3197,78 @@ def validate_build(data):
         if '.site-footer p a' in _css.group(1):
             problems.append('contrast: .site-footer p a must not be styled '
                             'red (red on the dark footer fails WCAG)')
+    # SPA recipe view must carry the visible publish date (issue #15).
+    if 'recipePubDate' not in slim_html or 'publishedOn' not in slim_html:
+        problems.append('index.html: recipe view has no publish-date '
+                        'element (recipePubDate / publishedOn)')
+    # og:image uniqueness for hub pages (audit issue #6): no two
+    # distinct non-recipe pages may share an og:image; language
+    # variants of one page share it by design, so canonicalise by
+    # stripping a leading language prefix. Recipe pages are keyed by
+    # recipe and must use that recipe's own photo.
+    def _canon(rel):
+        # Inline canonical path (do NOT use _path_of/_norm: they are
+        # defined below this block in validate_build).
+        if rel == 'index.html':
+            p = '/'
+        elif rel.endswith('/index.html'):
+            p = '/' + rel[:-len('/index.html')]
+        else:
+            p = '/' + rel
+        p = p.rstrip('/') or '/'
+        for _pfx in LANG_PREFIX.values():
+            if p.startswith('/' + _pfx + '/'):
+                return (p[len(_pfx) + 1:]).rstrip('/') or '/'
+            if p == '/' + _pfx:
+                return '/'
+        return p
+    _og_by_path = {}
+    for rel, html in sorted(pages.items()):
+        _m = re.search(r'<meta[^>]*property="og:image" content="([^"]*)"',
+                       html)
+        if not _m:
+            continue
+        _cp = _canon(rel)
+        if _cp.startswith('/recipe/'):
+            continue
+        if _cp in _og_by_path and _og_by_path[_cp] != _m.group(1):
+            problems.append('%s: language variant og:image %s != %s'
+                            % (rel, _m.group(1), _og_by_path[_cp]))
+        _og_by_path.setdefault(_cp, _m.group(1))
+    _seen_og = {}
+    for _cp, _img in sorted(_og_by_path.items()):
+        if _img in _seen_og:
+            problems.append('og:image %s shared by %s and %s (hub pages '
+                            'must each have a distinct photo)'
+                            % (_img, _seen_og[_img], _cp))
+        else:
+            _seen_og[_img] = _cp
+    for _cp, _img in sorted(_og_by_path.items()):
+        if _cp in HUB_OG:
+            _want = hub_og(data, _cp)[0]
+            if _img != _want:
+                problems.append('%s: og:image %s != assigned %s'
+                                % (_cp, _img, _want))
+    for rel, html in sorted(pages.items()):
+        _cp = _canon(rel)
+        if _cp.startswith('/recipe/'):
+            _rid = _cp[len('/recipe/'):]
+            _r = next((x for x in data['recipes'] if x['id'] == _rid),
+                      None)
+            if _r:
+                _m = re.search(
+                    r'<meta[^>]*property="og:image" content="([^"]*)"', html)
+                if _m and _m.group(1) != SITE + '/' + _r['img']:
+                    problems.append('%s: og:image %s != recipe photo %s'
+                                    % (rel, _m.group(1), _r['img']))
+    _slim_og = re.search(
+        r'<meta[^>]*property="og:image" content="([^"]*)"', slim_html)
+    if not _slim_og:
+        problems.append('index.html: no og:image (the slim homepage must '
+                        'carry the homepage assignment statically)')
+    elif _slim_og.group(1) != hub_og(data, '/')[0]:
+        problems.append('index.html: og:image %s != homepage assignment %s'
+                        % (_slim_og.group(1), hub_og(data, '/')[0]))
 
     def _path_of(rel):
         if rel == 'index.html':

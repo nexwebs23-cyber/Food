@@ -14,6 +14,7 @@ ZAIKA_UI_RU.footerQuickH="Quick Links";
 ZAIKA_UI_RU.goodH="Kaam ki baatein";
 ZAIKA_UI_RU.mistakesH="Aam Ghaltiyan";
 ZAIKA_UI_RU.notesH="Ajza Ke Notes";
+ZAIKA_UI_RU.publishedOn="Shaya hua";
 ZAIKA_UI_RU.recipeFaqH="Aksar Puche Jane Wale Sawal";
 ZAIKA_UI_RU.recipesP="Lunch ya dinner ke liye dish chunein, chawal aur naan ke sath ghar jaisa curry ho ya family meal ke liye halki aanch par paki gravy. Har card par cooking time aur servings likhe hain. Ajza aur step by step tareeqa dekhne ke liye photo kholein.";
 ZAIKA_UI_RU.recipesT="Lunch aur dinner ke liye ghar ke khane ki recipes";

@@ -14,6 +14,7 @@ UI.en.footerQuickH="Quick links";
 UI.en.goodH="Good to know";
 UI.en.mistakesH="Common mistakes";
 UI.en.notesH="Ingredient notes";
+UI.en.publishedOn="Published on";
 UI.en.recipeFaqH="Frequently asked questions";
 UI.en.recipesP="Choose a dish for lunch or dinner, from a homemade curry with rice and naan to a slow gravy for a family meal. Every card shows cooking time and servings. Open a photo to see the ingredients and the step by step method.";
 UI.en.recipesT="Home food recipes for lunch and dinner";
