@@ -2549,6 +2549,34 @@ def update_vercel():
     if cfg.get('outputDirectory') != '.':
         cfg['outputDirectory'] = '.'
         changed.append('outputDirectory=.')
+    # Edge caching for HTML pages (Screaming Frog "Slow page", 2026-10-31):
+    # Vercel's default is "max-age=0, must-revalidate", so every page view
+    # revalidates with origin and TTFB spikes over 1s on cold fetches
+    # (Ramen was flagged at 1,067ms while the other recipes were under 1s).
+    # Browsers cache 60s, the edge caches 1h with stale-while-revalidate
+    # for a day; deploys purge the edge cache, so new content still goes
+    # live immediately. The /assets/ rule below comes later and wins for
+    # fingerprinted assets, which keep immutable 1-year caching.
+    headers = cfg.setdefault('headers', [])
+    cache_rule = None
+    for r in headers:
+        if r.get('source') == '/(.*)':
+            cache_rule = r
+            break
+    if cache_rule is None:
+        cache_rule = {'source': '/(.*)', 'headers': []}
+        headers.insert(0, cache_rule)
+        changed.append('headers: added /(.*) rule')
+    cheaders = cache_rule.setdefault('headers', [])
+    want_cc = ('public, max-age=60, s-maxage=3600, '
+               'stale-while-revalidate=86400')
+    have_cc = [h for h in cheaders if h.get('key') == 'Cache-Control']
+    if not have_cc:
+        cheaders.append({'key': 'Cache-Control', 'value': want_cc})
+        changed.append('headers: HTML edge-cache Cache-Control added')
+    elif have_cc[0].get('value') != want_cc:
+        have_cc[0]['value'] = want_cc
+        changed.append('headers: HTML edge-cache Cache-Control updated')
     rewrites = cfg.setdefault('rewrites', [])
     have = {(r.get('source'), r.get('destination')) for r in rewrites}
     for src_pat in ('/recipe/:slug/', '/category/:slug/', '/country/:slug/'):
@@ -2745,6 +2773,28 @@ def validate_build(data):
     if got != want:
         problems.append('sitemap mismatch: %d extra, %d missing'
                         % (len(got - want), len(want - got)))
+    # Edge-cache rule must be present in vercel.json (Screaming Frog
+    # "Slow page", 2026-10-31): without it HTML serves max-age=0 and
+    # every fetch revalidates with origin, so cold fetches spike over 1s.
+    try:
+        with open(os.path.join(ROOT, 'vercel.json'), encoding='utf-8') as f:
+            vcfg = json.load(f)
+    except Exception as e:
+        problems.append('vercel.json unreadable: %s' % e)
+        vcfg = {}
+    hdrs = vcfg.get('headers') or []
+
+    def _has_cc(rule, needle):
+        return any(h.get('key') == 'Cache-Control'
+                   and needle in (h.get('value') or '')
+                   for h in rule.get('headers') or [])
+    if not any(r.get('source') == '/(.*)' and _has_cc(r, 's-maxage')
+               for r in hdrs):
+        problems.append('vercel.json: no HTML edge-cache Cache-Control '
+                        '(s-maxage) on the /(.*) rule')
+    if not any(r.get('source') == '/assets/(.*)' and _has_cc(r, 'immutable')
+               for r in hdrs):
+        problems.append('vercel.json: /assets/ immutable Cache-Control missing')
     # Hreflang reciprocity + orphan check (Screaming Frog "Missing
     # reciprocal link" + "Orphan page", 2026-10-31). The slim homepage
     # is part of the graph: it is the only page the static set does
