@@ -1,6 +1,6 @@
 # Zaika Worlds
 
-> Cook famous dishes from Pakistan and India, plus favourites from around the world, with big photos and step by step methods. 34 recipes in 13 languages: English, Roman Urdu, Hindi, Spanish, French, Arabic, Portuguese, Russian, Chinese, Japanese, German, Turkish and Bengali. Fifteen recipes also have a video in all 13 languages.
+> Cook famous dishes from Pakistan and India, plus favourites from around the world, with big photos and step by step methods. 34 recipes in 13 languages: English, Roman Urdu, Hindi, Spanish, French, Arabic, Portuguese, Russian, Chinese, Japanese, German, Turkish and Bengali. Twenty-seven recipes also have a video in all 13 languages.
 
 - [Zaika Worlds](https://www.zaikaworlds.com/): home page with all 34 recipes, search, categories and trending dishes
 - [About](https://www.zaikaworlds.com/about): how the recipes are written
@@ -43,9 +43,11 @@
 - [Falafel](https://www.zaikaworlds.com/recipe/falafel) (Middle East, 40 min): Real falafel is made from raw soaked chickpeas, never tinned or cooked chickpeas, and that is what gives it a light, fluffy inside and a crisp, craggy crust. The chickpeas are grou
 - [Feijoada](https://www.zaikaworlds.com/recipe/feijoada) (Brazil, 180 min): Feijoada is Brazil's national dish, a rich black bean stew with a mix of pork, sausage and smoked meats, cooked slowly until the beans are creamy and the meats are tender. It is tr
 - [Aussie Meat Pie](https://www.zaikaworlds.com/recipe/meatpie) (Australia, 90 min): The Aussie meat pie is an icon, handheld, golden and eaten at football games, bakeries and kitchen tables all over Australia. Inside a crisp shortcrust base and a flaky puff pastry
+- [Haleem](https://www.zaikaworlds.com/recipe/haleem) (Pakistan, 270 min): Haleem is not fast food, it is food of patience. Wheat, barley and lentils soak overnight, beef cooks until it shreds, and everything is mashed together until the pot turns into one thick, silky porridge with the famous stringy texture.
+- [Chicken Korma](https://www.zaikaworlds.com/recipe/chicken-korma) (Pakistan, 60 min): Chicken korma is the great celebration curry of Pakistan, served at weddings, Eid dinners and dawaats with sheermal or hot naan. Bone-in chicken is marinated in yoghurt and spices, then braised gently until tender, while crisp fried onions blended with yoghurt give the gravy its famous reddish-brown colour and silky body — no tomatoes, no cream.
 
 ## Notes
 
 - Every recipe has ingredients with quantities, a step by step method, cooking time and servings.
-- Recipe videos are added per recipe; 15 recipes have a video in all 13 languages and the rest are being added.
+- Recipe videos are added per recipe; 27 recipes have a video in all 13 languages and the rest are being added.
 - Saved recipes are stored in the visitor's own browser (localStorage), not on this site.

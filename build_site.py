@@ -261,7 +261,7 @@ ING_OPTIONAL = {
     'tr': 'isteğe bağlı', 'bn': 'ঐচ্ছিক',
 }
 # Bare qualifier fragments (lowercase) per language. Only fragments that
-# actually occur in the 32 recipes are listed, plus a few common English
+# actually occur in the 34 recipes are listed, plus a few common English
 # participles for future recipes.
 ING_QUALIFIERS = {
 'en': {'soaked', 'soaked overnight', 'chopped', 'sliced', 'fried', 'diced',
@@ -987,7 +987,7 @@ def home_faq_entries(data, lang='en'):
     return out
 
 
-# Seasonal hubs (issue O): curated lists from the real 32 recipes only.
+# Seasonal hubs (issue O): curated lists from the real 34 recipes only.
 # No dish is invented; each recipe is listed with the reason it fits.
 # The 3 trending dishes on the homepage (the UI trendCards:
 # Chicken Biryani, Beef Nihari, Gulab Jamun). --check verifies these
