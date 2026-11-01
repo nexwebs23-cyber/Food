@@ -320,5 +320,15 @@
     "sugarContent": 6.7,
     "fiberContent": 12.3,
     "sodiumContent": 1865
+  },
+  "chicken-korma": {
+    "calories": 602,
+    "proteinContent": 42.8,
+    "fatContent": 39.3,
+    "saturatedFatContent": 19.9,
+    "carbohydrateContent": 17.5,
+    "sugarContent": 8.0,
+    "fiberContent": 3.4,
+    "sodiumContent": 1042
   }
 }

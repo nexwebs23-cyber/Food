@@ -5,7 +5,7 @@
     <link>https://www.zaikaworlds.com/</link>
     <description>Cook famous dishes from Pakistan and India, plus favourites from around the world, with big photos and step by step methods.</description>
     <language>en</language>
-    <lastBuildDate>Sat, 31 Oct 2026 06:02:59 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 01 Nov 2026 12:22:34 GMT</lastBuildDate>
     <item>
       <title>Chicken Biryani</title>
       <link>https://www.zaikaworlds.com/recipe/biryani</link>
@@ -269,6 +269,14 @@
       <description>Haleem is not fast food, it is food of patience. Wheat, barley and lentils soak overnight, beef cooks until it shreds, and everything is mashed together until the pot turns into one thick, silky porridge with the famous stringy texture.</description>
       <enclosure url="https://www.zaikaworlds.com/assets/haleem-8bea0d50.webp" type="image/webp" length="641888" />
       <media:content url="https://www.zaikaworlds.com/assets/haleem-8bea0d50.webp" type="image/webp" medium="image" />
+    </item>
+    <item>
+      <title>Chicken Korma</title>
+      <link>https://www.zaikaworlds.com/recipe/chicken-korma</link>
+      <guid isPermaLink="true">https://www.zaikaworlds.com/recipe/chicken-korma</guid>
+      <description>Chicken korma is the great celebration curry of Pakistan, served at weddings, Eid dinners and dawaats with sheermal or hot naan. Bone-in chicken is marinated in yoghurt and spices, then braised gently until tender, while crisp fried onions blended with yoghurt give the gravy its famous reddish-brown colour and silky body — no tomatoes, no cream.</description>
+      <enclosure url="https://www.zaikaworlds.com/assets/chicken-korma-1579f580.webp" type="image/webp" length="441670" />
+      <media:content url="https://www.zaikaworlds.com/assets/chicken-korma-1579f580.webp" type="image/webp" medium="image" />
     </item>
   </channel>
 </rss>

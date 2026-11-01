@@ -132,6 +132,10 @@
   "haleem": {
    "published": "2026-10-31",
    "source": "daily new-recipe run 2026-10-31 — first git commit adding Haleem"
+  },
+  "chicken-korma": {
+   "published": "2026-11-01",
+   "source": "daily new-recipe run 2026-11-01 — first git commit adding Chicken Korma"
   }
  },
  "video": {
