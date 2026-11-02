@@ -1,6 +1,6 @@
 # Zaika Worlds
 
-> Cook famous dishes from Pakistan and India, plus favourites from around the world, with big photos and step by step methods. 35 recipes in 13 languages: English, Roman Urdu, Hindi, Spanish, French, Arabic, Portuguese, Russian, Chinese, Japanese, German, Turkish and Bengali. Twenty-seven recipes also have a video in all 13 languages.
+> Cook famous dishes from Pakistan and India, plus favourites from around the world, with big photos and step by step methods. 35 recipes in 13 languages: English, Roman Urdu, Hindi, Spanish, French, Arabic, Portuguese, Russian, Chinese, Japanese, German, Turkish and Bengali. Twenty-eight recipes also have a video in all 13 languages.
 
 - [Zaika Worlds](https://www.zaikaworlds.com/): home page with all 35 recipes, search, categories and trending dishes
 - [About](https://www.zaikaworlds.com/about): how the recipes are written
@@ -50,5 +50,5 @@
 ## Notes
 
 - Every recipe has ingredients with quantities, a step by step method, cooking time and servings.
-- Recipe videos are added per recipe; 27 recipes have a video in all 13 languages and the rest are being added.
+- Recipe videos are added per recipe; 28 recipes have a video in all 13 languages and the rest are being added.
 - Saved recipes are stored in the visitor's own browser (localStorage), not on this site.
