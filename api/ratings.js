@@ -39,8 +39,13 @@ async function kvPipeline(cfg, cmds) {
   });
   if (!res.ok) throw new Error('kv_http_' + res.status);
   const j = await res.json();
-  if (j.error) throw new Error('kv_error_' + j.error);
-  return j.result;
+  // Pipeline responds with a JSON ARRAY, one {result}|{error} per command
+  // (Upstash REST API docs) — NOT a {result} envelope like single commands.
+  if (!Array.isArray(j)) throw new Error('kv_bad_response');
+  return j.map((x) => {
+    if (x && x.error) throw new Error('kv_error_' + x.error);
+    return x ? x.result : null;
+  });
 }
 
 function send(res, status, obj) {

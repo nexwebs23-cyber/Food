@@ -42,6 +42,8 @@ async function kvCmd(cfg, cmd) {
 }
 
 // Pipeline: body [["INCR","k"],["EXPIRE","k","86400"]] -> [results].
+// Pipeline responds with a JSON ARRAY, one {result}|{error} per command
+// (Upstash REST API docs) — NOT a {result} envelope like single commands.
 async function kvPipeline(cfg, cmds) {
   const res = await fetch(cfg.url + '/pipeline', {
     method: 'POST',
@@ -51,8 +53,11 @@ async function kvPipeline(cfg, cmds) {
   });
   if (!res.ok) throw new Error('kv_http_' + res.status);
   const j = await res.json();
-  if (j.error) throw new Error('kv_error_' + j.error);
-  return j.result;
+  if (!Array.isArray(j)) throw new Error('kv_bad_response');
+  return j.map((x) => {
+    if (x && x.error) throw new Error('kv_error_' + x.error);
+    return x ? x.result : null;
+  });
 }
 
 function clientIp(req) {
