@@ -942,6 +942,11 @@ def _fetch_kv_ratings():
                 method='POST')
             with urllib.request.urlopen(req, timeout=5) as resp:
                 out = json.load(resp)
+            # /pipeline returns a JSON ARRAY, one {result}|{error} per
+            # command; single commands return a {result}|{error} object.
+            if isinstance(out, list):
+                return [x.get('result') if isinstance(x, dict) else None
+                        for x in out]
             if out.get('error'):
                 raise RuntimeError('KV error: %s' % out['error'])
             return out['result']

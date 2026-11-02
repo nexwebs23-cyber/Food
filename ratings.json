@@ -1,1 +1,14 @@
-{}
+{
+  "biryani": {
+    "avg": 5.0,
+    "count": 1,
+    "sum": 5,
+    "updated": "2026-11-02"
+  },
+  "test-recipe": {
+    "avg": 4.7,
+    "count": 3,
+    "sum": 14,
+    "updated": "2026-11-02"
+  }
+}
