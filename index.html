@@ -1268,7 +1268,7 @@ function ratingStarsHtml(avg,interactive){
   for(var i=1;i<=5;i++){
     var fill=avg>=i?"full":(avg>=i-0.5?"half":"empty");
     var bg=fill==="full"?"#b3402a":fill==="half"?"linear-gradient(90deg,#b3402a 50%,#a08d76 50%)":"#a08d76";
-    var shape='<span class="star-shape" style="background:'+bg+'" aria-hidden="true"></span>';
+    var shape='<span aria-hidden="true" style="display:block;width:30px;height:30px;background:'+bg+';clip-path:polygon(50% 0%,61% 35%,98% 35%,68% 57%,79% 91%,50% 70%,21% 91%,32% 57%,2% 35%,39% 35%)"></span>';
     var star='<span class="star '+fill+'" aria-hidden="true">'+shape+'</span>';
     if(interactive){
       out+='<button type="button" data-stars="'+i+'" role="radio" aria-checked="false" aria-label="'+esc((T().rateH||"Rate this recipe")+" "+i+" / 5")+'">'+star+'</button>';
