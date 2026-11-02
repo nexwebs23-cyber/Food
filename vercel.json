@@ -32,6 +32,13 @@
       ]
     }
   ],
+  "redirects": [
+    {
+      "source": "/recipe",
+      "destination": "/",
+      "permanent": true
+    }
+  ],
   "rewrites": [
     {
       "source": "/country/:slug/",
