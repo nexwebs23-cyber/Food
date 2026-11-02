@@ -309,8 +309,7 @@ footer a{color:var(--muted)}
 .rating-area h3{font-size:26px;margin:0 0 8px;font-weight:600}
 .rating-area .stars{display:flex;gap:4px}
 .rating-area .stars button{border:0;background:none;padding:2px;cursor:pointer;line-height:1;width:34px;height:34px;flex:none}
-.rating-area .stars img{width:30px;height:30px;display:block}
-.rating-area .star.empty img{opacity:.35}
+.rating-area .star-shape{width:30px;height:30px;display:block;clip-path:polygon(50% 0%,61% 35%,98% 35%,68% 57%,79% 91%,50% 70%,21% 91%,32% 57%,2% 35%,39% 35%)}
 .rating-area .stars button:disabled{cursor:default}
 .rating-area .star{font-size:30px;color:#a08d76}
 .rating-area .star.full{color:#b3402a}
@@ -1268,9 +1267,9 @@ function ratingStarsHtml(avg,interactive){
   var out="";
   for(var i=1;i<=5;i++){
     var fill=avg>=i?"full":(avg>=i-0.5?"half":"empty");
-    var src=fill==="half"?"/assets/star-half.svg":"/assets/star-full.svg";
-    var img='<img src="'+src+'" width="30" height="30" alt="star" aria-hidden="true">';
-    var star='<span class="star '+fill+'" aria-hidden="true">'+img+'</span>';
+    var bg=fill==="full"?"#b3402a":fill==="half"?"linear-gradient(90deg,#b3402a 50%,#a08d76 50%)":"#a08d76";
+    var shape='<span class="star-shape" style="background:'+bg+'" aria-hidden="true"></span>';
+    var star='<span class="star '+fill+'" aria-hidden="true">'+shape+'</span>';
     if(interactive){
       out+='<button type="button" data-stars="'+i+'" role="radio" aria-checked="false" aria-label="'+esc((T().rateH||"Rate this recipe")+" "+i+" / 5")+'">'+star+'</button>';
     } else {
