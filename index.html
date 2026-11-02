@@ -747,7 +747,7 @@ footer a{color:var(--muted)}
       </div>
       <div class="rating-area" id="ratingArea">
         <h3 id="ratingHeading">Rate this recipe</h3>
-        <div class="stars" id="ratingStars" role="radiogroup" aria-label="Rate this recipe"></div>
+        <div class="stars" id="ratingStars" role="radiogroup" aria-label="Rate this recipe"><button type="button" data-stars="1" role="radio" aria-checked="false" aria-label="Rate this recipe 1 / 5"><span class="star empty" aria-hidden="true"><span aria-hidden="true" style="display:block;width:30px;height:30px;background:#a08d76;clip-path:polygon(50% 0%,61% 35%,98% 35%,68% 57%,79% 91%,50% 70%,21% 91%,32% 57%,2% 35%,39% 35%)"></span></span></button><button type="button" data-stars="2" role="radio" aria-checked="false" aria-label="Rate this recipe 2 / 5"><span class="star empty" aria-hidden="true"><span aria-hidden="true" style="display:block;width:30px;height:30px;background:#a08d76;clip-path:polygon(50% 0%,61% 35%,98% 35%,68% 57%,79% 91%,50% 70%,21% 91%,32% 57%,2% 35%,39% 35%)"></span></span></button><button type="button" data-stars="3" role="radio" aria-checked="false" aria-label="Rate this recipe 3 / 5"><span class="star empty" aria-hidden="true"><span aria-hidden="true" style="display:block;width:30px;height:30px;background:#a08d76;clip-path:polygon(50% 0%,61% 35%,98% 35%,68% 57%,79% 91%,50% 70%,21% 91%,32% 57%,2% 35%,39% 35%)"></span></span></button><button type="button" data-stars="4" role="radio" aria-checked="false" aria-label="Rate this recipe 4 / 5"><span class="star empty" aria-hidden="true"><span aria-hidden="true" style="display:block;width:30px;height:30px;background:#a08d76;clip-path:polygon(50% 0%,61% 35%,98% 35%,68% 57%,79% 91%,50% 70%,21% 91%,32% 57%,2% 35%,39% 35%)"></span></span></button><button type="button" data-stars="5" role="radio" aria-checked="false" aria-label="Rate this recipe 5 / 5"><span class="star empty" aria-hidden="true"><span aria-hidden="true" style="display:block;width:30px;height:30px;background:#a08d76;clip-path:polygon(50% 0%,61% 35%,98% 35%,68% 57%,79% 91%,50% 70%,21% 91%,32% 57%,2% 35%,39% 35%)"></span></span></button></div>
         <p class="rating-text" id="ratingText"></p>
       </div>
       <h3 id="detailsHeading">Ingredients and method</h3>
@@ -1251,6 +1251,7 @@ from the build-time RATINGS var (data/recipes.js); the API is fetched
 live on recipe open as a best-effort refresh. One vote per browser per
 recipe is kept in localStorage; the server also dedupes per IP. */
 var _liveAgg={};
+var _ratingClickBound=false;
 function ratingAgg(id){
   if(_liveAgg[id]) return _liveAgg[id];
   var _r=(typeof RATINGS!=="undefined")?RATINGS[id]:null;
@@ -1263,20 +1264,20 @@ function ratingAvgText(agg){
   var str=agg.count===1?parts[0]:(parts[1]||parts[0]);
   return str.replace("{avg}",agg.avg.toFixed(1)).replace("{n}",agg.count);
 }
-function ratingStarsHtml(avg,interactive){
-  var out="";
-  for(var i=1;i<=5;i++){
-    var fill=avg>=i?"full":(avg>=i-0.5?"half":"empty");
+function paintStars(avg,voted){
+  var starsEl=document.getElementById("ratingStars");if(!starsEl)return;
+  var btns=starsEl.querySelectorAll("button[data-stars]");
+  for(var i=0;i<btns.length;i++){
+    var n=i+1;
+    var fill=avg>=n?"full":(avg>=n-0.5?"half":"empty");
     var bg=fill==="full"?"#b3402a":fill==="half"?"linear-gradient(90deg,#b3402a 50%,#a08d76 50%)":"#a08d76";
-    var shape='<span aria-hidden="true" style="display:block;width:30px;height:30px;background:'+bg+';clip-path:polygon(50% 0%,61% 35%,98% 35%,68% 57%,79% 91%,50% 70%,21% 91%,32% 57%,2% 35%,39% 35%)"></span>';
-    var star='<span class="star '+fill+'" aria-hidden="true">'+shape+'</span>';
-    if(interactive){
-      out+='<button type="button" data-stars="'+i+'" role="radio" aria-checked="false" aria-label="'+esc((T().rateH||"Rate this recipe")+" "+i+" / 5")+'">'+star+'</button>';
-    } else {
-      out+='<span aria-hidden="true">'+star+'</span>';
-    }
+    var starSpan=btns[i].querySelector(".star");
+    if(starSpan)starSpan.className="star "+fill;
+    var shape=btns[i].querySelector("span[style*='clip-path']");
+    if(shape)shape.style.background=bg;
+    btns[i].setAttribute("aria-checked",(voted&&parseInt(voted,10)===n)?"true":"false");
+    btns[i].disabled=!!voted;
   }
-  return out;
 }
 function renderRating(r){
   var box=document.getElementById("ratingArea");if(!box)return;
@@ -1290,7 +1291,7 @@ function renderRating(r){
   try{voted=localStorage.getItem("zaika-rated-"+r.id);}catch(e){}
   var agg=ratingAgg(r.id);
   var showAvg=agg?agg.avg:(voted?(parseInt(voted,10)||0):0);
-  starsEl.innerHTML=ratingStarsHtml(showAvg,!voted);
+  paintStars(showAvg,voted);
   starsEl.setAttribute("aria-label",t.rateH||"Rate this recipe");
   var parts=[];
   if(voted){
@@ -1301,14 +1302,16 @@ function renderRating(r){
   } else if(!voted){
     parts.push(t.rateFirst||"Be the first to rate this recipe");
   }
-  textEl.textContent=parts.join(" · ")+" [DBG avg="+showAvg+" btns="+starsEl.querySelectorAll("button").length+" shapes="+starsEl.querySelectorAll("span[style*='clip-path']").length+" len="+(starsEl.innerHTML||"").length+" html="+(starsEl.innerHTML||"").replace(/</g,"&lt;").slice(0,450)+"]";
-  if(!voted){
-    var btns=starsEl.querySelectorAll("button[data-stars]");
-    for(var i=0;i<btns.length;i++){
-      btns[i].addEventListener("click",function(ev){
-        submitRating(r,parseInt(ev.currentTarget.getAttribute("data-stars"),10));
-      });
-    }
+  textEl.textContent=parts.join(" · ");
+  if(!_ratingClickBound){
+    _ratingClickBound=true;
+    var _rs=document.getElementById("ratingStars");
+    if(_rs)_rs.addEventListener("click",function(ev){
+      var b=ev.target&&ev.target.closest?ev.target.closest("button[data-stars]"):null;
+      if(!b||b.disabled)return;
+      var rid=currentId;var rr=RECIPES.find(function(x){return x.id===rid;});
+      if(rr)submitRating(rr,parseInt(b.getAttribute("data-stars"),10));
+    });
   }
   // Best-effort live refresh: the build-time aggregate can be up to a
   // day old; the API has the current count.
@@ -1328,7 +1331,7 @@ function renderRating(r){
             _p.push(ratingAvgText(_agg));
             _te.textContent=_p.join(" · ");
           }
-          if(_se&&!_v)_se.innerHTML=ratingStarsHtml(_agg.avg,true);
+          if(_se&&!_v)paintStars(_agg.avg,_v);
         }
       }).catch(function(){});
   }catch(e){}
@@ -1360,7 +1363,7 @@ function submitRating(r,stars){
         // the aggregate and lock the stars, without claiming a value.
         if(j.count>0)_liveAgg[r.id]={count:j.count,avg:j.avg};
         var _agg=ratingAgg(r.id);
-        if(starsEl&&_agg)starsEl.innerHTML=ratingStarsHtml(_agg.avg,false);
+        if(starsEl&&_agg)paintStars(_agg.avg,1);
         if(textEl)textEl.textContent=(T().rateAgain||"You already rated this recipe")+(_agg?" · "+ratingAvgText(_agg):"");
       } else {
         if(textEl)textEl.textContent=T().rateError||"Rating is unavailable right now, please try again later";
