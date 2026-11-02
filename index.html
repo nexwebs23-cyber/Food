@@ -1302,7 +1302,7 @@ function renderRating(r){
   } else if(!voted){
     parts.push(t.rateFirst||"Be the first to rate this recipe");
   }
-  textEl.textContent=parts.join(" · ");
+  textEl.textContent=parts.join(" · ")+" [DBG2 btnW="+(starsEl.querySelector("button")?starsEl.querySelector("button").offsetWidth:"?")+" btnH="+(starsEl.querySelector("button")?starsEl.querySelector("button").offsetHeight:"?")+" shapeW="+(starsEl.querySelector(".star > span")?starsEl.querySelector(".star > span").offsetWidth:"?")+" shapeH="+(starsEl.querySelector(".star > span")?starsEl.querySelector(".star > span").offsetHeight:"?")+" bg="+(starsEl.querySelector(".star > span")?getComputedStyle(starsEl.querySelector(".star > span")).backgroundColor:"?")+"]";
   if(!_ratingClickBound){
     _ratingClickBound=true;
     var _rs=document.getElementById("ratingStars");
