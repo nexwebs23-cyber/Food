@@ -3573,6 +3573,27 @@ def validate_build(data):
         if incoming.get(rel, 0) < 10:
             problems.append('%s: only %d incoming internal links '
                             '(want >= 10)' % (rel, incoming.get(rel, 0)))
+    # Video-gap guard (GSC 'Missing field "video"', 2026-11-02): a recipe
+    # with no videos map (or missing languages) has no "video" in its
+    # Recipe JSON-LD, so GSC flags every crawled page of that recipe.
+    # This is a WARNING, not a failure: a new recipe goes live before
+    # its videos are uploaded, so a hard fail would block the daily
+    # new-recipe pipeline. The daily run must finish the previous
+    # recipe's videos + embed first; this warning lists what is still
+    # open so it can never slip through unnoticed again.
+    _gaps = []
+    for r in data['recipes']:
+        _vids = r.get('videos') or {}
+        _missing = [lang for lang in LANGS if not _vids.get(lang)]
+        if _missing:
+            _gaps.append('%s: no video in %d/13 languages (%s)'
+                         % (r['id'], len(_missing), ','.join(_missing)))
+    if _gaps:
+        print('VIDEO GAP WARNING: %d recipe(s) have no video in some '
+              'languages — GSC "Missing field \'video\'" will persist '
+              'for these pages:' % len(_gaps), file=sys.stderr)
+        for _g in _gaps:
+            print('  - %s' % _g, file=sys.stderr)
     return problems, n_pages
 
 
