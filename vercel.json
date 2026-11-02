@@ -37,6 +37,11 @@
       "source": "/recipe",
       "destination": "/",
       "permanent": true
+    },
+    {
+      "source": "/recipe/",
+      "destination": "/",
+      "permanent": true
     }
   ],
   "rewrites": [
