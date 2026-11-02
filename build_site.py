@@ -849,6 +849,20 @@ def ui_str(data, lang, key, default=''):
     return default
 
 
+def fmt_rate_avg(data, lang, avg, n):
+    """The visible '4.6 out of 5 from 12 ratings' line in a language.
+    rateAvg holds 'singular|plural' where the language needs it (the
+    part before '|' is used for n == 1, the part after for n > 1);
+    languages with one form for any count have no '|'. {avg} is the
+    1-decimal average, {n} the vote count."""
+    s = ui_str(data, lang, 'rateAvg',
+               '{avg} out of 5 from {n} rating|{avg} out of 5 from '
+               '{n} ratings')
+    parts = s.split('|')
+    s = parts[0] if n == 1 else (parts[1] if len(parts) > 1 else parts[0])
+    return s.replace('{avg}', '%.1f' % avg).replace('{n}', str(n))
+
+
 def ui_cta(data, lang):
     """The first UI cta label ('Browse Recipes') in a language. The cta
     value is an array, so it is extracted separately from ui_str()."""
@@ -898,6 +912,105 @@ def load_nutrition():
     if not isinstance(nut, dict) or not nut:
         raise JSError("nutrition.json is empty or not an object")
     return nut
+
+
+def _fetch_kv_ratings():
+    """Live rating aggregates from the Vercel KV (Upstash Redis) REST
+    API, for the Vercel build. Returns {rid: {'count': n, 'sum': n}} or
+    {} on any failure (no env vars, network error, bad response). Never
+    raises — the ratings.json snapshot is the fallback, and a ratings
+    failure must never break the build. Supports both env-var names:
+    KV_REST_API_URL / KV_REST_API_TOKEN (native Vercel KV) and
+    UPSTASH_REDIS_REST_URL / UPSTASH_REDIS_REST_TOKEN (Upstash
+    Marketplace integration)."""
+    url = (os.environ.get('KV_REST_API_URL')
+           or os.environ.get('UPSTASH_REDIS_REST_URL') or '').rstrip('/')
+    token = (os.environ.get('KV_REST_API_TOKEN')
+             or os.environ.get('UPSTASH_REDIS_REST_TOKEN') or '')
+    if not url or not token:
+        return {}
+    try:
+        import urllib.request
+        import urllib.error
+
+        def _post(path, body):
+            req = urllib.request.Request(
+                url + path,
+                data=json.dumps(body).encode('utf-8'),
+                headers={'Authorization': 'Bearer ' + token,
+                         'Content-Type': 'application/json'},
+                method='POST')
+            with urllib.request.urlopen(req, timeout=5) as resp:
+                out = json.load(resp)
+            if out.get('error'):
+                raise RuntimeError('KV error: %s' % out['error'])
+            return out['result']
+
+        ids = []
+        cursor = '0'
+        for _ in range(5):
+            cursor, keys = _post('', ['SCAN', cursor, 'MATCH',
+                                     'rating:*:count', 'COUNT', '100'])
+            for k in keys or []:
+                if k.startswith('rating:') and k.endswith(':count'):
+                    rid = k[len('rating:'):-len(':count')]
+                    if rid and all(c.isalnum() or c == '-' for c in rid):
+                        ids.append(rid)
+            if cursor == '0':
+                break
+        live = {}
+        if ids:
+            cmds = []
+            for rid in ids:
+                cmds.append(['GET', 'rating:%s:sum' % rid])
+                cmds.append(['GET', 'rating:%s:count' % rid])
+            vals = _post('/pipeline', cmds)
+            for i, rid in enumerate(ids):
+                live[rid] = {'count': int(vals[i * 2 + 1] or 0),
+                             'sum': int(vals[i * 2] or 0)}
+        return live
+    except Exception as e:
+        print('WARNING: live ratings fetch failed (%s); using '
+              'ratings.json snapshot' % e, file=sys.stderr)
+        return {}
+
+
+def load_ratings():
+    """Real visitor-rating aggregates from ratings.json at the repo root
+    (snapshot maintained by tools/refresh_ratings.py from the Vercel KV
+    store; never invented). Returns {recipe_id: {'count', 'sum', 'avg',
+    'updated'}}. A missing or unreadable file returns {} — a recipe
+    with no ratings legitimately has no aggregateRating, and a ratings
+    failure must never break the build. When KV credentials are present
+    in the environment (Vercel build), live aggregates are fetched and
+    merged over the file snapshot with the same never-regress rule as
+    the refresh script (max of KV vs snapshot wins)."""
+    path = os.path.join(ROOT, 'ratings.json')
+    snap = {}
+    if os.path.exists(path):
+        try:
+            with open(path, encoding='utf-8') as f:
+                snap = json.load(f) or {}
+        except Exception as e:
+            print('WARNING: ratings.json unreadable (%s); treating as no '
+                  'ratings' % e, file=sys.stderr)
+            snap = {}
+    if not isinstance(snap, dict):
+        snap = {}
+    snap = {k: v for k, v in snap.items()
+            if isinstance(v, dict) and isinstance(v.get('count'), int)
+            and isinstance(v.get('sum'), int) and v['count'] > 0}
+    live = _fetch_kv_ratings()
+    for rid, vals in live.items():
+        old = snap.get(rid) or {}
+        count = max(int(vals.get('count') or 0), int(old.get('count') or 0))
+        total = max(int(vals.get('sum') or 0), int(old.get('sum') or 0))
+        if count <= 0:
+            continue
+        snap[rid] = {'count': count, 'sum': total,
+                     'avg': round(total / count, 1),
+                     'updated': old.get('updated') or ''}
+    return snap
 
 
 # ---------------------------------------------------------------------------
@@ -1450,6 +1563,13 @@ def extract_all(src):
     # never invented. data['nutrition'] is shared by the static
     # builders and the SPA (data/recipes.js carries it as NUTRITION).
     data['nutrition'] = load_nutrition()
+    # Real visitor ratings (GSC 'Missing field "aggregateRating"',
+    # 2026-11-02): snapshot from ratings.json, refreshed daily from the
+    # Vercel KV store by tools/refresh_ratings.py (never invented; a
+    # recipe with no entry has no aggregateRating anywhere). Shared by
+    # the static builders and the SPA (data/recipes.js carries it as
+    # RATINGS).
+    data['ratings'] = load_ratings()
     validate(data)
     return data
 
@@ -1693,7 +1813,9 @@ def write_data_files(data):
     # pages' single source of truth.
     w('recipes.js', 'var RECIPES=' + js_json(data['recipes']) + ';\n'
                     'var NUTRITION='
-                    + js_json(data.get('nutrition') or {}) + ';\n')
+                    + js_json(data.get('nutrition') or {}) + ';\n'
+                    'var RATINGS='
+                    + js_json(data.get('ratings') or {}) + ';\n')
     # Flat {rid: fields} (like the other languages): _mergeExtraLang
     # assigns EXTRA[rid].en = obj[rid], so the {en:} wrapper the old
     # `var EXTRA=` format needed would double-nest and hide the text.
@@ -2029,6 +2151,19 @@ def recipe_json_ld(data, recipe, tx, url, lang='en', meta_desc=None,
     _nut = (data.get('nutrition') or {}).get(recipe['id'])
     if _nut:
         ld["nutrition"] = nutrition_ld(_nut)
+    # GSC 'Missing field "aggregateRating"' (2026-11-02): real visitor
+    # ratings only, from ratings.json. A recipe with no votes has no
+    # field at all (correct by design — never invented). ratingCount
+    # (not reviewCount): these are star-only votes with no written
+    # review. ratingValue is rounded to 1 decimal with a dot.
+    _rat = (data.get('ratings') or {}).get(recipe['id'])
+    if _rat and _rat.get('count', 0) > 0:
+        _avg = round(_rat['sum'] / _rat['count'], 1)
+        ld["aggregateRating"] = {
+            "@type": "AggregateRating",
+            "ratingValue": _avg,
+            "ratingCount": _rat['count'],
+            "bestRating": 5, "worstRating": 1}
     if article_date:
         # Real publish date only (recipe_dates.json); never invented.
         ld["datePublished"] = article_date
@@ -2139,6 +2274,23 @@ def recipe_page(data, recipe, lang='en', dates=None):
                          'Nutrition (approx. per serving)')),
                    esc(nutrition_line(nut))))
 
+    def rating_block(rat):
+        # GSC 'Missing field "aggregateRating"' (2026-11-02): the
+        # visible aggregate, same numbers as the JSON-LD. No ratings
+        # yet -> an invite to rate in the interactive recipe view
+        # (static pages are SEO shells; the widget lives in the SPA).
+        _link = ('<a href="%s">%s</a>'
+                 % (esc(spa_href),
+                    esc(h('rateH', 'Rate this recipe'))))
+        if rat and rat.get('count', 0) > 0:
+            _avg = round(rat['sum'] / rat['count'], 1)
+            return ('<p class="rating-line">\u2605 %s &mdash; %s</p>\n'
+                    % (esc(fmt_rate_avg(data, lang, _avg,
+                                       rat['count'])), _link))
+        return ('<p class="rating-line">%s &mdash; %s</p>\n'
+                % (esc(h('rateFirst',
+                         'Be the first to rate this recipe')), _link))
+
     def faq_block(faq):
         if not faq:
             return ''
@@ -2192,7 +2344,7 @@ def recipe_page(data, recipe, lang='en', dates=None):
         '<p>%s</p>\n'
         '<a class="cta" href="%s">Open the interactive recipe '
         '&mdash; switch language, watch the video, save it</a>\n'
-        '%s%s%s%s%s%s%s%s%s%s%s'
+        '%s%s%s%s%s%s%s%s%s%s%s%s'
         '<h2>More</h2>\n'
         '<p><a href="/category/%s">More %s recipes</a> &middot; '
         '<a href="/country/%s">More %s recipes</a> &middot; '
@@ -2210,6 +2362,7 @@ def recipe_page(data, recipe, lang='en', dates=None):
            esc(recipe['country']), pubdate, esc(img_url), esc(img_alt),
            wh, esc(tx.get('intro') or ''), esc(spa_href),
            video,
+           rating_block((data.get('ratings') or {}).get(recipe['id'])),
            section(h('ingH', 'Ingredients'),
                    split_ingredients(tx.get('ing'), lang), 'ul'),
            nutrition_block((data.get('nutrition') or {})
@@ -3281,6 +3434,63 @@ def validate_build(data):
                 if 'Nutrition (approx. per serving)' not in html:
                     problems.append('%s: visible nutrition line missing'
                                     % rel)
+                # Ratings (GSC 'Missing field "aggregateRating"',
+                # 2026-11-02): an emitted aggregateRating must match
+                # ratings.json exactly (value, count, best/worst), and
+                # the visible rating line must show the same numbers.
+                # No ratings -> no aggregateRating at all.
+                _rat = (data.get('ratings') or {}).get(_rid)
+                _ar = obj.get('aggregateRating')
+                if _rat and _rat.get('count', 0) > 0:
+                    _avg = round(_rat['sum'] / _rat['count'], 1)
+                    if not _ar:
+                        problems.append('%s: recipe %s has %d ratings but '
+                                        'no aggregateRating'
+                                        % (rel, _rid, _rat['count']))
+                    else:
+                        if _ar.get('@type') != 'AggregateRating':
+                            problems.append('%s: aggregateRating @type is %r'
+                                            % (rel, _ar.get('@type')))
+                        if _ar.get('ratingValue') != _avg:
+                            problems.append('%s: aggregateRating ratingValue '
+                                            '%r, expected %r'
+                                            % (rel, _ar.get('ratingValue'),
+                                               _avg))
+                        if _ar.get('ratingCount') != _rat['count']:
+                            problems.append('%s: aggregateRating ratingCount '
+                                            '%r, expected %r'
+                                            % (rel, _ar.get('ratingCount'),
+                                               _rat['count']))
+                        if (_ar.get('bestRating') != 5
+                                or _ar.get('worstRating') != 1):
+                            problems.append('%s: aggregateRating best/worst '
+                                            'is %r/%r, expected 5/1'
+                                            % (rel, _ar.get('bestRating'),
+                                               _ar.get('worstRating')))
+                    _m = re.search(r'<p class="rating-line">(.*?)</p>',
+                                   html, re.S)
+                    if not _m:
+                        problems.append('%s: visible rating line missing'
+                                        % rel)
+                    else:
+                        _line = htmlmod.unescape(
+                            re.sub(r'<[^>]+>', '', _m.group(1)))
+                        if ('%.1f' % _avg) not in _line:
+                            problems.append('%s: visible rating line %r '
+                                            'does not show average %.1f'
+                                            % (rel, _line, _avg))
+                        if str(_rat['count']) not in _line:
+                            problems.append('%s: visible rating line %r '
+                                            'does not show count %d'
+                                            % (rel, _line, _rat['count']))
+                else:
+                    if _ar:
+                        problems.append('%s: aggregateRating present but '
+                                        'recipe %s has no ratings in '
+                                        'ratings.json' % (rel, _rid))
+                    if '<p class="rating-line">' not in html:
+                        problems.append('%s: visible rating line missing'
+                                        % rel)
             if obj.get('@type') == 'VideoObject':
                 _vo = obj.get('@id')
                 if not (obj.get('author') or {}).get('name'):
