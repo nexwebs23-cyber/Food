@@ -2,11 +2,21 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<title>Star render test</title>
-<style>body{background:#faf5ec;font-family:sans-serif;padding:20px}h2{font-size:20px}</style>
+<title>Star render test 2 — exact widget markup</title>
+<style>
+body{background:#faf5ec;font-family:sans-serif;padding:20px}
+h2{font-size:20px}
+.rating-area{margin:18px 0 2px}
+.rating-area h3{font-size:26px;margin:0 0 8px;font-weight:600}
+.rating-area .stars{display:flex;gap:4px}
+.rating-area .stars button{border:0;background:none;padding:2px;cursor:pointer;line-height:1;width:34px;height:34px;flex:none}
+.rating-area .star{font-size:30px;color:#a08d76}
+.rating-area .star.full{color:#b3402a}
+.rating-area .rating-text{margin:8px 0 0;color:#666;font-size:15px}
+</style>
 </head>
 <body>
-<h2>Inline CSS stars (taupe, should be 5)</h2>
+<h2>Test A — plain stars (no button, no widget CSS)</h2>
 <div style="display:flex;gap:4px">
 <span aria-hidden="true" style="display:block;width:30px;height:30px;background:#a08d76;clip-path:polygon(50% 0%,61% 35%,98% 35%,68% 57%,79% 91%,50% 70%,21% 91%,32% 57%,2% 35%,39% 35%)"></span>
 <span aria-hidden="true" style="display:block;width:30px;height:30px;background:#a08d76;clip-path:polygon(50% 0%,61% 35%,98% 35%,68% 57%,79% 91%,50% 70%,21% 91%,32% 57%,2% 35%,39% 35%)"></span>
@@ -14,14 +24,8 @@
 <span aria-hidden="true" style="display:block;width:30px;height:30px;background:#a08d76;clip-path:polygon(50% 0%,61% 35%,98% 35%,68% 57%,79% 91%,50% 70%,21% 91%,32% 57%,2% 35%,39% 35%)"></span>
 <span aria-hidden="true" style="display:block;width:30px;height:30px;background:#a08d76;clip-path:polygon(50% 0%,61% 35%,98% 35%,68% 57%,79% 91%,50% 70%,21% 91%,32% 57%,2% 35%,39% 35%)"></span>
 </div>
-<h2>Inline CSS stars (red, should be 5)</h2>
-<div style="display:flex;gap:4px">
-<span aria-hidden="true" style="display:block;width:30px;height:30px;background:#b3402a;clip-path:polygon(50% 0%,61% 35%,98% 35%,68% 57%,79% 91%,50% 70%,21% 91%,32% 57%,2% 35%,39% 35%)"></span>
-<span aria-hidden="true" style="display:block;width:30px;height:30px;background:#b3402a;clip-path:polygon(50% 0%,61% 35%,98% 35%,68% 57%,79% 91%,50% 70%,21% 91%,32% 57%,2% 35%,39% 35%)"></span>
-<span aria-hidden="true" style="display:block;width:30px;height:30px;background:#b3402a;clip-path:polygon(50% 0%,61% 35%,98% 35%,68% 57%,79% 91%,50% 70%,21% 91%,32% 57%,2% 35%,39% 35%)"></span>
-<span aria-hidden="true" style="display:block;width:30px;height:30px;background:#b3402a;clip-path:polygon(50% 0%,61% 35%,98% 35%,68% 57%,79% 91%,50% 70%,21% 91%,32% 57%,2% 35%,39% 35%)"></span>
-<span aria-hidden="true" style="display:block;width:30px;height:30px;background:#b3402a;clip-path:polygon(50% 0%,61% 35%,98% 35%,68% 57%,79% 91%,50% 70%,21% 91%,32% 57%,2% 35%,39% 35%)"></span>
-</div>
-<p>If you see 10 stars above (5 taupe, 5 red), the inline CSS star renders. If you see nothing, it does not.</p>
+<h2>Test B — exact widget markup (button + star span, taupe empty)</h2>
+<div class="rating-area"><h3>Rate this recipe</h3><div class="stars" role="radiogroup" aria-label="Rate this recipe"><button type="button" data-stars="1" role="radio" aria-checked="false" aria-label="Rate this recipe 1 / 5"><span class="star empty" aria-hidden="true"><span aria-hidden="true" style="display:block;width:30px;height:30px;background:#a08d76;clip-path:polygon(50% 0%,61% 35%,98% 35%,68% 57%,79% 91%,50% 70%,21% 91%,32% 57%,2% 35%,39% 35%)"></span></span></button><button type="button" data-stars="2" role="radio" aria-checked="false" aria-label="Rate this recipe 2 / 5"><span class="star empty" aria-hidden="true"><span aria-hidden="true" style="display:block;width:30px;height:30px;background:#a08d76;clip-path:polygon(50% 0%,61% 35%,98% 35%,68% 57%,79% 91%,50% 70%,21% 91%,32% 57%,2% 35%,39% 35%)"></span></span></button><button type="button" data-stars="3" role="radio" aria-checked="false" aria-label="Rate this recipe 3 / 5"><span class="star empty" aria-hidden="true"><span aria-hidden="true" style="display:block;width:30px;height:30px;background:#a08d76;clip-path:polygon(50% 0%,61% 35%,98% 35%,68% 57%,79% 91%,50% 70%,21% 91%,32% 57%,2% 35%,39% 35%)"></span></span></button><button type="button" data-stars="4" role="radio" aria-checked="false" aria-label="Rate this recipe 4 / 5"><span class="star empty" aria-hidden="true"><span aria-hidden="true" style="display:block;width:30px;height:30px;background:#a08d76;clip-path:polygon(50% 0%,61% 35%,98% 35%,68% 57%,79% 91%,50% 70%,21% 91%,32% 57%,2% 35%,39% 35%)"></span></span></button><button type="button" data-stars="5" role="radio" aria-checked="false" aria-label="Rate this recipe 5 / 5"><span class="star empty" aria-hidden="true"><span aria-hidden="true" style="display:block;width:30px;height:30px;background:#a08d76;clip-path:polygon(50% 0%,61% 35%,98% 35%,68% 57%,79% 91%,50% 70%,21% 91%,32% 57%,2% 35%,39% 35%)"></span></span></button></div><p class="rating-text">Be the first to rate this recipe</p></div>
+<p>Report how many stars you see in Test A and how many in Test B.</p>
 </body>
 </html>
