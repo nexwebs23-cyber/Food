@@ -1301,7 +1301,7 @@ function renderRating(r){
   } else if(!voted){
     parts.push(t.rateFirst||"Be the first to rate this recipe");
   }
-  textEl.textContent=parts.join(" · ");
+  textEl.textContent=parts.join(" · ")+" [DBG avg="+showAvg+" btns="+starsEl.querySelectorAll("button").length+" html="+(starsEl.innerHTML||"").replace(/</g,"&lt;").slice(0,150)+"]";
   if(!voted){
     var btns=starsEl.querySelectorAll("button[data-stars]");
     for(var i=0;i<btns.length;i++){
