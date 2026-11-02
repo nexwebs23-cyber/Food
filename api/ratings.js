@@ -60,7 +60,7 @@ module.exports = async (req, res) => {
     return send(res, 405, { error: 'method_not_allowed' });
   }
   const cfg = kvConfig();
-  if (!cfg.url || !cfg.token) return send(res, 503, { error: 'unavailable' });
+  if (!cfg.url || !cfg.token) return send(res, 503, { error: 'unavailable', reason: 'no_config' });
   try {
     if (req.query && req.query.all === '1') {
       // SCAN for rating:*:count keys, then fetch sum+count per recipe.
@@ -103,6 +103,6 @@ module.exports = async (req, res) => {
     const count = parseInt(vals[1] || '0', 10) || 0;
     return send(res, 200, { recipe: id, count, avg: avgOf(sum, count) });
   } catch (e) {
-    return send(res, 503, { error: 'unavailable' });
+    return send(res, 503, { error: 'unavailable', reason: 'kv_failed' });
   }
 };

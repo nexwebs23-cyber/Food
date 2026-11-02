@@ -98,7 +98,7 @@ module.exports = async (req, res) => {
     return send(res, 400, { error: 'invalid' });
   }
   const cfg = kvConfig();
-  if (!cfg.url || !cfg.token) return send(res, 503, { error: 'unavailable' });
+  if (!cfg.url || !cfg.token) return send(res, 503, { error: 'unavailable', reason: 'no_config' });
   const ip = clientIp(req);
   if (!ip) return send(res, 503, { error: 'unavailable' });
   const ipHash = crypto.createHash('sha256')
@@ -130,6 +130,6 @@ module.exports = async (req, res) => {
                             avg: Math.round(sum / count * 10) / 10,
                             yourVote: stars });
   } catch (e) {
-    return send(res, 503, { error: 'unavailable' });
+    return send(res, 503, { error: 'unavailable', reason: 'kv_failed' });
   }
 };
