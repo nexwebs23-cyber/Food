@@ -330,5 +330,15 @@
     "sugarContent": 8.0,
     "fiberContent": 3.4,
     "sodiumContent": 1042
+  },
+  "aloo-paratha": {
+    "calories": 441,
+    "proteinContent": 10.5,
+    "fatContent": 15.8,
+    "saturatedFatContent": 5.4,
+    "carbohydrateContent": 68.9,
+    "sugarContent": 2.2,
+    "fiberContent": 9.3,
+    "sodiumContent": 591
   }
 }

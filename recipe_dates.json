@@ -136,6 +136,10 @@
   "chicken-korma": {
    "published": "2026-11-01",
    "source": "daily new-recipe run 2026-11-01 — first git commit adding Chicken Korma"
+  },
+  "aloo-paratha": {
+   "published": "2026-11-02",
+   "source": "daily new-recipe run 2026-11-02 — first git commit adding Aloo Paratha"
   }
  },
  "video": {

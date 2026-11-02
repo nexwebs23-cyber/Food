@@ -278,5 +278,13 @@
       <enclosure url="https://www.zaikaworlds.com/assets/chicken-korma-1579f580.webp" type="image/webp" length="441670" />
       <media:content url="https://www.zaikaworlds.com/assets/chicken-korma-1579f580.webp" type="image/webp" medium="image" />
     </item>
+    <item>
+      <title>Aloo Paratha</title>
+      <link>https://www.zaikaworlds.com/recipe/aloo-paratha</link>
+      <guid isPermaLink="true">https://www.zaikaworlds.com/recipe/aloo-paratha</guid>
+      <description>Aloo paratha is Punjab's favourite stuffed breakfast bread, a whole wheat flatbread filled with spiced mashed potatoes and roasted golden on a hot tawa with ghee. The dough is simple whole wheat flour, salt, oil and water, rested until soft, while boiled potatoes are mashed completely smooth with onion, green chillies, coriander, ginger and the classic spices of red chilli, cumin, garam masala and amchur — served hot off the tawa with white butter, curd and pickle.</description>
+      <enclosure url="https://www.zaikaworlds.com/assets/aloo-paratha-b0b0a0b6.webp" type="image/webp" length="552068" />
+      <media:content url="https://www.zaikaworlds.com/assets/aloo-paratha-b0b0a0b6.webp" type="image/webp" medium="image" />
+    </item>
   </channel>
 </rss>
