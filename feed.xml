@@ -286,5 +286,13 @@
       <enclosure url="https://www.zaikaworlds.com/assets/aloo-paratha-b0b0a0b6.webp" type="image/webp" length="552068" />
       <media:content url="https://www.zaikaworlds.com/assets/aloo-paratha-b0b0a0b6.webp" type="image/webp" medium="image" />
     </item>
+    <item>
+      <title>Kheer</title>
+      <link>https://www.zaikaworlds.com/recipe/kheer</link>
+      <guid isPermaLink="true">https://www.zaikaworlds.com/recipe/kheer</guid>
+      <description>Kheer is Pakistan's classic rice pudding — basmati rice slow-cooked in full-cream milk until thick and creamy, sweetened and scented with cardamom, saffron and rose water, and finished with almonds, cashews, pistachios and golden raisins. It is the dessert of Eid, weddings and family dinners, served warm or chilled in small bowls.</description>
+      <enclosure url="https://www.zaikaworlds.com/assets/kheer-8d799a64.webp" type="image/webp" length="255282" />
+      <media:content url="https://www.zaikaworlds.com/assets/kheer-8d799a64.webp" type="image/webp" medium="image" />
+    </item>
   </channel>
 </rss>

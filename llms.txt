@@ -1,13 +1,13 @@
 # Zaika Worlds
 
-> Cook famous dishes from Pakistan and India, plus favourites from around the world, with big photos and step by step methods. 35 recipes in 13 languages: English, Roman Urdu, Hindi, Spanish, French, Arabic, Portuguese, Russian, Chinese, Japanese, German, Turkish and Bengali. Thirty-five recipes also have a video in all 13 languages.
+> Cook famous dishes from Pakistan and India, plus favourites from around the world, with big photos and step by step methods. 36 recipes in 13 languages: English, Roman Urdu, Hindi, Spanish, French, Arabic, Portuguese, Russian, Chinese, Japanese, German, Turkish and Bengali. Thirty-five recipes also have a video in all 13 languages.
 
-- [Zaika Worlds](https://www.zaikaworlds.com/): home page with all 35 recipes, search, categories and trending dishes
+- [Zaika Worlds](https://www.zaikaworlds.com/): home page with all 36 recipes, search, categories and trending dishes
 - [About](https://www.zaikaworlds.com/about): how the recipes are written
 - [Privacy Policy](https://www.zaikaworlds.com/privacy): what this site does and does not collect
 - [Contact](https://www.zaikaworlds.com/contact): write about a recipe, a correction, or a question about this site
 - [Sitemap](https://www.zaikaworlds.com/sitemap.xml): all pages
-- [RSS feed](https://www.zaikaworlds.com/feed.xml): all 35 recipes
+- [RSS feed](https://www.zaikaworlds.com/feed.xml): all 36 recipes
 
 ## Recipes
 
@@ -46,6 +46,7 @@
 - [Haleem](https://www.zaikaworlds.com/recipe/haleem) (Pakistan, 270 min): Haleem is not fast food, it is food of patience. Wheat, barley and lentils soak overnight, beef cooks until it shreds, and everything is mashed together until the pot turns into one thick, silky porridge with the famous stringy texture.
 - [Chicken Korma](https://www.zaikaworlds.com/recipe/chicken-korma) (Pakistan, 60 min): Chicken korma is the great celebration curry of Pakistan, served at weddings, Eid dinners and dawaats with sheermal or hot naan. Bone-in chicken is marinated in yoghurt and spices, then braised gently until tender, while crisp fried onions blended with yoghurt give the gravy its famous reddish-brown colour and silky body — no tomatoes, no cream.
 - [Aloo Paratha](https://www.zaikaworlds.com/recipe/aloo-paratha) (Pakistan, 40 min): Aloo paratha is Punjab's favourite stuffed breakfast bread, a whole wheat flatbread filled with spiced mashed potatoes and roasted golden on a hot tawa with ghee. The dough is simple whole wheat flour, salt, oil and water, rested until soft, while boiled potatoes are mashed completely smooth with onion, green chillies, coriander, ginger and the classic spices of red chilli, cumin, garam masala and amchur — served hot off the tawa with white butter, curd and pickle.
+- [Kheer](https://www.zaikaworlds.com/recipe/kheer) (Pakistan, 50 min): Kheer is Pakistan's classic rice pudding — basmati rice slow-cooked in full-cream milk until thick and creamy, sweetened and scented with cardamom, saffron and rose water, and finished with almonds, cashews, pistachios and golden raisins. It is the dessert of Eid, weddings and family dinners, served warm or chilled in small bowls.
 
 ## Notes
 

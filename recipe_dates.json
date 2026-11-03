@@ -140,6 +140,10 @@
   "aloo-paratha": {
    "published": "2026-11-02",
    "source": "daily new-recipe run 2026-11-02 — first git commit adding Aloo Paratha"
+  },
+  "kheer": {
+   "published": "2026-11-03",
+   "source": "daily new-recipe run 2026-11-03 — first git commit adding Kheer"
   }
  },
  "video": {

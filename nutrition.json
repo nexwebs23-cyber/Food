@@ -340,5 +340,15 @@
     "sugarContent": 2.2,
     "fiberContent": 9.3,
     "sodiumContent": 591
+  },
+  "kheer": {
+    "calories": 212,
+    "proteinContent": 7.0,
+    "fatContent": 7.7,
+    "saturatedFatContent": 3.5,
+    "carbohydrateContent": 29.7,
+    "sugarContent": 22.4,
+    "fiberContent": 0.5,
+    "sodiumContent": 76
   }
 }
