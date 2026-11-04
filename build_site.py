@@ -1921,563 +1921,193 @@ def write_data_files(data):
 # Static SEO pages
 # ---------------------------------------------------------------------------
 
-STATIC_CSS = """
-:root {
-  --bg: #faf3e7;
-  --surface: #fffdf8;
-  --surface2: #f6e9d6;
-  --ink: #2b241d;
-  --muted: #77614e;
-  --line: #e7d5ba;
-  --red: #b84f28;
-  --red-dark: #96401f;
-  --orange: #d96c3f;
-  --green: #357a4e;
-  --gold: #c07a1a;
-  --chip: #f9e8d2;
-  --shadow: 0 14px 32px rgba(68,38,18,.14);
-  --header-bg: #23201c;
-  --header-surface: #2d2923;
-  --header-ink: #f6ead9;
-  --header-muted: #c6b49c;
-  --header-line: #4a4237;
-  --accent: #d96c3f;
-  --accent-ink: #fff6ea;
+STATIC_CSS = '''
+:root{
+  --bg:#faf3e7; --surface:#fffdf8; --surface2:#f6e9d6; --ink:#2b241d; --muted:#77614e;
+  --line:#e7d5ba; --red:#b84f28; --red-dark:#96401f; --orange:#d96c3f; --green:#357a4e;
+  --gold:#c07a1a; --chip:#f9e8d2; --shadow:0 14px 32px rgba(68,38,18,.14);
+  --radius:20px;
+  --header-bg:#23201c; --header-surface:#2d2923; --header-ink:#f6ead9; --header-muted:#c6b49c;
+  --header-line:#4a4237; --accent:#d96c3f; --accent-ink:#fff6ea;
 }
+@media (prefers-color-scheme: dark){
+  :root{ --bg:#23201c; --surface:#2d2923; --surface2:#3a342c; --ink:#f6ead9; --muted:#c6b49c;
+  --line:#4a4237; --red:#e07a4e; --red-dark:#ec8f63; --orange:#e07a4e; --chip:#3a342c; --shadow:0 14px 32px rgba(0,0,0,.45);
+  --header-bg:#1b1814; --header-surface:#26221c; --header-ink:#f6ead9; --header-muted:#c6b49c;
+  --header-line:#4a4237; --accent:#e07a4e; --accent-ink:#fff6ea; }
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Source Sans 3","Plus Jakarta Sans",system-ui,-apple-system,"Segoe UI",sans-serif;line-height:1.6}
+img{max-width:100%;display:block}
+a{color:var(--red)}
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --bg: #23201c;
-    --surface: #2d2923;
-    --surface2: #3a342c;
-    --ink: #f6ead9;
-    --muted: #c6b49c;
-    --line: #4a4237;
-    --red: #e07a4e;
-    --red-dark: #ec8f63;
-    --orange: #e07a4e;
-    --chip: #3a342c;
-    --shadow: 0 14px 32px rgba(0,0,0,.45);
-    --header-bg: #1b1814;
-    --header-surface: #26221c;
-    --header-ink: #f6ead9;
-    --header-muted: #c6b49c;
-    --header-line: #4a4237;
-    --accent: #e07a4e;
-    --accent-ink: #fff6ea;
-  }
-}
+h1,h2,h3{font-family:"Cormorant Garamond",Georgia,serif;font-weight:600;line-height:1.08;letter-spacing:.1px}
+h1{font-size:clamp(36px,5vw,52px);margin:14px 0 16px}
+h2,h3{font-size:26px;margin:22px 0 10px}
+p{margin:0 0 14px}
 
-* { box-sizing: border-box; }
-html { scroll-behavior: smooth; }
-body {
-  margin: 0;
-  background: var(--bg);
-  color: var(--ink);
-  font-family: "Source Sans 3", "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  line-height: 1.65;
-  font-size: 16px;
-  -webkit-font-smoothing: antialiased;
-}
+.wrap{max-width:1180px;margin:0 auto;padding:0 18px}
+.recipe-view{padding:20px 0 40px}
+.recipe-body{max-width:820px;margin:0 auto}
 
-.wrap {
-  max-width: 900px;
-  margin: 0 auto;
-  padding: 0 20px 48px;
-}
-
-/* Header & Topbar */
-header.topbar-modern {
-  background: var(--header-bg);
-  color: var(--header-ink);
-  border-bottom: 1px solid var(--header-line);
-  margin: 0;
-  padding: 0;
-  width: 100%;
-}
-.topbar-top { padding: 0; }
-.topbar-inner {
-  max-width: 1180px;
-  margin: 0 auto;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 12px;
-  flex-wrap: wrap;
-  padding: 12px 20px;
-}
-header.topbar-modern a.brand {
-  font-family: "Cormorant Garamond", Georgia, serif;
-  font-size: 28px;
-  font-weight: 700;
-  color: var(--header-ink);
-  text-decoration: none;
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  letter-spacing: .02em;
-}
-header.topbar-modern a.brand span { color: var(--accent); }
-header.topbar-modern .logo-img { border-radius: 50%; object-fit: cover; }
-
-/* Language Dropdown */
-.lang-wrap { display: flex; align-items: center; gap: 6px; }
-.globe-icon { color: var(--accent); font-size: 16px; }
-.lang-select {
-  background: var(--header-surface);
-  color: var(--header-ink);
-  border: 1px solid var(--header-line);
-  border-radius: 8px;
-  padding: 6px 10px;
-  font-size: 13px;
-  font-weight: 600;
-  cursor: pointer;
-  outline: none;
-}
-.lang-select option { background: var(--header-bg); color: var(--header-ink); }
-
-/* Navigation links */
-.top-links { display: flex; gap: 6px; align-items: center; flex-wrap: wrap; }
-.top-links a {
-  color: var(--header-ink);
-  text-decoration: none;
-  font-size: 14px;
-  font-weight: 600;
-  padding: 6px 12px;
-  border-radius: 8px;
-  transition: background .2s, color .2s;
-  white-space: nowrap;
-}
-.top-links a:hover { background: rgba(246,234,217,.12); }
-
-.saved-btn {
-  background: var(--header-surface);
-  color: var(--header-ink);
-  border: 1px solid var(--header-line);
-  border-radius: 8px;
-  padding: 7px 14px;
-  font-size: 13px;
-  font-weight: 700;
-  cursor: pointer;
-  white-space: nowrap;
-  transition: background .2s;
-}
-.saved-btn:hover { background: #3a342c; }
-
-.cat-dropdown { position: relative; display: inline-block; }
-.cat-btn {
-  background: var(--header-surface);
-  color: var(--header-ink);
-  border: 1px solid var(--header-line);
-  border-radius: 8px;
-  padding: 6px 12px;
-  font-size: 13px;
-  font-weight: 600;
-  cursor: pointer;
-}
-.cat-menu {
-  display: none;
-  position: absolute;
-  top: calc(100% + 6px);
-  right: 0;
-  background: var(--header-surface);
-  border: 1px solid var(--header-line);
-  border-radius: 10px;
-  min-width: 190px;
-  z-index: 9999;
-  padding: 6px 0;
-  box-shadow: 0 10px 28px rgba(0,0,0,.4);
-}
-.cat-dropdown:hover .cat-menu, .cat-dropdown:focus-within .cat-menu { display: block; }
-.cat-menu a {
-  display: block;
-  color: var(--header-ink);
-  text-decoration: none;
-  padding: 9px 16px;
-  font-size: 14px;
-  font-weight: 600;
-}
-.cat-menu a:hover { background: rgba(246,234,217,.1); }
-
-/* Search row */
-.search-row {
-  background: #191613;
-  border-top: 1px solid var(--header-line);
-  padding: 9px 20px;
-}
-.search-inner {
-  max-width: 1180px;
-  margin: 0 auto;
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-.search-icon { color: var(--header-muted); font-size: 16px; }
-.search-box {
-  flex: 1;
-  background: transparent;
-  border: none;
-  outline: none;
-  color: var(--header-ink);
-  font-size: 15px;
-  padding: 4px 0;
-}
-.search-box::placeholder { color: var(--header-muted); }
+/* Topbar Header */
+header.topbar-modern{background:var(--header-bg);color:var(--header-ink);border-bottom:1px solid var(--header-line);margin:0;padding:0;width:100%}
+.topbar-inner{max-width:1180px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;padding:12px 18px}
+header.topbar-modern a.brand{font-family:"Cormorant Garamond",Georgia,serif;font-size:32px;font-weight:600;color:var(--header-ink);text-decoration:none;display:inline-flex;align-items:center;gap:10px;white-space:nowrap;letter-spacing:.02em}
+header.topbar-modern a.brand span{color:var(--accent);font-weight:600}
+header.topbar-modern .logo-img{width:44px;height:44px;border-radius:50%;object-fit:cover;flex:none}
+.lang-wrap{display:flex;align-items:center;gap:6px}
+.globe-icon{color:var(--accent);font-size:16px}
+.lang-select{background:var(--header-surface);color:var(--header-ink);border:1px solid var(--header-line);border-radius:10px;padding:8px 10px;font-size:14px;font-weight:600;cursor:pointer;outline:none}
+.top-links{display:flex;gap:4px;align-items:center;flex-wrap:wrap}
+.top-links a{color:var(--header-ink);text-decoration:none;font-weight:600;font-size:14px;padding:8px 10px;border-radius:10px;white-space:nowrap}
+.top-links a:hover{background:rgba(246,234,217,.12)}
+.saved-btn{background:var(--header-surface);color:var(--header-ink);border:1px solid var(--header-line);border-radius:10px;padding:8px 14px;font-weight:700;font-size:14px;cursor:pointer;white-space:nowrap}
+.cat-dropdown{position:relative;display:inline-block}
+.cat-btn{background:none;border:0;color:var(--header-ink);font-weight:600;font-size:14px;padding:8px 10px;border-radius:10px;cursor:pointer}
+.cat-menu{display:none;position:absolute;top:calc(100% + 4px);right:0;background:var(--header-surface);border:1px solid var(--header-line);border-radius:12px;min-width:180px;z-index:9999;padding:6px 0;box-shadow:var(--shadow)}
+.cat-dropdown:hover .cat-menu,.cat-dropdown:focus-within .cat-menu{display:block}
+.cat-menu a{display:block;color:var(--header-ink);text-decoration:none;padding:8px 16px;font-size:14px;font-weight:600}
+.cat-menu a:hover{background:rgba(246,234,217,.1)}
+.search-row{background:#191613;border-top:1px solid var(--header-line);padding:9px 18px}
+.search-inner{max-width:1180px;margin:0 auto;display:flex;align-items:center;gap:12px}
+.search-icon{color:var(--header-muted);font-size:16px}
+.search-box{flex:1;background:transparent;border:none;outline:none;color:var(--header-ink);font-size:15px;padding:4px 0}
+.search-box::placeholder{color:var(--header-muted)}
 
 /* Breadcrumb */
-nav.crumb {
-  font-size: 14px;
-  color: var(--muted);
-  margin: 24px 0 12px;
-  font-weight: 500;
-}
-nav.crumb a {
-  color: var(--red);
-  text-decoration: none;
-  font-weight: 600;
-}
-nav.crumb a:hover { text-decoration: underline; }
-nav.crumb span { color: var(--ink); font-weight: 600; }
+.breadcrumb{font-size:14px;margin:0 0 10px;color:var(--muted)}
+.breadcrumb a{color:var(--red);font-weight:700;text-decoration:none}
+.breadcrumb a:hover{text-decoration:underline}
+.breadcrumb span[aria-current]{color:var(--ink);font-weight:700}
 
-/* Recipe Headings */
-h1 {
-  font-family: "Cormorant Garamond", Georgia, serif;
-  font-size: clamp(34px, 5vw, 48px);
-  line-height: 1.12;
-  margin: 6px 0 14px;
-  color: var(--ink);
-  font-weight: 700;
-  letter-spacing: -0.01em;
-}
-h2 {
-  font-family: "Cormorant Garamond", Georgia, serif;
-  font-size: clamp(24px, 3.5vw, 32px);
-  margin: 36px 0 14px;
-  color: var(--ink);
-  font-weight: 700;
-  letter-spacing: -0.01em;
-  border-bottom: 2px solid var(--line);
-  padding-bottom: 6px;
-}
-h3 {
-  font-family: "Cormorant Garamond", Georgia, serif;
-  font-size: 22px;
-  margin: 20px 0 8px;
-  color: var(--ink);
-  font-weight: 600;
-}
-p { margin: 0 0 16px; color: var(--ink); font-size: 16.5px; }
+/* Hero photo */
+.recipe-hero{margin:0 0 18px}
+.recipe-hero img{width:100%;max-width:720px;height:400px;object-fit:cover;border-radius:20px;box-shadow:var(--shadow);border:1px solid var(--line)}
 
-/* Facts Bar - Cards like homepage */
-.facts {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  margin: 14px 0 20px;
-  padding: 12px 16px;
-  background: var(--surface);
-  border: 1px solid var(--line);
-  border-radius: 12px;
-  color: var(--muted);
-  font-size: 14.5px;
-  font-weight: 600;
-  align-items: center;
-}
-.facts span.fact-item {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-}
-.pubdate {
-  color: var(--muted);
-  font-size: 13.5px;
-  margin: -6px 0 18px;
-  font-style: italic;
-}
+/* Facts 4-column card grid */
+.facts{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:18px 0}
+.fact{background:var(--surface2);border-radius:14px;padding:13px 14px}
+.fact span{display:block;font-size:12px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.fact b{font-size:17px;color:var(--ink);display:block;margin-top:2px}
+.pubdate{color:var(--muted);font-size:14px;margin:0 0 12px}
+.intro{color:var(--muted);font-size:17px;line-height:1.65;margin:0 0 20px}
 
-/* Jump to recipe button */
-.jump-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  background: var(--red);
-  color: #fff !important;
-  text-decoration: none !important;
-  padding: 10px 20px;
-  border-radius: 30px;
-  font-size: 14.5px;
-  font-weight: 700;
-  margin: 4px 0 20px;
-  box-shadow: 0 4px 14px rgba(184,79,40,.25);
-  transition: transform .15s, background .2s;
-}
-.jump-btn:hover {
-  background: var(--red-dark);
-  transform: translateY(-1px);
-}
+/* Video area with play button overlay */
+.video-area{margin:20px 0 24px}
+.video-area h3{font-size:26px;margin:0 0 10px;font-weight:600}
+.video-frame{position:relative;aspect-ratio:16/9;overflow:hidden;border-radius:18px;border:1px solid var(--line);background:var(--surface2)}
+.video-frame img{width:100%;height:100%;object-fit:cover}
+.recipe-video{position:absolute;inset:0;width:100%;height:100%;border:0;background:#000}
+.video-play{position:absolute;inset:0;width:100%;border:0;padding:16px;background:rgba(20,10,5,.38);color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:11px;cursor:pointer;text-decoration:none}
+.video-play:hover{background:rgba(20,10,5,.52)}
+.play-icon{width:66px;height:66px;border-radius:50%;background:var(--red);display:grid;place-items:center;box-shadow:0 6px 20px rgba(0,0,0,.35)}
+.play-icon svg{width:26px;height:26px;fill:#fff;margin-left:3px}
+.play-text{font-weight:800;font-size:15px;text-shadow:0 1px 8px rgba(0,0,0,.5);color:#fff}
 
-/* Hero Image */
-img.hero {
-  width: 100%;
-  max-height: 480px;
-  object-fit: cover;
-  border-radius: 16px;
-  display: block;
-  margin: 16px 0 24px;
-  box-shadow: var(--shadow);
-  border: 1px solid var(--line);
-}
+/* Rating Area with gold stars */
+.rating-area{margin:18px 0 24px}
+.rating-area h3{font-size:26px;margin:0 0 8px;font-weight:600}
+.rating-area .stars{display:flex;gap:4px}
+.rating-area .star-shape{width:30px;height:30px;display:inline-block;background:#c07a1a;clip-path:polygon(50% 0%,61% 35%,98% 35%,68% 57%,79% 91%,50% 70%,21% 91%,32% 57%,2% 35%,39% 35%)}
+.rating-area .rating-text{margin:8px 0 0;color:var(--muted);font-size:15px}
+.rating-line{color:var(--muted);font-size:15px}
 
-/* Lists - ingredients & method */
-ul, ol {
-  margin: 0 0 24px;
-  padding-left: 24px;
-}
-li {
-  margin: 0 0 10px;
-  font-size: 16.5px;
-  color: var(--ink);
-  line-height: 1.6;
-}
-ol {
-  counter-reset: custom-step;
-  list-style: none;
-  padding-left: 0;
-}
-ol li {
-  counter-increment: custom-step;
-  position: relative;
-  padding-left: 42px;
-  margin: 0 0 14px;
-}
-ol li::before {
-  content: counter(custom-step);
-  position: absolute;
-  left: 0;
-  top: 1px;
-  width: 28px;
-  height: 28px;
-  background: var(--chip);
-  color: var(--red);
-  font-weight: 800;
-  font-size: 14px;
-  border-radius: 50%;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  border: 1px solid var(--line);
-}
+/* Ingredients and method 2-column side-by-side */
+.two-col{display:grid;grid-template-columns:1fr 1.25fr;gap:26px;margin-top:8px}
+.two-col h3{font-size:26px;margin:0 0 10px;font-weight:600}
+.two-col h4{font-family:"Cormorant Garamond",Georgia,serif;font-weight:600;font-size:24px;line-height:1.15;margin:0 0 10px}
+.two-col ul{margin:0;padding-left:20px}
+.two-col li{margin:7px 0;color:var(--muted);font-size:15px}
+.two-col li b{color:var(--ink)}
+.two-col ol{list-style:none;counter-reset:zw-step;padding-left:0;padding-right:0;margin:0}
+.two-col ol li{counter-increment:zw-step;position:relative;padding-inline-start:36px;margin:8px 0;color:var(--muted);font-size:15px;line-height:1.6}
+.two-col ol li::before{content:counter(zw-step) ".";position:absolute;inset-inline-start:0;top:0;font-weight:800;color:var(--red);direction:ltr}
 
-/* Tip / Chef box */
-.tip-box {
-  background: #fdf0e4;
-  border: 1.5px solid #e8b08f;
-  border-radius: 14px;
-  padding: 16px 20px;
-  margin: 24px 0;
-  color: #5a2e16;
-}
-@media (prefers-color-scheme: dark) {
-  .tip-box { background: #3a2a20; border-color: #7a4a2e; color: #f3d9c2; }
-}
+/* Tip & Nutrition box */
+.tip{background:#fdf0e4;border:1.5px solid #e8b08f;border-radius:16px;padding:15px 16px;margin-top:20px;color:#5a2e16}
+@media (prefers-color-scheme: dark){.tip{background:#3a2a20;border-color:#7a4a2e;color:#f3d9c2}}
+.tip h4{font-size:16px;font-weight:800;margin:0 0 3px;font-family:inherit}
+.tip b{display:block;margin-bottom:3px}
 
-/* E-E-A-T Verified Box */
-.eeat-box {
-  background: var(--surface);
-  border: 1px solid var(--line);
-  border-left: 4px solid var(--red);
-  border-radius: 12px;
-  padding: 16px 20px;
-  margin: 28px 0;
-}
-.eeat-box h4 {
-  margin: 0 0 6px;
-  color: var(--ink);
-  font-size: 17px;
-  font-family: "Cormorant Garamond", Georgia, serif;
-  font-weight: 700;
-}
-.eeat-box p {
-  margin: 0;
-  font-size: 14.5px;
-  color: var(--muted);
-  line-height: 1.5;
-}
+/* Good to know & extra sections */
+.extra-sections h3{font-size:26px;margin:22px 0 8px;font-weight:600}
+.extra-sections h4{font-family:"Cormorant Garamond",Georgia,serif;font-weight:600;font-size:24px;line-height:1.15;margin:18px 0 8px}
+.extra-sections p{color:var(--muted);font-size:15px;margin:0 0 10px}
+.extra-sections ul{margin:0;padding-left:20px}
+.extra-sections li{margin:7px 0;color:var(--muted);font-size:15px}
+.serve-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:16px}
+
+/* FAQ */
+.recipe-faq{margin-top:20px}
+.recipe-faq h4{font-family:"Cormorant Garamond",Georgia,serif;font-weight:600;font-size:26px;margin:0 0 10px;line-height:1.15}
+.recipe-faq article{border-top:1px solid var(--line);padding:12px 0}
+.recipe-faq article:first-child{border-top:0;padding-top:2px}
+.recipe-faq h5{font-family:inherit;font-size:16px;font-weight:800;margin:0 0 4px;line-height:1.35}
+.recipe-faq p{margin:0;color:var(--muted);font-size:15px}
 
 /* What to serve with this dish - Pairings */
-.recipe-pairs {
-  background: var(--surface);
-  border: 1px solid var(--line);
-  border-radius: 14px;
-  padding: 20px 24px;
-  margin: 32px 0;
-  box-shadow: 0 6px 20px rgba(68,38,18,.05);
-}
-.recipe-pairs h3 {
-  margin-top: 0;
-  font-size: 22px;
-  color: var(--ink);
-  border-bottom: 1px solid var(--line);
-  padding-bottom: 8px;
-}
-.recipe-pairs ul {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 12px;
-  list-style: none;
-  padding: 0;
-  margin: 12px 0 0;
-}
-.recipe-pairs li {
-  margin: 0;
-  background: var(--surface2);
-  border: 1px solid var(--line);
-  border-radius: 10px;
-  padding: 10px 14px;
-  transition: border-color .2s;
-}
-.recipe-pairs li:hover { border-color: var(--red); }
-.recipe-pairs a {
-  color: var(--red);
-  font-weight: 700;
-  text-decoration: none;
-  font-size: 15px;
-  display: block;
-}
-.recipe-pairs a:hover { text-decoration: underline; }
+.recipe-pairs{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:20px 24px;margin:28px 0;box-shadow:var(--shadow)}
+.recipe-pairs h3{margin-top:0;font-size:24px;color:var(--ink);border-bottom:1px solid var(--line);padding-bottom:8px}
+.recipe-pairs ul{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;list-style:none;padding:0;margin:14px 0 0}
+.recipe-pairs li{margin:0;background:var(--surface2);border:1px solid var(--line);border-radius:10px;padding:10px 14px}
+.recipe-pairs a{color:var(--red);font-weight:700;text-decoration:none;font-size:15px}
 
-/* Share & Save Buttons */
-button.share-btn {
-  background: var(--surface);
-  border: 1px solid var(--line);
-  padding: 8px 14px;
-  border-radius: 8px;
-  font: inherit;
-  color: var(--ink);
-  font-weight: 600;
-  cursor: pointer;
-  margin-right: 8px;
-  transition: background .2s;
-}
-button.share-btn:hover { background: var(--surface2); }
-button.pin-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  background: #e60023;
-  color: #fff;
-  border: 0;
-  padding: 9px 16px;
-  border-radius: 24px;
-  font-size: 14px;
-  font-weight: 700;
-  cursor: pointer;
-  text-decoration: none;
-  margin-left: 6px;
-}
-button.pin-btn:hover { background: #ad081b; }
+/* E-E-A-T Verified Box */
+.eeat-box{background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--red);border-radius:14px;padding:16px 20px;margin:24px 0}
+.eeat-box h4{margin:0 0 4px;color:var(--ink);font-size:18px;font-family:"Cormorant Garamond",Georgia,serif;font-weight:700}
+.eeat-box p{margin:0;font-size:14.5px;color:var(--muted)}
 
-/* Ad Slot */
-.ad-slot {
-  background: var(--surface);
-  border: 1px dashed var(--line);
-  text-align: center;
-  padding: 16px;
-  margin: 28px 0;
-  border-radius: 10px;
-  font-size: 12px;
-  color: var(--muted);
-  letter-spacing: 0.5px;
-  text-transform: uppercase;
-}
+/* Share & Action buttons */
+.recipe-actions{display:flex;gap:10px;flex-wrap:wrap;margin:24px 0 16px}
+.btn{display:inline-block;text-decoration:none;border-radius:10px;padding:12px 22px;font-weight:700;font-size:15px;border:0;letter-spacing:.02em;cursor:pointer}
+.btn-red{background:var(--red);color:#fff}
+.btn-red:hover{background:var(--red-dark)}
+.btn-ghost{background:var(--surface);color:var(--ink);border:1.5px solid var(--line)}
+.btn-ghost:hover{border-color:var(--red)}
+button.share-btn{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:10px 16px;font:inherit;color:var(--ink);font-weight:700;font-size:14px;cursor:pointer}
+button.pin-btn{display:inline-flex;align-items:center;gap:6px;background:#e60023;color:#fff;border:0;padding:10px 18px;border-radius:24px;font-size:14px;font-weight:700;cursor:pointer;text-decoration:none}
+.more-block{margin-top:26px;border-top:1px solid var(--line);padding-top:18px}
+.more-block h3{font-size:26px;margin:0 0 12px;font-weight:600}
+.more-links{display:flex;flex-wrap:wrap;gap:8px}
+.more-links a{border:1.5px solid var(--line);background:var(--surface);border-radius:10px;padding:8px 14px;font-weight:700;font-size:14px;color:var(--ink);text-decoration:none}
+.more-links a:hover{border-color:var(--red)}
 
-/* Rich Homepage-Style Footer */
-.site-footer {
-  background: var(--header-bg);
-  border-top: 3px solid var(--accent);
-  margin-top: 56px;
-  padding: 48px 0 36px;
-  color: var(--header-muted);
-  font-size: 14.5px;
-  width: 100%;
-}
-.site-footer .wrap {
-  max-width: 1180px;
-  margin: 0 auto;
-  padding: 0 20px;
-}
-.site-footer h2 {
-  font-size: 32px;
-  margin: 0 0 10px;
-  color: var(--header-ink);
-  font-weight: 600;
-  border: none;
-  padding: 0;
-}
-.site-footer h3 {
-  font-size: 21px;
-  margin: 0 0 12px;
-  color: var(--header-ink);
-  font-family: "Cormorant Garamond", Georgia, serif;
-  font-weight: 600;
-}
-#footerLangH {
-  font-size: 16px;
-  margin: 20px 0 6px;
-  font-family: inherit;
-  color: var(--header-ink);
-  font-weight: 700;
-}
-.site-footer p {
-  margin: 0 0 12px;
-  color: var(--header-muted);
-  font-size: 14px;
-  line-height: 1.6;
-}
-.site-footer a { color: var(--header-muted); text-decoration: none; }
-.site-footer a:hover { color: var(--header-ink); text-decoration: underline; }
-.footer-grid {
-  display: grid;
-  grid-template-columns: 1.25fr 0.8fr 0.8fr;
-  gap: 36px;
-}
-.footer-col ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-.footer-col li { margin: 8px 0; }
-.footer-col a {
-  color: var(--header-ink);
-  text-decoration: none;
-  font-weight: 600;
-  font-size: 14px;
-}
-.footer-col a:hover { color: var(--accent); text-decoration: underline; }
-.footer-social {
-  margin-top: 32px;
-  padding-top: 20px;
-  border-top: 1px solid var(--header-line);
-  font-size: 14px;
-  color: var(--header-muted);
-}
-.footer-social a {
-  color: var(--header-ink);
-  margin: 0 4px;
-  font-weight: 600;
-}
-.footer-copy {
-  margin-top: 16px;
-  font-size: 13px;
-  color: var(--header-muted);
-}
+.jump-btn{display:none}
+.ad-slot{background:var(--surface);border:1px dashed var(--line);text-align:center;padding:14px;margin:24px 0;border-radius:10px;font-size:12px;color:var(--muted);letter-spacing:0.5px;text-transform:uppercase}
 
-@media (max-width: 860px) {
-  .footer-grid { grid-template-columns: 1fr; gap: 24px; }
-  .top-links { display: none; }
-  .saved-btn { display: none; }
+/* Rich 3-column Footer */
+.site-footer{background:var(--header-bg);border-top:3px solid var(--accent);margin-top:52px;padding:40px 0 34px;color:var(--header-muted);font-size:14px;width:100%}
+.site-footer .wrap{max-width:1180px;margin:0 auto;padding:0 18px}
+.site-footer h2{font-size:32px;margin:0 0 8px;color:var(--header-ink);font-weight:600}
+.site-footer h3{font-size:21px;margin:0 0 10px;color:var(--header-ink);font-family:"Cormorant Garamond",Georgia,serif;font-weight:600}
+#footerLangH{font-size:16px;margin:18px 0 6px;font-family:inherit;color:var(--header-ink);font-weight:700}
+.site-footer p{margin:0 0 10px;color:var(--header-muted)}
+.site-footer a{color:var(--header-muted);text-decoration:none}
+.site-footer a:hover{color:var(--header-ink);text-decoration:underline}
+.footer-grid{display:grid;grid-template-columns:1.2fr .7fr .8fr;gap:28px}
+.footer-col ul{list-style:none;margin:0;padding:0}
+.footer-col li{margin:8px 0}
+.footer-col a{color:var(--header-ink);text-decoration:none;font-weight:600}
+.footer-col a:hover{text-decoration:underline}
+.footer-social{margin-top:20px;font-size:14px;color:var(--header-muted)}
+.footer-social a{color:var(--header-ink);font-weight:700}
+.footer-copy{margin-top:28px;padding-top:18px;border-top:1px solid var(--header-line);font-size:13px;color:var(--header-muted)}
+
+@media(max-width:860px){
+  .two-col{grid-template-columns:1fr}
+  .facts{grid-template-columns:repeat(2,1fr)}
+  .serve-grid{grid-template-columns:1fr}
+  .footer-grid{grid-template-columns:1fr}
+  .top-links{display:none}
+  .saved-btn{display:none}
 }
-""".strip()
+@media(max-width:540px){
+  .facts{grid-template-columns:1fr}
+  .recipe-hero img{height:260px;max-width:100%}
+}
+'''.strip()
 
 SITE_HEADER = (
     '<header class="topbar-modern">'
@@ -3204,9 +2834,7 @@ RECIPE_PAIRINGS = {
 }
 
 def recipe_page(data, recipe, lang='en', dates=None):
-    """Static recipe page, in any language. English uses the full title /
-    description pattern; other languages use the translated name, text,
-    video and meta (all from the site's own translations)."""
+    """Static recipe page matching the homepage recipeView structure exactly."""
     tx = r_text_lang(recipe, data, lang)
     name = lang_name(recipe, data, lang)
     path = '/recipe/' + recipe['id']
@@ -3220,8 +2848,7 @@ def recipe_page(data, recipe, lang='en', dates=None):
     img_url = SITE + '/' + recipe['img']
     img_alt = lang_alt(recipe, data, lang)
     dims = data['img_dims'].get(recipe['img'], [])
-    wh = (' width="%d" height="%d"' % (dims[0], dims[1])
-          if len(dims) == 2 else '')
+    wh = (' width="%d" height="%d"' % (dims[0], dims[1]) if len(dims) == 2 else '')
     cat_slug = data['cat_slug'].get(recipe['cat'], '')
     ctry_slug = data['country_slug'].get(recipe['country'], '')
     home_url = lang_url('/', lang)
@@ -3231,164 +2858,181 @@ def recipe_page(data, recipe, lang='en', dates=None):
     article = (dates.get('article') or {}).get(recipe['id'], {})
     video_dates = (dates.get('video') or {}).get(recipe['id'], {})
     vid = (recipe.get('videos') or {}).get(lang)
-    video_date = video_dates.get(lang) if isinstance(video_dates, dict) \
-        else None
-
-    def section(heading, items, tag, id_prefix=None):
-        if not items:
-            return ''
-        if id_prefix:
-            # Step anchors (id="step-N") so the HowToStep JSON-LD urls
-            # point at real elements on the page.
-            lis = ''.join('<li id="%s-%d">%s</li>' % (id_prefix, i + 1,
-                                                      esc(x))
-                          for i, x in enumerate(items))
-        else:
-            lis = ''.join('<li>%s</li>' % esc(x) for x in items)
-        return '<h2>%s</h2>\n<%s>\n%s\n</%s>\n' % (esc(heading), tag, lis, tag)
-
-    def para(heading, text):
-        if not text:
-            return ''
-        return '<h2>%s</h2>\n<p>%s</p>\n' % (esc(heading), esc(text))
-
-    def nutrition_block(nut):
-        # GSC 'Missing field "nutrition"' (2026-10-31): visible
-        # per-serving values next to the ingredients, from the computed
-        # data — same numbers as the JSON-LD, never invented.
-        if not nut:
-            return ''
-        return ('<h2>%s</h2>\n<p>%s</p>\n'
-                % (esc(h('nutritionH',
-                         'Nutrition (approx. per serving)')),
-                   esc(nutrition_line(nut))))
-
-    def rating_block(rat):
-        # GSC 'Missing field "aggregateRating"' (2026-11-02): the
-        # visible aggregate, same numbers as the JSON-LD. No ratings
-        # yet -> an invite to rate in the interactive recipe view
-        # (static pages are SEO shells; the widget lives in the SPA).
-        _link = ('<a href="%s">%s</a>'
-                 % (esc(spa_href),
-                    esc(h('rateH', 'Rate this recipe'))))
-        if rat and rat.get('count', 0) > 0:
-            _avg = round(rat['sum'] / rat['count'], 1)
-            return ('<p class="rating-line">\u2605 %s &mdash; %s</p>\n'
-                    % (esc(fmt_rate_avg(data, lang, _avg,
-                                       rat['count'])), _link))
-        return ('<p class="rating-line">%s &mdash; %s</p>\n'
-                % (esc(h('rateFirst',
-                         'Be the first to rate this recipe')), _link))
-
-    def pairing_block(rec_id):
-        pairs = RECIPE_PAIRINGS.get(rec_id, [])
-        if not pairs:
-            return ''
-        links = ''.join('<li><a href="/recipe/%s">%s</a></li>' % (esc(sid), esc(stitle)) for sid, stitle in pairs)
-        return '<div class="recipe-pairs"><h3>What to Serve With This Dish</h3><ul>%s</ul></div>\n' % links
-
-    def faq_block(faq):
-        if not faq:
-            return ''
-        out = ['<h2>%s</h2>' % esc(ui_str(data, lang, 'recipeFaqH',
-                                         'Frequently asked questions'))]
-        for q, a in faq:
-            out.append('<h3>%s</h3>\n<p>%s</p>' % (esc(q), esc(a)))
-        return '\n'.join(out) + '\n'
+    video_date = video_dates.get(lang) if isinstance(video_dates, dict) else None
 
     h = lambda key, default: ui_str(data, lang, key, default)
-    if vid:
-        video = ('<h2>%s</h2>\n'
-                 '<iframe src="https://www.youtube-nocookie.com/embed/%s'
-                 '?modestbranding=1&amp;rel=0" '
-                 'title="%s" width="560" height="315" loading="lazy" '
-                 'allow="accelerometer; autoplay; clipboard-write; '
-                 'encrypted-media; gyroscope; picture-in-picture" '
-                 'allowfullscreen '
-                 'style="width:100%%;aspect-ratio:16/9;height:auto;'
-                 'border:0;border-radius:10px"></iframe>\n'
-                 '<p><a href="https://youtu.be/%s">%s</a></p>\n'
-                 % (esc(h('videoH', 'Recipe Video')), esc(vid),
-                    esc(name), esc(vid), esc(h('videoPlay',
-                                               'Watch the recipe video'))))
-    else:
-        video = ('<p class="muted">%s</p>\n'
-                 % esc(h('videoSoon', 'Video coming soon — this recipe is '
-                           'being filmed, so check back soon to watch '
-                           'every step.')))
-    wa_text = 'See this recipe: %s, Zaika Worlds: %s' % (name, url)
-    # Only the percent-encoded text is emitted (data-wa); the full
-    # wa.me URL is assembled on click by SHARE_JS, so no crawler ever
-    # requests wa.me (it 429s bots) and no plain wa.me href exists.
-    wa_q = quote(wa_text)
-    spa_href = ('/#recipe/%s' % recipe['id'] if lang == 'en'
-                else '/?lang=%s#recipe/%s' % (lang, recipe['id']))
+
+    # 1. Facts cards
+    time_label = h('time', 'Time')
+    serv_label = h('serv', 'Servings')
+    diff_label = h('diff', 'Difficulty')
+    cat_lbl = h('cat', 'Category')
+    facts_html = (
+        '<div class="facts" id="recipeFacts">\n'
+        '  <div class="fact"><span>' + esc(time_label) + '</span><b>' + esc(recipe['time']) + ' ' + esc(minute) + '</b></div>\n'
+        '  <div class="fact"><span>' + esc(serv_label) + '</span><b>' + esc(lang_servings(recipe, data, lang)) + '</b></div>\n'
+        '  <div class="fact"><span>' + esc(diff_label) + '</span><b>' + esc(lang_diff(recipe, data, lang)) + '</b></div>\n'
+        '  <div class="fact"><span>' + esc(cat_lbl) + '</span><b>' + esc(cat_label) + ' &middot; ' + esc(recipe['country']) + '</b></div>\n'
+        '</div>\n'
+    )
+
+    # 2. Publish date
     pub = recipe.get('published') or article.get('published')
-    pubdate = ''
+    pubdate_html = ''
     if pub:
-        pubdate = ('<p class="pubdate">%s %s</p>\n'
-                   % (esc(h('publishedOn', 'Published on')),
-                      esc(fmt_date(pub))))
-    body = (
-        '<nav class="crumb"><a href="%s">Home</a> &rsaquo; '
-        '<a href="/category/%s">%s</a> &rsaquo; '
-        '<span>%s</span></nav>\n'
-        '<h1>%s</h1>\n'
-        '<p class="facts">%s %s &middot; %s &middot; %s &middot; %s</p>\n'
-        '<a href="#recipe-card" class="jump-btn">&#x2193; Jump to Recipe</a>\n'
-        '%s'
-        '<img class="hero" src="%s" alt="%s"%s loading="eager">\n'
-        '<p>%s</p>\n'
-        '%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s'
-        '<p><a href="/category/%s">More %s recipes</a> &middot; '
-        '<a href="/country/%s">More %s recipes</a> &middot; '
-        '<a href="/recipes">All recipes</a> &middot; '
-        '<a href="/faqs">Cooking FAQs</a> &middot; '
-        '<a href="/trending">Trending Recipes</a></p>\n'
-        '<p>Share this recipe: '
-        '<button type="button" class="share-btn" data-copy="%s">'
-        'Copy recipe link</button> &middot; '
-        '<button type="button" class="share-btn" data-wa="%s">'
-        'Share on WhatsApp</button>'
-        '<button type="button" class="pin-btn" data-pin data-pin-url="%s" data-pin-media="%s" data-pin-desc="%s">'
-        '<svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" style="vertical-align:-2px"><path d="M12 0C5.373 0 0 5.372 0 12c0 5.084 3.163 9.426 7.627 11.174-.105-.949-.2-2.405.042-3.441.218-.937 1.407-5.965 1.407-5.965s-.359-.719-.359-1.782c0-1.668.967-2.914 2.171-2.914 1.023 0 1.518.769 1.518 1.69 0 1.029-.655 2.568-.994 3.995-.283 1.194.599 2.169 1.777 2.169 2.133 0 3.772-2.249 3.772-5.495 0-2.873-2.064-4.882-5.012-4.882-3.414 0-5.418 2.561-5.418 5.207 0 1.031.397 2.138.893 2.738.098.119.112.224.083.345-.09.375-.291 1.199-.334 1.357-.053.225-.172.271-.401.165-1.495-.69-2.433-2.878-2.433-4.646 0-3.776 2.748-7.252 7.92-7.252 4.158 0 7.392 2.967 7.392 6.923 0 4.135-2.607 7.462-6.233 7.462-1.214 0-2.354-.629-2.758-1.379l-.749 2.848c-.269 1.045-1.004 2.352-1.498 3.146 1.123.345 2.306.535 3.55.535 6.627 0 12-5.373 12-12 0-6.628-5.373-12-12-12z"/></svg>'
-        'Save Pin</button></p>\n'
-        % (esc(home_url), esc(cat_slug), esc(cat_label), esc(name),
-           esc(name), esc(recipe['time']), esc(minute),
-           esc(lang_servings(recipe, data, lang)), esc(cat_label),
-           esc(recipe['country']), pubdate, esc(img_url), esc(img_alt),
-           wh, esc(tx.get('intro') or ''),
-           video,
-           ('<div id="recipe-card"></div>\n' +
-            rating_block((data.get('ratings') or {}).get(recipe['id']))),
-           section(h('ingH', 'Ingredients'),
-                   split_ingredients(tx.get('ing'), lang), 'ul'),
-           nutrition_block((data.get('nutrition') or {})
-                           .get(recipe['id'])),
-           section(h('methH', 'Method'), tx.get('steps'), 'ol', 'step'),
-           para(h('tipH', "Chef's tip"), tx.get('tip')),
-           para(h('servingH', 'Serving'), tx.get('serving')),
-           para(h('storageH', 'Storage'), tx.get('storage')),
-           section(h('notesH', 'Notes'), tx.get('notes'), 'ul'),
-           section(h('varH', 'Variations'), tx.get('variations'), 'ul'),
-           section(h('mistakesH', 'Common mistakes'),
-                   tx.get('mistakes'), 'ul'),
-           faq_block(tx.get('faq')),
-           pairing_block(recipe['id']),
-           '<div class="eeat-box"><h4>Verified by Zaika Worlds Kitchen</h4>'
-           '<p>This recipe was tested and standardized by home cooking specialists to guarantee accurate ingredient ratios, reliable prep times, and authentic regional taste.</p></div>\n',
-           '<div class="ad-slot" aria-hidden="true">&mdash; Advertisement &mdash;</div>\n',
-           esc(cat_slug), esc(cat_label),
-           esc(ctry_slug), esc(recipe['country']),
-           esc(url), esc(wa_q),
-           esc(url), esc(img_url), esc(name)))
+        pubdate_html = ('<p class="pubdate">' + esc(h('publishedOn', 'Published on')) + ' ' + esc(fmt_date(pub)) + '</p>\n')
+
+    # 3. Video frame with play button overlay
+    if vid:
+        video_html = (
+            '<div class="video-area" id="videoArea">\n'
+            '  <h2 id="videoHeading">' + esc(h('videoH', 'Recipe Video')) + '</h2>\n'
+            '  <div class="video-frame">\n'
+            '    <img src="' + esc(img_url) + '" alt="' + esc(img_alt) + '" loading="lazy" width="1792" height="1344">\n'
+            '    <a class="video-play" href="https://youtu.be/' + esc(vid) + '" target="_blank" rel="noopener" aria-label="' + esc(h('videoPlay', 'Watch the recipe video')) + '">\n'
+            '      <span class="play-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>\n'
+            '      <span class="play-text">' + esc(h('videoPlay', 'Watch the recipe video')) + '</span>\n'
+            '    </a>\n'
+            '  </div>\n'
+            '</div>\n'
+        )
+    else:
+        video_html = (
+            '<div class="video-area" id="videoArea">\n'
+            '  <h2 id="videoHeading">' + esc(h('videoH', 'Recipe Video')) + '</h2>\n'
+            '  <p class="muted">' + esc(h('videoSoon', 'Video coming soon — this recipe is being filmed.')) + '</p>\n'
+            '</div>\n'
+        )
+
+    # 4. Rating area
+    rat = (data.get('ratings') or {}).get(recipe['id'])
+    star_span = '<span class="star-shape" aria-hidden="true"></span>'
+    stars_html = star_span * 5
+    if rat and rat.get('count', 0) > 0:
+        _avg = round(rat['sum'] / rat['count'], 1)
+        r_text = fmt_rate_avg(data, lang, _avg, rat['count'])
+    else:
+        r_text = h('rateFirst', 'Be the first to rate this recipe')
+    rating_html = (
+        '<div class="rating-area" id="ratingArea">\n'
+        '  <h2 id="ratingHeading">' + esc(h('rateH', 'Rate this recipe')) + '</h2>\n'
+        '  <div class="stars" id="ratingStars" aria-label="Rate this recipe">' + stars_html + '</div>\n'
+        '  <p class="rating-line">' + esc(r_text) + '</p>\n'
+        '</div>\n'
+    )
+
+    # 5. Two-column: Ingredients & Method side-by-side
+    split_ing = split_ingredients(tx.get('ing'), lang)
+    ing_lis = ''.join('<li>' + esc(x) + '</li>' for x in split_ing)
+    step_lis = ''.join('<li id="step-%d">' % (i + 1) + esc(x) + '</li>' for i, x in enumerate(tx.get('steps') or []))
+    two_col_html = (
+        '<div id="recipe-card"></div>\n'
+        '<h2 id="detailsHeading">' + esc(h('detailsH', 'Ingredients and method')) + '</h2>\n'
+        '<div class="two-col">\n'
+        '  <div><h3 id="ingHeading">' + esc(h('ingH', 'Ingredients')) + '</h3><ul id="recipeIng">' + ing_lis + '</ul></div>\n'
+        '  <div><h3 id="methodHeading">' + esc(h('methH', 'Method')) + '</h3><ol id="recipeSteps">' + step_lis + '</ol></div>\n'
+        '</div>\n'
+    )
+
+    # 6. Nutrition block
+    nut = (data.get('nutrition') or {}).get(recipe['id'])
+    nut_html = ''
+    if nut:
+        nut_html = ('<div class="tip" id="nutritionBlock"><h3 id="nutritionHeading">' + esc(h('nutritionH', 'Nutrition (approx. per serving)')) + '</h3><p>' + esc(nutrition_line(nut)) + '</p></div>\n')
+
+    # 7. Chef\'s Tip
+    tip_html = ''
+    if tx.get('tip'):
+        tip_html = ('<div class="tip"><h3 id="tipHeading">' + esc(h('tipH', "Chef's tip")) + '</h3><span>' + esc(tx['tip']) + '</span></div>\n')
+
+    # 8. Good to know sections
+    good_sections = []
+    serve_val = tx.get('serving') or ''
+    store_val = tx.get('storage') or ''
+    if serve_val or store_val:
+        serve_block = ('<div><h3 id="servingHeading">' + esc(h('servingH', 'Serving')) + '</h3><p>' + esc(serve_val) + '</p></div>') if serve_val else ''
+        store_block = ('<div><h3 id="storageHeading">' + esc(h('storageH', 'Storage and reheating')) + '</h3><p>' + esc(store_val) + '</p></div>') if store_val else ''
+        good_sections.append('<div class="serve-grid">' + serve_block + store_block + '</div>')
+    if tx.get('notes'):
+        good_sections.append('<h3 id="notesHeading">' + esc(h('notesH', 'Ingredient notes')) + '</h3><ul>' + ''.join('<li>' + esc(n) + '</li>' for n in tx['notes']) + '</ul>')
+    if tx.get('variations'):
+        good_sections.append('<h3 id="varHeading">' + esc(h('varH', 'Variations')) + '</h3><ul>' + ''.join('<li>' + esc(n) + '</li>' for n in tx['variations']) + '</ul>')
+    if tx.get('mistakes'):
+        good_sections.append('<h3 id="mistakesHeading">' + esc(h('mistakesH', 'Common mistakes')) + '</h3><ul>' + ''.join('<li>' + esc(n) + '</li>' for n in tx['mistakes']) + '</ul>')
+    if tx.get('faq'):
+        faq_articles = ''.join('<article><h4>' + esc(q) + '</h4><p>' + esc(a) + '</p></article>' for q, a in tx['faq'])
+        good_sections.append('<div class="recipe-faq"><h3 id="recipeFaqHeading">' + esc(ui_str(data, lang, 'recipeFaqH', 'Frequently asked questions')) + '</h3>' + faq_articles + '</div>')
+
+    good_to_know_html = ''
+    if good_sections:
+        good_to_know_html = ('<h2 id="goodHeading">' + esc(h('goodHeading', 'Good to know')) + '</h2>\n<div class="extra-sections">\n' + '\n'.join(good_sections) + '\n</div>\n')
+
+    # 9. Pairing block
+    pairs = RECIPE_PAIRINGS.get(recipe['id'], [])
+    pairs_html = ''
+    if pairs:
+        pairs_lis = ''.join('<li><a href="/recipe/%s">%s</a></li>' % (esc(sid), esc(stitle)) for sid, stitle in pairs)
+        pairs_html = '<div class="recipe-pairs"><h2>What to Serve With This Dish</h2><ul>' + pairs_lis + '</ul></div>\n'
+
+    # 10. E-E-A-T and Ads
+    eeat_html = (
+        '<div class="eeat-box"><h3>Verified by Zaika Worlds Kitchen</h3>'
+        '<p>This recipe was tested and standardized by home cooking specialists to guarantee accurate ingredient ratios, reliable prep times, and authentic regional taste.</p></div>\n'
+        '<div class="ad-slot" aria-hidden="true">&mdash; Advertisement &mdash;</div>\n'
+    )
+
+    # 11. Navigation links
+    more_links = (
+        '<div class="more-block"><h2>Explore more authentic recipes</h2>\n'
+        '<div class="more-links">'
+        '<a href="/category/' + esc(cat_slug) + '">More ' + esc(cat_label) + ' recipes</a>'
+        '<a href="/country/' + esc(ctry_slug) + '">More ' + esc(recipe['country']) + ' recipes</a>'
+        '<a href="/recipes">All recipes</a>'
+        '<a href="/faqs">Cooking FAQs</a>'
+        '<a href="/trending">Trending Recipes</a>'
+        '</div></div>\n'
+    )
     if recipe['id'] in ('biryani', 'karahi', 'nihari'):
-        # Contextual link to the dum-cooking guide (these three are the
-        # dum dishes the guide is built from). Keeps the guide linked
-        # from real content, not just the footer.
-        body = body.replace('<a href="/trending">Trending Recipes</a></p>',
-                            '<a href="/trending">Trending Recipes</a> &middot; '
-                            '<a href="/guides/dum-cooking">Dum Cooking Guide</a></p>', 1)
+        more_links = more_links.replace('Trending Recipes</a>',
+                                        'Trending Recipes</a><a href="/guides/dum-cooking">Dum Cooking Guide</a>', 1)
+
+    # 12. Share buttons
+    wa_text = 'See this recipe: %s, Zaika Worlds: %s' % (name, url)
+    wa_q = quote(wa_text)
+    share_html = (
+        '<div class="recipe-actions">'
+        '<button type="button" class="btn btn-ghost share-btn" data-copy="' + esc(url) + '">Copy recipe link</button>'
+        '<button type="button" class="btn btn-red share-btn" data-wa="' + esc(wa_q) + '">Share on WhatsApp</button>'
+        '<button type="button" class="pin-btn" data-pin data-pin-url="' + esc(url) + '" data-pin-media="' + esc(img_url) + '" data-pin-desc="' + esc(name) + '">'
+        '<svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" style="vertical-align:-2px"><path d="M12 0C5.373 0 0 5.372 0 12c0 5.084 3.163 9.426 7.627 11.174-.105-.949-.2-2.405.042-3.441.218-.937 1.407-5.965 1.407-5.965s-.359-.719-.359-1.782c0-1.668.967-2.914 2.171-2.914 1.023 0 1.518.769 1.518 1.69 0 1.029-.655 2.568-.994 3.995-.283 1.194.599 2.169 1.777 2.169 2.133 0 3.772-2.249 3.772-5.495 0-2.873-2.064-4.882-5.012-4.882-3.414 0-5.418 2.561-5.418 5.207 0 1.031.397 2.138.893 2.738.098.119.112.224.083.345-.09.375-.291 1.199-.334 1.357-.053.225-.172.271-.401.165-1.495-.69-2.433-2.878-2.433-4.646 0-3.776 2.748-7.252 7.92-7.252 4.158 0 7.392 2.967 7.392 6.923 0 4.135-2.607 7.462-6.233 7.462-1.214 0-2.354-.629-2.758-1.379l-.749 2.848c-.269 1.045-1.004 2.352-1.498 3.146 1.123.345 2.306.535 3.55.535 6.627 0 12-5.373 12-12 0-6.628-5.373-12-12-12z"/></svg>'
+        'Save Pin</button>'
+        '</div>\n'
+    )
+
+    # Assemble complete body
+    body = (
+        '<div class="recipe-view"><div class="recipe-body">\n'
+        '  <nav class="breadcrumb"><a href="' + esc(home_url) + '">Home</a> <span aria-hidden="true">&rsaquo;</span> '
+        '  <a href="/category/' + esc(cat_slug) + '">' + esc(cat_label) + '</a> <span aria-hidden="true">&rsaquo;</span> '
+        '  <span aria-current="page">' + esc(name) + '</span></nav>\n'
+        '  <h1>' + esc(name) + '</h1>\n'
+        '  <figure class="recipe-hero"><img class="hero" src="' + esc(img_url) + '" alt="' + esc(img_alt) + '"' + wh + ' loading="eager"></figure>\n'
+        + facts_html
+        + pubdate_html
+        + '  <p class="intro">' + esc(tx.get('intro') or '') + '</p>\n'
+        + video_html
+        + rating_html
+        + two_col_html
+        + nut_html
+        + tip_html
+        + good_to_know_html
+        + pairs_html
+        + eeat_html
+        + more_links
+        + share_html
+        + '</div></div>\n'
+    )
+
     return page_shell(title, desc, url, img_url, img_alt,
                       recipe_json_ld(data, recipe, tx, url, lang, desc,
                                      video_date,
