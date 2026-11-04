@@ -380,5 +380,15 @@
     "sugarContent": 6.4,
     "fiberContent": 8.1,
     "sodiumContent": 958
+  },
+  "plov": {
+    "calories": 922,
+    "proteinContent": 28.7,
+    "fatContent": 31.6,
+    "saturatedFatContent": 14.8,
+    "carbohydrateContent": 131.4,
+    "sugarContent": 35.5,
+    "fiberContent": 6.9,
+    "sodiumContent": 730
   }
 }

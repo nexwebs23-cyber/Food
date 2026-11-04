@@ -318,5 +318,13 @@
       <enclosure url="https://www.zaikaworlds.com/assets/dolma-bd7aa9c8.webp" type="image/webp" length="395902" />
       <media:content url="https://www.zaikaworlds.com/assets/dolma-bd7aa9c8.webp" type="image/webp" medium="image" />
     </item>
+    <item>
+      <title>Plov</title>
+      <link>https://www.zaikaworlds.com/recipe/plov</link>
+      <guid isPermaLink="true">https://www.zaikaworlds.com/recipe/plov</guid>
+      <description>Plov is Azerbaijan's national dish — golden saffron basmati rice layered with tender lamb, chestnuts and dried fruits, steamed slowly in one pot until the grains are separate and fluffy.</description>
+      <enclosure url="https://www.zaikaworlds.com/assets/plov-c341c480.webp" type="image/webp" length="398620" />
+      <media:content url="https://www.zaikaworlds.com/assets/plov-c341c480.webp" type="image/webp" medium="image" />
+    </item>
   </channel>
 </rss>

@@ -1,13 +1,13 @@
 # Zaika Worlds
 
-> Cook famous dishes from Pakistan and India, plus favourites from around the world, with big photos and step by step methods. 39 recipes in 13 languages: English, Roman Urdu, Hindi, Spanish, French, Arabic, Portuguese, Russian, Chinese, Japanese, German, Turkish and Bengali. Thirty-nine recipes also have a video in all 13 languages.
+> Cook famous dishes from Pakistan and India, plus favourites from around the world, with big photos and step by step methods. 40 recipes in 13 languages: English, Roman Urdu, Hindi, Spanish, French, Arabic, Portuguese, Russian, Chinese, Japanese, German, Turkish and Bengali. Forty recipes also have a video in all 13 languages.
 
-- [Zaika Worlds](https://www.zaikaworlds.com/): home page with all 39 recipes, search, categories and trending dishes
+- [Zaika Worlds](https://www.zaikaworlds.com/): home page with all 40 recipes, search, categories and trending dishes
 - [About](https://www.zaikaworlds.com/about): how the recipes are written
 - [Privacy Policy](https://www.zaikaworlds.com/privacy): what this site does and does not collect
 - [Contact](https://www.zaikaworlds.com/contact): write about a recipe, a correction, or a question about this site
 - [Sitemap](https://www.zaikaworlds.com/sitemap.xml): all pages
-- [RSS feed](https://www.zaikaworlds.com/feed.xml): all 39 recipes
+- [RSS feed](https://www.zaikaworlds.com/feed.xml): all 40 recipes
 
 ## Recipes
 
@@ -50,9 +50,10 @@
 - [Seekh Kebab](https://www.zaikaworlds.com/recipe/seekh-kebab) (Pakistan, 65 min): Seekh kebab is Pakistan's smoky char-grilled classic — minced lamb kneaded with onion, garlic, ginger, green chillies, coriander and mint, bound with gram flour and egg, pressed onto skewers and grilled over charcoal until charred outside and juicy inside.
 - [Kabuli Pulao](https://www.zaikaworlds.com/recipe/kabuli-pulao) (Afghanistan, 200 min): Kabuli Pulao is Afghanistan's national dish — golden basmati rice layered with tender, gently spiced lamb, topped with caramelised carrots and plump raisins, and finished with slivered almonds and pistachios.
 - [Dolma](https://www.zaikaworlds.com/recipe/dolma) (Armenia, 120 min): Dolma is Armenia's classic stuffed grape leaf dish — tender vine leaves rolled around a filling of spiced minced lamb or beef, long-grain rice, onion, parsley, mint and garlic, seasoned with allspice, cinnamon and cumin, then packed snugly into a pot with lemon slices and simmered gently in broth until the rice is cooked and the leaves are tender.
+- [Plov](https://www.zaikaworlds.com/recipe/plov) (Azerbaijan, 90 min): Plov is Azerbaijan's national dish — golden saffron basmati rice layered with tender lamb, chestnuts and dried fruits, steamed slowly in one pot until the grains are separate and fluffy.
 
 ## Notes
 
 - Every recipe has ingredients with quantities, a step by step method, cooking time and servings.
-- Recipe videos are added per recipe; 39 recipes have a video in all 13 languages and the rest are being added.
+- Recipe videos are added per recipe; 40 recipes have a video in all 13 languages and the rest are being added.
 - Saved recipes are stored in the visitor's own browser (localStorage), not on this site.
