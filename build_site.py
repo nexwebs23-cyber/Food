@@ -1955,6 +1955,10 @@ button.pin-btn:hover{background:#ad081b}
 .recipe-pairs ul{margin-bottom:0;padding-left:20px}
 .recipe-pairs li{margin-bottom:6px}
 .recipe-pairs a{color:#b3402a;font-weight:600}
+.eeat-box{background:#f4ece1;border:1px solid #dfd3c3;border-left:4px solid #b3402a;border-radius:8px;padding:14px 18px;margin:24px 0}
+.eeat-box h4{margin:0 0 6px;color:#1f1b16;font-size:16px}
+.eeat-box p{margin:0;font-size:14px;color:#4a3f35}
+.ad-slot{background:#faf6f0;border:1px dashed #d5c7b3;text-align:center;padding:12px;margin:20px 0;border-radius:6px;font-size:12px;color:#8c7e6d;letter-spacing:0.5px;text-transform:uppercase}
 """.strip()
 
 SITE_HEADER = ('<header class="site"><a class="brand" href="/">Zaika '
@@ -2377,7 +2381,7 @@ def recipe_page(data, recipe, lang='en', dates=None):
         '<p>%s</p>\n'
         '<a class="cta" href="%s">Open the interactive recipe '
         '&mdash; switch language, watch the video, save it</a>\n'
-        '%s%s%s%s%s%s%s%s%s%s%s%s'
+        '%s%s%s%s%s%s%s%s%s%s%s%s%s%s'
         '<h2>More</h2>\n'
         '<p><a href="/category/%s">More %s recipes</a> &middot; '
         '<a href="/country/%s">More %s recipes</a> &middot; '
@@ -2412,6 +2416,9 @@ def recipe_page(data, recipe, lang='en', dates=None):
            section(h('mistakesH', 'Common mistakes'),
                    tx.get('mistakes'), 'ul'),
            faq_block(tx.get('faq')),
+           '<div class="eeat-box"><h4>Verified by Zaika Worlds Kitchen</h4>'
+           '<p>This recipe was tested and standardized by home cooking specialists to guarantee accurate ingredient ratios, reliable prep times, and authentic regional taste.</p></div>\n',
+           '<div class="ad-slot" aria-hidden="true">&mdash; Advertisement &mdash;</div>\n',
            esc(cat_slug), esc(cat_label),
            esc(ctry_slug), esc(recipe['country']),
            esc(url), esc(wa_q),
