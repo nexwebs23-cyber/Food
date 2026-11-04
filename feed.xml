@@ -310,5 +310,13 @@
       <enclosure url="https://www.zaikaworlds.com/assets/kabuli-pulao-0730661f.webp" type="image/webp" length="488934" />
       <media:content url="https://www.zaikaworlds.com/assets/kabuli-pulao-0730661f.webp" type="image/webp" medium="image" />
     </item>
+    <item>
+      <title>Dolma</title>
+      <link>https://www.zaikaworlds.com/recipe/dolma</link>
+      <guid isPermaLink="true">https://www.zaikaworlds.com/recipe/dolma</guid>
+      <description>Dolma is Armenia's classic stuffed grape leaf dish — tender vine leaves rolled around a filling of spiced minced lamb or beef, long-grain rice, onion, parsley, mint and garlic, seasoned with allspice, cinnamon and cumin, then packed snugly into a pot with lemon slices and simmered gently in broth until the rice is cooked and the leaves are tender.</description>
+      <enclosure url="https://www.zaikaworlds.com/assets/dolma-bd7aa9c8.webp" type="image/webp" length="395902" />
+      <media:content url="https://www.zaikaworlds.com/assets/dolma-bd7aa9c8.webp" type="image/webp" medium="image" />
+    </item>
   </channel>
 </rss>

@@ -370,5 +370,15 @@
     "sugarContent": 23.4,
     "fiberContent": 5.4,
     "sodiumContent": 2428
+  },
+  "dolma": {
+    "calories": 427,
+    "proteinContent": 23.1,
+    "fatContent": 20.3,
+    "saturatedFatContent": 6.0,
+    "carbohydrateContent": 40.3,
+    "sugarContent": 6.4,
+    "fiberContent": 8.1,
+    "sodiumContent": 958
   }
 }

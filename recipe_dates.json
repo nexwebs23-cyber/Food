@@ -152,6 +152,10 @@
   "kabuli-pulao": {
    "published": "2026-11-04",
    "source": "daily new-recipe run 2026-11-04 — first git commit adding Kabuli Pulao"
+  },
+  "dolma": {
+   "published": "2026-11-04",
+   "source": "daily new-recipe run 2026-11-04 — first git commit adding Dolma"
   }
  },
  "video": {
@@ -711,6 +715,21 @@
    "bn": "2026-11-03"
   },
   "kabuli-pulao": {
+   "en": "2026-11-03",
+   "ru": "2026-11-03",
+   "hi": "2026-11-03",
+   "es": "2026-11-03",
+   "fr": "2026-11-03",
+   "ar": "2026-11-03",
+   "pt": "2026-11-03",
+   "rus": "2026-11-03",
+   "zh": "2026-11-03",
+   "ja": "2026-11-03",
+   "de": "2026-11-03",
+   "tr": "2026-11-03",
+   "bn": "2026-11-03"
+  },
+  "dolma": {
    "en": "2026-11-03",
    "ru": "2026-11-03",
    "hi": "2026-11-03",
