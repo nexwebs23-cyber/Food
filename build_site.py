@@ -1924,9 +1924,15 @@ def write_data_files(data):
 STATIC_CSS = """
 body{font-family:Georgia,'Times New Roman',serif;color:#241f1a;background:#fdf8ef;margin:0;line-height:1.6}
 .wrap{max-width:760px;margin:0 auto;padding:0 18px 48px}
-header.site{border-bottom:3px solid #b3402a;padding:18px 0 12px}
-header.site a.brand{font-size:28px;font-weight:700;color:#1f1b16;text-decoration:none}
-header.site a.brand span{color:#b3402a}
+header.topbar-modern{background:#23201c;color:#f6ead9;border-bottom:1px solid #4a4237;padding:12px 18px;margin:-18px -18px 24px}
+.topbar-inner{max-width:1180px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
+header.topbar-modern a.brand{font-family:Georgia,serif;font-size:26px;font-weight:700;color:#f6ead9;text-decoration:none;display:inline-flex;align-items:center;gap:10px}
+header.topbar-modern a.brand span{color:#d96c3f}
+header.topbar-modern .logo-img{border-radius:50%;object-fit:cover}
+.top-links{display:flex;gap:14px;align-items:center;flex-wrap:wrap}
+.top-links a{color:#f6ead9;text-decoration:none;font-size:14px;font-weight:600;padding:6px 10px;border-radius:8px;transition:background .2s}
+.top-links a:hover{background:rgba(255,255,255,.1)}
+@media(max-width:600px){.top-links{display:none}}
 nav.crumb{font-size:14px;color:#6b5f52;margin:16px 0 6px}
 nav.crumb a{color:#b3402a}
 h1{font-size:34px;line-height:1.15;margin:8px 0 12px}
@@ -1968,8 +1974,17 @@ button.pin-btn:hover{background:#ad081b}
 .recipe-pairs a{color:#b3402a;font-weight:600}
 """.strip()
 
-SITE_HEADER = ('<header class="site"><a class="brand" href="/">Zaika '
-               '<span>Worlds</span></a></header>')
+SITE_HEADER = ('<header class="topbar-modern"><div class="topbar-inner">'
+               '<a class="brand" href="/"><img class="logo-img" src="/assets/asset-22f1c053.png" alt="Zaika Worlds" width="36" height="36">'
+               'Zaika <span>Worlds</span></a>'
+               '<nav class="top-links">'
+               '<a href="/recipes">Recipes</a>'
+               '<a href="/category/world-food">World Food</a>'
+               '<a href="/trending">Trending</a>'
+               '<a href="/faqs">FAQs</a>'
+               '<a href="/about">About</a>'
+               '</nav>'
+               '</div></header>')
 SITE_FOOTER = ('<footer class="site">Zaika Worlds — home food recipes and '
                'world food recipes, in 13 languages. '
                '<a href="/eid-recipes">Eid Recipes</a> · '
