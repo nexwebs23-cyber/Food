@@ -1948,6 +1948,13 @@ footer.site{border-top:1px solid #e5d9c5;margin-top:36px;padding-top:14px;font-s
 footer.site a{color:#b3402a}
 .muted{color:#6b5f52;font-size:14px}
 button.share-btn{background:none;border:0;padding:0;font:inherit;color:#b3402a;text-decoration:underline;cursor:pointer}
+button.pin-btn{display:inline-flex;align-items:center;gap:6px;background:#e60023;color:#fff;border:0;padding:8px 14px;border-radius:20px;font-size:14px;font-weight:700;cursor:pointer;text-decoration:none;margin-left:8px}
+button.pin-btn:hover{background:#ad081b}
+.recipe-pairs{background:#fff;border:1px solid #e5d9c5;border-radius:10px;padding:16px;margin:24px 0}
+.recipe-pairs h3{margin-top:0;font-size:18px;color:#1f1b16}
+.recipe-pairs ul{margin-bottom:0;padding-left:20px}
+.recipe-pairs li{margin-bottom:6px}
+.recipe-pairs a{color:#b3402a;font-weight:600}
 """.strip()
 
 SITE_HEADER = ('<header class="site"><a class="brand" href="/">Zaika '
@@ -1992,6 +1999,13 @@ SHARE_JS = ('<script>\n'
             'self-link (bare-URL text is also what audit tools flag as '
             'no/descriptive anchor text). */\n'
             'document.addEventListener("click",function(e){'
+            'var pin=e.target.closest("button[data-pin]");'
+            'if(pin){'
+            'var u=encodeURIComponent(pin.getAttribute("data-pin-url"));'
+            'var m=encodeURIComponent(pin.getAttribute("data-pin-media"));'
+            'var d=encodeURIComponent(pin.getAttribute("data-pin-desc"));'
+            'window.open("https://pinterest.com/pin/create/button/?url="+u+"&media="+m+"&description="+d,"_blank","width=750,height=600,noopener");'
+            'return;}'
             'var b=e.target.closest("button[data-wa],button[data-copy]");'
             'if(!b)return;'
             'if(b.hasAttribute("data-wa")){'
@@ -2374,7 +2388,10 @@ def recipe_page(data, recipe, lang='en', dates=None):
         '<button type="button" class="share-btn" data-copy="%s">'
         'Copy recipe link</button> &middot; '
         '<button type="button" class="share-btn" data-wa="%s">'
-        'Share on WhatsApp</button></p>\n'
+        'Share on WhatsApp</button>'
+        '<button type="button" class="pin-btn" data-pin data-pin-url="%s" data-pin-media="%s" data-pin-desc="%s">'
+        '<svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" style="vertical-align:-2px"><path d="M12 0C5.373 0 0 5.372 0 12c0 5.084 3.163 9.426 7.627 11.174-.105-.949-.2-2.405.042-3.441.218-.937 1.407-5.965 1.407-5.965s-.359-.719-.359-1.782c0-1.668.967-2.914 2.171-2.914 1.023 0 1.518.769 1.518 1.69 0 1.029-.655 2.568-.994 3.995-.283 1.194.599 2.169 1.777 2.169 2.133 0 3.772-2.249 3.772-5.495 0-2.873-2.064-4.882-5.012-4.882-3.414 0-5.418 2.561-5.418 5.207 0 1.031.397 2.138.893 2.738.098.119.112.224.083.345-.09.375-.291 1.199-.334 1.357-.053.225-.172.271-.401.165-1.495-.69-2.433-2.878-2.433-4.646 0-3.776 2.748-7.252 7.92-7.252 4.158 0 7.392 2.967 7.392 6.923 0 4.135-2.607 7.462-6.233 7.462-1.214 0-2.354-.629-2.758-1.379l-.749 2.848c-.269 1.045-1.004 2.352-1.498 3.146 1.123.345 2.306.535 3.55.535 6.627 0 12-5.373 12-12 0-6.628-5.373-12-12-12z"/></svg>'
+        'Save Pin</button></p>\n'
         % (esc(home_url), esc(cat_slug), esc(cat_label), esc(name),
            esc(name), esc(recipe['time']), esc(minute),
            esc(lang_servings(recipe, data, lang)), esc(cat_label),
@@ -2397,7 +2414,8 @@ def recipe_page(data, recipe, lang='en', dates=None):
            faq_block(tx.get('faq')),
            esc(cat_slug), esc(cat_label),
            esc(ctry_slug), esc(recipe['country']),
-           esc(url), esc(wa_q)))
+           esc(url), esc(wa_q),
+           esc(url), esc(img_url), esc(name)))
     if recipe['id'] in ('biryani', 'karahi', 'nihari'):
         # Contextual link to the dum-cooking guide (these three are the
         # dum dishes the guide is built from). Keeps the guide linked
