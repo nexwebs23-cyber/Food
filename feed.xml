@@ -350,5 +350,13 @@
       <enclosure url="https://www.zaikaworlds.com/assets/ema-datshi-4f140328.webp" type="image/webp" length="280636" />
       <media:content url="https://www.zaikaworlds.com/assets/ema-datshi-4f140328.webp" type="image/webp" medium="image" />
     </item>
+    <item>
+      <title>Ambuyat</title>
+      <link>https://www.zaikaworlds.com/recipe/ambuyat</link>
+      <guid isPermaLink="true">https://www.zaikaworlds.com/recipe/ambuyat</guid>
+      <description>Ambuyat is the national dish of Brunei Darussalam — sago palm starch mixed with water and stirred with boiling water until it turns into a glossy, translucent, glue-like mass.</description>
+      <enclosure url="https://www.zaikaworlds.com/assets/ambuyat-8c8ff153.webp" type="image/webp" length="304354" />
+      <media:content url="https://www.zaikaworlds.com/assets/ambuyat-8c8ff153.webp" type="image/webp" medium="image" />
+    </item>
   </channel>
 </rss>

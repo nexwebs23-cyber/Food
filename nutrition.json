@@ -420,5 +420,15 @@
     "sugarContent": 8.3,
     "fiberContent": 4.2,
     "sodiumContent": 1448
+  },
+  "ambuyat": {
+    "calories": 138,
+    "proteinContent": 1.3,
+    "fatContent": 0.2,
+    "saturatedFatContent": 0.0,
+    "carbohydrateContent": 33.1,
+    "sugarContent": 2.9,
+    "fiberContent": 1.0,
+    "sodiumContent": 220
   }
 }
