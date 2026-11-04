@@ -358,5 +358,13 @@
       <enclosure url="https://www.zaikaworlds.com/assets/ambuyat-8c8ff153.webp" type="image/webp" length="304354" />
       <media:content url="https://www.zaikaworlds.com/assets/ambuyat-8c8ff153.webp" type="image/webp" medium="image" />
     </item>
+    <item>
+      <title>Fish Amok</title>
+      <link>https://www.zaikaworlds.com/recipe/fish-amok</link>
+      <guid isPermaLink="true">https://www.zaikaworlds.com/recipe/fish-amok</guid>
+      <description>Fish Amok, or Amok Trey, is Cambodia's national dish — white fish gently steamed in banana leaf cups in a fragrant coconut curry built on kroeung, the Khmer spice paste of lemongrass, galangal, turmeric, garlic, shallots and kaffir lime leaves.</description>
+      <enclosure url="https://www.zaikaworlds.com/assets/fish-amok-671b6c63.webp" type="image/webp" length="245678" />
+      <media:content url="https://www.zaikaworlds.com/assets/fish-amok-671b6c63.webp" type="image/webp" medium="image" />
+    </item>
   </channel>
 </rss>

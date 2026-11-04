@@ -430,5 +430,15 @@
     "sugarContent": 2.9,
     "fiberContent": 1.0,
     "sodiumContent": 220
+  },
+  "fish-amok": {
+    "calories": 409,
+    "proteinContent": 29.1,
+    "fatContent": 29.8,
+    "saturatedFatContent": 23.7,
+    "carbohydrateContent": 9.5,
+    "sugarContent": 4.7,
+    "fiberContent": 2.5,
+    "sodiumContent": 592
   }
 }
