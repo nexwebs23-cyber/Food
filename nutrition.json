@@ -440,5 +440,15 @@
     "sugarContent": 4.7,
     "fiberContent": 2.5,
     "sodiumContent": 592
+  },
+  "souvla": {
+    "calories": 1255,
+    "proteinContent": 75.2,
+    "fatContent": 75.1,
+    "saturatedFatContent": 24.2,
+    "carbohydrateContent": 68.0,
+    "sugarContent": 2.4,
+    "fiberContent": 2.7,
+    "sodiumContent": 2939
   }
 }

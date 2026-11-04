@@ -180,6 +180,10 @@
   "fish-amok": {
    "published": "2026-11-04",
    "source": "daily new-recipe run 2026-11-04 — first git commit adding Fish Amok"
+  },
+  "souvla": {
+   "published": "2026-11-04",
+   "source": "daily new-recipe run 2026-11-04 — first git commit adding Souvla"
   }
  },
  "video": {

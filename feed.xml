@@ -366,5 +366,13 @@
       <enclosure url="https://www.zaikaworlds.com/assets/fish-amok-671b6c63.webp" type="image/webp" length="245678" />
       <media:content url="https://www.zaikaworlds.com/assets/fish-amok-671b6c63.webp" type="image/webp" medium="image" />
     </item>
+    <item>
+      <title>Souvla</title>
+      <link>https://www.zaikaworlds.com/recipe/souvla</link>
+      <guid isPermaLink="true">https://www.zaikaworlds.com/recipe/souvla</guid>
+      <description>Souvla is Cyprus's most famous dish — large chunks of pork shoulder marinated in red wine, olive oil, salt, pepper and Greek oregano, threaded onto long skewers and cooked slowly over glowing charcoal on a foukou grill.</description>
+      <enclosure url="https://www.zaikaworlds.com/assets/souvla-b72e82d3.webp" type="image/webp" length="347418" />
+      <media:content url="https://www.zaikaworlds.com/assets/souvla-b72e82d3.webp" type="image/webp" medium="image" />
+    </item>
   </channel>
 </rss>
