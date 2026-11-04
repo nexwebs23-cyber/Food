@@ -2258,6 +2258,56 @@ def recipe_json_ld(data, recipe, tx, url, lang='en', meta_desc=None,
     return blocks
 
 
+
+RECIPE_PAIRINGS = {
+    'biryani': [('bunkebab', 'Karachi Shami Bun Kebab'), ('gulabjamun', 'Warm Gulab Jamun'), ('lassi', 'Sweet Mango Lassi')],
+    'nihari': [('halwapuri', 'Halwa Puri Nashta'), ('karahi', 'Chicken Karahi'), ('kheer', 'Traditional Badami Kheer')],
+    'karahi': [('daal', 'Daal Fry (Tadka Daal)'), ('tikka', 'Chicken Tikka'), ('lassi', 'Mango Lassi')],
+    'haleem': [('biryani', 'Chicken Biryani'), ('chapli', 'Chapli Kabab'), ('gulabjamun', 'Gulab Jamun')],
+    'chicken-korma': [('kheer', 'Badami Kheer'), ('aloo-paratha', 'Aloo Paratha'), ('karahi', 'Chicken Karahi')],
+    'chapli': [('tikka', 'Chicken Tikka'), ('daal', 'Daal Fry'), ('lassi', 'Mango Lassi')],
+    'tikka': [('seekh-kebab', 'Seekh Kebab'), ('biryani', 'Chicken Biryani'), ('chapli', 'Chapli Kabab')],
+    'seekh-kebab': [('tikka', 'Chicken Tikka'), ('bunkebab', 'Bun Kebab'), ('lassi', 'Mango Lassi')],
+    'daal': [('biryani', 'Chicken Biryani'), ('aloo-paratha', 'Aloo Paratha'), ('karahi', 'Chicken Karahi')],
+    'halwapuri': [('aloo-paratha', 'Aloo Paratha'), ('lassi', 'Mango Lassi'), ('kheer', 'Traditional Kheer')],
+    'aloo-paratha': [('daal', 'Daal Fry'), ('lassi', 'Mango Lassi'), ('halwapuri', 'Halwa Puri Nashta')],
+    'bunkebab': [('samosa', 'Punjabi Samosa'), ('tikka', 'Chicken Tikka'), ('lassi', 'Mango Lassi')],
+    'samosa': [('bunkebab', 'Bun Kebab'), ('gulabjamun', 'Gulab Jamun'), ('lassi', 'Mango Lassi')],
+    'gulabjamun': [('gajarhalwa', 'Gajar Ka Halwa'), ('kheer', 'Traditional Kheer'), ('biryani', 'Chicken Biryani')],
+    'gajarhalwa': [('gulabjamun', 'Gulab Jamun'), ('kheer', 'Badami Kheer'), ('lassi', 'Mango Lassi')],
+    'kheer': [('gajarhalwa', 'Gajar Ka Halwa'), ('gulabjamun', 'Gulab Jamun'), ('biryani', 'Chicken Biryani')],
+    'lassi': [('biryani', 'Chicken Biryani'), ('tikka', 'Chicken Tikka'), ('samosa', 'Punjabi Samosa')],
+    'kabuli-pulao': [('chapli', 'Chapli Kabab'), ('machboos', 'Arabian Machboos'), ('hummus', 'Creamy Hummus')],
+    'machboos': [('kabuli-pulao', 'Kabuli Pulao'), ('hummus', 'Creamy Hummus'), ('falafel', 'Crispy Falafel')],
+    'hummus': [('falafel', 'Crispy Falafel'), ('souvla', 'Cypriot Souvla'), ('dolma', 'Dolma')],
+    'falafel': [('hummus', 'Creamy Hummus'), ('moussaka', 'Greek Moussaka'), ('dolma', 'Dolma')],
+    'moussaka': [('souvla', 'Cypriot Souvla'), ('hummus', 'Creamy Hummus'), ('dolma', 'Dolma')],
+    'souvla': [('hummus', 'Creamy Hummus'), ('moussaka', 'Greek Moussaka'), ('falafel', 'Falafel')],
+    'dolma': [('hummus', 'Creamy Hummus'), ('plov', 'Azerbaijani Plov'), ('falafel', 'Falafel')],
+    'plov': [('dolma', 'Dolma'), ('kabuli-pulao', 'Kabuli Pulao'), ('machboos', 'Arabian Machboos')],
+    'ramen': [('dimsum', 'Dim Sum'), ('sushi', 'Sushi'), ('padthai', 'Pad Thai')],
+    'sushi': [('ramen', 'Japanese Ramen'), ('dimsum', 'Dim Sum'), ('beefpho', 'Beef Pho')],
+    'padthai': [('fish-amok', 'Fish Amok'), ('dimsum', 'Dim Sum'), ('ramen', 'Japanese Ramen')],
+    'pekingduck': [('dimsum', 'Dim Sum'), ('padthai', 'Pad Thai'), ('ramen', 'Japanese Ramen')],
+    'dimsum': [('pekingduck', 'Peking Duck'), ('ramen', 'Japanese Ramen'), ('padthai', 'Pad Thai')],
+    'beefpho': [('padthai', 'Pad Thai'), ('dimsum', 'Dim Sum'), ('fish-amok', 'Fish Amok')],
+    'fish-amok': [('beefpho', 'Beef Pho'), ('padthai', 'Pad Thai'), ('ambuyat', 'Ambuyat')],
+    'ema-datshi': [('ilish-bhapa', 'Ilish Bhapa'), ('fish-amok', 'Fish Amok'), ('plov', 'Azerbaijani Plov')],
+    'ilish-bhapa': [('daal', 'Daal Fry'), ('ema-datshi', 'Ema Datshi'), ('biryani', 'Chicken Biryani')],
+    'ambuyat': [('fish-amok', 'Fish Amok'), ('beefpho', 'Beef Pho'), ('padthai', 'Pad Thai')],
+    'pizza': [('carbonara', 'Spaghetti Carbonara'), ('coqauvin', 'Coq au Vin'), ('paella', 'Seafood Paella')],
+    'carbonara': [('pizza', 'Margherita Pizza'), ('coqauvin', 'Coq au Vin'), ('bouillabaisse', 'Bouillabaisse')],
+    'tacos': [('pozole', 'Pozole'), ('feijoada', 'Feijoada'), ('pizza', 'Margherita Pizza')],
+    'pozole': [('tacos', 'Tacos al Pastor'), ('feijoada', 'Feijoada'), ('meatpie', 'Aussie Meat Pie')],
+    'coqauvin': [('bouillabaisse', 'Bouillabaisse'), ('carbonara', 'Spaghetti Carbonara'), ('paella', 'Seafood Paella')],
+    'bouillabaisse': [('coqauvin', 'Coq au Vin'), ('paella', 'Seafood Paella'), ('carbonara', 'Spaghetti Carbonara')],
+    'paella': [('bouillabaisse', 'Bouillabaisse'), ('pizza', 'Margherita Pizza'), ('feijoada', 'Feijoada')],
+    'poutine': [('meatpie', 'Aussie Meat Pie'), ('pizza', 'Margherita Pizza'), ('tacos', 'Tacos al Pastor')],
+    'bobotie': [('meatpie', 'Aussie Meat Pie'), ('feijoada', 'Feijoada'), ('plov', 'Azerbaijani Plov')],
+    'feijoada': [('tacos', 'Tacos al Pastor'), ('pozole', 'Pozole'), ('bobotie', 'Bobotie')],
+    'meatpie': [('poutine', 'Poutine'), ('bobotie', 'Bobotie'), ('pizza', 'Margherita Pizza')],
+}
+
 def recipe_page(data, recipe, lang='en', dates=None):
     """Static recipe page, in any language. English uses the full title /
     description pattern; other languages use the translated name, text,
@@ -2334,6 +2384,13 @@ def recipe_page(data, recipe, lang='en', dates=None):
         return ('<p class="rating-line">%s &mdash; %s</p>\n'
                 % (esc(h('rateFirst',
                          'Be the first to rate this recipe')), _link))
+
+    def pairing_block(rec_id):
+        pairs = RECIPE_PAIRINGS.get(rec_id, [])
+        if not pairs:
+            return ''
+        links = ''.join('<li><a href="/recipe/%s">%s</a></li>' % (esc(sid), esc(stitle)) for sid, stitle in pairs)
+        return '<div class="recipe-pairs"><h3>What to Serve With This Dish</h3><ul>%s</ul></div>\n' % links
 
     def faq_block(faq):
         if not faq:
@@ -2425,6 +2482,7 @@ def recipe_page(data, recipe, lang='en', dates=None):
            section(h('mistakesH', 'Common mistakes'),
                    tx.get('mistakes'), 'ul'),
            faq_block(tx.get('faq')),
+           pairing_block(recipe['id']),
            '<div class="eeat-box"><h4>Verified by Zaika Worlds Kitchen</h4>'
            '<p>This recipe was tested and standardized by home cooking specialists to guarantee accurate ingredient ratios, reliable prep times, and authentic regional taste.</p></div>\n',
            '<div class="ad-slot" aria-hidden="true">&mdash; Advertisement &mdash;</div>\n',
