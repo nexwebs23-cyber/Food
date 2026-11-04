@@ -1924,15 +1924,7 @@ def write_data_files(data):
 STATIC_CSS = """
 body{font-family:Georgia,'Times New Roman',serif;color:#241f1a;background:#fdf8ef;margin:0;line-height:1.6}
 .wrap{max-width:760px;margin:0 auto;padding:0 18px 48px}
-header.topbar-modern{background:#23201c;color:#f6ead9;border-bottom:1px solid #4a4237;padding:12px 18px;margin:-18px -18px 24px}
-.topbar-inner{max-width:1180px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
-header.topbar-modern a.brand{font-family:Georgia,serif;font-size:26px;font-weight:700;color:#f6ead9;text-decoration:none;display:inline-flex;align-items:center;gap:10px}
-header.topbar-modern a.brand span{color:#d96c3f}
-header.topbar-modern .logo-img{border-radius:50%;object-fit:cover}
-.top-links{display:flex;gap:14px;align-items:center;flex-wrap:wrap}
-.top-links a{color:#f6ead9;text-decoration:none;font-size:14px;font-weight:600;padding:6px 10px;border-radius:8px;transition:background .2s}
-.top-links a:hover{background:rgba(255,255,255,.1)}
-@media(max-width:600px){.top-links{display:none}}
+@media(max-width:600px){}
 nav.crumb{font-size:14px;color:#6b5f52;margin:16px 0 6px}
 nav.crumb a{color:#b3402a}
 h1{font-size:34px;line-height:1.15;margin:8px 0 12px}
@@ -1944,8 +1936,6 @@ li{margin:0 0 6px}
 img.hero{width:100%;height:auto;border-radius:10px;display:block;margin:12px 0}
 .facts{color:#6b5f52;font-size:15px;margin:0 0 12px}
 .pubdate{color:#6b5f52;font-size:14px;margin:0 0 12px}
-.cta{display:block;background:#b3402a;color:#fff;text-align:center;padding:12px 16px;border-radius:8px;text-decoration:none;font-weight:700;margin:20px 0}
-.cta:hover{background:#93331f}
 .card{display:flex;gap:14px;align-items:flex-start;border:1px solid #e5d9c5;border-radius:10px;padding:12px;margin:0 0 14px;background:#fff}
 .card img{width:120px;height:auto;border-radius:8px;flex:none}
 .card a{color:#1f1b16;text-decoration:none;font-weight:700;font-size:18px}
@@ -1972,19 +1962,105 @@ button.pin-btn:hover{background:#ad081b}
 .recipe-pairs ul{margin-bottom:0;padding-left:20px}
 .recipe-pairs li{margin-bottom:6px}
 .recipe-pairs a{color:#b3402a;font-weight:600}
+
+/* ── topbar full-width override ── */
+header.topbar-modern{background:#23201c;color:#f6ead9;border-bottom:1px solid #4a4237;margin:0;padding:0;width:100%;box-sizing:border-box}
+.topbar-top{padding:0}
+.topbar-inner{max-width:1180px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;padding:10px 20px}
+header.topbar-modern a.brand{font-family:Georgia,serif;font-size:24px;font-weight:700;color:#f6ead9;text-decoration:none;display:inline-flex;align-items:center;gap:10px}
+header.topbar-modern a.brand span{color:#d96c3f}
+header.topbar-modern .logo-img{border-radius:50%;object-fit:cover}
+/* lang dropdown */
+.lang-wrap{display:flex;align-items:center;gap:6px;margin-left:4px}
+.globe-icon{color:#d96c3f;font-size:16px}
+.lang-select{background:#3a332b;color:#f6ead9;border:1px solid #6a5f52;border-radius:6px;padding:5px 8px;font-size:13px;cursor:pointer;outline:none}
+.lang-select option{background:#23201c;color:#f6ead9}
+/* nav links */
+.top-links{display:flex;gap:6px;align-items:center;flex-wrap:wrap}
+.top-links a{color:#f6ead9;text-decoration:none;font-size:13px;font-weight:600;padding:5px 9px;border-radius:7px;transition:background .2s;white-space:nowrap}
+.top-links a:hover{background:rgba(255,255,255,.12)}
+/* saved button */
+.saved-btn{background:#3a332b;color:#f6ead9;border:1px solid #6a5f52;border-radius:7px;padding:6px 12px;font-size:13px;font-weight:700;cursor:pointer;white-space:nowrap;transition:background .2s}
+.saved-btn:hover{background:#4d443a}
+.saved-count{font-weight:400}
+/* Categories dropdown */
+.cat-dropdown{position:relative;display:inline-block}
+.cat-btn{background:#3a332b;color:#f6ead9;border:1px solid #6a5f52;border-radius:7px;padding:5px 10px;font-size:13px;font-weight:600;cursor:pointer;transition:background .2s}
+.cat-btn:hover{background:#4d443a}
+.cat-menu{display:none;position:absolute;top:calc(100% + 6px);right:0;background:#2c2620;border:1px solid #4a4237;border-radius:9px;min-width:180px;z-index:9999;padding:6px 0;box-shadow:0 8px 24px rgba(0,0,0,.35)}
+.cat-dropdown:hover .cat-menu,.cat-dropdown:focus-within .cat-menu{display:block}
+.cat-menu a{display:block;color:#f6ead9;text-decoration:none;padding:9px 16px;font-size:14px;transition:background .2s}
+.cat-menu a:hover{background:rgba(255,255,255,.1)}
+/* search row */
+.search-row{background:#1a1712;border-top:1px solid #3a332b;padding:8px 20px}
+.search-inner{max-width:1180px;margin:0 auto;display:flex;align-items:center;gap:10px}
+.search-icon{color:#8c7e6d;font-size:16px}
+.search-box{flex:1;background:transparent;border:none;outline:none;color:#f6ead9;font-size:15px;padding:4px 0}
+.search-box::placeholder{color:#6b5f52}
+/* wrap must NOT clip the header */
+.wrap{max-width:760px;margin:0 auto;padding:0 18px 48px}
+@media(max-width:768px){.top-links{display:none}.saved-btn{display:none}}
+
 """.strip()
 
-SITE_HEADER = ('<header class="topbar-modern"><div class="topbar-inner">'
-               '<a class="brand" href="/"><img class="logo-img" src="/assets/asset-22f1c053.png" alt="Zaika Worlds" width="36" height="36">'
-               'Zaika <span>Worlds</span></a>'
-               '<nav class="top-links">'
-               '<a href="/recipes">Recipes</a>'
-               '<a href="/category/world-food">World Food</a>'
-               '<a href="/trending">Trending</a>'
-               '<a href="/faqs">FAQs</a>'
-               '<a href="/about">About</a>'
-               '</nav>'
-               '</div></header>')
+SITE_HEADER = (
+    '<header class="topbar-modern">'
+    '<div class="topbar-top">'
+    '<div class="topbar-inner">'
+    '<a class="brand" href="/">'
+    '<img class="logo-img" src="/assets/asset-22f1c053.png" alt="Zaika Worlds" width="36" height="36">'
+    'Zaika <span>Worlds</span></a>'
+    '<div class="lang-wrap">'
+    '<span class="globe-icon">&#127760;</span>'
+    '<select class="lang-select" onchange="if(this.value)location.href=this.value" aria-label="Select language">'
+    '<option value="" disabled selected>English</option>'
+    '<option value="/?lang=ur">&#x0627;&#x0631;&#x062F;&#x0648; Urdu</option>'
+    '<option value="/?lang=hi">Hindi &#x0939;&#x093F;&#x0902;&#x0926;&#x0940;</option>'
+    '<option value="/?lang=ar">&#x0639;&#x0631;&#x0628;&#x064A; Arabic</option>'
+    '<option value="/?lang=fr">Fran&#xe7;ais</option>'
+    '<option value="/?lang=es">Espa&#xf1;ol</option>'
+    '<option value="/?lang=zh">&#x4E2D;&#x6587; Chinese</option>'
+    '<option value="/?lang=tr">T&#xfc;rk&#xe7;e</option>'
+    '<option value="/?lang=id">Indonesia</option>'
+    '<option value="/?lang=bn">&#x09AC;&#x09BE;&#x0982;&#x09B2;&#x09BE; Bengali</option>'
+    '<option value="/?lang=sw">Kiswahili</option>'
+    '<option value="/?lang=ms">Melayu</option>'
+    '<option value="/?lang=ru">&#1056;&#1091;&#1089;&#1089;&#1082;&#1080;&#1081;</option>'
+    '</select></div>'
+    '<nav class="top-links">'
+    '<a href="/recipes">Recipes</a>'
+    '<a href="/category/world-food">World Food</a>'
+    '<a href="/trending">Trending</a>'
+    '<a href="/faqs">FAQs</a>'
+    '<a href="/about">About Us</a>'
+    '<a href="/privacy">Privacy Policy</a>'
+    '<a href="/contact">Contact Us</a>'
+    '<div class="cat-dropdown">'
+    '<button class="cat-btn" type="button" aria-haspopup="true">Categories &#x25BE;</button>'
+    '<div class="cat-menu">'
+    '<a href="/category/desi-dishes">&#x1F372; Desi Dishes</a>'
+    '<a href="/category/bbq-grills">&#x1F525; BBQ &amp; Grills</a>'
+    '<a href="/category/street-food">&#x1F9BA; Street Food</a>'
+    '<a href="/category/desserts">&#x1F36F; Desserts</a>'
+    '<a href="/category/breakfast">&#x1F373; Breakfast</a>'
+    '<a href="/category/drinks">&#x1F375; Drinks</a>'
+    '<a href="/category/world-food">&#x1F30D; World Food</a>'
+    '</div></div>'
+    '</nav>'
+    '<button class="saved-btn" type="button" onclick="location.href=\'/#saved\'" aria-label="Saved recipes">'
+    '&#x2665; Saved <span class="saved-count">(0)</span></button>'
+    '</div></div>'
+    '<div class="search-row">'
+    '<div class="search-inner">'
+    '<span class="search-icon">&#128269;</span>'
+    '<input class="search-box" type="search" placeholder="Biryani, nihari, halwa&hellip; type anything" '
+    'onkeydown="if(event.key===\'Enter\' && this.value.trim()) '
+    'location.href=\'/recipes?q=\'+encodeURIComponent(this.value.trim())" '
+    'aria-label="Search recipes">'
+    '</div></div>'
+    '</header>'
+)
+
 SITE_FOOTER = ('<footer class="site">Zaika Worlds — home food recipes and '
                'world food recipes, in 13 languages. '
                '<a href="/eid-recipes">Eid Recipes</a> · '
@@ -2102,9 +2178,9 @@ def page_shell(title, desc, url, og_img, og_alt, json_ld_blocks, body,
             '<meta name="twitter:image" content="' + esc(og_img) + '">\n'
             + ld +
             '<style>' + STATIC_CSS + '</style>\n'
-            '</head>\n<body>\n<div class="wrap">\n' + SITE_HEADER + '\n'
-            + body + '\n' + SITE_FOOTER + '\n' + SHARE_JS
-            + '</div>\n</body>\n</html>\n')
+            '</head>\n<body>\n' + SITE_HEADER + '\n<div class="wrap">\n'
+            + body + '\n</div>\n' + SITE_FOOTER + '\n' + SHARE_JS
+            + '</body>\n</html>\n')
 
 
 def _as_datetime(d):
@@ -2459,8 +2535,6 @@ def recipe_page(data, recipe, lang='en', dates=None):
         '%s'
         '<img class="hero" src="%s" alt="%s"%s loading="eager">\n'
         '<p>%s</p>\n'
-        '<a class="cta" href="%s">Open the interactive recipe '
-        '&mdash; switch language, watch the video, save it</a>\n'
         '%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s'
         '<p><a href="/category/%s">More %s recipes</a> &middot; '
         '<a href="/country/%s">More %s recipes</a> &middot; '
@@ -2479,7 +2553,7 @@ def recipe_page(data, recipe, lang='en', dates=None):
            esc(name), esc(recipe['time']), esc(minute),
            esc(lang_servings(recipe, data, lang)), esc(cat_label),
            esc(recipe['country']), pubdate, esc(img_url), esc(img_alt),
-           wh, esc(tx.get('intro') or ''), esc(spa_href),
+           wh, esc(tx.get('intro') or ''),
            video,
            ('<div id="recipe-card"></div>\n' +
             rating_block((data.get('ratings') or {}).get(recipe['id']))),
