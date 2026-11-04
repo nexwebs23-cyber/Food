@@ -1959,6 +1959,13 @@ button.pin-btn:hover{background:#ad081b}
 .eeat-box h4{margin:0 0 6px;color:#1f1b16;font-size:16px}
 .eeat-box p{margin:0;font-size:14px;color:#4a3f35}
 .ad-slot{background:#faf6f0;border:1px dashed #d5c7b3;text-align:center;padding:12px;margin:20px 0;border-radius:6px;font-size:12px;color:#8c7e6d;letter-spacing:0.5px;text-transform:uppercase}
+.jump-btn{display:inline-block;background:#3c3228;color:#fff!important;text-decoration:none!important;padding:8px 16px;border-radius:20px;font-size:14px;font-weight:700;margin:10px 0 16px;letter-spacing:0.3px}
+.jump-btn:hover{background:#1f1b16}
+.recipe-pairs{background:#fff;border:1px solid #e5d9c5;border-radius:10px;padding:16px;margin:24px 0}
+.recipe-pairs h3{margin-top:0;font-size:18px;color:#1f1b16}
+.recipe-pairs ul{margin-bottom:0;padding-left:20px}
+.recipe-pairs li{margin-bottom:6px}
+.recipe-pairs a{color:#b3402a;font-weight:600}
 """.strip()
 
 SITE_HEADER = ('<header class="site"><a class="brand" href="/">Zaika '
@@ -2376,6 +2383,7 @@ def recipe_page(data, recipe, lang='en', dates=None):
         '<span>%s</span></nav>\n'
         '<h1>%s</h1>\n'
         '<p class="facts">%s %s &middot; %s &middot; %s &middot; %s</p>\n'
+        '<a href="#recipe-card" class="jump-btn">&#x2193; Jump to Recipe</a>\n'
         '%s'
         '<img class="hero" src="%s" alt="%s"%s loading="eager">\n'
         '<p>%s</p>\n'
@@ -2402,7 +2410,8 @@ def recipe_page(data, recipe, lang='en', dates=None):
            esc(recipe['country']), pubdate, esc(img_url), esc(img_alt),
            wh, esc(tx.get('intro') or ''), esc(spa_href),
            video,
-           rating_block((data.get('ratings') or {}).get(recipe['id'])),
+           ('<div id="recipe-card"></div>\n' +
+            rating_block((data.get('ratings') or {}).get(recipe['id']))),
            section(h('ingH', 'Ingredients'),
                    split_ingredients(tx.get('ing'), lang), 'ul'),
            nutrition_block((data.get('nutrition') or {})
