@@ -1,0 +1,42 @@
+name: Daily Recipe Auto-Publisher
+
+on:
+  schedule:
+    # Runs everyday at 05:00 UTC (10:00 AM PKT)
+    - cron: '0 5 * * *'
+  # Allows manual run from GitHub Actions UI whenever needed
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  publish-recipes:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Run Auto Publisher (3-5 recipes)
+        run: |
+          python3 auto_publish_recipes.py
+
+      - name: Commit and push changes
+        run: |
+          git config --global user.name "Zaika Worlds Auto Bot"
+          git config --global user.email "bot@zaikaworlds.com"
+          git add index.html recipes_queue.json recipe_dates.json recipe_nutrition.json sitemap.xml
+          # Commit only if there are changes
+          if ! git diff --cached --quiet; then
+            git commit -m "feat(recipes): daily auto-published recipes [skip ci]"
+            git push origin main
+          else
+            echo "No new recipes were published today."
+          fi

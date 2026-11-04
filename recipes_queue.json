@@ -1,0 +1,331 @@
+[
+  {
+    "id": "mutton-pulao",
+    "country": "Pakistan",
+    "name": "Mutton Yakhni Pulao",
+    "cat": "desi",
+    "catLabel": "Desi Dishes",
+    "veg": "nonveg",
+    "time": 75,
+    "diff": "Medium",
+    "servings": "5 people",
+    "img": "assets/hero-49347f9b.webp",
+    "videos": {},
+    "shape": "tall",
+    "alt": "A steaming plate of traditional Pakistani Mutton Yakhni Pulao garnished with fried onions",
+    "desc": "Fragrant long-grain basmati rice cooked gently in a deeply spiced slow-simmered bone-in mutton broth (yakhni) with caramelized onions and whole spices.",
+    "intro": "Mutton Yakhni Pulao is the pride of celebration dining across Pakistan and North India. Unlike intensely spiced biryani, authentic pulao derives its delicate yet profound flavour directly from the slow-extracted yakhni broth, infused with fennel seeds, coriander, ginger, garlic, and whole warm spices.",
+    "ing": [
+      "Bone-in mutton (shoulder or leg) 800 g",
+      "Aged basmati rice 3 cups, washed and soaked 30 mins",
+      "Fennel seeds (saunf) 2 tbsp, whole coriander seeds 2 tbsp",
+      "Onions 3 medium, thinly sliced",
+      "Ginger-garlic paste 2 tbsp, sliced ginger 1 tbsp",
+      "Whole spices: 2 bay leaves, 4 green cardamoms, 1 black cardamom, 1 cinnamon stick, 6 cloves",
+      "Plain yoghurt 1/2 cup, whisked",
+      "Ghee or cooking oil 1/2 cup",
+      "Salt to taste, green chillies 4 slit"
+    ],
+    "steps": [
+      "Prepare the yakhni: In a deep stockpot, combine mutton pieces, 7 cups water, fennel seeds, coriander seeds, sliced ginger, garlic cloves, 1 sliced onion, and salt. Bring to a boil, skim the surface, cover and simmer on low heat for 50-60 minutes until the meat is tender.",
+      "Strain the broth through a fine mesh sieve into a bowl, discarding whole spice seeds. Reserve the tender mutton pieces and keep 5 cups of clear strained yakhni broth.",
+      "In a wide heavy-bottom pot, heat ghee and fry the remaining sliced onions until golden brown. Remove 1/3 of the onions for garnish.",
+      "Add ginger-garlic paste, whole spices (bay leaf, cardamoms, cinnamon, cloves), and whisked yoghurt into the pot. Sauté for 3 minutes until oil separates.",
+      "Add the boiled mutton pieces and green chillies. Fry gently for 4 minutes to coat the meat in aromatics.",
+      "Pour in the 5 cups of strained hot yakhni broth and bring it to a rolling boil. Taste and adjust salt.",
+      "Gently add the drained soaked basmati rice. Cook uncovered on medium-high heat until 85% of the liquid is absorbed and small crater holes appear on the surface.",
+      "Sprinkle the reserved golden fried onions on top. Seal tightly with foil and a heavy lid, then put on dum over low heat for 15 minutes. Rest 5 minutes before gently fluffing with a fork."
+    ],
+    "tip": "The secret to a royal pulao is tying the fennel and coriander seeds in a cheesecloth bundle (potli) or straining thoroughly so no grit enters the rice. Never stir the rice aggressively once boiling.",
+    "nutrition": {
+      "calories": 680,
+      "proteinContent": 36.4,
+      "fatContent": 24.1,
+      "saturatedFatContent": 11.2,
+      "carbohydrateContent": 78.5,
+      "sugarContent": 3.8,
+      "fiberContent": 3.2
+    },
+    "lang": {
+      "ru": {
+        "name": "Mutton Yakhni Pulao",
+        "catLabel": "Desi Dishes",
+        "diff": "Darmiyana",
+        "servings": "5 log",
+        "desc": "Kushboodar basmati chawal jo gosht ki zaiqedar yakhni, saunf, dhaniya aur kharay masalon mein dum par pakaye gaye hain.",
+        "alt": "Garam Mutton Yakhni Pulao sunehri pyaz aur raita ke sath"
+      },
+      "hi": {
+        "name": "Mutton Yakhni Pulao",
+        "catLabel": "Desi Dishes",
+        "diff": "Medium",
+        "servings": "5 log",
+        "desc": "Sugandhit basmati chawal jo mutton yakhni aur khade masalon ke sath dum par bante hain.",
+        "alt": "Swadisht Mutton Yakhni Pulao"
+      }
+    }
+  },
+  {
+    "id": "shami-kabab",
+    "country": "Pakistan",
+    "name": "Traditional Beef Shami Kabab",
+    "cat": "desi",
+    "catLabel": "Desi Dishes",
+    "veg": "nonveg",
+    "time": 60,
+    "diff": "Medium",
+    "servings": "6 people (18 kababs)",
+    "img": "assets/chapli-kabab-5fc80f9c.webp",
+    "videos": {},
+    "shape": "wide",
+    "alt": "Pan-fried crisp golden brown traditional Pakistani Shami Kababs on a serving platter with mint chutney",
+    "desc": "Melt-in-the-mouth silk textured kababs made from slow-boiled beef chunks, split Bengal gram (chana daal), aromatic spices, fresh mint, coriander, and egg-dip shallow frying.",
+    "intro": "Shami Kababs are the quintessential tea-time snack and Eid delicacy across South Asia. Prepared by simmering tender beef cuts with chana daal and whole spices until completely dry, the mixture is pounded to a velvety fibre texture, formed into neat patties, dipped in whisked egg, and fried until golden and crisp.",
+    "ing": [
+      "Boneless beef chunks (cut into cubes) 750 g",
+      "Chana daal (split Bengal gram) 1 cup, rinsed and soaked 1 hour",
+      "Onion 1 large, roughly chopped",
+      "Ginger 2-inch piece chopped, garlic 10 whole cloves",
+      "Whole dry red chillies 8-10, cumin seeds 1 tbsp, black peppercorns 1 tsp",
+      "Black cardamom 2, cinnamon sticks 2, cloves 6",
+      "Salt 1 1/2 tsp, turmeric 1/2 tsp",
+      "Fresh mint leaves 1/2 cup finely chopped, coriander leaves 1/2 cup finely chopped",
+      "Green chillies 3, finely chopped",
+      "Egg 1 beaten for binding, plus 1 egg for dipping during frying",
+      "Oil for shallow frying"
+    ],
+    "steps": [
+      "In a pressure cooker or deep pot, combine beef cubes, soaked chana daal, chopped onion, ginger, garlic, whole dry red chillies, cumin, whole spices, turmeric, salt, and 2 1/2 cups water.",
+      "Cook until the meat and daal are thoroughly tender and all excess water has completely evaporated. The mixture must be completely dry.",
+      "Discard large cinnamon sticks and black cardamom skins. While still warm, crush or grind the meat mixture using a food processor or mortar and pestle until it forms a smooth, stringy, fibrous paste (reshay-dar).",
+      "Allow the mixture to cool completely, then mix in chopped mint, fresh coriander, green chillies, and 1 beaten egg.",
+      "Grease your palms lightly with oil, take golf-ball sized portions, and shape them into smooth, round flat patties.",
+      "Heat 3 tablespoons of oil in a non-stick frying pan over medium heat.",
+      "Dip each kabab gently into whisked egg and shallow fry for 2-3 minutes per side until crisp and golden brown.",
+      "Drain on paper towels and serve hot alongside fresh mint raita, onion rings, and lemon wedges."
+    ],
+    "tip": "Never leave residual moisture in the boiled meat-daal pot; if wet, cook it on high heat stirring constantly until dry, otherwise the kababs will break in the pan.",
+    "nutrition": {
+      "calories": 240,
+      "proteinContent": 22.8,
+      "fatContent": 12.5,
+      "saturatedFatContent": 4.1,
+      "carbohydrateContent": 9.4,
+      "sugarContent": 1.1,
+      "fiberContent": 2.8
+    },
+    "lang": {
+      "ru": {
+        "name": "Beef Shami Kabab",
+        "catLabel": "Desi Dishes",
+        "diff": "Darmiyana",
+        "servings": "6 log",
+        "desc": "Reshay-dar aur naram beef shami kabab, chana daal aur taaza podina ke sath.",
+        "alt": "Crispy golden fried Beef Shami Kababs"
+      },
+      "hi": {
+        "name": "Beef Shami Kabab",
+        "catLabel": "Desi Dishes",
+        "diff": "Medium",
+        "servings": "6 log",
+        "desc": "Paramprik aur naram shami kabab chana dal aur masalon ke sath.",
+        "alt": "Shami Kabab plate"
+      }
+    }
+  },
+  {
+    "id": "chicken-mandi",
+    "country": "Saudi Arabia",
+    "name": "Arabian Chicken Mandi",
+    "cat": "middle-eastern",
+    "catLabel": "Middle Eastern Dishes",
+    "veg": "nonveg",
+    "time": 70,
+    "diff": "Medium",
+    "servings": "4 people",
+    "img": "assets/trend-card-3-b3c9b7e7.webp",
+    "videos": {},
+    "shape": "tall",
+    "alt": "Arabian Chicken Mandi with golden spiced roast chicken over smoked basmati rice, garnished with toasted almonds and raisins",
+    "desc": "The signature Yemeni and Arabian feast: tender spice-marinated chicken roasted to golden perfection, served over smoky, fragrant basmati rice infused with hawaij spices and charcoal smoke.",
+    "intro": "Originally slow-cooked inside an underground tandoor (taboon), Chicken Mandi has captivated the world with its delicate balance of whole spices and charcoal aroma. Our foolproof home method creates golden-skinned roasted chicken dripping into aromatic rice, finished with the authentic dhungar coal smoke technique.",
+    "ing": [
+      "Whole chicken (cut into halves or skin-on bone-in quarters) 1.2 kg",
+      "Aged long-grain basmati rice 3 cups, soaked 30 mins",
+      "Mandi spice blend: 1 tbsp ground coriander, 1 tbsp cumin, 1 tsp turmeric, 1/2 tsp cardamom, 1/2 tsp cloves, 1 tsp black pepper",
+      "Saffron threads 1/4 tsp soaked in 2 tbsp warm rosewater or milk",
+      "Onion 2 medium, finely chopped",
+      "Green chillies 3 whole, dried black lime (loomi) 1 pierced",
+      "Butter or ghee 3 tbsp, olive oil 2 tbsp",
+      "Toasted slivered almonds and golden raisins for garnish",
+      "Lump of natural charcoal and 1 tsp ghee for the smoke dum"
+    ],
+    "steps": [
+      "Prepare the spice rub: Mix the ground Mandi spices with salt, 1 tablespoon olive oil, and half of the saffron mixture. Rub thoroughly all over the chicken pieces, including under the skin. Let marinate for 30 minutes.",
+      "In an oven-safe heavy pot or Dutch oven, heat butter and remaining olive oil. Sauté onions until translucent and lightly golden.",
+      "Add dried black lime, whole cardamoms, cinnamon, and whole green chillies. Sauté for 2 minutes until fragrant.",
+      "Add the drained soaked basmati rice, 4 1/2 cups boiling water, and salt. Stir once.",
+      "Place an oven wire rack directly over the pot and arrange the spiced chicken pieces on the rack (or place chicken on top of the rice separated by parchment paper with holes).",
+      "Cover tightly with double foil to lock in steam. Bake in a preheated oven at 190°C (375°F) for 45 minutes until chicken is tender and rice is cooked.",
+      "Remove chicken and broil under high heat for 5 minutes until the skin turns crisp and golden.",
+      "Smoke finish: Place a small heatproof bowl or foil cup in the middle of the rice pot. Drop a red-hot charcoal piece inside, drizzle 1/2 teaspoon ghee over it, and immediately seal the lid for 5 minutes to infuse intense woodsmoke.",
+      "Fluff the rice, spread onto a large serving platter, arrange roast chicken on top, and scatter toasted almonds and raisins."
+    ],
+    "tip": "The pierced dried black lime (loomi) and the 5-minute charcoal smoke infuse the authentic Gulf restaurant flavour. Do not omit the loomi.",
+    "nutrition": {
+      "calories": 740,
+      "proteinContent": 48.2,
+      "fatContent": 26.5,
+      "saturatedFatContent": 8.7,
+      "carbohydrateContent": 76.1,
+      "sugarContent": 4.5,
+      "fiberContent": 3.8
+    },
+    "lang": {
+      "ru": {
+        "name": "Arabian Chicken Mandi",
+        "catLabel": "Middle Eastern Dishes",
+        "diff": "Darmiyana",
+        "servings": "4 log",
+        "desc": "Koylay ki khushboo aur roosi masalon se bhara Arabian Chicken Mandi, roasted chicken aur badam ke sath.",
+        "alt": "Arabian Chicken Mandi serving platter"
+      },
+      "hi": {
+        "name": "Arabian Chicken Mandi",
+        "catLabel": "Middle Eastern Dishes",
+        "diff": "Medium",
+        "servings": "4 log",
+        "desc": "Koyle ki dhungar aur aromatic masalon ke sath Arabian Chicken Mandi chawal aur chicken.",
+        "alt": "Arabian Chicken Mandi dish"
+      }
+    }
+  },
+  {
+    "id": "butter-chicken",
+    "country": "India",
+    "name": "Murgh Makhani (Butter Chicken)",
+    "cat": "desi",
+    "catLabel": "Desi Dishes",
+    "veg": "nonveg",
+    "time": 50,
+    "diff": "Medium",
+    "servings": "4 people",
+    "img": "assets/chicken-karahi-72a3c2f2.webp",
+    "videos": {},
+    "shape": "wide",
+    "alt": "Creamy rich orange-red Murgh Makhani Butter Chicken with a swirl of fresh cream and fenugreek leaves",
+    "desc": "Tandoori grilled spiced chicken simmered in an indulgent, velvety smooth tomato, cashew, and butter makhani gravy flavoured with fragrant kasuri methi.",
+    "intro": "Invented in Delhi, Butter Chicken (Murgh Makhani) is perhaps the most universally beloved curry in the world. The magic lies in the silky contrast between smoky charred chicken pieces and the rich, velvety gravy sweetened gently by ripe tomatoes and butter.",
+    "ing": [
+      "Boneless chicken thighs (cut into bite-sized pieces) 750 g",
+      "Yoghurt 1/2 cup, Kashmiri red chilli powder 2 tbsp, ginger-garlic paste 2 tbsp",
+      "Butter 4 tbsp, heavy cream 1/2 cup",
+      "Ripe tomatoes 6 large, pureed and strained",
+      "Cashew nuts 15, soaked and blended to a smooth paste",
+      "Kasuri methi (dried fenugreek leaves) 1 tbsp, lightly crushed",
+      "Garam masala 1 tsp, honey or sugar 1 tsp",
+      "Salt to taste, oil 2 tbsp"
+    ],
+    "steps": [
+      "Marinate chicken in yoghurt, 1 tbsp Kashmiri chilli, 1 tbsp ginger-garlic, and salt for at least 30 minutes.",
+      "Sear chicken in a hot skillet with 2 tbsp oil until nicely charred on all edges (about 8-10 minutes). Set aside.",
+      "In a saucepan, melt 2 tbsp butter. Add remaining ginger-garlic paste and sauté for 1 minute.",
+      "Pour in tomato puree and simmer on medium heat for 12-15 minutes until raw smell disappears and oil surfaces.",
+      "Whisk in the smooth cashew paste and 1/2 cup water. Simmer 5 minutes until rich and creamy.",
+      "Add the seared chicken pieces, remaining butter, garam masala, and honey. Cook for 6 minutes.",
+      "Stir in heavy cream and crushed kasuri methi. Simmer on low for 2 minutes, then turn off heat.",
+      "Serve warm with garlic butter naan or basmati rice."
+    ],
+    "tip": "Rubbing kasuri methi between your palms before adding unlocks its fragrant herbal oils.",
+    "nutrition": {
+      "calories": 610,
+      "proteinContent": 39.5,
+      "fatContent": 41.2,
+      "saturatedFatContent": 19.8,
+      "carbohydrateContent": 18.6,
+      "sugarContent": 8.4,
+      "fiberContent": 2.9
+    },
+    "lang": {
+      "ru": {
+        "name": "Butter Chicken",
+        "catLabel": "Desi Dishes",
+        "diff": "Darmiyana",
+        "servings": "4 log",
+        "desc": "Makkhan, tamatar aur cashew gravy mein pakaya gaya creamy Murgh Makhani.",
+        "alt": "Plate of Butter Chicken"
+      },
+      "hi": {
+        "name": "Butter Chicken",
+        "catLabel": "Desi Dishes",
+        "diff": "Medium",
+        "servings": "4 log",
+        "desc": "Creamy aur makkhan se bhara Murgh Makhani.",
+        "alt": "Butter Chicken curry"
+      }
+    }
+  },
+  {
+    "id": "falooda",
+    "country": "Pakistan",
+    "name": "Royal Shahi Falooda",
+    "cat": "desserts",
+    "catLabel": "Sweet Dishes",
+    "veg": "veg",
+    "time": 25,
+    "diff": "Easy",
+    "servings": "4 glasses",
+    "img": "assets/hero-49347f9b.webp",
+    "videos": {},
+    "shape": "tall",
+    "alt": "Tall dessert glasses of layered Royal Shahi Falooda with rose syrup, basil seeds, falooda sev, and kulfa ice cream",
+    "desc": "The ultimate royal summer dessert drink: chilled rose-scented milk layered with blooming basil seeds (tukhmariya), silky cornstarch vermicelli, and rich kulfa ice cream.",
+    "intro": "Originating in Persia and perfected during the Mughal era, Falooda is the grandest dessert drink of the subcontinent. Every sip and spoonful offers a delightful medley of crunchy basil seeds, cool ice cream, and fragrant rose essence.",
+    "ing": [
+      "Whole milk 1 litre, chilled and slightly reduced",
+      "Rooh Afza or rose syrup 1/2 cup",
+      "Basil seeds (sabja / tukhmariya) 2 tbsp, soaked in 1 cup water for 15 mins",
+      "Falooda sev (cornstarch vermicelli) 100 g, cooked and chilled in cold water",
+      "Traditional Kulfa or Vanilla ice cream 4 large scoops",
+      "Crushed pistachios and slivered almonds 3 tbsp",
+      "Tutti frutti or maraschino cherries for topping (optional)"
+    ],
+    "steps": [
+      "In tall dessert glasses, pour 2 tablespoons of fragrant rose syrup into the base.",
+      "Add 2 generous tablespoons of soaked, plump basil seeds.",
+      "Layer 3 tablespoons of chilled falooda vermicelli over the seeds.",
+      "Gently pour chilled reduced milk until the glass is 3/4 full.",
+      "Top with a large scoop of dense kulfa or vanilla ice cream.",
+      "Drizzle a thin stream of rose syrup over the ice cream and garnish generously with chopped pistachios and almonds.",
+      "Serve immediately with a long spoon and a wide straw."
+    ],
+    "tip": "Keep the cooked falooda sev submerged in ice water in the fridge until assembly so the strands remain bouncy and do not stick together.",
+    "nutrition": {
+      "calories": 390,
+      "proteinContent": 9.2,
+      "fatContent": 14.8,
+      "saturatedFatContent": 8.5,
+      "carbohydrateContent": 56.4,
+      "sugarContent": 42.1,
+      "fiberContent": 4.1
+    },
+    "lang": {
+      "ru": {
+        "name": "Royal Shahi Falooda",
+        "catLabel": "Sweet Dishes",
+        "diff": "Aasan",
+        "servings": "4 glass",
+        "desc": "Ghulab ke sharbat, sabja beej, falooda sev aur kulfa ice cream se bana thanda dessert drink.",
+        "alt": "Royal Shahi Falooda glass"
+      },
+      "hi": {
+        "name": "Royal Shahi Falooda",
+        "catLabel": "Sweet Dishes",
+        "diff": "Easy",
+        "servings": "4 glass",
+        "desc": "Thanda aur swadisht Shahi Falooda ice cream ke sath.",
+        "alt": "Shahi Falooda glass"
+      }
+    }
+  }
+]
