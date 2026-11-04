@@ -236,6 +236,34 @@ h1,h2,h3{font-family:"Cormorant Garamond",Georgia,serif;font-weight:600;line-hei
 /* chips */
 .filters{padding:20px 0 4px}
 .chips{display:flex;gap:8px;flex-wrap:wrap}
+
+/* Modern Food Portal UI enhancements */
+.category-showcase{display:grid;grid-template-columns:repeat(auto-fit,minmax(110px,1fr));gap:16px;margin:28px 0 32px;text-align:center}
+.cat-card{display:flex;flex-direction:column;align-items:center;text-decoration:none;color:var(--ink);padding:14px 10px;background:var(--surface);border:1px solid var(--line);border-radius:16px;transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease}
+.cat-card:hover{transform:translateY(-3px);box-shadow:0 8px 24px rgba(68,38,18,.12);border-color:var(--red)}
+.cat-card-icon{width:56px;height:56px;border-radius:50%;background:var(--chip);display:grid;place-items:center;font-size:26px;margin-bottom:8px;box-shadow:inset 0 2px 4px rgba(0,0,0,.06)}
+.cat-card strong{font-size:13px;font-weight:700;line-height:1.2}
+
+.magazine-hero{display:grid;grid-template-columns:1.2fr .8fr;gap:24px;margin-bottom:24px}
+.sub-hero-stack{display:grid;grid-template-rows:1fr 1fr;gap:18px}
+.hero-mini-card{display:flex;gap:14px;background:var(--surface);border:1px solid var(--line);border-radius:16px;overflow:hidden;padding:12px;text-decoration:none;color:inherit;transition:transform .2s ease,border-color .2s ease}
+.hero-mini-card:hover{transform:translateY(-2px);border-color:var(--red)}
+.hero-mini-card img{width:110px;height:100px;object-fit:cover;border-radius:12px;flex:none}
+.hero-mini-info{display:flex;flex-direction:column;justify-content:center}
+.hero-mini-badge{align-self:flex-start;background:var(--red);color:#fff;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;padding:3px 8px;border-radius:6px;margin-bottom:6px}
+.hero-mini-info h3{font-size:17px;margin:0 0 4px;line-height:1.2;font-family:"Cormorant Garamond",Georgia,serif}
+.hero-mini-info p{font-size:13px;color:var(--muted);margin:0}
+
+.home-ad-banner{background:var(--surface2);border:1px dashed var(--line);border-radius:12px;text-align:center;padding:14px;margin:28px 0;font-size:12px;color:var(--muted);letter-spacing:1px;text-transform:uppercase}
+
+@media(max-width:850px){
+  .magazine-hero{grid-template-columns:1fr}
+  .category-showcase{grid-template-columns:repeat(4,1fr);gap:10px}
+}
+@media(max-width:480px){
+  .category-showcase{grid-template-columns:repeat(3,1fr)}
+}
+
 .chip{display:inline-block;text-decoration:none;border:1.5px solid var(--line);background:var(--surface);color:var(--ink);border-radius:10px;padding:9px 15px;font-weight:700;font-size:14px}
 .chip[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
 .chip:hover{border-color:var(--red)}
@@ -497,9 +525,9 @@ footer a{color:var(--muted)}
     <div>
       <div class="hero-site">Zaika Worlds · www.zaikaworlds.com</div>
       <h1 id="heroTitle">Pakistani, Indian &amp; World Food Recipes</h1>
-      <p>Cook famous dishes from Pakistan and India, plus favourite dishes from around the world. Each dish has a big photo, a step by step method, cooking time and servings. Click any photo to open the full recipe and start cooking.</p>
+      <p>Cook authentic, tested family recipes from South Asia, the Mediterranean and across 25+ countries worldwide. Step-by-step photos, verified ratios, and multilingual video guides.</p>
       <div class="hero-cta">
-        <a class="btn btn-red" href="/recipes" data-section="recipes">Browse Recipes</a>
+        <a class="btn btn-red" href="/recipes" data-section="recipes">Browse 46+ Recipes</a>
         <a class="btn btn-ghost" href="/category/world-food" data-section="world-food">Explore World Food</a>
       </div>
     </div>
@@ -511,6 +539,40 @@ footer a{color:var(--muted)}
       </div>
     </div>
   </section>
+
+  <!-- Visual Category Circles (Magazine Portal Style) -->
+  <section class="category-showcase" aria-label="Popular Categories">
+    <a class="cat-card" href="/category/desi-dishes" data-list="category/desi-dishes">
+      <div class="cat-card-icon" aria-hidden="true">&#x1F35B;</div>
+      <strong>Desi Dishes</strong>
+    </a>
+    <a class="cat-card" href="/category/bbq" data-list="category/bbq">
+      <div class="cat-card-icon" aria-hidden="true">&#x1F362;</div>
+      <strong>BBQ &amp; Grills</strong>
+    </a>
+    <a class="cat-card" href="/category/street-food" data-list="category/street-food">
+      <div class="cat-card-icon" aria-hidden="true">&#x1F959;</div>
+      <strong>Street Food</strong>
+    </a>
+    <a class="cat-card" href="/category/desserts" data-list="category/desserts">
+      <div class="cat-card-icon" aria-hidden="true">&#x1F36E;</div>
+      <strong>Desserts</strong>
+    </a>
+    <a class="cat-card" href="/category/breakfast" data-list="category/breakfast">
+      <div class="cat-card-icon" aria-hidden="true">&#x1FAD3;</div>
+      <strong>Breakfast</strong>
+    </a>
+    <a class="cat-card" href="/category/drinks" data-list="category/drinks">
+      <div class="cat-card-icon" aria-hidden="true">&#x1F96D;</div>
+      <strong>Drinks</strong>
+    </a>
+    <a class="cat-card" href="/category/world-food" data-list="category/world-food">
+      <div class="cat-card-icon" aria-hidden="true">&#x1F30E;</div>
+      <strong>World Food</strong>
+    </a>
+  </section>
+
+  <div class="home-ad-banner" aria-hidden="true">&mdash; Advertisement &mdash;</div>
 
   <section class="filters" id="recipes" aria-label="Recipe filter">
     <div class="recipes-head">
