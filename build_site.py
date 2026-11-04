@@ -1922,85 +1922,561 @@ def write_data_files(data):
 # ---------------------------------------------------------------------------
 
 STATIC_CSS = """
-body{font-family:Georgia,'Times New Roman',serif;color:#241f1a;background:#fdf8ef;margin:0;line-height:1.6}
-.wrap{max-width:760px;margin:0 auto;padding:0 18px 48px}
-@media(max-width:600px){}
-nav.crumb{font-size:14px;color:#6b5f52;margin:16px 0 6px}
-nav.crumb a{color:#b3402a}
-h1{font-size:34px;line-height:1.15;margin:8px 0 12px}
-h2{font-size:24px;margin:28px 0 8px}
-h3{font-size:19px;margin:20px 0 6px}
-p{margin:0 0 12px}
-ul,ol{margin:0 0 16px;padding-left:24px}
-li{margin:0 0 6px}
-img.hero{width:100%;height:auto;border-radius:10px;display:block;margin:12px 0}
-.facts{color:#6b5f52;font-size:15px;margin:0 0 12px}
-.pubdate{color:#6b5f52;font-size:14px;margin:0 0 12px}
-.card{display:flex;gap:14px;align-items:flex-start;border:1px solid #e5d9c5;border-radius:10px;padding:12px;margin:0 0 14px;background:#fff}
-.card img{width:120px;height:auto;border-radius:8px;flex:none}
-.card a{color:#1f1b16;text-decoration:none;font-weight:700;font-size:18px}
-.card p{color:#6b5f52;font-size:14px;margin:4px 0 0}
-footer.site{border-top:1px solid #e5d9c5;margin-top:36px;padding-top:14px;font-size:14px;color:#6b5f52}
-footer.site a{color:#b3402a}
-.muted{color:#6b5f52;font-size:14px}
-button.share-btn{background:none;border:0;padding:0;font:inherit;color:#b3402a;text-decoration:underline;cursor:pointer}
-button.pin-btn{display:inline-flex;align-items:center;gap:6px;background:#e60023;color:#fff;border:0;padding:8px 14px;border-radius:20px;font-size:14px;font-weight:700;cursor:pointer;text-decoration:none;margin-left:8px}
-button.pin-btn:hover{background:#ad081b}
-.recipe-pairs{background:#fff;border:1px solid #e5d9c5;border-radius:10px;padding:16px;margin:24px 0}
-.recipe-pairs h3{margin-top:0;font-size:18px;color:#1f1b16}
-.recipe-pairs ul{margin-bottom:0;padding-left:20px}
-.recipe-pairs li{margin-bottom:6px}
-.recipe-pairs a{color:#b3402a;font-weight:600}
-.eeat-box{background:#f4ece1;border:1px solid #dfd3c3;border-left:4px solid #b3402a;border-radius:8px;padding:14px 18px;margin:24px 0}
-.eeat-box h4{margin:0 0 6px;color:#1f1b16;font-size:16px}
-.eeat-box p{margin:0;font-size:14px;color:#4a3f35}
-.ad-slot{background:#faf6f0;border:1px dashed #d5c7b3;text-align:center;padding:12px;margin:20px 0;border-radius:6px;font-size:12px;color:#8c7e6d;letter-spacing:0.5px;text-transform:uppercase}
-.jump-btn{display:inline-block;background:#3c3228;color:#fff!important;text-decoration:none!important;padding:8px 16px;border-radius:20px;font-size:14px;font-weight:700;margin:10px 0 16px;letter-spacing:0.3px}
-.jump-btn:hover{background:#1f1b16}
-.recipe-pairs{background:#fff;border:1px solid #e5d9c5;border-radius:10px;padding:16px;margin:24px 0}
-.recipe-pairs h3{margin-top:0;font-size:18px;color:#1f1b16}
-.recipe-pairs ul{margin-bottom:0;padding-left:20px}
-.recipe-pairs li{margin-bottom:6px}
-.recipe-pairs a{color:#b3402a;font-weight:600}
+:root {
+  --bg: #faf3e7;
+  --surface: #fffdf8;
+  --surface2: #f6e9d6;
+  --ink: #2b241d;
+  --muted: #77614e;
+  --line: #e7d5ba;
+  --red: #b84f28;
+  --red-dark: #96401f;
+  --orange: #d96c3f;
+  --green: #357a4e;
+  --gold: #c07a1a;
+  --chip: #f9e8d2;
+  --shadow: 0 14px 32px rgba(68,38,18,.14);
+  --header-bg: #23201c;
+  --header-surface: #2d2923;
+  --header-ink: #f6ead9;
+  --header-muted: #c6b49c;
+  --header-line: #4a4237;
+  --accent: #d96c3f;
+  --accent-ink: #fff6ea;
+}
 
-/* ── topbar full-width override ── */
-header.topbar-modern{background:#23201c;color:#f6ead9;border-bottom:1px solid #4a4237;margin:0;padding:0;width:100%;box-sizing:border-box}
-.topbar-top{padding:0}
-.topbar-inner{max-width:1180px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;padding:10px 20px}
-header.topbar-modern a.brand{font-family:Georgia,serif;font-size:24px;font-weight:700;color:#f6ead9;text-decoration:none;display:inline-flex;align-items:center;gap:10px}
-header.topbar-modern a.brand span{color:#d96c3f}
-header.topbar-modern .logo-img{border-radius:50%;object-fit:cover}
-/* lang dropdown */
-.lang-wrap{display:flex;align-items:center;gap:6px;margin-left:4px}
-.globe-icon{color:#d96c3f;font-size:16px}
-.lang-select{background:#3a332b;color:#f6ead9;border:1px solid #6a5f52;border-radius:6px;padding:5px 8px;font-size:13px;cursor:pointer;outline:none}
-.lang-select option{background:#23201c;color:#f6ead9}
-/* nav links */
-.top-links{display:flex;gap:6px;align-items:center;flex-wrap:wrap}
-.top-links a{color:#f6ead9;text-decoration:none;font-size:13px;font-weight:600;padding:5px 9px;border-radius:7px;transition:background .2s;white-space:nowrap}
-.top-links a:hover{background:rgba(255,255,255,.12)}
-/* saved button */
-.saved-btn{background:#3a332b;color:#f6ead9;border:1px solid #6a5f52;border-radius:7px;padding:6px 12px;font-size:13px;font-weight:700;cursor:pointer;white-space:nowrap;transition:background .2s}
-.saved-btn:hover{background:#4d443a}
-.saved-count{font-weight:400}
-/* Categories dropdown */
-.cat-dropdown{position:relative;display:inline-block}
-.cat-btn{background:#3a332b;color:#f6ead9;border:1px solid #6a5f52;border-radius:7px;padding:5px 10px;font-size:13px;font-weight:600;cursor:pointer;transition:background .2s}
-.cat-btn:hover{background:#4d443a}
-.cat-menu{display:none;position:absolute;top:calc(100% + 6px);right:0;background:#2c2620;border:1px solid #4a4237;border-radius:9px;min-width:180px;z-index:9999;padding:6px 0;box-shadow:0 8px 24px rgba(0,0,0,.35)}
-.cat-dropdown:hover .cat-menu,.cat-dropdown:focus-within .cat-menu{display:block}
-.cat-menu a{display:block;color:#f6ead9;text-decoration:none;padding:9px 16px;font-size:14px;transition:background .2s}
-.cat-menu a:hover{background:rgba(255,255,255,.1)}
-/* search row */
-.search-row{background:#1a1712;border-top:1px solid #3a332b;padding:8px 20px}
-.search-inner{max-width:1180px;margin:0 auto;display:flex;align-items:center;gap:10px}
-.search-icon{color:#8c7e6d;font-size:16px}
-.search-box{flex:1;background:transparent;border:none;outline:none;color:#f6ead9;font-size:15px;padding:4px 0}
-.search-box::placeholder{color:#6b5f52}
-/* wrap must NOT clip the header */
-.wrap{max-width:760px;margin:0 auto;padding:0 18px 48px}
-@media(max-width:768px){.top-links{display:none}.saved-btn{display:none}}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #23201c;
+    --surface: #2d2923;
+    --surface2: #3a342c;
+    --ink: #f6ead9;
+    --muted: #c6b49c;
+    --line: #4a4237;
+    --red: #e07a4e;
+    --red-dark: #ec8f63;
+    --orange: #e07a4e;
+    --chip: #3a342c;
+    --shadow: 0 14px 32px rgba(0,0,0,.45);
+    --header-bg: #1b1814;
+    --header-surface: #26221c;
+    --header-ink: #f6ead9;
+    --header-muted: #c6b49c;
+    --header-line: #4a4237;
+    --accent: #e07a4e;
+    --accent-ink: #fff6ea;
+  }
+}
 
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: "Source Sans 3", "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  line-height: 1.65;
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+}
+
+.wrap {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 20px 48px;
+}
+
+/* Header & Topbar */
+header.topbar-modern {
+  background: var(--header-bg);
+  color: var(--header-ink);
+  border-bottom: 1px solid var(--header-line);
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+.topbar-top { padding: 0; }
+.topbar-inner {
+  max-width: 1180px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+  padding: 12px 20px;
+}
+header.topbar-modern a.brand {
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--header-ink);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  letter-spacing: .02em;
+}
+header.topbar-modern a.brand span { color: var(--accent); }
+header.topbar-modern .logo-img { border-radius: 50%; object-fit: cover; }
+
+/* Language Dropdown */
+.lang-wrap { display: flex; align-items: center; gap: 6px; }
+.globe-icon { color: var(--accent); font-size: 16px; }
+.lang-select {
+  background: var(--header-surface);
+  color: var(--header-ink);
+  border: 1px solid var(--header-line);
+  border-radius: 8px;
+  padding: 6px 10px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  outline: none;
+}
+.lang-select option { background: var(--header-bg); color: var(--header-ink); }
+
+/* Navigation links */
+.top-links { display: flex; gap: 6px; align-items: center; flex-wrap: wrap; }
+.top-links a {
+  color: var(--header-ink);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 6px 12px;
+  border-radius: 8px;
+  transition: background .2s, color .2s;
+  white-space: nowrap;
+}
+.top-links a:hover { background: rgba(246,234,217,.12); }
+
+.saved-btn {
+  background: var(--header-surface);
+  color: var(--header-ink);
+  border: 1px solid var(--header-line);
+  border-radius: 8px;
+  padding: 7px 14px;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background .2s;
+}
+.saved-btn:hover { background: #3a342c; }
+
+.cat-dropdown { position: relative; display: inline-block; }
+.cat-btn {
+  background: var(--header-surface);
+  color: var(--header-ink);
+  border: 1px solid var(--header-line);
+  border-radius: 8px;
+  padding: 6px 12px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+}
+.cat-menu {
+  display: none;
+  position: absolute;
+  top: calc(100% + 6px);
+  right: 0;
+  background: var(--header-surface);
+  border: 1px solid var(--header-line);
+  border-radius: 10px;
+  min-width: 190px;
+  z-index: 9999;
+  padding: 6px 0;
+  box-shadow: 0 10px 28px rgba(0,0,0,.4);
+}
+.cat-dropdown:hover .cat-menu, .cat-dropdown:focus-within .cat-menu { display: block; }
+.cat-menu a {
+  display: block;
+  color: var(--header-ink);
+  text-decoration: none;
+  padding: 9px 16px;
+  font-size: 14px;
+  font-weight: 600;
+}
+.cat-menu a:hover { background: rgba(246,234,217,.1); }
+
+/* Search row */
+.search-row {
+  background: #191613;
+  border-top: 1px solid var(--header-line);
+  padding: 9px 20px;
+}
+.search-inner {
+  max-width: 1180px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.search-icon { color: var(--header-muted); font-size: 16px; }
+.search-box {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: var(--header-ink);
+  font-size: 15px;
+  padding: 4px 0;
+}
+.search-box::placeholder { color: var(--header-muted); }
+
+/* Breadcrumb */
+nav.crumb {
+  font-size: 14px;
+  color: var(--muted);
+  margin: 24px 0 12px;
+  font-weight: 500;
+}
+nav.crumb a {
+  color: var(--red);
+  text-decoration: none;
+  font-weight: 600;
+}
+nav.crumb a:hover { text-decoration: underline; }
+nav.crumb span { color: var(--ink); font-weight: 600; }
+
+/* Recipe Headings */
+h1 {
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: clamp(34px, 5vw, 48px);
+  line-height: 1.12;
+  margin: 6px 0 14px;
+  color: var(--ink);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+h2 {
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: clamp(24px, 3.5vw, 32px);
+  margin: 36px 0 14px;
+  color: var(--ink);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  border-bottom: 2px solid var(--line);
+  padding-bottom: 6px;
+}
+h3 {
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 22px;
+  margin: 20px 0 8px;
+  color: var(--ink);
+  font-weight: 600;
+}
+p { margin: 0 0 16px; color: var(--ink); font-size: 16.5px; }
+
+/* Facts Bar - Cards like homepage */
+.facts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 14px 0 20px;
+  padding: 12px 16px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  color: var(--muted);
+  font-size: 14.5px;
+  font-weight: 600;
+  align-items: center;
+}
+.facts span.fact-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.pubdate {
+  color: var(--muted);
+  font-size: 13.5px;
+  margin: -6px 0 18px;
+  font-style: italic;
+}
+
+/* Jump to recipe button */
+.jump-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--red);
+  color: #fff !important;
+  text-decoration: none !important;
+  padding: 10px 20px;
+  border-radius: 30px;
+  font-size: 14.5px;
+  font-weight: 700;
+  margin: 4px 0 20px;
+  box-shadow: 0 4px 14px rgba(184,79,40,.25);
+  transition: transform .15s, background .2s;
+}
+.jump-btn:hover {
+  background: var(--red-dark);
+  transform: translateY(-1px);
+}
+
+/* Hero Image */
+img.hero {
+  width: 100%;
+  max-height: 480px;
+  object-fit: cover;
+  border-radius: 16px;
+  display: block;
+  margin: 16px 0 24px;
+  box-shadow: var(--shadow);
+  border: 1px solid var(--line);
+}
+
+/* Lists - ingredients & method */
+ul, ol {
+  margin: 0 0 24px;
+  padding-left: 24px;
+}
+li {
+  margin: 0 0 10px;
+  font-size: 16.5px;
+  color: var(--ink);
+  line-height: 1.6;
+}
+ol {
+  counter-reset: custom-step;
+  list-style: none;
+  padding-left: 0;
+}
+ol li {
+  counter-increment: custom-step;
+  position: relative;
+  padding-left: 42px;
+  margin: 0 0 14px;
+}
+ol li::before {
+  content: counter(custom-step);
+  position: absolute;
+  left: 0;
+  top: 1px;
+  width: 28px;
+  height: 28px;
+  background: var(--chip);
+  color: var(--red);
+  font-weight: 800;
+  font-size: 14px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--line);
+}
+
+/* Tip / Chef box */
+.tip-box {
+  background: #fdf0e4;
+  border: 1.5px solid #e8b08f;
+  border-radius: 14px;
+  padding: 16px 20px;
+  margin: 24px 0;
+  color: #5a2e16;
+}
+@media (prefers-color-scheme: dark) {
+  .tip-box { background: #3a2a20; border-color: #7a4a2e; color: #f3d9c2; }
+}
+
+/* E-E-A-T Verified Box */
+.eeat-box {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-left: 4px solid var(--red);
+  border-radius: 12px;
+  padding: 16px 20px;
+  margin: 28px 0;
+}
+.eeat-box h4 {
+  margin: 0 0 6px;
+  color: var(--ink);
+  font-size: 17px;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-weight: 700;
+}
+.eeat-box p {
+  margin: 0;
+  font-size: 14.5px;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+/* What to serve with this dish - Pairings */
+.recipe-pairs {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 20px 24px;
+  margin: 32px 0;
+  box-shadow: 0 6px 20px rgba(68,38,18,.05);
+}
+.recipe-pairs h3 {
+  margin-top: 0;
+  font-size: 22px;
+  color: var(--ink);
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 8px;
+}
+.recipe-pairs ul {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 12px;
+  list-style: none;
+  padding: 0;
+  margin: 12px 0 0;
+}
+.recipe-pairs li {
+  margin: 0;
+  background: var(--surface2);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 10px 14px;
+  transition: border-color .2s;
+}
+.recipe-pairs li:hover { border-color: var(--red); }
+.recipe-pairs a {
+  color: var(--red);
+  font-weight: 700;
+  text-decoration: none;
+  font-size: 15px;
+  display: block;
+}
+.recipe-pairs a:hover { text-decoration: underline; }
+
+/* Share & Save Buttons */
+button.share-btn {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  padding: 8px 14px;
+  border-radius: 8px;
+  font: inherit;
+  color: var(--ink);
+  font-weight: 600;
+  cursor: pointer;
+  margin-right: 8px;
+  transition: background .2s;
+}
+button.share-btn:hover { background: var(--surface2); }
+button.pin-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #e60023;
+  color: #fff;
+  border: 0;
+  padding: 9px 16px;
+  border-radius: 24px;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  text-decoration: none;
+  margin-left: 6px;
+}
+button.pin-btn:hover { background: #ad081b; }
+
+/* Ad Slot */
+.ad-slot {
+  background: var(--surface);
+  border: 1px dashed var(--line);
+  text-align: center;
+  padding: 16px;
+  margin: 28px 0;
+  border-radius: 10px;
+  font-size: 12px;
+  color: var(--muted);
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+/* Rich Homepage-Style Footer */
+.site-footer {
+  background: var(--header-bg);
+  border-top: 3px solid var(--accent);
+  margin-top: 56px;
+  padding: 48px 0 36px;
+  color: var(--header-muted);
+  font-size: 14.5px;
+  width: 100%;
+}
+.site-footer .wrap {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+.site-footer h2 {
+  font-size: 32px;
+  margin: 0 0 10px;
+  color: var(--header-ink);
+  font-weight: 600;
+  border: none;
+  padding: 0;
+}
+.site-footer h3 {
+  font-size: 21px;
+  margin: 0 0 12px;
+  color: var(--header-ink);
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-weight: 600;
+}
+#footerLangH {
+  font-size: 16px;
+  margin: 20px 0 6px;
+  font-family: inherit;
+  color: var(--header-ink);
+  font-weight: 700;
+}
+.site-footer p {
+  margin: 0 0 12px;
+  color: var(--header-muted);
+  font-size: 14px;
+  line-height: 1.6;
+}
+.site-footer a { color: var(--header-muted); text-decoration: none; }
+.site-footer a:hover { color: var(--header-ink); text-decoration: underline; }
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.25fr 0.8fr 0.8fr;
+  gap: 36px;
+}
+.footer-col ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.footer-col li { margin: 8px 0; }
+.footer-col a {
+  color: var(--header-ink);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 14px;
+}
+.footer-col a:hover { color: var(--accent); text-decoration: underline; }
+.footer-social {
+  margin-top: 32px;
+  padding-top: 20px;
+  border-top: 1px solid var(--header-line);
+  font-size: 14px;
+  color: var(--header-muted);
+}
+.footer-social a {
+  color: var(--header-ink);
+  margin: 0 4px;
+  font-weight: 600;
+}
+.footer-copy {
+  margin-top: 16px;
+  font-size: 13px;
+  color: var(--header-muted);
+}
+
+@media (max-width: 860px) {
+  .footer-grid { grid-template-columns: 1fr; gap: 24px; }
+  .top-links { display: none; }
+  .saved-btn { display: none; }
+}
 """.strip()
 
 SITE_HEADER = (
@@ -2061,23 +2537,49 @@ SITE_HEADER = (
     '</header>'
 )
 
-SITE_FOOTER = ('<footer class="site">Zaika Worlds — home food recipes and '
-               'world food recipes, in 13 languages. '
-               '<a href="/eid-recipes">Eid Recipes</a> · '
-               '<a href="/ramadan-recipes">Ramadan Recipes</a> · '
-               '<a href="/guides/dum-cooking">Dum Cooking Guide</a> · '
-               '<a href="/about">About Us</a> · '
-               '<a href="/contact">Contact Us</a> · '
-               '<a href="/faqs">Cooking FAQs</a> · '
-               '<a href="/privacy">Privacy Policy</a> · '
-               '<a href="/trending">Trending Recipes</a> · '
-               '<a href="https://www.youtube.com/@ZaikaWorlds">YouTube</a> · '
-               '<a href="https://www.facebook.com/profile.php?id='
-               '1445260131997347">Facebook</a> · '
-               '<a href="https://www.pinterest.com/zaikaworlds26/">'
-               'Pinterest</a> · '
-               '<a href="https://www.tiktok.com/@zaikaworlds">'
-               'TikTok</a></footer>')
+SITE_FOOTER = ('''<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <h2 id="footerTitle">Zaika Worlds</h2>
+        <p id="footerDesc">Zaika Worlds is a home cooking collection with big photos and step by step methods, from desi dishes to world food.</p>
+        <p id="footerGuide">Every recipe on this page is a home cooking guide. It lists the ingredients first, then the cooking method in clear steps, with cooking time and servings.</p>
+        <h3 id="footerLangH">Read in 13 languages</h3>
+        <p id="footerLangP">English, Roman Urdu, हिन्दी, Español, Français, العربية, Português, Русский, 中文, 日本語, Deutsch, Türkçe, বাংলা. Use the language menu at the top to change the language.</p>
+      </div>
+      <nav class="footer-col footer-quick" aria-labelledby="footerQuickH">
+        <h3 id="footerQuickH">Quick links</h3>
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/recipes">Recipes</a></li>
+          <li><a href="/category/world-food">World Food</a></li>
+          <li><a href="/trending">Trending</a></li>
+          <li><a href="/eid-recipes">Eid Recipes</a></li>
+          <li><a href="/ramadan-recipes">Ramadan Recipes</a></li>
+          <li><a href="/guides/dum-cooking">Dum Cooking Guide</a></li>
+          <li><a href="/faqs">Cooking FAQs</a></li>
+          <li><a href="/about">About Us</a></li>
+          <li><a href="/privacy">Privacy Policy</a></li>
+          <li><a href="/contact">Contact Us</a></li>
+        </ul>
+      </nav>
+      <nav class="footer-col" aria-labelledby="footerCatH">
+        <h3 id="footerCatH">Categories</h3>
+        <ul id="footerCatList">
+          <li><a href="/category/desi-dishes">Desi Dishes</a></li>
+          <li><a href="/category/bbq">BBQ</a></li>
+          <li><a href="/category/breakfast">Breakfast</a></li>
+          <li><a href="/category/street-food">Street Food</a></li>
+          <li><a href="/category/desserts">Desserts</a></li>
+          <li><a href="/category/drinks">Drinks</a></li>
+          <li><a href="/category/world-food">World Food</a></li>
+        </ul>
+      </nav>
+    </div>
+    <p class="footer-social">Follow Zaika Worlds: <a href="https://www.youtube.com/@ZaikaWorlds" target="_blank" rel="noopener">YouTube</a> · <a href="https://www.facebook.com/profile.php?id=1445260131997347" target="_blank" rel="noopener">Facebook</a> · <a href="https://www.pinterest.com/zaikaworlds26/" target="_blank" rel="noopener">Pinterest</a> · <a href="https://www.tiktok.com/@zaikaworlds" target="_blank" rel="noopener">TikTok</a></p>
+    <p class="footer-copy" id="footerCopy">© 2026 Zaika Worlds</p>
+  </div>
+</footer>''')
 # NOTE (2026-10-31, audit "5 pages have only one incoming internal
 # link"): /about, /contact, /faqs, /privacy and /trending used to be
 # linked only from the homepage footer, so the audit counted one
@@ -2178,6 +2680,9 @@ def page_shell(title, desc, url, og_img, og_alt, json_ld_blocks, body,
             '<meta name="twitter:image" content="' + esc(og_img) + '">\n'
             + ld +
             '<style>' + STATIC_CSS + '</style>\n'
+            '<link rel="preconnect" href="https://fonts.googleapis.com">\n'
+            '<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>\n'
+            '<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">\n'
             '</head>\n<body>\n' + SITE_HEADER + '\n<div class="wrap">\n'
             + body + '\n</div>\n' + SITE_FOOTER + '\n' + SHARE_JS
             + '</body>\n</html>\n')
