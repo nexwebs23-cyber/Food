@@ -118,6 +118,9 @@
     <loc>https://www.zaikaworlds.com/recipe/seekh-kebab</loc>
   </url>
   <url>
+    <loc>https://www.zaikaworlds.com/recipe/kabuli-pulao</loc>
+  </url>
+  <url>
     <loc>https://www.zaikaworlds.com/roman-urdu/</loc>
   </url>
   <url>
@@ -230,6 +233,9 @@
   </url>
   <url>
     <loc>https://www.zaikaworlds.com/roman-urdu/recipe/seekh-kebab</loc>
+  </url>
+  <url>
+    <loc>https://www.zaikaworlds.com/roman-urdu/recipe/kabuli-pulao</loc>
   </url>
   <url>
     <loc>https://www.zaikaworlds.com/hi/</loc>
@@ -346,6 +352,9 @@
     <loc>https://www.zaikaworlds.com/hi/recipe/seekh-kebab</loc>
   </url>
   <url>
+    <loc>https://www.zaikaworlds.com/hi/recipe/kabuli-pulao</loc>
+  </url>
+  <url>
     <loc>https://www.zaikaworlds.com/es/</loc>
   </url>
   <url>
@@ -458,6 +467,9 @@
   </url>
   <url>
     <loc>https://www.zaikaworlds.com/es/recipe/seekh-kebab</loc>
+  </url>
+  <url>
+    <loc>https://www.zaikaworlds.com/es/recipe/kabuli-pulao</loc>
   </url>
   <url>
     <loc>https://www.zaikaworlds.com/fr/</loc>
@@ -574,6 +586,9 @@
     <loc>https://www.zaikaworlds.com/fr/recipe/seekh-kebab</loc>
   </url>
   <url>
+    <loc>https://www.zaikaworlds.com/fr/recipe/kabuli-pulao</loc>
+  </url>
+  <url>
     <loc>https://www.zaikaworlds.com/ar/</loc>
   </url>
   <url>
@@ -686,6 +701,9 @@
   </url>
   <url>
     <loc>https://www.zaikaworlds.com/ar/recipe/seekh-kebab</loc>
+  </url>
+  <url>
+    <loc>https://www.zaikaworlds.com/ar/recipe/kabuli-pulao</loc>
   </url>
   <url>
     <loc>https://www.zaikaworlds.com/pt/</loc>
@@ -802,6 +820,9 @@
     <loc>https://www.zaikaworlds.com/pt/recipe/seekh-kebab</loc>
   </url>
   <url>
+    <loc>https://www.zaikaworlds.com/pt/recipe/kabuli-pulao</loc>
+  </url>
+  <url>
     <loc>https://www.zaikaworlds.com/ru/</loc>
   </url>
   <url>
@@ -914,6 +935,9 @@
   </url>
   <url>
     <loc>https://www.zaikaworlds.com/ru/recipe/seekh-kebab</loc>
+  </url>
+  <url>
+    <loc>https://www.zaikaworlds.com/ru/recipe/kabuli-pulao</loc>
   </url>
   <url>
     <loc>https://www.zaikaworlds.com/zh/</loc>
@@ -1030,6 +1054,9 @@
     <loc>https://www.zaikaworlds.com/zh/recipe/seekh-kebab</loc>
   </url>
   <url>
+    <loc>https://www.zaikaworlds.com/zh/recipe/kabuli-pulao</loc>
+  </url>
+  <url>
     <loc>https://www.zaikaworlds.com/ja/</loc>
   </url>
   <url>
@@ -1142,6 +1169,9 @@
   </url>
   <url>
     <loc>https://www.zaikaworlds.com/ja/recipe/seekh-kebab</loc>
+  </url>
+  <url>
+    <loc>https://www.zaikaworlds.com/ja/recipe/kabuli-pulao</loc>
   </url>
   <url>
     <loc>https://www.zaikaworlds.com/de/</loc>
@@ -1258,6 +1288,9 @@
     <loc>https://www.zaikaworlds.com/de/recipe/seekh-kebab</loc>
   </url>
   <url>
+    <loc>https://www.zaikaworlds.com/de/recipe/kabuli-pulao</loc>
+  </url>
+  <url>
     <loc>https://www.zaikaworlds.com/tr/</loc>
   </url>
   <url>
@@ -1370,6 +1403,9 @@
   </url>
   <url>
     <loc>https://www.zaikaworlds.com/tr/recipe/seekh-kebab</loc>
+  </url>
+  <url>
+    <loc>https://www.zaikaworlds.com/tr/recipe/kabuli-pulao</loc>
   </url>
   <url>
     <loc>https://www.zaikaworlds.com/bn/</loc>
@@ -1486,6 +1522,12 @@
     <loc>https://www.zaikaworlds.com/bn/recipe/seekh-kebab</loc>
   </url>
   <url>
+    <loc>https://www.zaikaworlds.com/bn/recipe/kabuli-pulao</loc>
+  </url>
+  <url>
+    <loc>https://www.zaikaworlds.com/category/asian-dishes</loc>
+  </url>
+  <url>
     <loc>https://www.zaikaworlds.com/category/bbq</loc>
   </url>
   <url>
@@ -1505,6 +1547,9 @@
   </url>
   <url>
     <loc>https://www.zaikaworlds.com/category/world-food</loc>
+  </url>
+  <url>
+    <loc>https://www.zaikaworlds.com/country/afghanistan</loc>
   </url>
   <url>
     <loc>https://www.zaikaworlds.com/country/australia</loc>

@@ -302,5 +302,13 @@
       <enclosure url="https://www.zaikaworlds.com/assets/seekh-kebab-5b121cc5.webp" type="image/webp" length="383476" />
       <media:content url="https://www.zaikaworlds.com/assets/seekh-kebab-5b121cc5.webp" type="image/webp" medium="image" />
     </item>
+    <item>
+      <title>Kabuli Pulao</title>
+      <link>https://www.zaikaworlds.com/recipe/kabuli-pulao</link>
+      <guid isPermaLink="true">https://www.zaikaworlds.com/recipe/kabuli-pulao</guid>
+      <description>Kabuli Pulao is Afghanistan's national dish — golden basmati rice layered with tender, gently spiced lamb, topped with caramelised carrots and plump raisins, and finished with slivered almonds and pistachios.</description>
+      <enclosure url="https://www.zaikaworlds.com/assets/kabuli-pulao-0730661f.webp" type="image/webp" length="488934" />
+      <media:content url="https://www.zaikaworlds.com/assets/kabuli-pulao-0730661f.webp" type="image/webp" medium="image" />
+    </item>
   </channel>
 </rss>

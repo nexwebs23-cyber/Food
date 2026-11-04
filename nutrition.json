@@ -360,5 +360,15 @@
     "sugarContent": 2.6,
     "fiberContent": 2.6,
     "sodiumContent": 687
+  },
+  "kabuli-pulao": {
+    "calories": 1274,
+    "proteinContent": 39.6,
+    "fatContent": 49.8,
+    "saturatedFatContent": 9.6,
+    "carbohydrateContent": 162.4,
+    "sugarContent": 23.4,
+    "fiberContent": 5.4,
+    "sodiumContent": 2428
   }
 }
