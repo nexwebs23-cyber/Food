@@ -334,5 +334,13 @@
       <enclosure url="https://www.zaikaworlds.com/assets/machboos-fd440d36.webp" type="image/webp" length="447026" />
       <media:content url="https://www.zaikaworlds.com/assets/machboos-fd440d36.webp" type="image/webp" medium="image" />
     </item>
+    <item>
+      <title>Ilish Bhapa</title>
+      <link>https://www.zaikaworlds.com/recipe/ilish-bhapa</link>
+      <guid isPermaLink="true">https://www.zaikaworlds.com/recipe/ilish-bhapa</guid>
+      <description>Ilish Bhapa is Bangladesh's beloved steamed hilsa — hilsa, the national fish of Bangladesh, steamed in a potent mustard, yoghurt and coconut paste with green chillies and mustard oil.</description>
+      <enclosure url="https://www.zaikaworlds.com/assets/ilish-bhapa-74cc4d65.webp" type="image/webp" length="516620" />
+      <media:content url="https://www.zaikaworlds.com/assets/ilish-bhapa-74cc4d65.webp" type="image/webp" medium="image" />
+    </item>
   </channel>
 </rss>

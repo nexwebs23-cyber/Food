@@ -130,6 +130,9 @@
     <loc>https://www.zaikaworlds.com/recipe/machboos</loc>
   </url>
   <url>
+    <loc>https://www.zaikaworlds.com/recipe/ilish-bhapa</loc>
+  </url>
+  <url>
     <loc>https://www.zaikaworlds.com/roman-urdu/</loc>
   </url>
   <url>
@@ -254,6 +257,9 @@
   </url>
   <url>
     <loc>https://www.zaikaworlds.com/roman-urdu/recipe/machboos</loc>
+  </url>
+  <url>
+    <loc>https://www.zaikaworlds.com/roman-urdu/recipe/ilish-bhapa</loc>
   </url>
   <url>
     <loc>https://www.zaikaworlds.com/hi/</loc>
@@ -382,6 +388,9 @@
     <loc>https://www.zaikaworlds.com/hi/recipe/machboos</loc>
   </url>
   <url>
+    <loc>https://www.zaikaworlds.com/hi/recipe/ilish-bhapa</loc>
+  </url>
+  <url>
     <loc>https://www.zaikaworlds.com/es/</loc>
   </url>
   <url>
@@ -506,6 +515,9 @@
   </url>
   <url>
     <loc>https://www.zaikaworlds.com/es/recipe/machboos</loc>
+  </url>
+  <url>
+    <loc>https://www.zaikaworlds.com/es/recipe/ilish-bhapa</loc>
   </url>
   <url>
     <loc>https://www.zaikaworlds.com/fr/</loc>
@@ -634,6 +646,9 @@
     <loc>https://www.zaikaworlds.com/fr/recipe/machboos</loc>
   </url>
   <url>
+    <loc>https://www.zaikaworlds.com/fr/recipe/ilish-bhapa</loc>
+  </url>
+  <url>
     <loc>https://www.zaikaworlds.com/ar/</loc>
   </url>
   <url>
@@ -758,6 +773,9 @@
   </url>
   <url>
     <loc>https://www.zaikaworlds.com/ar/recipe/machboos</loc>
+  </url>
+  <url>
+    <loc>https://www.zaikaworlds.com/ar/recipe/ilish-bhapa</loc>
   </url>
   <url>
     <loc>https://www.zaikaworlds.com/pt/</loc>
@@ -886,6 +904,9 @@
     <loc>https://www.zaikaworlds.com/pt/recipe/machboos</loc>
   </url>
   <url>
+    <loc>https://www.zaikaworlds.com/pt/recipe/ilish-bhapa</loc>
+  </url>
+  <url>
     <loc>https://www.zaikaworlds.com/ru/</loc>
   </url>
   <url>
@@ -1010,6 +1031,9 @@
   </url>
   <url>
     <loc>https://www.zaikaworlds.com/ru/recipe/machboos</loc>
+  </url>
+  <url>
+    <loc>https://www.zaikaworlds.com/ru/recipe/ilish-bhapa</loc>
   </url>
   <url>
     <loc>https://www.zaikaworlds.com/zh/</loc>
@@ -1138,6 +1162,9 @@
     <loc>https://www.zaikaworlds.com/zh/recipe/machboos</loc>
   </url>
   <url>
+    <loc>https://www.zaikaworlds.com/zh/recipe/ilish-bhapa</loc>
+  </url>
+  <url>
     <loc>https://www.zaikaworlds.com/ja/</loc>
   </url>
   <url>
@@ -1262,6 +1289,9 @@
   </url>
   <url>
     <loc>https://www.zaikaworlds.com/ja/recipe/machboos</loc>
+  </url>
+  <url>
+    <loc>https://www.zaikaworlds.com/ja/recipe/ilish-bhapa</loc>
   </url>
   <url>
     <loc>https://www.zaikaworlds.com/de/</loc>
@@ -1390,6 +1420,9 @@
     <loc>https://www.zaikaworlds.com/de/recipe/machboos</loc>
   </url>
   <url>
+    <loc>https://www.zaikaworlds.com/de/recipe/ilish-bhapa</loc>
+  </url>
+  <url>
     <loc>https://www.zaikaworlds.com/tr/</loc>
   </url>
   <url>
@@ -1514,6 +1547,9 @@
   </url>
   <url>
     <loc>https://www.zaikaworlds.com/tr/recipe/machboos</loc>
+  </url>
+  <url>
+    <loc>https://www.zaikaworlds.com/tr/recipe/ilish-bhapa</loc>
   </url>
   <url>
     <loc>https://www.zaikaworlds.com/bn/</loc>
@@ -1642,6 +1678,9 @@
     <loc>https://www.zaikaworlds.com/bn/recipe/machboos</loc>
   </url>
   <url>
+    <loc>https://www.zaikaworlds.com/bn/recipe/ilish-bhapa</loc>
+  </url>
+  <url>
     <loc>https://www.zaikaworlds.com/category/asian-dishes</loc>
   </url>
   <url>
@@ -1658,6 +1697,9 @@
   </url>
   <url>
     <loc>https://www.zaikaworlds.com/category/drinks</loc>
+  </url>
+  <url>
+    <loc>https://www.zaikaworlds.com/category/fish-dishes</loc>
   </url>
   <url>
     <loc>https://www.zaikaworlds.com/category/rice-dishes</loc>
@@ -1682,6 +1724,9 @@
   </url>
   <url>
     <loc>https://www.zaikaworlds.com/country/bahrain</loc>
+  </url>
+  <url>
+    <loc>https://www.zaikaworlds.com/country/bangladesh</loc>
   </url>
   <url>
     <loc>https://www.zaikaworlds.com/country/brazil</loc>

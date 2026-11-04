@@ -400,5 +400,15 @@
     "sugarContent": 5.2,
     "fiberContent": 4.3,
     "sodiumContent": 1337
+  },
+  "ilish-bhapa": {
+    "calories": 266,
+    "proteinContent": 15.0,
+    "fatContent": 20.4,
+    "saturatedFatContent": 5.8,
+    "carbohydrateContent": 7.7,
+    "sugarContent": 3.4,
+    "fiberContent": 2.6,
+    "sodiumContent": 2178
   }
 }
