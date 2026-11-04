@@ -1713,8 +1713,9 @@ document.addEventListener("click",function(e){
     persistSaved();
     render(); if(CURRENT_VIEW==="list"&&_currentList){renderListGrid(_currentList);} return;
   }
-  var openBtn=e.target.closest("[data-open]");
-  if(openBtn){ if(e.metaKey||e.ctrlKey||e.shiftKey||e.altKey) return; e.preventDefault(); openRecipe(openBtn.getAttribute("data-open")); return; }
+  // Direct normal navigation so homepage and direct URLs load the EXACT same static page:
+  // var openBtn=e.target.closest("[data-open]");
+  // if(openBtn){ if(e.metaKey||e.ctrlKey||e.shiftKey||e.altKey) return; e.preventDefault(); openRecipe(openBtn.getAttribute("data-open")); return; }
   var navLink=e.target.closest("a[data-section],a.wordmark,a[data-page],a[data-home]");
   if(navLink){ if(e.metaKey||e.ctrlKey||e.shiftKey||e.altKey) return; e.preventDefault();
     if(navLink.classList.contains("wordmark")||navLink.hasAttribute("data-home")){goHome();return;}
