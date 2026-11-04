@@ -2109,63 +2109,83 @@ button.pin-btn{display:inline-flex;align-items:center;gap:6px;background:#e60023
 }
 '''.strip()
 
-SITE_HEADER = (
-    '<header class="topbar-modern">'
-    '<div class="topbar-top">'
-    '<div class="topbar-inner">'
-    '<a class="brand" href="/">'
-    '<img class="logo-img" src="/assets/asset-22f1c053.png" alt="Zaika Worlds" width="36" height="36">'
-    'Zaika <span>Worlds</span></a>'
-    '<div class="lang-wrap">'
-    '<span class="globe-icon">&#127760;</span>'
-    '<select class="lang-select" onchange="if(this.value)location.href=this.value" aria-label="Select language">'
-    '<option value="" disabled selected>English</option>'
-    '<option value="/?lang=ur">&#x0627;&#x0631;&#x062F;&#x0648; Urdu</option>'
-    '<option value="/?lang=hi">Hindi &#x0939;&#x093F;&#x0902;&#x0926;&#x0940;</option>'
-    '<option value="/?lang=ar">&#x0639;&#x0631;&#x0628;&#x064A; Arabic</option>'
-    '<option value="/?lang=fr">Fran&#xe7;ais</option>'
-    '<option value="/?lang=es">Espa&#xf1;ol</option>'
-    '<option value="/?lang=zh">&#x4E2D;&#x6587; Chinese</option>'
-    '<option value="/?lang=tr">T&#xfc;rk&#xe7;e</option>'
-    '<option value="/?lang=id">Indonesia</option>'
-    '<option value="/?lang=bn">&#x09AC;&#x09BE;&#x0982;&#x09B2;&#x09BE; Bengali</option>'
-    '<option value="/?lang=sw">Kiswahili</option>'
-    '<option value="/?lang=ms">Melayu</option>'
-    '<option value="/?lang=ru">&#1056;&#1091;&#1089;&#1089;&#1082;&#1080;&#1081;</option>'
-    '</select></div>'
-    '<nav class="top-links">'
-    '<a href="/recipes">Recipes</a>'
-    '<a href="/category/world-food">World Food</a>'
-    '<a href="/trending">Trending</a>'
-    '<a href="/faqs">FAQs</a>'
-    '<a href="/about">About Us</a>'
-    '<a href="/privacy">Privacy Policy</a>'
-    '<a href="/contact">Contact Us</a>'
-    '<div class="cat-dropdown">'
-    '<button class="cat-btn" type="button" aria-haspopup="true">Categories &#x25BE;</button>'
-    '<div class="cat-menu">'
-    '<a href="/category/desi-dishes">&#x1F372; Desi Dishes</a>'
-    '<a href="/category/bbq-grills">&#x1F525; BBQ &amp; Grills</a>'
-    '<a href="/category/street-food">&#x1F9BA; Street Food</a>'
-    '<a href="/category/desserts">&#x1F36F; Desserts</a>'
-    '<a href="/category/breakfast">&#x1F373; Breakfast</a>'
-    '<a href="/category/drinks">&#x1F375; Drinks</a>'
-    '<a href="/category/world-food">&#x1F30D; World Food</a>'
-    '</div></div>'
-    '</nav>'
-    '<button class="saved-btn" type="button" onclick="location.href=\'/#saved\'" aria-label="Saved recipes">'
-    '&#x2665; Saved <span class="saved-count">(0)</span></button>'
-    '</div></div>'
-    '<div class="search-row">'
-    '<div class="search-inner">'
-    '<span class="search-icon">&#128269;</span>'
-    '<input class="search-box" type="search" placeholder="Biryani, nihari, halwa&hellip; type anything" '
-    'onkeydown="if(event.key===\'Enter\' && this.value.trim()) '
-    'location.href=\'/recipes?q=\'+encodeURIComponent(this.value.trim())" '
-    'aria-label="Search recipes">'
-    '</div></div>'
-    '</header>'
-)
+LANG_MENU_ITEMS = [
+    ('en', 'English'),
+    ('ru', 'Roman Urdu'),
+    ('hi', 'हिन्दी (Hindi)'),
+    ('ar', 'العربية (Arabic)'),
+    ('fr', 'Français (French)'),
+    ('es', 'Español (Spanish)'),
+    ('zh', '中文 (Chinese)'),
+    ('tr', 'Türkçe (Turkish)'),
+    ('pt', 'Português'),
+    ('bn', 'বাংলা (Bengali)'),
+    ('ja', '日本語 (Japanese)'),
+    ('de', 'Deutsch (German)'),
+    ('rus', 'Русский (Russian)')
+]
+
+def render_site_header(current_lang='en', path='/'):
+    """Generate dynamic header matching homepage structure with working language switcher for the current path."""
+    options = []
+    for l_code, l_label in LANG_MENU_ITEMS:
+        # compute relative URL for this language
+        if l_code == 'en':
+            target_href = path
+        else:
+            prefix = LANG_PREFIX.get(l_code, l_code)
+            target_href = '/' + prefix + (path if path != '/' else '')
+        selected = ' selected' if l_code == current_lang else ''
+        options.append('<option value="%s"%s>%s</option>' % (esc(target_href), selected, esc(l_label)))
+
+    lang_select_html = (
+        '<div class="lang-wrap">'
+        '<span class="globe-icon">&#127760;</span>'
+        '<select class="lang-select" onchange="if(this.value)location.href=this.value" aria-label="Select language">'
+        + ''.join(options) +
+        '</select></div>'
+    )
+
+    return (
+        '<header class="topbar-modern">'
+        '<div class="topbar-top">'
+        '<div class="topbar-inner">'
+        '<a class="brand" href="/">'
+        '<img class="logo-img" src="/assets/asset-22f1c053.png" alt="Zaika Worlds" width="44" height="44">'
+        'Zaika <span>Worlds</span></a>'
+        + lang_select_html +
+        '<nav class="top-links">'
+        '<a href="/recipes">Recipes</a>'
+        '<a href="/category/world-food">World Food</a>'
+        '<a href="/trending">Trending</a>'
+        '<a href="/faqs">FAQs</a>'
+        '<a href="/about">About Us</a>'
+        '<a href="/privacy">Privacy Policy</a>'
+        '<a href="/contact">Contact Us</a>'
+        '<div class="cat-dropdown">'
+        '<button class="cat-btn" type="button" aria-haspopup="true">Categories &#x25BE;</button>'
+        '<div class="cat-menu">'
+        '<a href="/category/desi-dishes">&#x1F372; Desi Dishes</a>'
+        '<a href="/category/bbq">&#x1F525; BBQ</a>'
+        '<a href="/category/breakfast">&#x1F373; Breakfast</a>'
+        '<a href="/category/street-food">&#x1F9BA; Street Food</a>'
+        '<a href="/category/desserts">&#x1F36F; Desserts</a>'
+        '<a href="/category/drinks">&#x1F375; Drinks</a>'
+        '<a href="/category/world-food">&#x1F30D; World Food</a>'
+        '</div></div>'
+        '</nav>'
+        '<button class="saved-btn" type="button" onclick="location.href=\'/#saved\'" aria-label="Saved recipes">'
+        '&#x2665; Saved</button>'
+        '</div></div>'
+        '<div class="search-row">'
+        '<div class="search-inner">'
+        '<span class="search-icon">&#128269;</span>'
+        '<input class="search-box" type="search" placeholder="Biryani, nihari, halwa&hellip; type anything" '
+        'onkeydown="if(event.key===\'Enter\' && this.value.trim()) location.href=\'/recipes?q=\'+encodeURIComponent(this.value.trim())" '
+        'aria-label="Search recipes">'
+        '</div></div>'
+        '</header>'
+    )
 
 SITE_FOOTER = ('''<footer class="site-footer">
   <div class="wrap">
@@ -2262,7 +2282,7 @@ SHARE_JS = ('<script>\n'
 
 def page_shell(title, desc, url, og_img, og_alt, json_ld_blocks, body,
                og_type='website', article_dates=None, hreflang=None,
-               html_lang='en'):
+               html_lang='en', current_path='/', lang_code='en'):
     """Full static HTML page. title must already be capped at 60 chars.
     og_type is 'article' on recipe pages (with article:published_time /
     article:modified_time only when article_dates gives real dates) and
@@ -2313,7 +2333,7 @@ def page_shell(title, desc, url, og_img, og_alt, json_ld_blocks, body,
             '<link rel="preconnect" href="https://fonts.googleapis.com">\n'
             '<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>\n'
             '<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">\n'
-            '</head>\n<body>\n' + SITE_HEADER + '\n<div class="wrap">\n'
+            '</head>\n<body>\n' + render_site_header(lang_code, current_path) + '\n<div class="wrap">\n'
             + body + '\n</div>\n' + SITE_FOOTER + '\n' + SHARE_JS
             + '</body>\n</html>\n')
 
@@ -3040,7 +3060,9 @@ def recipe_page(data, recipe, lang='en', dates=None):
                       body, og_type='article',
                       article_dates=article or None,
                       hreflang=hreflang_links(path),
-                      html_lang=LANG_HREFLANG[lang])
+                      html_lang=LANG_HREFLANG[lang],
+                      current_path=path,
+                      lang_code=lang)
 
 def list_json_ld(li):
     cld = {"@context": "https://schema.org", "@type": "CollectionPage",
@@ -3329,7 +3351,9 @@ def language_home_page(data, lang):
                         "url": SITE + "/"}}
     return page_shell(title, desc, url, DEF_IMG, DEF_ALT, [wld], body,
                       hreflang=hreflang_links('/'),
-                      html_lang=LANG_HREFLANG[lang])
+                      html_lang=LANG_HREFLANG[lang],
+                      current_path='/',
+                      lang_code=lang)
 
 
 def write_static_pages(data):
