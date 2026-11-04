@@ -168,6 +168,10 @@
   "ilish-bhapa": {
    "published": "2026-11-04",
    "source": "daily new-recipe run 2026-11-04 — first git commit adding Ilish Bhapa"
+  },
+  "ema-datshi": {
+   "published": "2026-11-04",
+   "source": "daily new-recipe run 2026-11-04 — first git commit adding Ema Datshi"
   }
  },
  "video": {
@@ -787,6 +791,21 @@
    "bn": "2026-11-04"
   },
   "ilish-bhapa": {
+   "en": "2026-11-04",
+   "ru": "2026-11-04",
+   "hi": "2026-11-04",
+   "es": "2026-11-04",
+   "fr": "2026-11-04",
+   "ar": "2026-11-04",
+   "pt": "2026-11-04",
+   "rus": "2026-11-04",
+   "zh": "2026-11-04",
+   "ja": "2026-11-04",
+   "de": "2026-11-04",
+   "tr": "2026-11-04",
+   "bn": "2026-11-04"
+  },
+  "ema-datshi": {
    "en": "2026-11-04",
    "ru": "2026-11-04",
    "hi": "2026-11-04",

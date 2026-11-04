@@ -1,13 +1,13 @@
 # Zaika Worlds
 
-> Cook famous dishes from Pakistan and India, plus favourites from around the world, with big photos and step by step methods. 42 recipes in 13 languages: English, Roman Urdu, Hindi, Spanish, French, Arabic, Portuguese, Russian, Chinese, Japanese, German, Turkish and Bengali. Forty-two recipes also have a video in all 13 languages.
+> Cook famous dishes from Pakistan and India, plus favourites from around the world, with big photos and step by step methods. 43 recipes in 13 languages: English, Roman Urdu, Hindi, Spanish, French, Arabic, Portuguese, Russian, Chinese, Japanese, German, Turkish and Bengali. Forty-three recipes also have a video in all 13 languages.
 
-- [Zaika Worlds](https://www.zaikaworlds.com/): home page with all 42 recipes, search, categories and trending dishes
+- [Zaika Worlds](https://www.zaikaworlds.com/): home page with all 43 recipes, search, categories and trending dishes
 - [About](https://www.zaikaworlds.com/about): how the recipes are written
 - [Privacy Policy](https://www.zaikaworlds.com/privacy): what this site does and does not collect
 - [Contact](https://www.zaikaworlds.com/contact): write about a recipe, a correction, or a question about this site
 - [Sitemap](https://www.zaikaworlds.com/sitemap.xml): all pages
-- [RSS feed](https://www.zaikaworlds.com/feed.xml): all 42 recipes
+- [RSS feed](https://www.zaikaworlds.com/feed.xml): all 43 recipes
 
 ## Recipes
 
@@ -53,9 +53,10 @@
 - [Plov](https://www.zaikaworlds.com/recipe/plov) (Azerbaijan, 90 min): Plov is Azerbaijan's national dish — golden saffron basmati rice layered with tender lamb, chestnuts and dried fruits, steamed slowly in one pot until the grains are separate and fluffy.
 - [Machboos](https://www.zaikaworlds.com/recipe/machboos) (Bahrain, 135 min): Machboos is Bahrain's national dish — tender chicken simmered in a fragrant stock of baharat, dried black limes, tomatoes, garlic and ginger, then served over golden basmati rice cooked in that same stock and finished with rose water, lemon juice and butter.
 - [Ilish Bhapa](https://www.zaikaworlds.com/recipe/ilish-bhapa) (Bangladesh, 40 min): Ilish Bhapa is Bangladesh's beloved steamed hilsa — hilsa, the national fish of Bangladesh, steamed in a potent mustard, yoghurt and coconut paste with green chillies and mustard oil.
+- [Ema Datshi](https://www.zaikaworlds.com/recipe/ema-datshi) (Bhutan, 25 min): Ema Datshi is Bhutan's national dish — 'ema' means chilli and 'datshi' means cheese in Dzongkha.
 
 ## Notes
 
 - Every recipe has ingredients with quantities, a step by step method, cooking time and servings.
-- Recipe videos are added per recipe; 42 recipes have a video in all 13 languages and the rest are being added.
+- Recipe videos are added per recipe; 43 recipes have a video in all 13 languages and the rest are being added.
 - Saved recipes are stored in the visitor's own browser (localStorage), not on this site.

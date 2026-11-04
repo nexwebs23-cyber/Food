@@ -410,5 +410,15 @@
     "sugarContent": 3.4,
     "fiberContent": 2.6,
     "sodiumContent": 2178
+  },
+  "ema-datshi": {
+    "calories": 246,
+    "proteinContent": 7.5,
+    "fatContent": 18.1,
+    "saturatedFatContent": 10.0,
+    "carbohydrateContent": 15.6,
+    "sugarContent": 8.3,
+    "fiberContent": 4.2,
+    "sodiumContent": 1448
   }
 }

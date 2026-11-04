@@ -342,5 +342,13 @@
       <enclosure url="https://www.zaikaworlds.com/assets/ilish-bhapa-74cc4d65.webp" type="image/webp" length="516620" />
       <media:content url="https://www.zaikaworlds.com/assets/ilish-bhapa-74cc4d65.webp" type="image/webp" medium="image" />
     </item>
+    <item>
+      <title>Ema Datshi</title>
+      <link>https://www.zaikaworlds.com/recipe/ema-datshi</link>
+      <guid isPermaLink="true">https://www.zaikaworlds.com/recipe/ema-datshi</guid>
+      <description>Ema Datshi is Bhutan's national dish — 'ema' means chilli and 'datshi' means cheese in Dzongkha.</description>
+      <enclosure url="https://www.zaikaworlds.com/assets/ema-datshi-4f140328.webp" type="image/webp" length="280636" />
+      <media:content url="https://www.zaikaworlds.com/assets/ema-datshi-4f140328.webp" type="image/webp" medium="image" />
+    </item>
   </channel>
 </rss>
