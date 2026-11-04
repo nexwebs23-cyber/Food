@@ -294,5 +294,13 @@
       <enclosure url="https://www.zaikaworlds.com/assets/kheer-8d799a64.webp" type="image/webp" length="255282" />
       <media:content url="https://www.zaikaworlds.com/assets/kheer-8d799a64.webp" type="image/webp" medium="image" />
     </item>
+    <item>
+      <title>Seekh Kebab</title>
+      <link>https://www.zaikaworlds.com/recipe/seekh-kebab</link>
+      <guid isPermaLink="true">https://www.zaikaworlds.com/recipe/seekh-kebab</guid>
+      <description>Seekh kebab is Pakistan's smoky char-grilled classic — minced lamb kneaded with onion, garlic, ginger, green chillies, coriander and mint, bound with gram flour and egg, pressed onto skewers and grilled over charcoal until charred outside and juicy inside.</description>
+      <enclosure url="https://www.zaikaworlds.com/assets/seekh-kebab-5b121cc5.webp" type="image/webp" length="383476" />
+      <media:content url="https://www.zaikaworlds.com/assets/seekh-kebab-5b121cc5.webp" type="image/webp" medium="image" />
+    </item>
   </channel>
 </rss>

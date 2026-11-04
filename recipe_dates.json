@@ -144,6 +144,10 @@
   "kheer": {
    "published": "2026-11-03",
    "source": "daily new-recipe run 2026-11-03 — first git commit adding Kheer"
+  },
+  "seekh-kebab": {
+   "published": "2026-11-04",
+   "source": "daily new-recipe run 2026-11-04 — first git commit adding Seekh Kebab"
   }
  },
  "video": {
@@ -686,6 +690,21 @@
    "de": "2026-10-29",
    "tr": "2026-10-29",
    "bn": "2026-10-29"
+  },
+  "seekh-kebab": {
+   "en": "2026-11-03",
+   "ru": "2026-11-03",
+   "hi": "2026-11-03",
+   "es": "2026-11-03",
+   "fr": "2026-11-03",
+   "ar": "2026-11-03",
+   "pt": "2026-11-03",
+   "rus": "2026-11-03",
+   "zh": "2026-11-03",
+   "ja": "2026-11-03",
+   "de": "2026-11-03",
+   "tr": "2026-11-03",
+   "bn": "2026-11-03"
   }
  }
 }

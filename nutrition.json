@@ -350,5 +350,15 @@
     "sugarContent": 22.4,
     "fiberContent": 0.5,
     "sodiumContent": 76
+  },
+  "seekh-kebab": {
+    "calories": 454,
+    "proteinContent": 24.7,
+    "fatContent": 35.4,
+    "saturatedFatContent": 13.9,
+    "carbohydrateContent": 10.1,
+    "sugarContent": 2.6,
+    "fiberContent": 2.6,
+    "sodiumContent": 687
   }
 }
