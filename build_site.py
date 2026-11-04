@@ -3025,8 +3025,22 @@ def build_slim(src, data):
     if _patch_n != 81:
         raise JSError("expected 81 UI patch statements, found %d" % _patch_n)
     # EXTRA_NEW per-recipe assignments + whole-language literals — delete.
-    for m in re.finditer(r'(?<=[\n;])EXTRA_NEW\.([a-z]+)\.([a-z0-9_-]+)\s*=\s*\[', out):
-        j = out.find('[', m.start())
+    # NOTE (2026-11-04): the regex must match BOTH dot notation
+    # (EXTRA_NEW.es.chapli=[...]) AND bracket notation
+    # (EXTRA_NEW.es["seekh-kebab"]=[...]). The 10 new recipes added
+    # 2026-11-03/04 use bracket notation for hyphenated ids; the old
+    # dot-only regex left those 20 assignments in the slim output while
+    # the `var EXTRA_NEW={...}` declaration was deleted, so the slim
+    # page threw "EXTRA_NEW is not defined", RECIPES stayed null, and
+    # every homepage recipe click did nothing. Mirror the extraction
+    # regex (line 1533), which already handles both forms.
+    for m in re.finditer(r'(?<=[\n;])EXTRA_NEW\.([a-z]+)(?:\.([a-z0-9_-]+)|\["([a-z0-9_-]+)"\])\s*=\s*\[', out):
+        # The regex match ends on the array '[' itself, so use m.end()-1:
+        # out.find('[', m.start()) would land on the '[' inside
+        # ["chicken-korma"] for bracket notation, and raw_braced would
+        # then stop at the id's ']' — leaving the array tail behind as
+        # a syntax error (2026-11-04: this broke the slim build).
+        j = m.end() - 1
         _, e2 = raw_braced(out, j)
         semi = out.find(';', e2)
         spans.append((m.start(), semi + 1, ''))
