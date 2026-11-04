@@ -390,5 +390,15 @@
     "sugarContent": 35.5,
     "fiberContent": 6.9,
     "sodiumContent": 730
+  },
+  "machboos": {
+    "calories": 776,
+    "proteinContent": 41.6,
+    "fatContent": 22.6,
+    "saturatedFatContent": 7.4,
+    "carbohydrateContent": 96.9,
+    "sugarContent": 5.2,
+    "fiberContent": 4.3,
+    "sodiumContent": 1337
   }
 }

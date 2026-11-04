@@ -326,5 +326,13 @@
       <enclosure url="https://www.zaikaworlds.com/assets/plov-c341c480.webp" type="image/webp" length="398620" />
       <media:content url="https://www.zaikaworlds.com/assets/plov-c341c480.webp" type="image/webp" medium="image" />
     </item>
+    <item>
+      <title>Machboos</title>
+      <link>https://www.zaikaworlds.com/recipe/machboos</link>
+      <guid isPermaLink="true">https://www.zaikaworlds.com/recipe/machboos</guid>
+      <description>Machboos is Bahrain's national dish — tender chicken simmered in a fragrant stock of baharat, dried black limes, tomatoes, garlic and ginger, then served over golden basmati rice cooked in that same stock and finished with rose water, lemon juice and butter.</description>
+      <enclosure url="https://www.zaikaworlds.com/assets/machboos-fd440d36.webp" type="image/webp" length="447026" />
+      <media:content url="https://www.zaikaworlds.com/assets/machboos-fd440d36.webp" type="image/webp" medium="image" />
+    </item>
   </channel>
 </rss>
