@@ -450,5 +450,32 @@
     "sugarContent": 2.4,
     "fiberContent": 2.7,
     "sodiumContent": 2939
+  },
+  "mutton-pulao": {
+    "calories": 680,
+    "proteinContent": 36.4,
+    "fatContent": 24.1,
+    "saturatedFatContent": 11.2,
+    "carbohydrateContent": 78.5,
+    "sugarContent": 3.8,
+    "fiberContent": 3.2
+  },
+  "shami-kabab": {
+    "calories": 240,
+    "proteinContent": 22.8,
+    "fatContent": 12.5,
+    "saturatedFatContent": 4.1,
+    "carbohydrateContent": 9.4,
+    "sugarContent": 1.1,
+    "fiberContent": 2.8
+  },
+  "chicken-mandi": {
+    "calories": 740,
+    "proteinContent": 48.2,
+    "fatContent": 26.5,
+    "saturatedFatContent": 8.7,
+    "carbohydrateContent": 76.1,
+    "sugarContent": 4.5,
+    "fiberContent": 3.8
   }
 }

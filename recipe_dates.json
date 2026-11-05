@@ -1,881 +1,893 @@
 {
- "_note": "Real dates only. Article published = the git root commit that first added all 32 recipes (no per-recipe add date exists; modified is omitted). Video uploadDate = the date that recipe's YouTube videos went Public (publish-progress.md + dated logs). Recipes with no videos embedded on the site (daal and the 16 not yet published) have no video entry.",
- "article": {
-  "biryani": {
-   "published": "2026-10-28",
-   "source": "git root commit 860a4e7 (2026-10-28 10:48:58 +0500) — first commit adding index.html; all 32 recipes added together, no per-recipe date exists"
+  "_note": "Real dates only. Article published = the git root commit that first added all 32 recipes (no per-recipe add date exists; modified is omitted). Video uploadDate = the date that recipe's YouTube videos went Public (publish-progress.md + dated logs). Recipes with no videos embedded on the site (daal and the 16 not yet published) have no video entry.",
+  "article": {
+    "biryani": {
+      "published": "2026-10-28",
+      "source": "git root commit 860a4e7 (2026-10-28 10:48:58 +0500) — first commit adding index.html; all 32 recipes added together, no per-recipe date exists"
+    },
+    "nihari": {
+      "published": "2026-10-28",
+      "source": "git root commit 860a4e7 (2026-10-28 10:48:58 +0500) — first commit adding index.html; all 32 recipes added together, no per-recipe date exists"
+    },
+    "karahi": {
+      "published": "2026-10-28",
+      "source": "git root commit 860a4e7 (2026-10-28 10:48:58 +0500) — first commit adding index.html; all 32 recipes added together, no per-recipe date exists"
+    },
+    "daal": {
+      "published": "2026-10-28",
+      "source": "git root commit 860a4e7 (2026-10-28 10:48:58 +0500) — first commit adding index.html; all 32 recipes added together, no per-recipe date exists"
+    },
+    "chapli": {
+      "published": "2026-10-28",
+      "source": "git root commit 860a4e7 (2026-10-28 10:48:58 +0500) — first commit adding index.html; all 32 recipes added together, no per-recipe date exists"
+    },
+    "tikka": {
+      "published": "2026-10-28",
+      "source": "git root commit 860a4e7 (2026-10-28 10:48:58 +0500) — first commit adding index.html; all 32 recipes added together, no per-recipe date exists"
+    },
+    "halwapuri": {
+      "published": "2026-10-28",
+      "source": "git root commit 860a4e7 (2026-10-28 10:48:58 +0500) — first commit adding index.html; all 32 recipes added together, no per-recipe date exists"
+    },
+    "samosa": {
+      "published": "2026-10-28",
+      "source": "git root commit 860a4e7 (2026-10-28 10:48:58 +0500) — first commit adding index.html; all 32 recipes added together, no per-recipe date exists"
+    },
+    "bunkebab": {
+      "published": "2026-10-28",
+      "source": "git root commit 860a4e7 (2026-10-28 10:48:58 +0500) — first commit adding index.html; all 32 recipes added together, no per-recipe date exists"
+    },
+    "gulabjamun": {
+      "published": "2026-10-28",
+      "source": "git root commit 860a4e7 (2026-10-28 10:48:58 +0500) — first commit adding index.html; all 32 recipes added together, no per-recipe date exists"
+    },
+    "gajarhalwa": {
+      "published": "2026-10-28",
+      "source": "git root commit 860a4e7 (2026-10-28 10:48:58 +0500) — first commit adding index.html; all 32 recipes added together, no per-recipe date exists"
+    },
+    "lassi": {
+      "published": "2026-10-28",
+      "source": "git root commit 860a4e7 (2026-10-28 10:48:58 +0500) — first commit adding index.html; all 32 recipes added together, no per-recipe date exists"
+    },
+    "pizza": {
+      "published": "2026-10-28",
+      "source": "git root commit 860a4e7 (2026-10-28 10:48:58 +0500) — first commit adding index.html; all 32 recipes added together, no per-recipe date exists"
+    },
+    "carbonara": {
+      "published": "2026-10-28",
+      "source": "git root commit 860a4e7 (2026-10-28 10:48:58 +0500) — first commit adding index.html; all 32 recipes added together, no per-recipe date exists"
+    },
+    "sushi": {
+      "published": "2026-10-28",
+      "source": "git root commit 860a4e7 (2026-10-28 10:48:58 +0500) — first commit adding index.html; all 32 recipes added together, no per-recipe date exists"
+    },
+    "ramen": {
+      "published": "2026-10-28",
+      "source": "git root commit 860a4e7 (2026-10-28 10:48:58 +0500) — first commit adding index.html; all 32 recipes added together, no per-recipe date exists"
+    },
+    "tacos": {
+      "published": "2026-10-28",
+      "source": "git root commit 860a4e7 (2026-10-28 10:48:58 +0500) — first commit adding index.html; all 32 recipes added together, no per-recipe date exists"
+    },
+    "pozole": {
+      "published": "2026-10-28",
+      "source": "git root commit 860a4e7 (2026-10-28 10:48:58 +0500) — first commit adding index.html; all 32 recipes added together, no per-recipe date exists"
+    },
+    "padthai": {
+      "published": "2026-10-28",
+      "source": "git root commit 860a4e7 (2026-10-28 10:48:58 +0500) — first commit adding index.html; all 32 recipes added together, no per-recipe date exists"
+    },
+    "pekingduck": {
+      "published": "2026-10-28",
+      "source": "git root commit 860a4e7 (2026-10-28 10:48:58 +0500) — first commit adding index.html; all 32 recipes added together, no per-recipe date exists"
+    },
+    "dimsum": {
+      "published": "2026-10-28",
+      "source": "git root commit 860a4e7 (2026-10-28 10:48:58 +0500) — first commit adding index.html; all 32 recipes added together, no per-recipe date exists"
+    },
+    "coqauvin": {
+      "published": "2026-10-28",
+      "source": "git root commit 860a4e7 (2026-10-28 10:48:58 +0500) — first commit adding index.html; all 32 recipes added together, no per-recipe date exists"
+    },
+    "bouillabaisse": {
+      "published": "2026-10-28",
+      "source": "git root commit 860a4e7 (2026-10-28 10:48:58 +0500) — first commit adding index.html; all 32 recipes added together, no per-recipe date exists"
+    },
+    "paella": {
+      "published": "2026-10-28",
+      "source": "git root commit 860a4e7 (2026-10-28 10:48:58 +0500) — first commit adding index.html; all 32 recipes added together, no per-recipe date exists"
+    },
+    "beefpho": {
+      "published": "2026-10-28",
+      "source": "git root commit 860a4e7 (2026-10-28 10:48:58 +0500) — first commit adding index.html; all 32 recipes added together, no per-recipe date exists"
+    },
+    "poutine": {
+      "published": "2026-10-28",
+      "source": "git root commit 860a4e7 (2026-10-28 10:48:58 +0500) — first commit adding index.html; all 32 recipes added together, no per-recipe date exists"
+    },
+    "bobotie": {
+      "published": "2026-10-28",
+      "source": "git root commit 860a4e7 (2026-10-28 10:48:58 +0500) — first commit adding index.html; all 32 recipes added together, no per-recipe date exists"
+    },
+    "moussaka": {
+      "published": "2026-10-28",
+      "source": "git root commit 860a4e7 (2026-10-28 10:48:58 +0500) — first commit adding index.html; all 32 recipes added together, no per-recipe date exists"
+    },
+    "hummus": {
+      "published": "2026-10-28",
+      "source": "git root commit 860a4e7 (2026-10-28 10:48:58 +0500) — first commit adding index.html; all 32 recipes added together, no per-recipe date exists"
+    },
+    "falafel": {
+      "published": "2026-10-28",
+      "source": "git root commit 860a4e7 (2026-10-28 10:48:58 +0500) — first commit adding index.html; all 32 recipes added together, no per-recipe date exists"
+    },
+    "feijoada": {
+      "published": "2026-10-28",
+      "source": "git root commit 860a4e7 (2026-10-28 10:48:58 +0500) — first commit adding index.html; all 32 recipes added together, no per-recipe date exists"
+    },
+    "meatpie": {
+      "published": "2026-10-28",
+      "source": "git root commit 860a4e7 (2026-10-28 10:48:58 +0500) — first commit adding index.html; all 32 recipes added together, no per-recipe date exists"
+    },
+    "haleem": {
+      "published": "2026-10-31",
+      "source": "daily new-recipe run 2026-10-31 — first git commit adding Haleem"
+    },
+    "chicken-korma": {
+      "published": "2026-11-01",
+      "source": "daily new-recipe run 2026-11-01 — first git commit adding Chicken Korma"
+    },
+    "aloo-paratha": {
+      "published": "2026-11-02",
+      "source": "daily new-recipe run 2026-11-02 — first git commit adding Aloo Paratha"
+    },
+    "kheer": {
+      "published": "2026-11-03",
+      "source": "daily new-recipe run 2026-11-03 — first git commit adding Kheer"
+    },
+    "seekh-kebab": {
+      "published": "2026-11-04",
+      "source": "daily new-recipe run 2026-11-04 — first git commit adding Seekh Kebab"
+    },
+    "kabuli-pulao": {
+      "published": "2026-11-04",
+      "source": "daily new-recipe run 2026-11-04 — first git commit adding Kabuli Pulao"
+    },
+    "dolma": {
+      "published": "2026-11-04",
+      "source": "daily new-recipe run 2026-11-04 — first git commit adding Dolma"
+    },
+    "plov": {
+      "published": "2026-11-04",
+      "source": "daily new-recipe run 2026-11-04 — first git commit adding Plov"
+    },
+    "machboos": {
+      "published": "2026-11-04",
+      "source": "daily new-recipe run 2026-11-04 — first git commit adding Machboos"
+    },
+    "ilish-bhapa": {
+      "published": "2026-11-04",
+      "source": "daily new-recipe run 2026-11-04 — first git commit adding Ilish Bhapa"
+    },
+    "ema-datshi": {
+      "published": "2026-11-04",
+      "source": "daily new-recipe run 2026-11-04 — first git commit adding Ema Datshi"
+    },
+    "ambuyat": {
+      "published": "2026-11-04",
+      "source": "daily new-recipe run 2026-11-04 — first git commit adding Ambuyat"
+    },
+    "fish-amok": {
+      "published": "2026-11-04",
+      "source": "daily new-recipe run 2026-11-04 — first git commit adding Fish Amok"
+    },
+    "souvla": {
+      "published": "2026-11-04",
+      "source": "daily new-recipe run 2026-11-04 — first git commit adding Souvla"
+    },
+    "mutton-pulao": {
+      "published": "2026-11-05",
+      "source": "auto published on 2026-11-05"
+    },
+    "shami-kabab": {
+      "published": "2026-11-05",
+      "source": "auto published on 2026-11-05"
+    },
+    "chicken-mandi": {
+      "published": "2026-11-05",
+      "source": "auto published on 2026-11-05"
+    }
   },
-  "nihari": {
-   "published": "2026-10-28",
-   "source": "git root commit 860a4e7 (2026-10-28 10:48:58 +0500) — first commit adding index.html; all 32 recipes added together, no per-recipe date exists"
-  },
-  "karahi": {
-   "published": "2026-10-28",
-   "source": "git root commit 860a4e7 (2026-10-28 10:48:58 +0500) — first commit adding index.html; all 32 recipes added together, no per-recipe date exists"
-  },
-  "daal": {
-   "published": "2026-10-28",
-   "source": "git root commit 860a4e7 (2026-10-28 10:48:58 +0500) — first commit adding index.html; all 32 recipes added together, no per-recipe date exists"
-  },
-  "chapli": {
-   "published": "2026-10-28",
-   "source": "git root commit 860a4e7 (2026-10-28 10:48:58 +0500) — first commit adding index.html; all 32 recipes added together, no per-recipe date exists"
-  },
-  "tikka": {
-   "published": "2026-10-28",
-   "source": "git root commit 860a4e7 (2026-10-28 10:48:58 +0500) — first commit adding index.html; all 32 recipes added together, no per-recipe date exists"
-  },
-  "halwapuri": {
-   "published": "2026-10-28",
-   "source": "git root commit 860a4e7 (2026-10-28 10:48:58 +0500) — first commit adding index.html; all 32 recipes added together, no per-recipe date exists"
-  },
-  "samosa": {
-   "published": "2026-10-28",
-   "source": "git root commit 860a4e7 (2026-10-28 10:48:58 +0500) — first commit adding index.html; all 32 recipes added together, no per-recipe date exists"
-  },
-  "bunkebab": {
-   "published": "2026-10-28",
-   "source": "git root commit 860a4e7 (2026-10-28 10:48:58 +0500) — first commit adding index.html; all 32 recipes added together, no per-recipe date exists"
-  },
-  "gulabjamun": {
-   "published": "2026-10-28",
-   "source": "git root commit 860a4e7 (2026-10-28 10:48:58 +0500) — first commit adding index.html; all 32 recipes added together, no per-recipe date exists"
-  },
-  "gajarhalwa": {
-   "published": "2026-10-28",
-   "source": "git root commit 860a4e7 (2026-10-28 10:48:58 +0500) — first commit adding index.html; all 32 recipes added together, no per-recipe date exists"
-  },
-  "lassi": {
-   "published": "2026-10-28",
-   "source": "git root commit 860a4e7 (2026-10-28 10:48:58 +0500) — first commit adding index.html; all 32 recipes added together, no per-recipe date exists"
-  },
-  "pizza": {
-   "published": "2026-10-28",
-   "source": "git root commit 860a4e7 (2026-10-28 10:48:58 +0500) — first commit adding index.html; all 32 recipes added together, no per-recipe date exists"
-  },
-  "carbonara": {
-   "published": "2026-10-28",
-   "source": "git root commit 860a4e7 (2026-10-28 10:48:58 +0500) — first commit adding index.html; all 32 recipes added together, no per-recipe date exists"
-  },
-  "sushi": {
-   "published": "2026-10-28",
-   "source": "git root commit 860a4e7 (2026-10-28 10:48:58 +0500) — first commit adding index.html; all 32 recipes added together, no per-recipe date exists"
-  },
-  "ramen": {
-   "published": "2026-10-28",
-   "source": "git root commit 860a4e7 (2026-10-28 10:48:58 +0500) — first commit adding index.html; all 32 recipes added together, no per-recipe date exists"
-  },
-  "tacos": {
-   "published": "2026-10-28",
-   "source": "git root commit 860a4e7 (2026-10-28 10:48:58 +0500) — first commit adding index.html; all 32 recipes added together, no per-recipe date exists"
-  },
-  "pozole": {
-   "published": "2026-10-28",
-   "source": "git root commit 860a4e7 (2026-10-28 10:48:58 +0500) — first commit adding index.html; all 32 recipes added together, no per-recipe date exists"
-  },
-  "padthai": {
-   "published": "2026-10-28",
-   "source": "git root commit 860a4e7 (2026-10-28 10:48:58 +0500) — first commit adding index.html; all 32 recipes added together, no per-recipe date exists"
-  },
-  "pekingduck": {
-   "published": "2026-10-28",
-   "source": "git root commit 860a4e7 (2026-10-28 10:48:58 +0500) — first commit adding index.html; all 32 recipes added together, no per-recipe date exists"
-  },
-  "dimsum": {
-   "published": "2026-10-28",
-   "source": "git root commit 860a4e7 (2026-10-28 10:48:58 +0500) — first commit adding index.html; all 32 recipes added together, no per-recipe date exists"
-  },
-  "coqauvin": {
-   "published": "2026-10-28",
-   "source": "git root commit 860a4e7 (2026-10-28 10:48:58 +0500) — first commit adding index.html; all 32 recipes added together, no per-recipe date exists"
-  },
-  "bouillabaisse": {
-   "published": "2026-10-28",
-   "source": "git root commit 860a4e7 (2026-10-28 10:48:58 +0500) — first commit adding index.html; all 32 recipes added together, no per-recipe date exists"
-  },
-  "paella": {
-   "published": "2026-10-28",
-   "source": "git root commit 860a4e7 (2026-10-28 10:48:58 +0500) — first commit adding index.html; all 32 recipes added together, no per-recipe date exists"
-  },
-  "beefpho": {
-   "published": "2026-10-28",
-   "source": "git root commit 860a4e7 (2026-10-28 10:48:58 +0500) — first commit adding index.html; all 32 recipes added together, no per-recipe date exists"
-  },
-  "poutine": {
-   "published": "2026-10-28",
-   "source": "git root commit 860a4e7 (2026-10-28 10:48:58 +0500) — first commit adding index.html; all 32 recipes added together, no per-recipe date exists"
-  },
-  "bobotie": {
-   "published": "2026-10-28",
-   "source": "git root commit 860a4e7 (2026-10-28 10:48:58 +0500) — first commit adding index.html; all 32 recipes added together, no per-recipe date exists"
-  },
-  "moussaka": {
-   "published": "2026-10-28",
-   "source": "git root commit 860a4e7 (2026-10-28 10:48:58 +0500) — first commit adding index.html; all 32 recipes added together, no per-recipe date exists"
-  },
-  "hummus": {
-   "published": "2026-10-28",
-   "source": "git root commit 860a4e7 (2026-10-28 10:48:58 +0500) — first commit adding index.html; all 32 recipes added together, no per-recipe date exists"
-  },
-  "falafel": {
-   "published": "2026-10-28",
-   "source": "git root commit 860a4e7 (2026-10-28 10:48:58 +0500) — first commit adding index.html; all 32 recipes added together, no per-recipe date exists"
-  },
-  "feijoada": {
-   "published": "2026-10-28",
-   "source": "git root commit 860a4e7 (2026-10-28 10:48:58 +0500) — first commit adding index.html; all 32 recipes added together, no per-recipe date exists"
-  },
-  "meatpie": {
-   "published": "2026-10-28",
-   "source": "git root commit 860a4e7 (2026-10-28 10:48:58 +0500) — first commit adding index.html; all 32 recipes added together, no per-recipe date exists"
-  },
-  "haleem": {
-   "published": "2026-10-31",
-   "source": "daily new-recipe run 2026-10-31 — first git commit adding Haleem"
-  },
-  "chicken-korma": {
-   "published": "2026-11-01",
-   "source": "daily new-recipe run 2026-11-01 — first git commit adding Chicken Korma"
-  },
-  "aloo-paratha": {
-   "published": "2026-11-02",
-   "source": "daily new-recipe run 2026-11-02 — first git commit adding Aloo Paratha"
-  },
-  "kheer": {
-   "published": "2026-11-03",
-   "source": "daily new-recipe run 2026-11-03 — first git commit adding Kheer"
-  },
-  "seekh-kebab": {
-   "published": "2026-11-04",
-   "source": "daily new-recipe run 2026-11-04 — first git commit adding Seekh Kebab"
-  },
-  "kabuli-pulao": {
-   "published": "2026-11-04",
-   "source": "daily new-recipe run 2026-11-04 — first git commit adding Kabuli Pulao"
-  },
-  "dolma": {
-   "published": "2026-11-04",
-   "source": "daily new-recipe run 2026-11-04 — first git commit adding Dolma"
-  },
-  "plov": {
-   "published": "2026-11-04",
-   "source": "daily new-recipe run 2026-11-04 — first git commit adding Plov"
-  },
-  "machboos": {
-   "published": "2026-11-04",
-   "source": "daily new-recipe run 2026-11-04 — first git commit adding Machboos"
-  },
-  "ilish-bhapa": {
-   "published": "2026-11-04",
-   "source": "daily new-recipe run 2026-11-04 — first git commit adding Ilish Bhapa"
-  },
-  "ema-datshi": {
-   "published": "2026-11-04",
-   "source": "daily new-recipe run 2026-11-04 — first git commit adding Ema Datshi"
-  },
-  "ambuyat": {
-   "published": "2026-11-04",
-   "source": "daily new-recipe run 2026-11-04 — first git commit adding Ambuyat"
-  },
-  "fish-amok": {
-   "published": "2026-11-04",
-   "source": "daily new-recipe run 2026-11-04 — first git commit adding Fish Amok"
-  },
-  "souvla": {
-   "published": "2026-11-04",
-   "source": "daily new-recipe run 2026-11-04 — first git commit adding Souvla"
+  "video": {
+    "nihari": {
+      "en": "2026-10-28",
+      "ru": "2026-10-28",
+      "hi": "2026-10-28",
+      "es": "2026-10-28",
+      "fr": "2026-10-28",
+      "ar": "2026-10-28",
+      "pt": "2026-10-28",
+      "rus": "2026-10-28",
+      "zh": "2026-10-28",
+      "ja": "2026-10-28",
+      "de": "2026-10-28",
+      "tr": "2026-10-28",
+      "bn": "2026-10-28"
+    },
+    "biryani": {
+      "en": "2026-10-29",
+      "ru": "2026-10-29",
+      "hi": "2026-10-29",
+      "es": "2026-10-29",
+      "fr": "2026-10-29",
+      "ar": "2026-10-29",
+      "pt": "2026-10-29",
+      "rus": "2026-10-29",
+      "zh": "2026-10-29",
+      "ja": "2026-10-29",
+      "de": "2026-10-29",
+      "tr": "2026-10-29",
+      "bn": "2026-10-29"
+    },
+    "karahi": {
+      "en": "2026-10-29",
+      "ru": "2026-10-29",
+      "hi": "2026-10-29",
+      "es": "2026-10-29",
+      "fr": "2026-10-29",
+      "ar": "2026-10-29",
+      "pt": "2026-10-29",
+      "rus": "2026-10-29",
+      "zh": "2026-10-29",
+      "ja": "2026-10-29",
+      "de": "2026-10-29",
+      "tr": "2026-10-29",
+      "bn": "2026-10-29"
+    },
+    "halwapuri": {
+      "en": "2026-10-29",
+      "ru": "2026-10-29",
+      "hi": "2026-10-29",
+      "es": "2026-10-29",
+      "fr": "2026-10-29",
+      "ar": "2026-10-29",
+      "pt": "2026-10-29",
+      "rus": "2026-10-29",
+      "zh": "2026-10-29",
+      "ja": "2026-10-29",
+      "de": "2026-10-29",
+      "tr": "2026-10-29",
+      "bn": "2026-10-29"
+    },
+    "lassi": {
+      "en": "2026-10-29",
+      "ru": "2026-10-29",
+      "hi": "2026-10-29",
+      "es": "2026-10-29",
+      "fr": "2026-10-29",
+      "ar": "2026-10-29",
+      "pt": "2026-10-29",
+      "rus": "2026-10-29",
+      "zh": "2026-10-29",
+      "ja": "2026-10-29",
+      "de": "2026-10-29",
+      "tr": "2026-10-29",
+      "bn": "2026-10-29"
+    },
+    "chapli": {
+      "en": "2026-10-29",
+      "ru": "2026-10-29",
+      "hi": "2026-10-29",
+      "es": "2026-10-29",
+      "fr": "2026-10-29",
+      "ar": "2026-10-29",
+      "pt": "2026-10-29",
+      "rus": "2026-10-29",
+      "zh": "2026-10-29",
+      "ja": "2026-10-29",
+      "de": "2026-10-29",
+      "tr": "2026-10-29",
+      "bn": "2026-10-29"
+    },
+    "tikka": {
+      "en": "2026-10-29",
+      "ru": "2026-10-29",
+      "hi": "2026-10-29",
+      "es": "2026-10-29",
+      "fr": "2026-10-29",
+      "ar": "2026-10-29",
+      "pt": "2026-10-29",
+      "rus": "2026-10-29",
+      "zh": "2026-10-29",
+      "ja": "2026-10-29",
+      "de": "2026-10-29",
+      "tr": "2026-10-29",
+      "bn": "2026-10-29"
+    },
+    "gulabjamun": {
+      "en": "2026-10-29",
+      "ru": "2026-10-29",
+      "hi": "2026-10-29",
+      "es": "2026-10-29",
+      "fr": "2026-10-29",
+      "ar": "2026-10-29",
+      "pt": "2026-10-29",
+      "rus": "2026-10-29",
+      "zh": "2026-10-29",
+      "ja": "2026-10-29",
+      "de": "2026-10-29",
+      "tr": "2026-10-29",
+      "bn": "2026-10-29"
+    },
+    "gajarhalwa": {
+      "en": "2026-10-29",
+      "ru": "2026-10-29",
+      "hi": "2026-10-29",
+      "es": "2026-10-29",
+      "fr": "2026-10-29",
+      "ar": "2026-10-29",
+      "pt": "2026-10-29",
+      "rus": "2026-10-29",
+      "zh": "2026-10-29",
+      "ja": "2026-10-29",
+      "de": "2026-10-29",
+      "tr": "2026-10-29",
+      "bn": "2026-10-29"
+    },
+    "samosa": {
+      "en": "2026-10-29",
+      "ru": "2026-10-29",
+      "hi": "2026-10-29",
+      "es": "2026-10-29",
+      "fr": "2026-10-29",
+      "ar": "2026-10-29",
+      "pt": "2026-10-29",
+      "rus": "2026-10-29",
+      "zh": "2026-10-29",
+      "ja": "2026-10-29",
+      "de": "2026-10-29",
+      "tr": "2026-10-29",
+      "bn": "2026-10-30"
+    },
+    "carbonara": {
+      "en": "2026-10-30",
+      "ru": "2026-10-30",
+      "hi": "2026-10-30",
+      "es": "2026-10-30",
+      "fr": "2026-10-30",
+      "ar": "2026-10-30",
+      "pt": "2026-10-30",
+      "rus": "2026-10-30",
+      "zh": "2026-10-30",
+      "ja": "2026-10-30",
+      "de": "2026-10-30",
+      "tr": "2026-10-30",
+      "bn": "2026-10-30"
+    },
+    "pizza": {
+      "en": "2026-10-30",
+      "ru": "2026-10-30",
+      "hi": "2026-10-30",
+      "es": "2026-10-30",
+      "fr": "2026-10-30",
+      "ar": "2026-10-30",
+      "pt": "2026-10-30",
+      "rus": "2026-10-30",
+      "zh": "2026-10-30",
+      "ja": "2026-10-30",
+      "de": "2026-10-30",
+      "tr": "2026-10-30",
+      "bn": "2026-10-30"
+    },
+    "bunkebab": {
+      "en": "2026-10-30",
+      "ru": "2026-10-30",
+      "hi": "2026-10-30",
+      "es": "2026-10-30",
+      "fr": "2026-10-30",
+      "ar": "2026-10-30",
+      "pt": "2026-10-30",
+      "rus": "2026-10-30",
+      "zh": "2026-10-30",
+      "ja": "2026-10-30",
+      "de": "2026-10-30",
+      "tr": "2026-10-30",
+      "bn": "2026-10-30"
+    },
+    "sushi": {
+      "en": "2026-10-30",
+      "ru": "2026-10-30",
+      "hi": "2026-10-30",
+      "es": "2026-10-30",
+      "fr": "2026-10-30",
+      "ar": "2026-10-30",
+      "pt": "2026-10-30",
+      "rus": "2026-10-30",
+      "zh": "2026-10-30",
+      "ja": "2026-10-30",
+      "de": "2026-10-30",
+      "tr": "2026-10-30",
+      "bn": "2026-10-30"
+    },
+    "ramen": {
+      "en": "2026-10-30",
+      "ru": "2026-10-30",
+      "hi": "2026-10-30",
+      "es": "2026-10-30",
+      "fr": "2026-10-30",
+      "ar": "2026-10-30",
+      "pt": "2026-10-30",
+      "rus": "2026-10-30",
+      "zh": "2026-10-30",
+      "ja": "2026-10-30",
+      "de": "2026-10-30",
+      "tr": "2026-10-30",
+      "bn": "2026-10-30"
+    },
+    "tacos": {
+      "en": "2026-10-30",
+      "ru": "2026-10-30",
+      "hi": "2026-10-30",
+      "es": "2026-10-30",
+      "fr": "2026-10-30",
+      "ar": "2026-10-30",
+      "pt": "2026-10-30",
+      "rus": "2026-10-30",
+      "zh": "2026-10-30",
+      "ja": "2026-10-30",
+      "de": "2026-10-30",
+      "tr": "2026-10-30",
+      "bn": "2026-10-30"
+    },
+    "pozole": {
+      "en": "2026-10-30",
+      "ru": "2026-10-30",
+      "hi": "2026-10-30",
+      "es": "2026-10-30",
+      "fr": "2026-10-30",
+      "ar": "2026-10-30",
+      "pt": "2026-10-30",
+      "rus": "2026-10-30",
+      "zh": "2026-10-30",
+      "ja": "2026-10-30",
+      "de": "2026-10-30",
+      "tr": "2026-10-30",
+      "bn": "2026-10-30"
+    },
+    "padthai": {
+      "en": "2026-10-30",
+      "ru": "2026-10-30",
+      "hi": "2026-10-30",
+      "es": "2026-10-30",
+      "fr": "2026-10-30",
+      "ar": "2026-10-30",
+      "pt": "2026-10-30",
+      "rus": "2026-10-30",
+      "zh": "2026-10-30",
+      "ja": "2026-10-30",
+      "de": "2026-10-30",
+      "tr": "2026-10-30",
+      "bn": "2026-10-30"
+    },
+    "pekingduck": {
+      "en": "2026-10-30",
+      "ru": "2026-10-30",
+      "hi": "2026-10-30",
+      "es": "2026-10-30",
+      "fr": "2026-10-30",
+      "ar": "2026-10-31",
+      "pt": "2026-10-31",
+      "rus": "2026-10-31",
+      "zh": "2026-10-31",
+      "ja": "2026-10-31",
+      "de": "2026-10-31",
+      "tr": "2026-10-31",
+      "bn": "2026-10-31"
+    },
+    "dimsum": {
+      "en": "2026-10-31",
+      "ru": "2026-10-31",
+      "hi": "2026-10-31",
+      "es": "2026-10-31",
+      "fr": "2026-10-31",
+      "ar": "2026-10-31",
+      "pt": "2026-10-31",
+      "rus": "2026-10-31",
+      "zh": "2026-10-31",
+      "ja": "2026-10-31",
+      "de": "2026-10-31",
+      "tr": "2026-10-31",
+      "bn": "2026-10-31"
+    },
+    "coqauvin": {
+      "en": "2026-11-02",
+      "ru": "2026-11-02",
+      "hi": "2026-11-02",
+      "es": "2026-11-02",
+      "fr": "2026-11-02",
+      "ar": "2026-11-02",
+      "pt": "2026-11-02",
+      "rus": "2026-11-02",
+      "zh": "2026-11-02",
+      "ja": "2026-11-02",
+      "de": "2026-11-02",
+      "tr": "2026-11-03",
+      "bn": "2026-11-02"
+    },
+    "haleem": {
+      "en": "2026-11-01",
+      "ru": "2026-11-01",
+      "hi": "2026-11-01",
+      "es": "2026-11-01",
+      "fr": "2026-11-01",
+      "ar": "2026-11-01",
+      "pt": "2026-11-01",
+      "rus": "2026-11-01",
+      "zh": "2026-11-01",
+      "ja": "2026-11-01",
+      "de": "2026-11-01",
+      "tr": "2026-11-01",
+      "bn": "2026-11-01"
+    },
+    "hummus": {
+      "en": "2026-11-01",
+      "ru": "2026-11-01",
+      "hi": "2026-11-01",
+      "es": "2026-11-01",
+      "fr": "2026-11-01",
+      "ar": "2026-11-01",
+      "pt": "2026-11-01",
+      "rus": "2026-11-01",
+      "zh": "2026-11-01",
+      "ja": "2026-11-01",
+      "de": "2026-11-01",
+      "tr": "2026-11-01",
+      "bn": "2026-11-01"
+    },
+    "bouillabaisse": {
+      "en": "2026-11-01",
+      "ru": "2026-11-01",
+      "hi": "2026-11-01",
+      "es": "2026-11-01",
+      "fr": "2026-11-01",
+      "ar": "2026-11-01",
+      "pt": "2026-11-01",
+      "rus": "2026-11-01",
+      "zh": "2026-11-01",
+      "ja": "2026-11-01",
+      "de": "2026-11-01",
+      "tr": "2026-11-01",
+      "bn": "2026-11-01"
+    },
+    "paella": {
+      "en": "2026-11-01",
+      "ru": "2026-11-01",
+      "hi": "2026-11-01",
+      "es": "2026-11-01",
+      "fr": "2026-11-01",
+      "ar": "2026-11-01",
+      "pt": "2026-11-01",
+      "rus": "2026-11-01",
+      "zh": "2026-11-01",
+      "ja": "2026-11-01",
+      "de": "2026-11-01",
+      "tr": "2026-11-01",
+      "bn": "2026-11-01"
+    },
+    "chicken-korma": {
+      "en": "2026-11-01",
+      "ru": "2026-11-01",
+      "hi": "2026-11-01",
+      "es": "2026-11-01",
+      "fr": "2026-11-01",
+      "ar": "2026-11-01",
+      "pt": "2026-11-01",
+      "rus": "2026-11-01",
+      "zh": "2026-11-01",
+      "ja": "2026-11-01",
+      "de": "2026-11-01",
+      "tr": "2026-11-01",
+      "bn": "2026-11-01"
+    },
+    "aloo-paratha": {
+      "en": "2026-11-02",
+      "ru": "2026-11-02",
+      "hi": "2026-11-02",
+      "es": "2026-11-02",
+      "fr": "2026-11-02",
+      "ar": "2026-11-02",
+      "pt": "2026-11-02",
+      "rus": "2026-11-02",
+      "zh": "2026-11-02",
+      "ja": "2026-11-02",
+      "de": "2026-11-02",
+      "tr": "2026-11-02",
+      "bn": "2026-11-02"
+    },
+    "ambuyat": {
+      "en": "2026-11-04",
+      "ru": "2026-11-04",
+      "hi": "2026-11-04",
+      "es": "2026-11-04",
+      "fr": "2026-11-04",
+      "ar": "2026-11-04",
+      "pt": "2026-11-04",
+      "rus": "2026-11-04",
+      "zh": "2026-11-04",
+      "ja": "2026-11-04",
+      "de": "2026-11-04",
+      "tr": "2026-11-04",
+      "bn": "2026-11-04"
+    },
+    "beefpho": {
+      "en": "2026-11-01",
+      "ru": "2026-11-01",
+      "hi": "2026-11-01",
+      "es": "2026-11-01",
+      "fr": "2026-11-01",
+      "ar": "2026-11-01",
+      "pt": "2026-11-01",
+      "rus": "2026-11-01",
+      "zh": "2026-11-01",
+      "ja": "2026-11-01",
+      "de": "2026-11-01",
+      "tr": "2026-11-01",
+      "bn": "2026-11-01"
+    },
+    "bobotie": {
+      "en": "2026-11-01",
+      "ru": "2026-11-02",
+      "hi": "2026-11-02",
+      "es": "2026-11-02",
+      "fr": "2026-11-02",
+      "ar": "2026-11-02",
+      "pt": "2026-11-02",
+      "rus": "2026-11-02",
+      "zh": "2026-11-02",
+      "ja": "2026-11-02",
+      "de": "2026-11-02",
+      "tr": "2026-11-02",
+      "bn": "2026-11-02"
+    },
+    "moussaka": {
+      "en": "2026-11-02",
+      "ru": "2026-11-02",
+      "hi": "2026-11-02",
+      "es": "2026-11-02",
+      "fr": "2026-11-02",
+      "ar": "2026-11-02",
+      "pt": "2026-11-02",
+      "rus": "2026-11-02",
+      "zh": "2026-11-02",
+      "ja": "2026-11-02",
+      "de": "2026-11-02",
+      "tr": "2026-11-02",
+      "bn": "2026-11-02"
+    },
+    "falafel": {
+      "en": "2026-11-02",
+      "ru": "2026-11-02",
+      "hi": "2026-11-02",
+      "es": "2026-11-02",
+      "fr": "2026-11-02",
+      "ar": "2026-11-02",
+      "pt": "2026-11-02",
+      "rus": "2026-11-02",
+      "zh": "2026-11-02",
+      "ja": "2026-11-02",
+      "de": "2026-11-02",
+      "tr": "2026-11-02",
+      "bn": "2026-11-02"
+    },
+    "meatpie": {
+      "en": "2026-11-02",
+      "ru": "2026-11-02",
+      "hi": "2026-11-02",
+      "es": "2026-11-02",
+      "fr": "2026-11-02",
+      "ar": "2026-11-02",
+      "pt": "2026-11-02",
+      "rus": "2026-11-02",
+      "zh": "2026-11-02",
+      "ja": "2026-11-02",
+      "de": "2026-11-02",
+      "tr": "2026-11-02",
+      "bn": "2026-11-02"
+    },
+    "poutine": {
+      "en": "2026-11-02",
+      "ru": "2026-11-02",
+      "hi": "2026-11-02",
+      "es": "2026-11-02",
+      "fr": "2026-11-02",
+      "ar": "2026-11-02",
+      "pt": "2026-11-02",
+      "rus": "2026-11-02",
+      "zh": "2026-11-02",
+      "ja": "2026-11-02",
+      "de": "2026-11-02",
+      "tr": "2026-11-02",
+      "bn": "2026-11-02"
+    },
+    "feijoada": {
+      "en": "2026-11-03",
+      "ru": "2026-11-03",
+      "hi": "2026-11-03",
+      "es": "2026-11-03",
+      "fr": "2026-11-03",
+      "ar": "2026-11-03",
+      "pt": "2026-11-03",
+      "rus": "2026-11-03",
+      "zh": "2026-11-03",
+      "ja": "2026-11-03",
+      "de": "2026-11-03",
+      "tr": "2026-11-03",
+      "bn": "2026-11-03"
+    },
+    "kheer": {
+      "en": "2026-11-03",
+      "ru": "2026-11-03",
+      "hi": "2026-11-03",
+      "es": "2026-11-03",
+      "fr": "2026-11-03",
+      "ar": "2026-11-03",
+      "pt": "2026-11-03",
+      "rus": "2026-11-03",
+      "zh": "2026-11-03",
+      "ja": "2026-11-03",
+      "de": "2026-11-03",
+      "tr": "2026-11-03",
+      "bn": "2026-11-03"
+    },
+    "daal": {
+      "en": "2026-10-29",
+      "ru": "2026-10-29",
+      "hi": "2026-10-29",
+      "es": "2026-10-29",
+      "fr": "2026-10-29",
+      "ar": "2026-10-29",
+      "pt": "2026-10-29",
+      "rus": "2026-10-29",
+      "zh": "2026-10-29",
+      "ja": "2026-10-29",
+      "de": "2026-10-29",
+      "tr": "2026-10-29",
+      "bn": "2026-10-29"
+    },
+    "seekh-kebab": {
+      "en": "2026-11-03",
+      "ru": "2026-11-03",
+      "hi": "2026-11-03",
+      "es": "2026-11-03",
+      "fr": "2026-11-03",
+      "ar": "2026-11-03",
+      "pt": "2026-11-03",
+      "rus": "2026-11-03",
+      "zh": "2026-11-03",
+      "ja": "2026-11-03",
+      "de": "2026-11-03",
+      "tr": "2026-11-03",
+      "bn": "2026-11-03"
+    },
+    "kabuli-pulao": {
+      "en": "2026-11-03",
+      "ru": "2026-11-03",
+      "hi": "2026-11-03",
+      "es": "2026-11-03",
+      "fr": "2026-11-03",
+      "ar": "2026-11-03",
+      "pt": "2026-11-03",
+      "rus": "2026-11-03",
+      "zh": "2026-11-03",
+      "ja": "2026-11-03",
+      "de": "2026-11-03",
+      "tr": "2026-11-03",
+      "bn": "2026-11-03"
+    },
+    "dolma": {
+      "en": "2026-11-03",
+      "ru": "2026-11-03",
+      "hi": "2026-11-03",
+      "es": "2026-11-03",
+      "fr": "2026-11-03",
+      "ar": "2026-11-03",
+      "pt": "2026-11-03",
+      "rus": "2026-11-03",
+      "zh": "2026-11-03",
+      "ja": "2026-11-03",
+      "de": "2026-11-03",
+      "tr": "2026-11-03",
+      "bn": "2026-11-03"
+    },
+    "plov": {
+      "en": "2026-11-03",
+      "ru": "2026-11-03",
+      "hi": "2026-11-03",
+      "es": "2026-11-03",
+      "fr": "2026-11-03",
+      "ar": "2026-11-03",
+      "pt": "2026-11-03",
+      "rus": "2026-11-03",
+      "zh": "2026-11-03",
+      "ja": "2026-11-03",
+      "de": "2026-11-03",
+      "tr": "2026-11-03",
+      "bn": "2026-11-03"
+    },
+    "machboos": {
+      "en": "2026-11-03",
+      "ru": "2026-11-03",
+      "hi": "2026-11-03",
+      "es": "2026-11-03",
+      "fr": "2026-11-04",
+      "ar": "2026-11-04",
+      "pt": "2026-11-04",
+      "rus": "2026-11-04",
+      "zh": "2026-11-04",
+      "ja": "2026-11-04",
+      "de": "2026-11-04",
+      "tr": "2026-11-04",
+      "bn": "2026-11-04"
+    },
+    "ilish-bhapa": {
+      "en": "2026-11-04",
+      "ru": "2026-11-04",
+      "hi": "2026-11-04",
+      "es": "2026-11-04",
+      "fr": "2026-11-04",
+      "ar": "2026-11-04",
+      "pt": "2026-11-04",
+      "rus": "2026-11-04",
+      "zh": "2026-11-04",
+      "ja": "2026-11-04",
+      "de": "2026-11-04",
+      "tr": "2026-11-04",
+      "bn": "2026-11-04"
+    },
+    "ema-datshi": {
+      "en": "2026-11-04",
+      "ru": "2026-11-04",
+      "hi": "2026-11-04",
+      "es": "2026-11-04",
+      "fr": "2026-11-04",
+      "ar": "2026-11-04",
+      "pt": "2026-11-04",
+      "rus": "2026-11-04",
+      "zh": "2026-11-04",
+      "ja": "2026-11-04",
+      "de": "2026-11-04",
+      "tr": "2026-11-04",
+      "bn": "2026-11-04"
+    },
+    "fish-amok": {
+      "en": "2026-11-04",
+      "ru": "2026-11-04",
+      "hi": "2026-11-04",
+      "es": "2026-11-04",
+      "fr": "2026-11-04",
+      "ar": "2026-11-04",
+      "pt": "2026-11-04",
+      "rus": "2026-11-04",
+      "zh": "2026-11-04",
+      "ja": "2026-11-04",
+      "de": "2026-11-04",
+      "tr": "2026-11-04",
+      "bn": "2026-11-04"
+    },
+    "souvla": {
+      "en": "2026-11-04",
+      "ru": "2026-11-04",
+      "hi": "2026-11-04",
+      "es": "2026-11-04",
+      "fr": "2026-11-04",
+      "ar": "2026-11-04",
+      "pt": "2026-11-04",
+      "rus": "2026-11-04",
+      "zh": "2026-11-04",
+      "ja": "2026-11-04",
+      "de": "2026-11-04",
+      "tr": "2026-11-04",
+      "bn": "2026-11-04"
+    }
   }
- },
- "video": {
-  "nihari": {
-   "en": "2026-10-28",
-   "ru": "2026-10-28",
-   "hi": "2026-10-28",
-   "es": "2026-10-28",
-   "fr": "2026-10-28",
-   "ar": "2026-10-28",
-   "pt": "2026-10-28",
-   "rus": "2026-10-28",
-   "zh": "2026-10-28",
-   "ja": "2026-10-28",
-   "de": "2026-10-28",
-   "tr": "2026-10-28",
-   "bn": "2026-10-28"
-  },
-  "biryani": {
-   "en": "2026-10-29",
-   "ru": "2026-10-29",
-   "hi": "2026-10-29",
-   "es": "2026-10-29",
-   "fr": "2026-10-29",
-   "ar": "2026-10-29",
-   "pt": "2026-10-29",
-   "rus": "2026-10-29",
-   "zh": "2026-10-29",
-   "ja": "2026-10-29",
-   "de": "2026-10-29",
-   "tr": "2026-10-29",
-   "bn": "2026-10-29"
-  },
-  "karahi": {
-   "en": "2026-10-29",
-   "ru": "2026-10-29",
-   "hi": "2026-10-29",
-   "es": "2026-10-29",
-   "fr": "2026-10-29",
-   "ar": "2026-10-29",
-   "pt": "2026-10-29",
-   "rus": "2026-10-29",
-   "zh": "2026-10-29",
-   "ja": "2026-10-29",
-   "de": "2026-10-29",
-   "tr": "2026-10-29",
-   "bn": "2026-10-29"
-  },
-  "halwapuri": {
-   "en": "2026-10-29",
-   "ru": "2026-10-29",
-   "hi": "2026-10-29",
-   "es": "2026-10-29",
-   "fr": "2026-10-29",
-   "ar": "2026-10-29",
-   "pt": "2026-10-29",
-   "rus": "2026-10-29",
-   "zh": "2026-10-29",
-   "ja": "2026-10-29",
-   "de": "2026-10-29",
-   "tr": "2026-10-29",
-   "bn": "2026-10-29"
-  },
-  "lassi": {
-   "en": "2026-10-29",
-   "ru": "2026-10-29",
-   "hi": "2026-10-29",
-   "es": "2026-10-29",
-   "fr": "2026-10-29",
-   "ar": "2026-10-29",
-   "pt": "2026-10-29",
-   "rus": "2026-10-29",
-   "zh": "2026-10-29",
-   "ja": "2026-10-29",
-   "de": "2026-10-29",
-   "tr": "2026-10-29",
-   "bn": "2026-10-29"
-  },
-  "chapli": {
-   "en": "2026-10-29",
-   "ru": "2026-10-29",
-   "hi": "2026-10-29",
-   "es": "2026-10-29",
-   "fr": "2026-10-29",
-   "ar": "2026-10-29",
-   "pt": "2026-10-29",
-   "rus": "2026-10-29",
-   "zh": "2026-10-29",
-   "ja": "2026-10-29",
-   "de": "2026-10-29",
-   "tr": "2026-10-29",
-   "bn": "2026-10-29"
-  },
-  "tikka": {
-   "en": "2026-10-29",
-   "ru": "2026-10-29",
-   "hi": "2026-10-29",
-   "es": "2026-10-29",
-   "fr": "2026-10-29",
-   "ar": "2026-10-29",
-   "pt": "2026-10-29",
-   "rus": "2026-10-29",
-   "zh": "2026-10-29",
-   "ja": "2026-10-29",
-   "de": "2026-10-29",
-   "tr": "2026-10-29",
-   "bn": "2026-10-29"
-  },
-  "gulabjamun": {
-   "en": "2026-10-29",
-   "ru": "2026-10-29",
-   "hi": "2026-10-29",
-   "es": "2026-10-29",
-   "fr": "2026-10-29",
-   "ar": "2026-10-29",
-   "pt": "2026-10-29",
-   "rus": "2026-10-29",
-   "zh": "2026-10-29",
-   "ja": "2026-10-29",
-   "de": "2026-10-29",
-   "tr": "2026-10-29",
-   "bn": "2026-10-29"
-  },
-  "gajarhalwa": {
-   "en": "2026-10-29",
-   "ru": "2026-10-29",
-   "hi": "2026-10-29",
-   "es": "2026-10-29",
-   "fr": "2026-10-29",
-   "ar": "2026-10-29",
-   "pt": "2026-10-29",
-   "rus": "2026-10-29",
-   "zh": "2026-10-29",
-   "ja": "2026-10-29",
-   "de": "2026-10-29",
-   "tr": "2026-10-29",
-   "bn": "2026-10-29"
-  },
-  "samosa": {
-   "en": "2026-10-29",
-   "ru": "2026-10-29",
-   "hi": "2026-10-29",
-   "es": "2026-10-29",
-   "fr": "2026-10-29",
-   "ar": "2026-10-29",
-   "pt": "2026-10-29",
-   "rus": "2026-10-29",
-   "zh": "2026-10-29",
-   "ja": "2026-10-29",
-   "de": "2026-10-29",
-   "tr": "2026-10-29",
-   "bn": "2026-10-30"
-  },
-  "carbonara": {
-   "en": "2026-10-30",
-   "ru": "2026-10-30",
-   "hi": "2026-10-30",
-   "es": "2026-10-30",
-   "fr": "2026-10-30",
-   "ar": "2026-10-30",
-   "pt": "2026-10-30",
-   "rus": "2026-10-30",
-   "zh": "2026-10-30",
-   "ja": "2026-10-30",
-   "de": "2026-10-30",
-   "tr": "2026-10-30",
-   "bn": "2026-10-30"
-  },
-  "pizza": {
-   "en": "2026-10-30",
-   "ru": "2026-10-30",
-   "hi": "2026-10-30",
-   "es": "2026-10-30",
-   "fr": "2026-10-30",
-   "ar": "2026-10-30",
-   "pt": "2026-10-30",
-   "rus": "2026-10-30",
-   "zh": "2026-10-30",
-   "ja": "2026-10-30",
-   "de": "2026-10-30",
-   "tr": "2026-10-30",
-   "bn": "2026-10-30"
-  },
-  "bunkebab": {
-   "en": "2026-10-30",
-   "ru": "2026-10-30",
-   "hi": "2026-10-30",
-   "es": "2026-10-30",
-   "fr": "2026-10-30",
-   "ar": "2026-10-30",
-   "pt": "2026-10-30",
-   "rus": "2026-10-30",
-   "zh": "2026-10-30",
-   "ja": "2026-10-30",
-   "de": "2026-10-30",
-   "tr": "2026-10-30",
-   "bn": "2026-10-30"
-  },
-  "sushi": {
-   "en": "2026-10-30",
-   "ru": "2026-10-30",
-   "hi": "2026-10-30",
-   "es": "2026-10-30",
-   "fr": "2026-10-30",
-   "ar": "2026-10-30",
-   "pt": "2026-10-30",
-   "rus": "2026-10-30",
-   "zh": "2026-10-30",
-   "ja": "2026-10-30",
-   "de": "2026-10-30",
-   "tr": "2026-10-30",
-   "bn": "2026-10-30"
-  },
-  "ramen": {
-   "en": "2026-10-30",
-   "ru": "2026-10-30",
-   "hi": "2026-10-30",
-   "es": "2026-10-30",
-   "fr": "2026-10-30",
-   "ar": "2026-10-30",
-   "pt": "2026-10-30",
-   "rus": "2026-10-30",
-   "zh": "2026-10-30",
-   "ja": "2026-10-30",
-   "de": "2026-10-30",
-   "tr": "2026-10-30",
-   "bn": "2026-10-30"
-  },
-  "tacos": {
-   "en": "2026-10-30",
-   "ru": "2026-10-30",
-   "hi": "2026-10-30",
-   "es": "2026-10-30",
-   "fr": "2026-10-30",
-   "ar": "2026-10-30",
-   "pt": "2026-10-30",
-   "rus": "2026-10-30",
-   "zh": "2026-10-30",
-   "ja": "2026-10-30",
-   "de": "2026-10-30",
-   "tr": "2026-10-30",
-   "bn": "2026-10-30"
-  },
-  "pozole": {
-   "en": "2026-10-30",
-   "ru": "2026-10-30",
-   "hi": "2026-10-30",
-   "es": "2026-10-30",
-   "fr": "2026-10-30",
-   "ar": "2026-10-30",
-   "pt": "2026-10-30",
-   "rus": "2026-10-30",
-   "zh": "2026-10-30",
-   "ja": "2026-10-30",
-   "de": "2026-10-30",
-   "tr": "2026-10-30",
-   "bn": "2026-10-30"
-  },
-  "padthai": {
-   "en": "2026-10-30",
-   "ru": "2026-10-30",
-   "hi": "2026-10-30",
-   "es": "2026-10-30",
-   "fr": "2026-10-30",
-   "ar": "2026-10-30",
-   "pt": "2026-10-30",
-   "rus": "2026-10-30",
-   "zh": "2026-10-30",
-   "ja": "2026-10-30",
-   "de": "2026-10-30",
-   "tr": "2026-10-30",
-   "bn": "2026-10-30"
-  },
-  "pekingduck": {
-   "en": "2026-10-30",
-   "ru": "2026-10-30",
-   "hi": "2026-10-30",
-   "es": "2026-10-30",
-   "fr": "2026-10-30",
-   "ar": "2026-10-31",
-   "pt": "2026-10-31",
-   "rus": "2026-10-31",
-   "zh": "2026-10-31",
-   "ja": "2026-10-31",
-   "de": "2026-10-31",
-   "tr": "2026-10-31",
-   "bn": "2026-10-31"
-  },
-  "dimsum": {
-   "en": "2026-10-31",
-   "ru": "2026-10-31",
-   "hi": "2026-10-31",
-   "es": "2026-10-31",
-   "fr": "2026-10-31",
-   "ar": "2026-10-31",
-   "pt": "2026-10-31",
-   "rus": "2026-10-31",
-   "zh": "2026-10-31",
-   "ja": "2026-10-31",
-   "de": "2026-10-31",
-   "tr": "2026-10-31",
-   "bn": "2026-10-31"
-  },
-  "coqauvin": {
-   "en": "2026-11-02",
-   "ru": "2026-11-02",
-   "hi": "2026-11-02",
-   "es": "2026-11-02",
-   "fr": "2026-11-02",
-   "ar": "2026-11-02",
-   "pt": "2026-11-02",
-   "rus": "2026-11-02",
-   "zh": "2026-11-02",
-   "ja": "2026-11-02",
-   "de": "2026-11-02",
-   "tr": "2026-11-03",
-   "bn": "2026-11-02"
-  },
-  "haleem": {
-   "en": "2026-11-01",
-   "ru": "2026-11-01",
-   "hi": "2026-11-01",
-   "es": "2026-11-01",
-   "fr": "2026-11-01",
-   "ar": "2026-11-01",
-   "pt": "2026-11-01",
-   "rus": "2026-11-01",
-   "zh": "2026-11-01",
-   "ja": "2026-11-01",
-   "de": "2026-11-01",
-   "tr": "2026-11-01",
-   "bn": "2026-11-01"
-  },
-  "hummus": {
-   "en": "2026-11-01",
-   "ru": "2026-11-01",
-   "hi": "2026-11-01",
-   "es": "2026-11-01",
-   "fr": "2026-11-01",
-   "ar": "2026-11-01",
-   "pt": "2026-11-01",
-   "rus": "2026-11-01",
-   "zh": "2026-11-01",
-   "ja": "2026-11-01",
-   "de": "2026-11-01",
-   "tr": "2026-11-01",
-   "bn": "2026-11-01"
-  },
-  "bouillabaisse": {
-   "en": "2026-11-01",
-   "ru": "2026-11-01",
-   "hi": "2026-11-01",
-   "es": "2026-11-01",
-   "fr": "2026-11-01",
-   "ar": "2026-11-01",
-   "pt": "2026-11-01",
-   "rus": "2026-11-01",
-   "zh": "2026-11-01",
-   "ja": "2026-11-01",
-   "de": "2026-11-01",
-   "tr": "2026-11-01",
-   "bn": "2026-11-01"
-  },
-  "paella": {
-   "en": "2026-11-01",
-   "ru": "2026-11-01",
-   "hi": "2026-11-01",
-   "es": "2026-11-01",
-   "fr": "2026-11-01",
-   "ar": "2026-11-01",
-   "pt": "2026-11-01",
-   "rus": "2026-11-01",
-   "zh": "2026-11-01",
-   "ja": "2026-11-01",
-   "de": "2026-11-01",
-   "tr": "2026-11-01",
-   "bn": "2026-11-01"
-  },
-  "chicken-korma": {
-   "en": "2026-11-01",
-   "ru": "2026-11-01",
-   "hi": "2026-11-01",
-   "es": "2026-11-01",
-   "fr": "2026-11-01",
-   "ar": "2026-11-01",
-   "pt": "2026-11-01",
-   "rus": "2026-11-01",
-   "zh": "2026-11-01",
-   "ja": "2026-11-01",
-   "de": "2026-11-01",
-   "tr": "2026-11-01",
-   "bn": "2026-11-01"
-  },
-  "aloo-paratha": {
-   "en": "2026-11-02",
-   "ru": "2026-11-02",
-   "hi": "2026-11-02",
-   "es": "2026-11-02",
-   "fr": "2026-11-02",
-   "ar": "2026-11-02",
-   "pt": "2026-11-02",
-   "rus": "2026-11-02",
-   "zh": "2026-11-02",
-   "ja": "2026-11-02",
-   "de": "2026-11-02",
-   "tr": "2026-11-02",
-   "bn": "2026-11-02"
-  },
-  "ambuyat": {
-   "en": "2026-11-04",
-   "ru": "2026-11-04",
-   "hi": "2026-11-04",
-   "es": "2026-11-04",
-   "fr": "2026-11-04",
-   "ar": "2026-11-04",
-   "pt": "2026-11-04",
-   "rus": "2026-11-04",
-   "zh": "2026-11-04",
-   "ja": "2026-11-04",
-   "de": "2026-11-04",
-   "tr": "2026-11-04",
-   "bn": "2026-11-04"
-  },
-  "beefpho": {
-   "en": "2026-11-01",
-   "ru": "2026-11-01",
-   "hi": "2026-11-01",
-   "es": "2026-11-01",
-   "fr": "2026-11-01",
-   "ar": "2026-11-01",
-   "pt": "2026-11-01",
-   "rus": "2026-11-01",
-   "zh": "2026-11-01",
-   "ja": "2026-11-01",
-   "de": "2026-11-01",
-   "tr": "2026-11-01",
-   "bn": "2026-11-01"
-  },
-  "bobotie": {
-   "en": "2026-11-01",
-   "ru": "2026-11-02",
-   "hi": "2026-11-02",
-   "es": "2026-11-02",
-   "fr": "2026-11-02",
-   "ar": "2026-11-02",
-   "pt": "2026-11-02",
-   "rus": "2026-11-02",
-   "zh": "2026-11-02",
-   "ja": "2026-11-02",
-   "de": "2026-11-02",
-   "tr": "2026-11-02",
-   "bn": "2026-11-02"
-  },
-  "moussaka": {
-   "en": "2026-11-02",
-   "ru": "2026-11-02",
-   "hi": "2026-11-02",
-   "es": "2026-11-02",
-   "fr": "2026-11-02",
-   "ar": "2026-11-02",
-   "pt": "2026-11-02",
-   "rus": "2026-11-02",
-   "zh": "2026-11-02",
-   "ja": "2026-11-02",
-   "de": "2026-11-02",
-   "tr": "2026-11-02",
-   "bn": "2026-11-02"
-  },
-  "falafel": {
-   "en": "2026-11-02",
-   "ru": "2026-11-02",
-   "hi": "2026-11-02",
-   "es": "2026-11-02",
-   "fr": "2026-11-02",
-   "ar": "2026-11-02",
-   "pt": "2026-11-02",
-   "rus": "2026-11-02",
-   "zh": "2026-11-02",
-   "ja": "2026-11-02",
-   "de": "2026-11-02",
-   "tr": "2026-11-02",
-   "bn": "2026-11-02"
-  },
-  "meatpie": {
-   "en": "2026-11-02",
-   "ru": "2026-11-02",
-   "hi": "2026-11-02",
-   "es": "2026-11-02",
-   "fr": "2026-11-02",
-   "ar": "2026-11-02",
-   "pt": "2026-11-02",
-   "rus": "2026-11-02",
-   "zh": "2026-11-02",
-   "ja": "2026-11-02",
-   "de": "2026-11-02",
-   "tr": "2026-11-02",
-   "bn": "2026-11-02"
-  },
-  "poutine": {
-   "en": "2026-11-02",
-   "ru": "2026-11-02",
-   "hi": "2026-11-02",
-   "es": "2026-11-02",
-   "fr": "2026-11-02",
-   "ar": "2026-11-02",
-   "pt": "2026-11-02",
-   "rus": "2026-11-02",
-   "zh": "2026-11-02",
-   "ja": "2026-11-02",
-   "de": "2026-11-02",
-   "tr": "2026-11-02",
-   "bn": "2026-11-02"
-  },
-  "feijoada": {
-   "en": "2026-11-03",
-   "ru": "2026-11-03",
-   "hi": "2026-11-03",
-   "es": "2026-11-03",
-   "fr": "2026-11-03",
-   "ar": "2026-11-03",
-   "pt": "2026-11-03",
-   "rus": "2026-11-03",
-   "zh": "2026-11-03",
-   "ja": "2026-11-03",
-   "de": "2026-11-03",
-   "tr": "2026-11-03",
-   "bn": "2026-11-03"
-  },
-  "kheer": {
-   "en": "2026-11-03",
-   "ru": "2026-11-03",
-   "hi": "2026-11-03",
-   "es": "2026-11-03",
-   "fr": "2026-11-03",
-   "ar": "2026-11-03",
-   "pt": "2026-11-03",
-   "rus": "2026-11-03",
-   "zh": "2026-11-03",
-   "ja": "2026-11-03",
-   "de": "2026-11-03",
-   "tr": "2026-11-03",
-   "bn": "2026-11-03"
-  },
-  "daal": {
-   "en": "2026-10-29",
-   "ru": "2026-10-29",
-   "hi": "2026-10-29",
-   "es": "2026-10-29",
-   "fr": "2026-10-29",
-   "ar": "2026-10-29",
-   "pt": "2026-10-29",
-   "rus": "2026-10-29",
-   "zh": "2026-10-29",
-   "ja": "2026-10-29",
-   "de": "2026-10-29",
-   "tr": "2026-10-29",
-   "bn": "2026-10-29"
-  },
-  "seekh-kebab": {
-   "en": "2026-11-03",
-   "ru": "2026-11-03",
-   "hi": "2026-11-03",
-   "es": "2026-11-03",
-   "fr": "2026-11-03",
-   "ar": "2026-11-03",
-   "pt": "2026-11-03",
-   "rus": "2026-11-03",
-   "zh": "2026-11-03",
-   "ja": "2026-11-03",
-   "de": "2026-11-03",
-   "tr": "2026-11-03",
-   "bn": "2026-11-03"
-  },
-  "kabuli-pulao": {
-   "en": "2026-11-03",
-   "ru": "2026-11-03",
-   "hi": "2026-11-03",
-   "es": "2026-11-03",
-   "fr": "2026-11-03",
-   "ar": "2026-11-03",
-   "pt": "2026-11-03",
-   "rus": "2026-11-03",
-   "zh": "2026-11-03",
-   "ja": "2026-11-03",
-   "de": "2026-11-03",
-   "tr": "2026-11-03",
-   "bn": "2026-11-03"
-  },
-  "dolma": {
-   "en": "2026-11-03",
-   "ru": "2026-11-03",
-   "hi": "2026-11-03",
-   "es": "2026-11-03",
-   "fr": "2026-11-03",
-   "ar": "2026-11-03",
-   "pt": "2026-11-03",
-   "rus": "2026-11-03",
-   "zh": "2026-11-03",
-   "ja": "2026-11-03",
-   "de": "2026-11-03",
-   "tr": "2026-11-03",
-   "bn": "2026-11-03"
-  },
-  "plov": {
-   "en": "2026-11-03",
-   "ru": "2026-11-03",
-   "hi": "2026-11-03",
-   "es": "2026-11-03",
-   "fr": "2026-11-03",
-   "ar": "2026-11-03",
-   "pt": "2026-11-03",
-   "rus": "2026-11-03",
-   "zh": "2026-11-03",
-   "ja": "2026-11-03",
-   "de": "2026-11-03",
-   "tr": "2026-11-03",
-   "bn": "2026-11-03"
-  },
-  "machboos": {
-   "en": "2026-11-03",
-   "ru": "2026-11-03",
-   "hi": "2026-11-03",
-   "es": "2026-11-03",
-   "fr": "2026-11-04",
-   "ar": "2026-11-04",
-   "pt": "2026-11-04",
-   "rus": "2026-11-04",
-   "zh": "2026-11-04",
-   "ja": "2026-11-04",
-   "de": "2026-11-04",
-   "tr": "2026-11-04",
-   "bn": "2026-11-04"
-  },
-  "ilish-bhapa": {
-   "en": "2026-11-04",
-   "ru": "2026-11-04",
-   "hi": "2026-11-04",
-   "es": "2026-11-04",
-   "fr": "2026-11-04",
-   "ar": "2026-11-04",
-   "pt": "2026-11-04",
-   "rus": "2026-11-04",
-   "zh": "2026-11-04",
-   "ja": "2026-11-04",
-   "de": "2026-11-04",
-   "tr": "2026-11-04",
-   "bn": "2026-11-04"
-  },
-  "ema-datshi": {
-   "en": "2026-11-04",
-   "ru": "2026-11-04",
-   "hi": "2026-11-04",
-   "es": "2026-11-04",
-   "fr": "2026-11-04",
-   "ar": "2026-11-04",
-   "pt": "2026-11-04",
-   "rus": "2026-11-04",
-   "zh": "2026-11-04",
-   "ja": "2026-11-04",
-   "de": "2026-11-04",
-   "tr": "2026-11-04",
-   "bn": "2026-11-04"
-  },
-  "fish-amok": {
-   "en": "2026-11-04",
-   "ru": "2026-11-04",
-   "hi": "2026-11-04",
-   "es": "2026-11-04",
-   "fr": "2026-11-04",
-   "ar": "2026-11-04",
-   "pt": "2026-11-04",
-   "rus": "2026-11-04",
-   "zh": "2026-11-04",
-   "ja": "2026-11-04",
-   "de": "2026-11-04",
-   "tr": "2026-11-04",
-   "bn": "2026-11-04"
-  },
-  "souvla": {
-   "en": "2026-11-04",
-   "ru": "2026-11-04",
-   "hi": "2026-11-04",
-   "es": "2026-11-04",
-   "fr": "2026-11-04",
-   "ar": "2026-11-04",
-   "pt": "2026-11-04",
-   "rus": "2026-11-04",
-   "zh": "2026-11-04",
-   "ja": "2026-11-04",
-   "de": "2026-11-04",
-   "tr": "2026-11-04",
-   "bn": "2026-11-04"
-  }
- }
 }

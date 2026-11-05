@@ -20,7 +20,7 @@ BATCH_SIZE = int(os.environ.get("PUBLISH_BATCH_SIZE", 3))
 QUEUE_FILE = "recipes_queue.json"
 INDEX_FILE = "index.html"
 DATES_FILE = "recipe_dates.json"
-NUTRITION_FILE = "recipe_nutrition.json"
+NUTRITION_FILE = "nutrition.json"
 
 def main():
     if not os.path.exists(QUEUE_FILE):
