@@ -47,39 +47,55 @@
   "rewrites": [
     {
       "source": "/country/:slug/",
-      "destination": "/index.html"
+      "destination": "/country/:slug/index.html"
     },
     {
       "source": "/category/:slug/",
-      "destination": "/index.html"
+      "destination": "/category/:slug/index.html"
     },
     {
-      "source": "/recipe/:slug/",
-      "destination": "/index.html"
+      "source": "/country/:slug",
+      "destination": "/country/:slug/index.html"
     },
     {
-      "destination": "/index.html",
-      "source": "/recipe/:slug"
+      "source": "/category/:slug",
+      "destination": "/category/:slug/index.html"
     },
     {
-      "destination": "/index.html",
-      "source": "/category/:slug"
+      "source": "/about",
+      "destination": "/about/index.html"
     },
     {
-      "destination": "/index.html",
-      "source": "/country/:slug"
+      "source": "/privacy",
+      "destination": "/privacy/index.html"
     },
     {
-      "destination": "/index.html",
-      "source": "/about"
+      "source": "/contact",
+      "destination": "/contact/index.html"
     },
     {
-      "destination": "/index.html",
-      "source": "/privacy"
+      "source": "/faqs",
+      "destination": "/faqs/index.html"
     },
     {
-      "destination": "/index.html",
-      "source": "/contact"
+      "source": "/trending",
+      "destination": "/trending/index.html"
+    },
+    {
+      "source": "/recipes",
+      "destination": "/recipes/index.html"
+    },
+    {
+      "source": "/guides/dum-cooking",
+      "destination": "/guides/dum-cooking/index.html"
+    },
+    {
+      "source": "/eid-recipes",
+      "destination": "/eid-recipes/index.html"
+    },
+    {
+      "source": "/ramadan-recipes",
+      "destination": "/ramadan-recipes/index.html"
     }
   ],
   "buildCommand": "python3 build_site.py",
