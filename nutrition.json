@@ -477,5 +477,95 @@
     "carbohydrateContent": 76.1,
     "sugarContent": 4.5,
     "fiberContent": 3.8
+  },
+  "butter-chicken": {
+    "calories": 610,
+    "proteinContent": 39.5,
+    "fatContent": 41.2,
+    "saturatedFatContent": 19.8,
+    "carbohydrateContent": 18.6,
+    "sugarContent": 8.4,
+    "fiberContent": 2.9
+  },
+  "falooda": {
+    "calories": 390,
+    "proteinContent": 9.2,
+    "fatContent": 14.8,
+    "saturatedFatContent": 8.5,
+    "carbohydrateContent": 56.4,
+    "sugarContent": 42.1,
+    "fiberContent": 4.1
+  },
+  "chicken-shawarma": {
+    "calories": 520,
+    "proteinContent": 34.6,
+    "fatContent": 22.4,
+    "saturatedFatContent": 4.8,
+    "carbohydrateContent": 44.2,
+    "sugarContent": 3.1,
+    "fiberContent": 2.7
+  },
+  "paneer-tikka": {
+    "calories": 380,
+    "proteinContent": 21.4,
+    "fatContent": 28.2,
+    "saturatedFatContent": 14.1,
+    "carbohydrateContent": 11.2,
+    "sugarContent": 3.4,
+    "fiberContent": 2.1
+  },
+  "keema-naan": {
+    "calories": 490,
+    "proteinContent": 26.8,
+    "fatContent": 18.5,
+    "saturatedFatContent": 8.2,
+    "carbohydrateContent": 54.1,
+    "sugarContent": 2.8,
+    "fiberContent": 3.1
+  },
+  "dal-makhani": {
+    "calories": 420,
+    "proteinContent": 16.5,
+    "fatContent": 22.8,
+    "saturatedFatContent": 13.4,
+    "carbohydrateContent": 41.2,
+    "sugarContent": 4.1,
+    "fiberContent": 9.8
+  },
+  "chicken-resmi-kebab": {
+    "calories": 395,
+    "proteinContent": 38.2,
+    "fatContent": 23.4,
+    "saturatedFatContent": 10.1,
+    "carbohydrateContent": 6.8,
+    "sugarContent": 1.9,
+    "fiberContent": 1.2
+  },
+  "lahori-fried-fish": {
+    "calories": 360,
+    "proteinContent": 32.5,
+    "fatContent": 16.8,
+    "saturatedFatContent": 2.9,
+    "carbohydrateContent": 19.4,
+    "sugarContent": 1.2,
+    "fiberContent": 3.4
+  },
+  "zafrani-mutton-korma": {
+    "calories": 670,
+    "proteinContent": 38.4,
+    "fatContent": 46.2,
+    "saturatedFatContent": 22.1,
+    "carbohydrateContent": 14.5,
+    "sugarContent": 4.8,
+    "fiberContent": 2.6
+  },
+  "motichoor-laddu": {
+    "calories": 260,
+    "proteinContent": 4.8,
+    "fatContent": 11.2,
+    "saturatedFatContent": 6.8,
+    "carbohydrateContent": 36.4,
+    "sugarContent": 28.5,
+    "fiberContent": 1.5
   }
 }
