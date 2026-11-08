@@ -100,6 +100,7 @@ Run:
 Stdlib only. No network, no node.
 """
 
+import email.utils
 import html as htmlmod
 import json
 import os
@@ -3867,6 +3868,45 @@ def generate_sitemap(data):
     return len(urls)
 
 
+def build_feed(recipes):
+    """Regenerate feed.xml (Pinterest RSS) from RECIPES so it can never go
+    stale: every recipe in the site gets one <item>, in RECIPES order.
+    Title = name, description = intro (NOT desc), enclosure length = the
+    image file's size in bytes. The output matches the committed feed.xml
+    byte-for-byte except lastBuildDate (the current build time), so a
+    diff of a regenerated feed shows only that one line. Returns the
+    item count."""
+    now = email.utils.formatdate(usegmt=True)
+    items = []
+    for r in recipes:
+        img = r['img']
+        size = os.path.getsize(os.path.join(ROOT, img))
+        items.append(
+            '    <item>\n'
+            '      <title>%s</title>\n'
+            '      <link>%s/recipe/%s</link>\n'
+            '      <guid isPermaLink="true">%s/recipe/%s</guid>\n'
+            '      <description>%s</description>\n'
+            '      <enclosure url="%s/%s" type="image/webp" length="%d" />\n'
+            '      <media:content url="%s/%s" type="image/webp" '
+            'medium="image" />\n'
+            '    </item>' % (esc(r['name']), SITE, r['id'], SITE, r['id'],
+                             esc(r['intro']), SITE, img, size, SITE, img))
+    head = (
+        "<?xml version='1.0' encoding='utf-8'?>\n"
+        '<rss xmlns:media="http://search.yahoo.com/mrss/" version="2.0">\n'
+        '  <channel>\n'
+        '    <title>Zaika Worlds</title>\n'
+        '    <link>%s/</link>\n'
+        '    <description>%s</description>\n'
+        '    <language>en</language>\n'
+        '    <lastBuildDate>%s</lastBuildDate>\n'
+        % (SITE, esc(DEF_DESC), now))
+    text = head + '\n'.join(items) + '\n  </channel>\n</rss>'
+    write(os.path.join(ROOT, 'feed.xml'), text)
+    return len(items)
+
+
 def webp_dims(path):
     """Width/height of a WebP file, stdlib only (VP8 / VP8L / VP8X)."""
     with open(path, 'rb') as f:
@@ -4500,6 +4540,29 @@ def validate_build(data):
               'for these pages:' % len(_gaps), file=sys.stderr)
         for _g in _gaps:
             print('  - %s' % _g, file=sys.stderr)
+    # Feed-sync guard (Pinterest RSS, 2026-11-08): feed.xml was stale
+    # since 1 Nov (46 items) because no build step generated it, so the
+    # 13 recipes added 7 Nov never reached Pinterest. build_feed() now
+    # regenerates it on every full build; this is a WARNING, not a
+    # failure, so a stale feed never blocks a deploy, but it can never
+    # slip through unnoticed again.
+    _feed_path = os.path.join(ROOT, 'feed.xml')
+    _feed_warn = None
+    if not os.path.exists(_feed_path):
+        _feed_warn = ('feed.xml missing (build_feed() regenerates it on '
+                      'the next full build)')
+    else:
+        _feed_src = open(_feed_path, encoding='utf-8').read()
+        _feed_n = _feed_src.count('<item>')
+        _feed_missing = [r['id'] for r in data['recipes']
+                         if ('/recipe/%s</link>' % r['id']) not in _feed_src]
+        if _feed_n != len(data['recipes']) or _feed_missing:
+            _feed_warn = ('feed.xml has %d <item> for %d recipes%s'
+                          % (_feed_n, len(data['recipes']),
+                             (', missing: ' + ','.join(_feed_missing))
+                             if _feed_missing else ''))
+    if _feed_warn:
+        print('FEED SYNC WARNING: %s' % _feed_warn, file=sys.stderr)
     return problems, n_pages
 
 
@@ -4570,6 +4633,13 @@ def main(argv):
     data_files = write_data_files(data)
     static_pages = write_static_pages(data)
     sitemap_count = generate_sitemap(data)
+    try:
+        feed_count = build_feed(data['recipes'])
+    except Exception as e:
+        # The feed is secondary: a feed failure must never fail the
+        # whole build (the site is more important than the feed).
+        print('WARNING: feed.xml not regenerated: %s' % e, file=sys.stderr)
+        feed_count = 0
     slim = build_slim(src, data)
     slim_bytes = len(slim.encode('utf-8'))
     if slim_bytes >= 500 * 1024:
@@ -4584,9 +4654,9 @@ def main(argv):
     print('vercel.json: %s'
           % ('; '.join(vercel_changes) if vercel_changes else 'no change'))
     print('static pages: %d recipes, %d categories, %d countries, '
-          '3 info pages, %d sitemap URLs'
+          '3 info pages, %d sitemap URLs, %d feed items'
           % (len(data['recipes']), len(data['cat_by_slug']),
-             len(data['country_by_slug']), sitemap_count))
+             len(data['country_by_slug']), sitemap_count, feed_count))
     return 0
 
 
