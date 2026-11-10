@@ -181,5 +181,381 @@
         "alt": "दाल तड़का"
       }
     }
+  },
+  {
+    "id": "mutton-kunna",
+    "country": "Pakistan",
+    "name": "Chinioti Mutton Kunna",
+    "cat": "desi-dishes",
+    "catLabel": "Desi Dishes",
+    "veg": "nonveg",
+    "time": 90,
+    "diff": "Medium",
+    "servings": "5 people",
+    "alt": "Authentic clay pot Chinioti Mutton Kunna slow cooked in rich gravy with ZaikaWorlds logo",
+    "desc": "Traditional clay pot slow-cooked mutton curry from Chiniot, flavored with desi ghee, cumin, and thickened lightly with roasted flour.",
+    "intro": "Chinioti Mutton Kunna is one of Punjab's most treasured culinary marvels. Traditionally prepared in a round earthenware pot called a 'kunna', the meat simmers gently in its own natural juices, desi ghee, and whole spices until tender enough to melt in the mouth.",
+    "ing": [
+      "Mutton shank and bone-in pieces 1kg",
+      "Desi ghee or pure mustard oil 1 cup",
+      "Sliced red onions 2 medium",
+      "Ginger garlic paste fresh 2 tbsp",
+      "Coriander powder 1.5 tbsp",
+      "Cumin seeds whole 1 tbsp",
+      "Red chili powder 1 tbsp",
+      "Kashmiri red chili powder for deep color 1 tbsp",
+      "Turmeric powder 0.5 tsp",
+      "Coarse sea salt 1.5 tsp",
+      "Whole garam masala (black cardamom, cloves, cinnamon) 1 tbsp",
+      "Wheat flour (atta) roasted and dissolved in half cup water 3 tbsp",
+      "Julienned fresh ginger and chopped green chilies for garnish"
+    ],
+    "steps": [
+      "Heat desi ghee in a heavy earthen clay handi or deep pot until fragrant.",
+      "Add sliced onions and fry gently until translucent and light golden, not dark brown.",
+      "Add mutton pieces and ginger-garlic paste; bhunai (stir-fry) on medium-high heat for 8 to 10 minutes until meat changes color.",
+      "Add coriander powder, red chili, turmeric, whole garam masala, and salt; stir well for 2 minutes.",
+      "Pour in 4 cups of warm water, bring to a vigorous boil, then seal the lid tightly with dough or foil.",
+      "Cook on low heat (dum) for 75 to 80 minutes until the mutton is fork-tender and succulent.",
+      "Whisk roasted wheat flour paste and pour slowly into the simmering gravy while stirring continuously to create a velvety smooth sauce.",
+      "Simmer for another 8 minutes until ghee floats to the surface (tari separates). Garnish with fresh julienned ginger."
+    ],
+    "tip": "Roast the dry wheat flour in a dry pan until nutty before dissolving in water; this prevents any raw flour taste in the royal sauce.",
+    "nutrition": {
+      "calories": 540,
+      "proteinContent": 46.0,
+      "fatContent": 36.0,
+      "carbohydrateContent": 9.5
+    },
+    "lang": {
+      "ru": {
+        "name": "Chinioti Mutton Kunna",
+        "catLabel": "Desi Dishes",
+        "diff": "Darmiyana",
+        "servings": "5 log",
+        "desc": "Mitti ki handi mein paka hua nihayat lazeez Chinioti mutton kunna.",
+        "alt": "Mitti ki handi mein Chinioti Mutton Kunna"
+      },
+      "hi": {
+        "name": "चिनियोटी मटन कुन्ना",
+        "catLabel": "देसी व्यंजन",
+        "diff": "मध्यम",
+        "servings": "5 लोग",
+        "desc": "मिट्टी की हांडी में धीमी आंच पर पका मटन कुन्ना।",
+        "alt": "चिनियोटी मटन कुन्ना"
+      }
+    },
+    "img": "assets/mutton-kunna-911675ac.webp",
+    "shape": "wide"
+  },
+  {
+    "id": "peshawari-namkeen-gosht",
+    "country": "Pakistan",
+    "name": "Peshawari Namkeen Gosht",
+    "cat": "desi-dishes",
+    "catLabel": "Desi Dishes",
+    "veg": "nonveg",
+    "time": 60,
+    "diff": "Easy",
+    "servings": "4 people",
+    "alt": "Rustic Peshawari Namkeen Gosht with tender lamb and green chilies with ZaikaWorlds logo",
+    "desc": "Khyber tribal style salt-cooked tender mutton prepared with ginger, garlic, tomatoes, and black pepper with no heavy ground spices.",
+    "intro": "Peshawari Namkeen Gosht is famous throughout the Pakhtun belt for allowing the natural pure flavor of meat to shine. Cooked simply with salt, animal fat, ginger, and green chilies, it produces intensely juicy morsels and a clear, rich broth.",
+    "ing": [
+      "Mutton or lamb pieces with fat 800g",
+      "Coarse sea salt 1 tsp",
+      "Crushed ginger 2 tbsp",
+      "Crushed garlic 1.5 tbsp",
+      "Whole green chilies slit 6",
+      "Fresh red tomatoes halved 3",
+      "Freshly cracked coarse black pepper 1 tbsp",
+      "Fresh lemon wedges for serving"
+    ],
+    "steps": [
+      "Place mutton pieces and their natural fat directly into a heavy-bottomed karahi or pressure cooker.",
+      "Add crushed ginger, garlic, salt, and half cup water; cover tightly and cook on low flame for 40 minutes.",
+      "Uncover and place tomato halves skin-side up over the meat; cover for 5 minutes until skins peel off easily.",
+      "Discard tomato skins, mash tomatoes into the meat juices, and add slit green chilies.",
+      "Fry vigorously on high flame (bhunai) until moisture reduces and the natural oil glazes the tender meat.",
+      "Sprinkle generous freshly cracked black pepper and a squeeze of fresh lemon juice right before serving."
+    ],
+    "tip": "Do not add any powdered red chili or turmeric; authentic namkeen gosht gets its distinct kick purely from green chilies and coarse black pepper.",
+    "nutrition": {
+      "calories": 490,
+      "proteinContent": 44.0,
+      "fatContent": 33.0,
+      "carbohydrateContent": 4.0
+    },
+    "lang": {
+      "ru": {
+        "name": "Peshawari Namkeen Gosht",
+        "catLabel": "Desi Dishes",
+        "diff": "Aasan",
+        "servings": "4 log",
+        "desc": "Khyber style namak aur kali mirch mein paka hua lazeez namkeen gosht.",
+        "alt": "Peshawari Namkeen Gosht"
+      },
+      "hi": {
+        "name": "पेशावरी नमकीन गोश्त",
+        "catLabel": "देसी व्यंजन",
+        "diff": "सरल",
+        "servings": "4 लोग",
+        "desc": "काली मिर्च और नमक में पका पारंपरिक पेशावरी मटन।",
+        "alt": "पेशावरी नमकीन गोश्त"
+      }
+    },
+    "img": "assets/peshawari-namkeen-gosht-7ceeee13.webp",
+    "shape": "wide"
+  },
+  {
+    "id": "hyderabadi-bagara-baingan",
+    "country": "India",
+    "name": "Hyderabadi Bagara Baingan",
+    "cat": "desi-dishes",
+    "catLabel": "Desi Dishes",
+    "veg": "veg",
+    "time": 45,
+    "diff": "Medium",
+    "servings": "4 people",
+    "alt": "Rich nutty gravy Hyderabadi Bagara Baingan with fried baby eggplants with ZaikaWorlds logo",
+    "desc": "Tender slit baby eggplants simmered in a royal Hyderabadi gravy of roasted peanuts, sesame seeds, coconut, and tangy tamarind.",
+    "intro": "Bagara Baingan is the crowned jewel accompaniment to Hyderabadi Biryani. Small purple eggplants are slit into quarters, fried until silky, then slow-simmered in an opulent masala paste made from roasted peanuts, desiccated coconut, sesame seeds, and sour tamarind pulp.",
+    "ing": [
+      "Small tender purple eggplants (baby baingan) 10",
+      "Roasted peanuts 3 tbsp",
+      "White sesame seeds (til) 2 tbsp",
+      "Desiccated coconut 2 tbsp",
+      "Thick tamarind pulp 3 tbsp",
+      "Sliced onions 1 large",
+      "Ginger garlic paste 1.5 tbsp",
+      "Cumin seeds and mustard seeds for tempering 1 tsp",
+      "Curry leaves fresh 1 sprig",
+      "Turmeric, red chili powder, coriander powder 1 tsp each",
+      "Cooking oil 4 tbsp",
+      "Salt 1.25 tsp"
+    ],
+    "steps": [
+      "Dry roast peanuts, sesame seeds, and coconut on low heat until golden and aromatic; grind with a little water into a thick smooth paste.",
+      "Slit baby eggplants from base into four quarters keeping stems intact; shallow fry in 2 tbsp oil for 5 minutes until tender; remove and set aside.",
+      "In remaining oil, add mustard seeds, cumin seeds, curry leaves, and sliced onions; fry until golden brown.",
+      "Add ginger-garlic paste, red chili, turmeric, coriander powder, and salt; stir for 1 minute.",
+      "Add ground peanut-sesame masala paste and cook until oil begins to separate from the sides.",
+      "Pour in tamarind pulp and 1.5 cups water; bring to a rolling simmer.",
+      "Gently slide in fried eggplants, cover, and simmer on lowest heat for 12 to 15 minutes until gravy is rich, thick, and eggplants absorb all flavors."
+    ],
+    "tip": "Soak slit eggplants in salted water for 10 minutes prior to frying to remove any residual bitterness and prevent discoloration.",
+    "nutrition": {
+      "calories": 310,
+      "proteinContent": 7.0,
+      "fatContent": 22.0,
+      "carbohydrateContent": 24.0
+    },
+    "lang": {
+      "ru": {
+        "name": "Hyderabadi Bagara Baingan",
+        "catLabel": "Desi Dishes",
+        "diff": "Darmiyana",
+        "servings": "4 log",
+        "desc": "Mungphali, til aur imli ki shahi gravy mein bane Hyderabadi bagara baingan.",
+        "alt": "Hyderabadi Bagara Baingan"
+      },
+      "hi": {
+        "name": "हैदराबादी बघारा बैंगन",
+        "catLabel": "देसी व्यंजन",
+        "diff": "मध्यम",
+        "servings": "4 लोग",
+        "desc": "तिल, मूंगफली और इमली की गाढ़ी ग्रेवी में बने बैंगन।",
+        "alt": "हैदराबादी बघारा बैंगन"
+      }
+    },
+    "img": "assets/hyderabadi-bagara-baingan-e05a4986.webp",
+    "shape": "wide"
+  },
+  {
+    "id": "shahi-sheermal",
+    "country": "Pakistan",
+    "name": "Mughlai Shahi Sheermal",
+    "cat": "breakfast",
+    "catLabel": "Breakfast",
+    "veg": "veg",
+    "time": 50,
+    "diff": "Medium",
+    "servings": "4 people",
+    "alt": "Golden saffron-brushed Mughlai Shahi Sheermal flatbread with sesame seeds with ZaikaWorlds logo",
+    "desc": "Fragrant saffron-infused sweet milk flatbread baked golden, enriched with cardamom, pure desi ghee, and a glossy saffron glaze.",
+    "intro": "Sheermal is a regal Persian-Mughlai flatbread traditionally paired with Nihari and Korma. Made by kneading fine flour exclusively with warm sweetened milk, rich ghee, and mawa, it is brushed lavishly with saffron milk before baking to a heavenly golden crust.",
+    "ing": [
+      "All-purpose flour (maida) 2.5 cups",
+      "Warm full-fat milk 0.75 cup",
+      "Desi ghee melted 0.5 cup",
+      "Sugar 3 tbsp",
+      "Active dry yeast 1 tsp",
+      "Cardamom powder 0.5 tsp",
+      "Saffron threads soaked in 3 tbsp warm milk 1 pinch",
+      "White sesame seeds for topping 1 tbsp",
+      "Kewra water a few drops"
+    ],
+    "steps": [
+      "Dissolve sugar and yeast in warm milk; allow to froth for 8 minutes.",
+      "In a large mixing bowl, combine flour, cardamom powder, and melted ghee; rub together until breadcrumb consistency.",
+      "Pour yeast milk and kewra water into flour; knead into a smooth, supple, soft dough for 10 minutes.",
+      "Cover and let dough rise in a warm spot for 1 hour until doubled in size.",
+      "Divide into 4 smooth balls, roll each into an 8-inch disc of medium thickness, and prick gently with a fork.",
+      "Generously brush top with rich saffron milk and sprinkle with sesame seeds.",
+      "Bake in a preheated oven at 200°C (400°F) for 10 to 12 minutes, or cook on a heavy tawa until puffed and golden brown with blistered saffron spots.",
+      "Brush with warm melted desi ghee immediately upon removing from heat."
+    ],
+    "tip": "Pricking the surface with a fork or traditional roti pricker prevents the sheermal from ballooning up like a puri, keeping its soft bread-like crumb intact.",
+    "nutrition": {
+      "calories": 380,
+      "proteinContent": 7.5,
+      "fatContent": 16.0,
+      "carbohydrateContent": 52.0
+    },
+    "lang": {
+      "ru": {
+        "name": "Mughlai Shahi Sheermal",
+        "catLabel": "Breakfast",
+        "diff": "Darmiyana",
+        "servings": "4 log",
+        "desc": "Zafran aur doodh se bani naram meethi shahi sheermal roti.",
+        "alt": "Shahi Sheermal"
+      },
+      "hi": {
+        "name": "शाही शीरमाल",
+        "catLabel": "नाश्ता",
+        "diff": "मध्यम",
+        "servings": "4 लोग",
+        "desc": "केसर और दूध से बनी मुगलाई शीरमाल रोटी।",
+        "alt": "शाही शीरमाल"
+      }
+    },
+    "img": "assets/shahi-sheermal-5277bd4b.webp",
+    "shape": "wide"
+  },
+  {
+    "id": "rasmalai-tres-leches",
+    "country": "Pakistan",
+    "name": "Royal Shahi Rasmalai",
+    "cat": "desserts",
+    "catLabel": "Desserts",
+    "veg": "veg",
+    "time": 45,
+    "diff": "Medium",
+    "servings": "6 people",
+    "alt": "Soft cottage cheese patties soaked in saffron cardamom rabri with ZaikaWorlds logo",
+    "desc": "Delicate melt-in-mouth milk cheese dumplings poached softly in sweet reduced saffron milk, garnished with pistachios and silver leaf.",
+    "intro": "Rasmalai translates to 'juice of cream' and represents the pinnacle of subcontinent confectionary. Spongy handmade milk cheese patties soak in a silky reduced milk bath infused with green cardamom, Kashmiri saffron strands, and crushed emerald pistachios.",
+    "ing": [
+      "Full cream milk for rabri 1 liter",
+      "Dry milk powder (nido or everyday) 1 cup",
+      "Baking powder 1 level tsp",
+      "All-purpose flour 1 tbsp",
+      "Desi ghee melted 1 tbsp",
+      "Whisked egg 1 medium",
+      "Sugar 0.75 cup",
+      "Cardamom pods crushed 4",
+      "Saffron threads 1 generous pinch",
+      "Crushed pistachios and slivered almonds 3 tbsp"
+    ],
+    "steps": [
+      "In a wide pot, simmer 1 liter milk with sugar, crushed cardamoms, and saffron on medium heat for 20 minutes until reduced by one-third into a fragrant rabri.",
+      "In a bowl, mix milk powder, baking powder, and flour; rub in melted ghee.",
+      "Gradually add whisked egg and knead lightly into a soft, slightly sticky dough (do not over-knead).",
+      "Immediately shape dough into 12 small smooth crack-free oval patties (they will double in size when cooked).",
+      "Gently drop patties into the actively simmering rabri milk one by one.",
+      "Cover pot tightly with a lid and cook on medium flame for 10 minutes without opening to allow steam to puff the dumplings.",
+      "Remove lid, gently turn each patty with a spoon, and simmer uncovered for 3 more minutes.",
+      "Remove from heat, chill thoroughly in refrigerator for at least 4 hours, and garnish with crushed pistachios before serving cold."
+    ],
+    "tip": "Shape and cook the patties immediately after kneading; if the dough sits on the counter, it dries out and causes cracks in the dumplings.",
+    "nutrition": {
+      "calories": 290,
+      "proteinContent": 9.0,
+      "fatContent": 12.0,
+      "carbohydrateContent": 37.0
+    },
+    "lang": {
+      "ru": {
+        "name": "Royal Shahi Rasmalai",
+        "catLabel": "Desserts",
+        "diff": "Darmiyana",
+        "servings": "6 log",
+        "desc": "Naram rasbhari paneer ki tikiya zafrani meethay doodh mein.",
+        "alt": "Shahi Rasmalai"
+      },
+      "hi": {
+        "name": "शाही रसमलाई",
+        "catLabel": "मिठाई",
+        "diff": "मध्यम",
+        "servings": "6 लोग",
+        "desc": "केसरिया दूध में डूबी रसीली मखमली रसमलाई।",
+        "alt": "शाही रसमलाई"
+      }
+    },
+    "img": "assets/rasmalai-tres-leches-b0da1e32.webp",
+    "shape": "wide"
+  },
+  {
+    "id": "kashmiri-rogan-josh",
+    "country": "India",
+    "name": "Authentic Kashmiri Rogan Josh",
+    "cat": "desi-dishes",
+    "catLabel": "Desi Dishes",
+    "veg": "nonveg",
+    "time": 75,
+    "diff": "Medium",
+    "servings": "5 people",
+    "alt": "Vibrant deep-red Kashmiri Rogan Josh mutton curry in brass bowl with ZaikaWorlds logo",
+    "desc": "Aromatic slow-braised Kashmiri mutton curry steeped in fennel, dry ginger (soonth), Kashmiri red chilies, and whole spices.",
+    "intro": "Rogan Josh is an iconic cornerstone of Kashmiri Wazwan cuisine. Tender bone-in lamb or mutton is braised in an intensely aromatic sauce infused with fennel seed powder, sun-dried ginger, and Kashmiri chilies for an unmatchable crimson luster without fiery heat.",
+    "ing": [
+      "Mutton or lamb shoulder cuts 1kg",
+      "Mustard oil 0.5 cup",
+      "Whisked hung yogurt 1 cup",
+      "Kashmiri chili powder (degi mirch) 2.5 tbsp",
+      "Fennel seed powder (saunf) 1.5 tbsp",
+      "Dry ginger powder (soonth) 1 tbsp",
+      "Asafoetida (hing) 1 pinch",
+      "Black cardamom 2, green cardamom 4, cloves 4, cinnamon stick 1",
+      "Salt 1.5 tsp",
+      "Warm water 2 cups"
+    ],
+    "steps": [
+      "Heat mustard oil in a heavy pot until smoking point; turn off heat briefly to cool, then return to medium flame.",
+      "Add whole whole spices and a pinch of hing; immediately add mutton pieces and sear on high heat until lightly browned.",
+      "Mix Kashmiri chili powder with 2 tbsp water into a paste; add to mutton and stir vigorously to coat every piece in brilliant red color.",
+      "Lower heat, add whisked yogurt gradually while stirring continuously to prevent curdling.",
+      "Stir in fennel powder, ginger powder, and salt; cook for 10 minutes until oil separates.",
+      "Add 2 cups warm water, bring to boil, cover tightly, and simmer on gentle heat for 60 minutes until meat is butter-soft.",
+      "Cook uncovered for final 5 minutes until gravy is thick, silky, and glistening with royal red oil (rogan)."
+    ],
+    "tip": "Traditional Kashmiri Rogan Josh never uses onions, tomatoes, or garlic; the entire body of the gravy comes from yogurt, fennel powder, and dry ginger.",
+    "nutrition": {
+      "calories": 510,
+      "proteinContent": 45.0,
+      "fatContent": 35.0,
+      "carbohydrateContent": 6.0
+    },
+    "lang": {
+      "ru": {
+        "name": "Authentic Kashmiri Rogan Josh",
+        "catLabel": "Desi Dishes",
+        "diff": "Darmiyana",
+        "servings": "5 log",
+        "desc": "Asal Kashmiri zafrani laal rogan josh mutton salan.",
+        "alt": "Kashmiri Rogan Josh"
+      },
+      "hi": {
+        "name": "कश्मीरी रोगन जोश",
+        "catLabel": "देसी व्यंजन",
+        "diff": "मध्यम",
+        "servings": "5 लोग",
+        "desc": "सौंफ और सोंठ के स्वाद वाला प्रामाणिक कश्मीरी मटन करी।",
+        "alt": "कश्मीरी रोगन जोश"
+      }
+    },
+    "img": "assets/kashmiri-rogan-josh-2942ad3b.webp",
+    "shape": "wide"
   }
 ]
