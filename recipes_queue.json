@@ -1,1 +1,185 @@
-[]
+[
+  {
+    "id": "beef-boti-kabab",
+    "country": "Pakistan",
+    "name": "Bihari Beef Boti Kabab",
+    "cat": "bbq",
+    "catLabel": "BBQ",
+    "veg": "nonveg",
+    "time": 40,
+    "diff": "Medium",
+    "servings": "4 people",
+    "img": "assets/beef-boti-kabab-3f8a1e2d.webp",
+    "shape": "wide",
+    "alt": "Melt-in-mouth grilled Bihari Beef Boti Kabab with onions and ZaikaWorlds logo",
+    "desc": "Paper-thin slices of beef marinated in raw papaya, mustard oil, fried onions, and roasted poppy seeds, grilled on skewers to tender perfection.",
+    "intro": "Bihari Boti Kabab is legendary across South Asia for its astonishing melt-in-mouth softness. Marinated with raw papaya paste and pungent mustard oil, each bite dissolves effortlessly on the palate.",
+    "ing": [
+      "Boneless beef undercut sliced thin 750g",
+      "Raw green papaya paste 2 tbsp (natural tenderizer)",
+      "Pure mustard oil 3 tbsp",
+      "Golden fried onions crushed 1/2 cup",
+      "Thick hung yogurt 1/3 cup",
+      "Roasted gram flour (besan) 2 tbsp",
+      "Bihari kabab masala (crushed coriander, cumin, allspice, red chili) 2 tbsp",
+      "Ginger-garlic paste 1 1/2 tbsp, salt 1 tsp"
+    ],
+    "steps": [
+      "Tenderize thin beef strips with raw papaya paste, ginger-garlic, and salt for 1 hour.",
+      "Mix in mustard oil, crushed fried onions, whisked yogurt, gram flour, and Bihari kabab masala.",
+      "Thread beef ribbon-style onto skewers. Cover and refrigerate for at least 4 hours.",
+      "Grill over hot charcoal embers for 10-12 minutes, turning and basting with butter until smoky charred.",
+      "Serve hot with fresh mint raita, parathas, and lemon."
+    ],
+    "tip": "Raw papaya paste contains papain which tenderizes beef within hours; do not exceed 2 tablespoons or the meat will lose texture.",
+    "nutrition": {
+      "calories": 480,
+      "proteinContent": 42.0,
+      "fatContent": 29.5,
+      "saturatedFatContent": 11.0,
+      "carbohydrateContent": 6.5,
+      "sugarContent": 1.5,
+      "fiberContent": 1.2
+    },
+    "lang": {
+      "ru": {
+        "name": "Bihari Beef Boti Kabab",
+        "catLabel": "BBQ",
+        "diff": "Darmiyana",
+        "servings": "4 log",
+        "desc": "Kachay papitay aur sarson ke teil mein bani narm Bihari beef boti.",
+        "alt": "Bihari Beef Boti Kabab"
+      },
+      "hi": {
+        "name": "बिहारी बीफ बोटी कबाब",
+        "catLabel": "BBQ",
+        "diff": "Medium",
+        "servings": "4 log",
+        "desc": "सरसों के तेल और पपीते के पेस्ट में मैरीनेट की हुई मलाईदार कबाब बोटी।",
+        "alt": "बिहारी बोटी कबाब"
+      }
+    }
+  },
+  {
+    "id": "shahi-tukda",
+    "country": "India",
+    "name": "Royal Hyderabadi Shahi Tukda",
+    "cat": "meetha",
+    "catLabel": "Desserts",
+    "veg": "veg",
+    "time": 30,
+    "diff": "Easy",
+    "servings": "6 servings",
+    "img": "assets/shahi-tukda-7c1e8a2b.webp",
+    "shape": "wide",
+    "alt": "Ghee-fried golden toast soaked in saffron syrup and rich rabri with ZaikaWorlds logo",
+    "desc": "Crispy golden ghee-fried bread triangles soaked in saffron sugar syrup and blanketed with cardamom-scented rabri, pistachios, and silver leaf.",
+    "intro": "A regal Mughal creation celebrated in Hyderabad and Lucknow, Shahi Tukda translates literally to 'Royal Bite'. Thick bread slices fried crisp in pure desi ghee, dipped in fragrant saffron syrup, and bathed in slow-cooked creamy rabri.",
+    "ing": [
+      "White bread slices trimmed and cut into triangles 6 slices",
+      "Pure desi ghee for shallow frying",
+      "Full cream milk 1 liter reduced to thick rabri (1.5 cups)",
+      "Sugar 1 cup, water 3/4 cup",
+      "Saffron strands 1/4 tsp, green cardamom powder 1 tsp",
+      "Chopped pistachios and almonds 4 tbsp, silver vark"
+    ],
+    "steps": [
+      "Fry bread triangles in desi ghee over medium flame until deep golden and crisp on both sides.",
+      "Make a one-string sugar syrup with water, sugar, saffron, and cardamom. Dip fried toast triangles for 30 seconds to soak.",
+      "Arrange soaked bread triangles in an overlapping fan on a royal serving platter.",
+      "Pour chilled, thick rabri generously over the center, leaving the golden crispy edges exposed.",
+      "Garnish lavishly with pistachios, slivered almonds, and silver leaf before serving."
+    ],
+    "tip": "Leave the top pointed edges of the bread triangles untouched by rabri so each bite delivers both rich creaminess and crisp crunch.",
+    "nutrition": {
+      "calories": 410,
+      "proteinContent": 7.8,
+      "fatContent": 21.0,
+      "saturatedFatContent": 12.5,
+      "carbohydrateContent": 48.0,
+      "sugarContent": 34.0,
+      "fiberContent": 1.0
+    },
+    "lang": {
+      "ru": {
+        "name": "Royal Hyderabadi Shahi Tukda",
+        "catLabel": "Desserts",
+        "diff": "Aasan",
+        "servings": "6 log",
+        "desc": "Desi ghee mein tali hui double roti jo rabri aur zafran mein doobi hui hai.",
+        "alt": "Shahi Tukda"
+      },
+      "hi": {
+        "name": "शाही टुकड़ा",
+        "catLabel": "Desserts",
+        "diff": "Easy",
+        "servings": "6 log",
+        "desc": "देसी घी में तली हुई ब्रेड, केसरिया चाशनी और गाढ़ी रबड़ी से बनी शाही मिठाई।",
+        "alt": "शाही टुकड़ा"
+      }
+    }
+  },
+  {
+    "id": "dal-tadka",
+    "country": "India",
+    "name": "Dhaba Style Dal Tadka",
+    "cat": "desi",
+    "catLabel": "Desi Dishes",
+    "veg": "veg",
+    "time": 35,
+    "diff": "Easy",
+    "servings": "4 people",
+    "img": "assets/dal-tadka-8b2c1e9a.webp",
+    "shape": "wide",
+    "alt": "Golden yellow Dal Tadka with bubbling garlic cumin ghee tempering and ZaikaWorlds logo",
+    "desc": "Yellow toor and moong lentils cooked tender and tempered with smoking desi ghee, cumin seeds, garlic cloves, dried red chilies, and hing (asafoetida).",
+    "intro": "A highway dhaba classic that embodies pure comfort. Split yellow lentils cooked to creamy perfection, then finished with a smoking ghee tempering (tadka) of crushed garlic, whole red chilies, and aromatic cumin that sizzles as it hits the table.",
+    "ing": [
+      "Toor dal (pigeon pea) 1/2 cup, Yellow moong dal 1/2 cup",
+      "Water 3.5 cups, Turmeric powder 1/2 tsp, Salt 1 tsp",
+      "Desi ghee 3 tbsp",
+      "Cumin seeds 1 tsp, Mustard seeds 1/2 tsp",
+      "Garlic cloves finely chopped 6 pieces",
+      "Whole dried red chilies 3 pieces, Hing (asafoetida) a pinch",
+      "Tomatoes chopped 1 medium, Kashmiri chili powder 1/2 tsp",
+      "Fresh coriander leaves chopped 2 tbsp"
+    ],
+    "steps": [
+      "Pressure cook or boil toor and moong dal with water, turmeric, and salt for 15-20 minutes until completely soft. Whisk gently.",
+      "In a small pan, heat desi ghee over medium flame until hot.",
+      "Add cumin seeds, mustard seeds, and hing; allow them to crackle.",
+      "Add chopped garlic and sauté until fragrant and golden brown.",
+      "Add dried red chilies and chopped tomatoes; cook for 2 minutes.",
+      "Stir in Kashmiri red chili powder for a vivid red color, then immediately pour the sizzling tadka over the dal.",
+      "Cover with lid for 2 minutes to lock in the smoky aroma, garnish with fresh coriander, and serve with jeera rice."
+    ],
+    "tip": "Cover the pot immediately after pouring the hot sizzling tadka so the essential garlic-ghee fumes penetrate every drop of the lentils.",
+    "nutrition": {
+      "calories": 240,
+      "proteinContent": 12.5,
+      "fatContent": 8.0,
+      "saturatedFatContent": 4.5,
+      "carbohydrateContent": 31.0,
+      "sugarContent": 2.5,
+      "fiberContent": 5.8
+    },
+    "lang": {
+      "ru": {
+        "name": "Dhaba Style Dal Tadka",
+        "catLabel": "Desi Dishes",
+        "diff": "Aasan",
+        "servings": "4 log",
+        "desc": "Lehsan, desi ghee aur sookhi lal mirch ke tarke wali peeli daal.",
+        "alt": "Dal Tadka"
+      },
+      "hi": {
+        "name": "ढाबा स्टाइल दाल तड़का",
+        "catLabel": "Desi Dishes",
+        "diff": "Easy",
+        "servings": "4 log",
+        "desc": "लहसुन, जीरा और देसी घी के स्पेशल तड़के वाली स्वादिष्ट पीली दाल।",
+        "alt": "दाल तड़का"
+      }
+    }
+  }
+]
