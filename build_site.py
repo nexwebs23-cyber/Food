@@ -2348,7 +2348,7 @@ def page_shell(title, desc, url, og_img, og_alt, json_ld_blocks, body,
     return (head +
             '<title>' + esc(title) + '</title>\n'
             '<meta name="description" content="' + esc(desc) + '">\n'
-            '<meta name="robots" content="index, follow">\n'
+            '<meta name="robots" content="index, follow, max-image-preview:large">\n'
             '<link rel="canonical" href="' + esc(url) + '">\n'
             + alt_links +
             '<meta property="og:type" content="' + esc(og_type) + '">\n'
