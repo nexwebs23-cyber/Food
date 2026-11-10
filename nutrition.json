@@ -567,5 +567,95 @@
     "carbohydrateContent": 36.4,
     "sugarContent": 28.5,
     "fiberContent": 1.5
+  },
+  "kashmiri-chai": {
+    "calories": 185,
+    "proteinContent": 6.2,
+    "fatContent": 8.5,
+    "saturatedFatContent": 4.8,
+    "carbohydrateContent": 21.0,
+    "sugarContent": 16.5,
+    "fiberContent": 1.2
+  },
+  "chicken-malai-boti": {
+    "calories": 420,
+    "proteinContent": 38.5,
+    "fatContent": 26.0,
+    "saturatedFatContent": 12.4,
+    "carbohydrateContent": 6.8,
+    "sugarContent": 2.1,
+    "fiberContent": 1.0
+  },
+  "mutton-shinwari-karahi": {
+    "calories": 580,
+    "proteinContent": 44.0,
+    "fatContent": 41.5,
+    "saturatedFatContent": 16.2,
+    "carbohydrateContent": 8.2,
+    "sugarContent": 4.5,
+    "fiberContent": 2.4
+  },
+  "fish-tikka": {
+    "calories": 310,
+    "proteinContent": 36.0,
+    "fatContent": 14.5,
+    "saturatedFatContent": 3.2,
+    "carbohydrateContent": 7.5,
+    "sugarContent": 1.8,
+    "fiberContent": 1.5
+  },
+  "achari-gosht": {
+    "calories": 540,
+    "proteinContent": 41.0,
+    "fatContent": 37.0,
+    "saturatedFatContent": 14.0,
+    "carbohydrateContent": 11.5,
+    "sugarContent": 5.2,
+    "fiberContent": 3.1
+  },
+  "shahi-kulfi-falooda": {
+    "calories": 320,
+    "proteinContent": 8.5,
+    "fatContent": 18.2,
+    "saturatedFatContent": 11.0,
+    "carbohydrateContent": 32.0,
+    "sugarContent": 26.5,
+    "fiberContent": 1.1
+  },
+  "chicken-white-handi": {
+    "calories": 460,
+    "proteinContent": 39.0,
+    "fatContent": 30.5,
+    "saturatedFatContent": 13.8,
+    "carbohydrateContent": 9.4,
+    "sugarContent": 3.0,
+    "fiberContent": 1.8
+  },
+  "charsi-tikka": {
+    "calories": 490,
+    "proteinContent": 46.0,
+    "fatContent": 32.0,
+    "saturatedFatContent": 11.5,
+    "carbohydrateContent": 3.0,
+    "sugarContent": 0.5,
+    "fiberContent": 0.8
+  },
+  "tawa-chicken-fry": {
+    "calories": 390,
+    "proteinContent": 37.0,
+    "fatContent": 22.0,
+    "saturatedFatContent": 6.5,
+    "carbohydrateContent": 9.8,
+    "sugarContent": 4.0,
+    "fiberContent": 2.2
+  },
+  "crispy-jalebi": {
+    "calories": 380,
+    "proteinContent": 4.2,
+    "fatContent": 13.5,
+    "saturatedFatContent": 7.8,
+    "carbohydrateContent": 64.0,
+    "sugarContent": 48.0,
+    "fiberContent": 0.8
   }
 }
