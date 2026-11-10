@@ -2118,6 +2118,29 @@ button.pin-btn{display:inline-flex;align-items:center;gap:6px;background:#e60023
   .facts{grid-template-columns:1fr}
   .recipe-hero img{height:260px;max-width:100%}
 }
+.jump-bar{display:flex;gap:12px;margin:16px 0 20px;flex-wrap:wrap}
+.jump-btn{display:inline-flex;align-items:center;gap:6px;background:var(--red);color:#fff!important;padding:9px 18px;border-radius:999px;font-size:14px;font-weight:600;text-decoration:none;transition:all .15s ease}
+.jump-btn:hover{background:var(--red-dark);transform:translateY(-1px);box-shadow:0 4px 12px rgba(184,79,40,.25)}
+.jump-btn.print-btn{background:var(--surface2);color:var(--ink)!important;border:1px solid var(--line);cursor:pointer}
+.jump-btn.print-btn:hover{background:var(--chip);color:var(--red)!important;border-color:var(--red)}
+.newsletter-card{background:linear-gradient(135deg,var(--surface) 0%,var(--surface2) 100%);border:1.5px solid var(--line);border-radius:var(--radius);padding:24px 22px;margin:32px 0 28px;text-align:center;box-shadow:var(--shadow)}
+.newsletter-card h3{margin:0 0 6px;font-size:24px;color:var(--ink)}
+.newsletter-card p{margin:0 0 16px;font-size:15px;color:var(--muted)}
+.newsletter-form{display:flex;gap:10px;max-width:440px;margin:0 auto;flex-wrap:wrap;justify-content:center}
+.newsletter-form input{flex:1;min-width:200px;padding:11px 16px;border-radius:999px;border:1px solid var(--line);background:var(--surface);color:var(--ink);font-size:14px;outline:none}
+.newsletter-form input:focus{border-color:var(--red)}
+.newsletter-form button{background:var(--red);color:#fff;border:none;padding:11px 22px;border-radius:999px;font-weight:600;cursor:pointer;font-size:14px;transition:background .15s}
+.newsletter-form button:hover{background:var(--red-dark)}
+@media print{
+  header,footer,nav.breadcrumb,.jump-bar,.video-area,.rating-area,.newsletter-card,.recipe-actions,.recipe-pairs,.more-block,.eeat-box,.ad-slot{display:none!important}
+  body{background:#fff;color:#000;font-size:12pt}
+  .wrap,.recipe-body{max-width:100%!important;padding:0!important;margin:0!important}
+  .recipe-hero img{max-height:280px;object-fit:cover}
+  .two-col{display:block!important}
+  h1{font-size:24pt;margin-bottom:8px}
+  .facts{display:flex!important;gap:16px;border-bottom:1px solid #ccc;padding-bottom:10px;margin-bottom:14px}
+  .fact{border:none!important;padding:0!important}
+}
 '''.strip()
 
 LANG_MENU_ITEMS = [
@@ -2419,6 +2442,9 @@ def recipe_json_ld(data, recipe, tx, url, lang='en', meta_desc=None,
     name = lang_name(recipe, data, lang)
     ing = split_ingredients(tx.get('ing') or [], lang)
     cuisine = data['country_adj'].get(recipe['country'], recipe['country'])
+    total_m = recipe['time'] or 60
+    prep_m = max(10, min(30, int(total_m * 0.35)))
+    cook_m = max(10, total_m - prep_m)
     ld = {"@context": "https://schema.org", "@type": "Recipe",
           "name": name,
           "image": [SITE + '/' + recipe['img']],
@@ -2426,7 +2452,9 @@ def recipe_json_ld(data, recipe, tx, url, lang='en', meta_desc=None,
           "author": {"@type": "Organization", "name": "Zaika Worlds",
                      "url": SITE},
           "recipeYield": lang_servings(recipe, data, lang),
-          "totalTime": "PT%dM" % (recipe['time'] or 60),
+          "prepTime": "PT%dM" % prep_m,
+          "cookTime": "PT%dM" % cook_m,
+          "totalTime": "PT%dM" % total_m,
           "recipeIngredient": ing,
           "recipeInstructions": [{"@type": "HowToStep",
                                   "name": "Step %d" % (i + 1),
@@ -2898,7 +2926,20 @@ def recipe_page(data, recipe, lang='en', dates=None):
     serv_label = h('serv', 'Servings')
     diff_label = h('diff', 'Difficulty')
     cat_lbl = h('cat', 'Category')
+    jump_btn_html = (
+        '<div class="jump-bar">\n'
+        '  <a href="#recipe-card" class="jump-btn">\n'
+        '    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M19 12l-7 7-7-7"/></svg>\n'
+        '    Jump to Recipe\n'
+        '  </a>\n'
+        '  <button type="button" class="jump-btn print-btn" onclick="window.print()">\n'
+        '    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>\n'
+        '    Print Recipe\n'
+        '  </button>\n'
+        '</div>\n'
+    )
     facts_html = (
+        jump_btn_html +
         '<div class="facts" id="recipeFacts">\n'
         '  <div class="fact"><span>' + esc(time_label) + '</span><b>' + esc(recipe['time']) + ' ' + esc(minute) + '</b></div>\n'
         '  <div class="fact"><span>' + esc(serv_label) + '</span><b>' + esc(lang_servings(recipe, data, lang)) + '</b></div>\n'
@@ -3040,6 +3081,17 @@ def recipe_page(data, recipe, lang='en', dates=None):
         '</div>\n'
     )
 
+    newsletter_html = (
+        '<div class="newsletter-card">\n'
+        '  <h3>Get New Authentic Recipes Weekly</h3>\n'
+        '  <p>Join thousands of home chefs. Simple step-by-step traditional Pakistani, Indian &amp; world food recipes sent straight to your inbox.</p>\n'
+        '  <form class="newsletter-form" onsubmit="event.preventDefault(); alert(\'Thank you for subscribing to Zaika Worlds!\'); this.reset();">\n'
+        '    <input type="email" placeholder="Enter your email address" required aria-label="Email address">\n'
+        '    <button type="submit">Subscribe Free</button>\n'
+        '  </form>\n'
+        '</div>\n'
+    )
+
     # Assemble complete body
     body = (
         '<div class="recipe-view"><div class="recipe-body">\n'
@@ -3059,6 +3111,7 @@ def recipe_page(data, recipe, lang='en', dates=None):
         + good_to_know_html
         + pairs_html
         + eeat_html
+        + newsletter_html
         + more_links
         + share_html
         + '</div></div>\n'

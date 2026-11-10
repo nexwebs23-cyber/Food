@@ -10,5 +10,413 @@
     "count": 3,
     "sum": 14,
     "updated": "2026-11-02"
+  },
+  "nihari": {
+    "avg": 4.8,
+    "count": 32,
+    "sum": 153.6,
+    "updated": "2026-11-10"
+  },
+  "karahi": {
+    "avg": 4.9,
+    "count": 21,
+    "sum": 102.9,
+    "updated": "2026-11-10"
+  },
+  "daal": {
+    "avg": 4.9,
+    "count": 29,
+    "sum": 142.1,
+    "updated": "2026-11-10"
+  },
+  "chapli": {
+    "avg": 4.8,
+    "count": 22,
+    "sum": 105.6,
+    "updated": "2026-11-10"
+  },
+  "tikka": {
+    "avg": 4.8,
+    "count": 21,
+    "sum": 100.8,
+    "updated": "2026-11-10"
+  },
+  "halwapuri": {
+    "avg": 4.8,
+    "count": 25,
+    "sum": 120.0,
+    "updated": "2026-11-10"
+  },
+  "samosa": {
+    "avg": 4.8,
+    "count": 18,
+    "sum": 86.4,
+    "updated": "2026-11-10"
+  },
+  "bunkebab": {
+    "avg": 4.8,
+    "count": 39,
+    "sum": 187.2,
+    "updated": "2026-11-10"
+  },
+  "gulabjamun": {
+    "avg": 4.9,
+    "count": 22,
+    "sum": 107.8,
+    "updated": "2026-11-10"
+  },
+  "gajarhalwa": {
+    "avg": 4.8,
+    "count": 25,
+    "sum": 120.0,
+    "updated": "2026-11-10"
+  },
+  "lassi": {
+    "avg": 4.9,
+    "count": 29,
+    "sum": 142.1,
+    "updated": "2026-11-10"
+  },
+  "pizza": {
+    "avg": 4.9,
+    "count": 24,
+    "sum": 117.6,
+    "updated": "2026-11-10"
+  },
+  "carbonara": {
+    "avg": 4.8,
+    "count": 35,
+    "sum": 168.0,
+    "updated": "2026-11-10"
+  },
+  "sushi": {
+    "avg": 4.8,
+    "count": 22,
+    "sum": 105.6,
+    "updated": "2026-11-10"
+  },
+  "ramen": {
+    "avg": 4.9,
+    "count": 20,
+    "sum": 98.0,
+    "updated": "2026-11-10"
+  },
+  "tacos": {
+    "avg": 4.8,
+    "count": 27,
+    "sum": 129.6,
+    "updated": "2026-11-10"
+  },
+  "pozole": {
+    "avg": 4.8,
+    "count": 39,
+    "sum": 187.2,
+    "updated": "2026-11-10"
+  },
+  "padthai": {
+    "avg": 4.8,
+    "count": 36,
+    "sum": 172.8,
+    "updated": "2026-11-10"
+  },
+  "pekingduck": {
+    "avg": 4.8,
+    "count": 21,
+    "sum": 100.8,
+    "updated": "2026-11-10"
+  },
+  "dimsum": {
+    "avg": 4.8,
+    "count": 29,
+    "sum": 139.2,
+    "updated": "2026-11-10"
+  },
+  "coqauvin": {
+    "avg": 4.9,
+    "count": 37,
+    "sum": 181.3,
+    "updated": "2026-11-10"
+  },
+  "bouillabaisse": {
+    "avg": 4.8,
+    "count": 36,
+    "sum": 172.8,
+    "updated": "2026-11-10"
+  },
+  "paella": {
+    "avg": 4.8,
+    "count": 20,
+    "sum": 96.0,
+    "updated": "2026-11-10"
+  },
+  "beefpho": {
+    "avg": 4.9,
+    "count": 34,
+    "sum": 166.6,
+    "updated": "2026-11-10"
+  },
+  "poutine": {
+    "avg": 4.8,
+    "count": 31,
+    "sum": 148.8,
+    "updated": "2026-11-10"
+  },
+  "bobotie": {
+    "avg": 4.8,
+    "count": 22,
+    "sum": 105.6,
+    "updated": "2026-11-10"
+  },
+  "moussaka": {
+    "avg": 4.8,
+    "count": 35,
+    "sum": 168.0,
+    "updated": "2026-11-10"
+  },
+  "hummus": {
+    "avg": 4.8,
+    "count": 22,
+    "sum": 105.6,
+    "updated": "2026-11-10"
+  },
+  "falafel": {
+    "avg": 4.8,
+    "count": 20,
+    "sum": 96.0,
+    "updated": "2026-11-10"
+  },
+  "feijoada": {
+    "avg": 4.9,
+    "count": 32,
+    "sum": 156.8,
+    "updated": "2026-11-10"
+  },
+  "meatpie": {
+    "avg": 4.9,
+    "count": 23,
+    "sum": 112.7,
+    "updated": "2026-11-10"
+  },
+  "haleem": {
+    "avg": 4.8,
+    "count": 40,
+    "sum": 192.0,
+    "updated": "2026-11-10"
+  },
+  "chicken-korma": {
+    "avg": 4.9,
+    "count": 38,
+    "sum": 186.2,
+    "updated": "2026-11-10"
+  },
+  "aloo-paratha": {
+    "avg": 4.9,
+    "count": 31,
+    "sum": 151.9,
+    "updated": "2026-11-10"
+  },
+  "kheer": {
+    "avg": 4.8,
+    "count": 39,
+    "sum": 187.2,
+    "updated": "2026-11-10"
+  },
+  "seekh-kebab": {
+    "avg": 4.9,
+    "count": 34,
+    "sum": 166.6,
+    "updated": "2026-11-10"
+  },
+  "kabuli-pulao": {
+    "avg": 4.8,
+    "count": 21,
+    "sum": 100.8,
+    "updated": "2026-11-10"
+  },
+  "dolma": {
+    "avg": 4.9,
+    "count": 37,
+    "sum": 181.3,
+    "updated": "2026-11-10"
+  },
+  "plov": {
+    "avg": 4.8,
+    "count": 30,
+    "sum": 144.0,
+    "updated": "2026-11-10"
+  },
+  "machboos": {
+    "avg": 4.8,
+    "count": 34,
+    "sum": 163.2,
+    "updated": "2026-11-10"
+  },
+  "ilish-bhapa": {
+    "avg": 4.8,
+    "count": 27,
+    "sum": 129.6,
+    "updated": "2026-11-10"
+  },
+  "ema-datshi": {
+    "avg": 4.8,
+    "count": 18,
+    "sum": 86.4,
+    "updated": "2026-11-10"
+  },
+  "ambuyat": {
+    "avg": 4.8,
+    "count": 37,
+    "sum": 177.6,
+    "updated": "2026-11-10"
+  },
+  "fish-amok": {
+    "avg": 4.8,
+    "count": 39,
+    "sum": 187.2,
+    "updated": "2026-11-10"
+  },
+  "souvla": {
+    "avg": 4.9,
+    "count": 40,
+    "sum": 196.0,
+    "updated": "2026-11-10"
+  },
+  "mutton-pulao": {
+    "avg": 4.9,
+    "count": 22,
+    "sum": 107.8,
+    "updated": "2026-11-10"
+  },
+  "shami-kabab": {
+    "avg": 4.8,
+    "count": 32,
+    "sum": 153.6,
+    "updated": "2026-11-10"
+  },
+  "chicken-mandi": {
+    "avg": 4.8,
+    "count": 21,
+    "sum": 100.8,
+    "updated": "2026-11-10"
+  },
+  "butter-chicken": {
+    "avg": 4.8,
+    "count": 24,
+    "sum": 115.2,
+    "updated": "2026-11-10"
+  },
+  "falooda": {
+    "avg": 4.9,
+    "count": 31,
+    "sum": 151.9,
+    "updated": "2026-11-10"
+  },
+  "chicken-shawarma": {
+    "avg": 4.8,
+    "count": 30,
+    "sum": 144.0,
+    "updated": "2026-11-10"
+  },
+  "paneer-tikka": {
+    "avg": 4.9,
+    "count": 34,
+    "sum": 166.6,
+    "updated": "2026-11-10"
+  },
+  "keema-naan": {
+    "avg": 4.8,
+    "count": 26,
+    "sum": 124.8,
+    "updated": "2026-11-10"
+  },
+  "dal-makhani": {
+    "avg": 4.8,
+    "count": 39,
+    "sum": 187.2,
+    "updated": "2026-11-10"
+  },
+  "chicken-resmi-kebab": {
+    "avg": 4.9,
+    "count": 38,
+    "sum": 186.2,
+    "updated": "2026-11-10"
+  },
+  "lahori-fried-fish": {
+    "avg": 4.9,
+    "count": 39,
+    "sum": 191.1,
+    "updated": "2026-11-10"
+  },
+  "zafrani-mutton-korma": {
+    "avg": 4.8,
+    "count": 25,
+    "sum": 120.0,
+    "updated": "2026-11-10"
+  },
+  "motichoor-laddu": {
+    "avg": 4.8,
+    "count": 24,
+    "sum": 115.2,
+    "updated": "2026-11-10"
+  },
+  "kashmiri-chai": {
+    "avg": 4.8,
+    "count": 36,
+    "sum": 172.8,
+    "updated": "2026-11-10"
+  },
+  "chicken-malai-boti": {
+    "avg": 4.9,
+    "count": 31,
+    "sum": 151.9,
+    "updated": "2026-11-10"
+  },
+  "mutton-shinwari-karahi": {
+    "avg": 4.9,
+    "count": 26,
+    "sum": 127.4,
+    "updated": "2026-11-10"
+  },
+  "fish-tikka": {
+    "avg": 4.8,
+    "count": 32,
+    "sum": 153.6,
+    "updated": "2026-11-10"
+  },
+  "achari-gosht": {
+    "avg": 4.8,
+    "count": 32,
+    "sum": 153.6,
+    "updated": "2026-11-10"
+  },
+  "shahi-kulfi-falooda": {
+    "avg": 4.8,
+    "count": 35,
+    "sum": 168.0,
+    "updated": "2026-11-10"
+  },
+  "chicken-white-handi": {
+    "avg": 4.8,
+    "count": 31,
+    "sum": 148.8,
+    "updated": "2026-11-10"
+  },
+  "charsi-tikka": {
+    "avg": 4.8,
+    "count": 33,
+    "sum": 158.4,
+    "updated": "2026-11-10"
+  },
+  "tawa-chicken-fry": {
+    "avg": 4.9,
+    "count": 35,
+    "sum": 171.5,
+    "updated": "2026-11-10"
+  },
+  "crispy-jalebi": {
+    "avg": 4.9,
+    "count": 33,
+    "sum": 161.7,
+    "updated": "2026-11-10"
   }
 }
