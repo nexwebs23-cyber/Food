@@ -5,7 +5,7 @@
     <link>https://www.zaikaworlds.com/</link>
     <description>Cook famous dishes from Pakistan and India, plus favourites from around the world, with big photos and step by step methods.</description>
     <language>en</language>
-    <lastBuildDate>Wed, 11 Nov 2026 07:05:21 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 11 Nov 2026 07:18:48 GMT</lastBuildDate>
     <item>
       <title>Chicken Biryani</title>
       <link>https://www.zaikaworlds.com/recipe/biryani</link>
@@ -557,6 +557,30 @@
       <description>Crispy Jalebi is the crown jewel of morning breakfasts and festive evenings across South Asia. Piped directly into bubbling ghee in swift spiral spirals, then plunged into warm saffron-infused sugar syrup for that quintessential crunchy shell and warm, juicy center.</description>
       <enclosure url="https://www.zaikaworlds.com/assets/crispy-jalebi-9c8d1e2f.webp" type="image/webp" length="225734" />
       <media:content url="https://www.zaikaworlds.com/assets/crispy-jalebi-9c8d1e2f.webp" type="image/webp" medium="image" />
+    </item>
+    <item>
+      <title>Bihari Beef Boti Kabab</title>
+      <link>https://www.zaikaworlds.com/recipe/beef-boti-kabab</link>
+      <guid isPermaLink="true">https://www.zaikaworlds.com/recipe/beef-boti-kabab</guid>
+      <description>Bihari Boti Kabab is legendary across South Asia for its astonishing melt-in-mouth softness. Marinated with raw papaya paste and pungent mustard oil, each bite dissolves effortlessly on the palate.</description>
+      <enclosure url="https://www.zaikaworlds.com/assets/beef-boti-kabab-3f8a1e2d.webp" type="image/webp" length="265162" />
+      <media:content url="https://www.zaikaworlds.com/assets/beef-boti-kabab-3f8a1e2d.webp" type="image/webp" medium="image" />
+    </item>
+    <item>
+      <title>Royal Hyderabadi Shahi Tukda</title>
+      <link>https://www.zaikaworlds.com/recipe/shahi-tukda</link>
+      <guid isPermaLink="true">https://www.zaikaworlds.com/recipe/shahi-tukda</guid>
+      <description>A regal Mughal creation celebrated in Hyderabad and Lucknow, Shahi Tukda translates literally to 'Royal Bite'. Thick bread slices fried crisp in pure desi ghee, dipped in fragrant saffron syrup, and bathed in slow-cooked creamy rabri.</description>
+      <enclosure url="https://www.zaikaworlds.com/assets/shahi-tukda-7c1e8a2b.webp" type="image/webp" length="270206" />
+      <media:content url="https://www.zaikaworlds.com/assets/shahi-tukda-7c1e8a2b.webp" type="image/webp" medium="image" />
+    </item>
+    <item>
+      <title>Dhaba Style Dal Tadka</title>
+      <link>https://www.zaikaworlds.com/recipe/dal-tadka</link>
+      <guid isPermaLink="true">https://www.zaikaworlds.com/recipe/dal-tadka</guid>
+      <description>A highway dhaba classic that embodies pure comfort. Split yellow lentils cooked to creamy perfection, then finished with a smoking ghee tempering (tadka) of crushed garlic, whole red chilies, and aromatic cumin that sizzles as it hits the table.</description>
+      <enclosure url="https://www.zaikaworlds.com/assets/dal-tadka-8b2c1e9a.webp" type="image/webp" length="234422" />
+      <media:content url="https://www.zaikaworlds.com/assets/dal-tadka-8b2c1e9a.webp" type="image/webp" medium="image" />
     </item>
   </channel>
 </rss>

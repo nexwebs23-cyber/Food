@@ -657,5 +657,32 @@
     "carbohydrateContent": 64.0,
     "sugarContent": 48.0,
     "fiberContent": 0.8
+  },
+  "beef-boti-kabab": {
+    "calories": 480,
+    "proteinContent": 42.0,
+    "fatContent": 29.5,
+    "saturatedFatContent": 11.0,
+    "carbohydrateContent": 6.5,
+    "sugarContent": 1.5,
+    "fiberContent": 1.2
+  },
+  "shahi-tukda": {
+    "calories": 410,
+    "proteinContent": 7.8,
+    "fatContent": 21.0,
+    "saturatedFatContent": 12.5,
+    "carbohydrateContent": 48.0,
+    "sugarContent": 34.0,
+    "fiberContent": 1.0
+  },
+  "dal-tadka": {
+    "calories": 240,
+    "proteinContent": 12.5,
+    "fatContent": 8.0,
+    "saturatedFatContent": 4.5,
+    "carbohydrateContent": 31.0,
+    "sugarContent": 2.5,
+    "fiberContent": 5.8
   }
 }
