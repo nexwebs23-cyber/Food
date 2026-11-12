@@ -684,5 +684,23 @@
     "carbohydrateContent": 31.0,
     "sugarContent": 2.5,
     "fiberContent": 5.8
+  },
+  "mutton-kunna": {
+    "calories": 540,
+    "proteinContent": 46.0,
+    "fatContent": 36.0,
+    "carbohydrateContent": 9.5
+  },
+  "peshawari-namkeen-gosht": {
+    "calories": 490,
+    "proteinContent": 44.0,
+    "fatContent": 33.0,
+    "carbohydrateContent": 4.0
+  },
+  "hyderabadi-bagara-baingan": {
+    "calories": 310,
+    "proteinContent": 7.0,
+    "fatContent": 22.0,
+    "carbohydrateContent": 24.0
   }
 }
