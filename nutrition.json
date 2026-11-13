@@ -702,5 +702,23 @@
     "proteinContent": 7.0,
     "fatContent": 22.0,
     "carbohydrateContent": 24.0
+  },
+  "shahi-sheermal": {
+    "calories": 380,
+    "proteinContent": 7.5,
+    "fatContent": 16.0,
+    "carbohydrateContent": 52.0
+  },
+  "rasmalai-tres-leches": {
+    "calories": 290,
+    "proteinContent": 9.0,
+    "fatContent": 12.0,
+    "carbohydrateContent": 37.0
+  },
+  "kashmiri-rogan-josh": {
+    "calories": 510,
+    "proteinContent": 45.0,
+    "fatContent": 35.0,
+    "carbohydrateContent": 6.0
   }
 }
