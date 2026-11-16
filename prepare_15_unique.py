@@ -1,0 +1,449 @@
+import json, os, hashlib, subprocess, datetime
+
+today_str = datetime.date.today().isoformat()
+
+# 15 Completely 100% Unique Dishes that do NOT exist in any form on the site
+NEW_15_UNIQUE_RECIPES = [
+    {
+        "id": "lahori-mutton-paya",
+        "country": "Pakistan",
+        "name": "Lahori Mutton Paya",
+        "cat": "desi-dishes",
+        "catLabel": "Desi Dishes",
+        "veg": "nonveg",
+        "time": 180,
+        "diff": "Hard",
+        "servings": "6 people",
+        "alt": "Authentic Lahori Mutton Paya trotters slow cooked in sticky spiced soup with ZaikaWorlds logo",
+        "desc": "Traditional slow-simmered trotters cooked overnight with aromatic whole spices, creating a rich, gelatinous, sticky spiced broth.",
+        "intro": "Lahori Paya is the quintessential royal breakfast of old Lahore. Tender goat trotters are simmered patiently for hours with onion, garlic, whole cardamom, and cloves, releasing natural collagen into a velvety soup that clings delightfully to hot tandoori naan.",
+        "ing": ["Goat trotters (paya) cleaned 6", "Sliced onions 3 large", "Ginger garlic paste fresh 3 tbsp", "Turmeric powder 1 tsp", "Red chili powder 1.5 tbsp", "Coriander powder 2 tbsp", "Whole garam masala 2 tbsp", "Desi ghee 0.5 cup", "Salt 2 tsp", "Julienned ginger, chopped fresh coriander, and lemon wedges for garnish"],
+        "steps": [
+            "Wash trotters thoroughly with warm water and wheat flour to clean completely.",
+            "In a large stockpot, brown sliced onions in desi ghee until light golden.",
+            "Add ginger-garlic paste and trotters; sear on medium heat for 10 minutes.",
+            "Add turmeric, red chili, coriander powder, whole spices, and salt; stir well.",
+            "Pour in 10 cups of water, bring to a rapid boil, cover tightly, and simmer on lowest heat for 3 to 4 hours until the meat is falling off the bone.",
+            "Garnish with julienned ginger, fresh cilantro, and lemon juice before serving piping hot."
+        ],
+        "tip": "Do not rush cooking paya; the signature gelatinous stickiness comes exclusively from low-and-slow simmering of natural collagen.",
+        "nutrition": {"calories": 420, "proteinContent": 38.0, "fatContent": 28.0, "carbohydrateContent": 4.5},
+        "lang": {
+            "ru": {"name": "Lahori Mutton Paya", "catLabel": "Desi Dishes", "diff": "Mushkil", "servings": "6 log", "desc": "Asal Lahori makhsoos mutton paya shorba.", "alt": "Lahori Mutton Paya"},
+            "hi": {"name": "लाहौरी मटन पाया", "catLabel": "देसी व्यंजन", "diff": "कठिन", "servings": "6 लोग", "desc": "पारंपरिक धीमी आंच पर पके रसीले मटन पाए।", "alt": "लाहौरी मटन पाया"}
+        }
+    },
+    {
+        "id": "chicken-dopiaza",
+        "country": "Pakistan",
+        "name": "Mughlai Chicken Dopiaza",
+        "cat": "desi-dishes",
+        "catLabel": "Desi Dishes",
+        "veg": "nonveg",
+        "time": 45,
+        "diff": "Medium",
+        "servings": "4 people",
+        "alt": "Rich onion-loaded Mughlai Chicken Dopiaza curry with ZaikaWorlds logo",
+        "desc": "Classic Mughlai curry prepared with two stages of onions — sweet caramelized onion paste and crisp sautéed onion petal garnishes.",
+        "intro": "Dopiaza literally translates to 'two onions'. In this aromatic Mughlai preparation, one batch of onions melts into the spiced tomato gravy while another batch is fried into sweet, crunchy petals stirred in right at the end.",
+        "ing": ["Chicken bone-in pieces 750g", "Finely sliced onions for gravy 2", "Large onion cut into squared petals 2", "Yogurt whisked 0.5 cup", "Tomato puree 0.5 cup", "Ginger garlic paste 1.5 tbsp", "Kashmiri red chili powder 1 tbsp", "Garam masala 1 tsp", "Cumin seeds 1 tsp", "Oil or ghee 4 tbsp", "Salt 1.25 tsp"],
+        "steps": [
+            "Heat 2 tbsp oil in a pan, toss the onion square petals for 2 minutes until translucent with charred edges; remove and keep aside.",
+            "In same pan with remaining oil, add cumin seeds and sliced onions; fry until rich golden brown.",
+            "Add ginger-garlic paste and chicken; saute for 8 minutes until chicken seals and turns pale.",
+            "Lower heat, whisk in yogurt, tomato puree, red chili, and salt; cover and cook for 20 minutes until chicken is tender.",
+            "Fold in the reserved crunchy onion petals and garam masala; simmer on low heat for 5 minutes.",
+            "Serve hot garnished with chopped coriander."
+        ],
+        "tip": "Never overcook the second batch of onion petals; they must retain their sweet crunch to contrast with the tender chicken.",
+        "nutrition": {"calories": 440, "proteinContent": 36.0, "fatContent": 24.0, "carbohydrateContent": 18.0},
+        "lang": {
+            "ru": {"name": "Mughlai Chicken Dopiaza", "catLabel": "Desi Dishes", "diff": "Darmiyana", "servings": "4 log", "desc": "Pyaaz ke do andaaz mein paka hua shahi chicken dopiaza.", "alt": "Chicken Dopiaza"},
+            "hi": {"name": "चिकन दो प्याज़ा", "catLabel": "देसी व्यंजन", "diff": "मध्यम", "servings": "4 लोग", "desc": "प्याज की दोहरी विधि से बनी स्वादिष्ट चिकन करी।", "alt": "चिकन दो प्याज़ा"}
+        }
+    },
+    {
+        "id": "malai-kofta-curry",
+        "country": "India",
+        "name": "Shahi Malai Kofta Curry",
+        "cat": "desi-dishes",
+        "catLabel": "Desi Dishes",
+        "veg": "veg",
+        "time": 50,
+        "diff": "Medium",
+        "servings": "4 people",
+        "alt": "Melt-in-mouth cottage cheese and potato dumplings in cashew tomato cream gravy with ZaikaWorlds logo",
+        "desc": "Crispy golden paneer and potato dumplings filled with nuts, served swimming in a velvet-smooth cashew and tomato cream gravy.",
+        "intro": "Malai Kofta is the ultimate vegetarian centerpiece for celebratory feasts. Pillowy soft dumplings made from grated paneer and potato are stuffed with cashews and raisins, fried golden, and presented in an ivory-orange spiced cream sauce.",
+        "ing": ["Grated fresh paneer 200g", "Boiled mashed potatoes 2 medium", "Cornstarch 2.5 tbsp", "Chopped cashews and raisins for stuffing 2 tbsp", "Tomato puree 1.5 cups", "Cashew nut paste 0.25 cup", "Fresh dairy cream 0.25 cup", "Ginger garlic paste 1 tbsp", "Kasuri methi 1 tbsp", "Cardamom powder 0.5 tsp", "Salt and red chili 1 tsp each", "Oil for frying"],
+        "steps": [
+            "Combine grated paneer, mashed potatoes, cornstarch, and pinch of salt; knead into a crack-free dough.",
+            "Shape into balls, stuff each with cashew bits and raisins, and roll into smooth round koftas.",
+            "Deep fry koftas in medium-hot oil until light golden and crisp; drain on paper towels.",
+            "For gravy: heat 2 tbsp butter, fry ginger-garlic paste, add tomato puree, and cook until butter leaves the sides.",
+            "Stir in cashew paste, spices, and half cup water; simmer for 8 minutes into a silky luxurious sauce.",
+            "Finish sauce with fresh cream and crushed kasuri methi.",
+            "Arrange koftas in a serving dish and ladle hot gravy on top immediately before eating."
+        ],
+        "tip": "Never boil koftas directly inside the simmering gravy or they will dissolve; always pour hot gravy over the koftas just before serving.",
+        "nutrition": {"calories": 480, "proteinContent": 14.0, "fatContent": 34.0, "carbohydrateContent": 32.0},
+        "lang": {
+            "ru": {"name": "Shahi Malai Kofta Curry", "catLabel": "Desi Dishes", "diff": "Darmiyana", "servings": "4 log", "desc": "Naram paneer kofta makhani kaju gravy mein.", "alt": "Malai Kofta"},
+            "hi": {"name": "शाही मलाई कोफ्ता", "catLabel": "देसी व्यंजन", "diff": "मध्यम", "servings": "4 लोग", "desc": "काजू और मलाई की मखमली ग्रेवी में पनीर कोफ्ते।", "alt": "शाही मलाई कोफ्ता"}
+        }
+    },
+    {
+        "id": "peshawari-dum-pukht",
+        "country": "Pakistan",
+        "name": "Peshawari Mutton Dum Pukht",
+        "cat": "desi-dishes",
+        "catLabel": "Desi Dishes",
+        "veg": "nonveg",
+        "time": 120,
+        "diff": "Medium",
+        "servings": "5 people",
+        "alt": "Slow clay-sealed steam cooked mutton and potatoes with ZaikaWorlds logo",
+        "desc": "Khyber tribal delicacy of meat, baby potatoes, whole garlic heads, and animal fat slow-cooked in a dough-sealed pot with pure steam.",
+        "intro": "Dum Pukht is an ancient cooking technique of Persian heritage perfected in Khyber Pakhtunkhwa. Meat, whole baby potatoes, and unpeeled garlic heads are layered with tail fat, hermetically sealed with dough, and left to steam undisturbed on coals.",
+        "ing": ["Mutton pieces with bone and natural fat 1kg", "Small peeled baby potatoes 6", "Whole garlic heads unpeeled 2", "Fresh whole tomatoes 3", "Coarse sea salt 1.5 tsp", "Whole black peppercorns 1 tbsp", "Animal tail fat or desi ghee 4 tbsp", "Wheat dough for sealing pot"],
+        "steps": [
+            "Layer animal fat or desi ghee at the bottom of a heavy pot.",
+            "Arrange mutton pieces neatly over the fat; season evenly with coarse salt and black peppercorns.",
+            "Tuck whole baby potatoes, unpeeled garlic heads, and whole tomatoes between and over the meat.",
+            "Roll wheat dough into a thick rope and press firmly along the pot rim; press lid down tightly to seal.",
+            "Place pot over high heat for 10 minutes to generate internal steam, then reduce flame to lowest setting.",
+            "Cook undisturbed for 2 hours on gentle dum.",
+            "Cut open the dough seal at the dining table; serve the falling-apart tender meat and potato confit with hot naan."
+        ],
+        "tip": "Do not add even a single drop of water; the mutton and tomatoes will render plenty of delicious natural broth during the sealed steam braise.",
+        "nutrition": {"calories": 520, "proteinContent": 46.0, "fatContent": 35.0, "carbohydrateContent": 14.0},
+        "lang": {
+            "ru": {"name": "Peshawari Mutton Dum Pukht", "catLabel": "Desi Dishes", "diff": "Darmiyana", "servings": "5 log", "desc": "Bhaap mein aatay se band handi mein paka hua mutton dum pukht.", "alt": "Peshawari Dum Pukht"},
+            "hi": {"name": "पेशावरी मटन दम पुख्त", "catLabel": "देसी व्यंजन", "diff": "मध्यम", "servings": "4 लोग", "desc": "आटे से सील मिट्टी के बर्तन में भाप से पका मटन।", "alt": "पेशावरी दम पुख्त"}
+        }
+    },
+    {
+        "id": "chicken-jalfrezi",
+        "country": "Pakistan",
+        "name": "Restaurant Style Chicken Jalfrezi",
+        "cat": "desi-dishes",
+        "catLabel": "Desi Dishes",
+        "veg": "nonveg",
+        "time": 35,
+        "diff": "Easy",
+        "servings": "4 people",
+        "alt": "Tangy spicy Chicken Jalfrezi stir-fry with bell peppers, onions and scrambled egg with ZaikaWorlds logo",
+        "desc": "Vibrant and tangy stir-fried boneless chicken with crisp bell peppers, onions, tomatoes, and egg in a sweet-spicy tomato sauce.",
+        "intro": "Originating from colonial Calcutta and celebrated across Pakistani restaurants, Chicken Jalfrezi is a fast, high-heat stir fry. Juicy strips of boneless chicken are tossed with crunchy bell peppers, onions, and cumin in a tangy, thick tomato sauce.",
+        "ing": ["Boneless chicken breast cut into strips 500g", "Green and red bell peppers cut into squares 2", "Onion cut into squares 1 large", "Tomato ketchup 3 tbsp", "Soy sauce 1 tbsp", "Chili garlic sauce 1.5 tbsp", "Ginger garlic paste 1 tbsp", "Cumin powder 1 tsp", "Black pepper freshly crushed 1 tsp", "Oil 3 tbsp", "Fried egg strips or boiled egg quarters for garnish"],
+        "steps": [
+            "Heat 2 tbsp oil in a wok; fry ginger-garlic paste and boneless chicken strips on high heat for 6 minutes until cooked through.",
+            "Add tomato ketchup, soy sauce, chili garlic sauce, cumin powder, and black pepper; toss rapidly on high heat.",
+            "Add squared bell peppers, onions, and fresh tomatoes; stir-fry vigorously for 3 minutes keeping vegetables crisp and colorful.",
+            "Top with scrambled or sliced egg strips and chopped green chilies.",
+            "Serve hot with steamed basmati rice or hot paratha."
+        ],
+        "tip": "Stir-fry on high flame throughout; the vegetables must remain crisp and vibrant, not soggy or boiled.",
+        "nutrition": {"calories": 360, "proteinContent": 34.0, "fatContent": 16.0, "carbohydrateContent": 20.0},
+        "lang": {
+            "ru": {"name": "Restaurant Style Chicken Jalfrezi", "catLabel": "Desi Dishes", "diff": "Aasan", "servings": "4 log", "desc": "Shimla mirch aur boneless chicken ka chatpata jalfrezi salan.", "alt": "Chicken Jalfrezi"},
+            "hi": {"name": "चिकन जलफ्रेजी", "catLabel": "देसी व्यंजन", "diff": "सरल", "servings": "4 लोग", "desc": "शिमला मिर्च और टमाटर के साथ बना मसालेदार चिकन।", "alt": "चिकन जलफ्रेजी"}
+        }
+    },
+    {
+        "id": "paneer-butter-masala",
+        "country": "India",
+        "name": "Restaurant Paneer Butter Masala",
+        "cat": "desi-dishes",
+        "catLabel": "Desi Dishes",
+        "veg": "veg",
+        "time": 40,
+        "diff": "Easy",
+        "servings": "4 people",
+        "alt": "Soft paneer cubes in creamy orange-red makhani butter gravy with ZaikaWorlds logo",
+        "desc": "Ultra-popular Indian vegetarian curry of soft paneer cubes simmered in a mildly sweet, rich tomato, butter, and cashew gravy.",
+        "intro": "Paneer Butter Masala (also known as Paneer Makhani) is universally loved for its rich, velvety sauce. Soft cottage cheese cubes bathe in a sun-ripened tomato-butter gravy scented with green cardamom, kasuri methi, and cream.",
+        "ing": ["Fresh paneer cubes 300g", "Ripe red tomatoes chopped 4", "Cashews soaked 15", "Butter (makhan) 3 tbsp", "Ginger garlic paste 1 tbsp", "Heavy dairy cream 3 tbsp", "Kashmiri red chili powder 1.5 tbsp", "Kasuri methi crushed 1 tbsp", "Garam masala 0.5 tsp", "Sugar 1 tsp", "Salt 1 tsp"],
+        "steps": [
+            "Boil chopped tomatoes and soaked cashews in 1 cup water for 10 minutes until soft; blend into a smooth velvety puree and strain.",
+            "Melt 2 tbsp butter in a kadai; add ginger-garlic paste and Kashmiri chili powder; saute for 30 seconds.",
+            "Pour in strained tomato-cashew puree; simmer on medium flame for 12 minutes until butter begins to surface.",
+            "Add sugar, salt, garam masala, and fresh cream; mix thoroughly.",
+            "Gently slide in fresh paneer cubes and simmer for 3 minutes (do not overcook paneer).",
+            "Crush kasuri methi between palms and sprinkle on top with a dollop of fresh butter before serving."
+        ],
+        "tip": "Soak paneer cubes in warm salted water for 10 minutes before adding to the gravy to keep them exceptionally soft and spongy.",
+        "nutrition": {"calories": 420, "proteinContent": 16.0, "fatContent": 32.0, "carbohydrateContent": 18.0},
+        "lang": {
+            "ru": {"name": "Restaurant Paneer Butter Masala", "catLabel": "Desi Dishes", "diff": "Aasan", "servings": "4 log", "desc": "Makhani gravy mein naram paneer butter masala.", "alt": "Paneer Butter Masala"},
+            "hi": {"name": "पनीर बटर मसाला", "catLabel": "देसी व्यंजन", "diff": "सरल", "servings": "4 लोग", "desc": "मखमली टमाटर और मक्खन की ग्रेवी में बना पनीर।", "alt": "पनीर बटर मसाला"}
+        }
+    },
+    {
+        "id": "lahori-chargha",
+        "country": "Pakistan",
+        "name": "Crispy Lahori Chargha",
+        "cat": "bbq",
+        "catLabel": "BBQ",
+        "veg": "nonveg",
+        "time": 60,
+        "diff": "Medium",
+        "servings": "4 people",
+        "alt": "Whole deep-cut marinated chicken steamed and fried golden crisp with ZaikaWorlds logo",
+        "desc": "Iconic Lahori whole chicken deeply scored, marinated in spicy yogurt and lemon, steamed until tender, and deep-fried to a shatteringly crisp skin.",
+        "intro": "Lahori Chargha is one of food street Lahore's absolute greatest innovations. A whole skinless chicken is scored deeply, soaked in an intense marinade of yogurt, chaat masala, lemon, and spices, steamed to lock in juiciness, and finally flash-fried until crackling crisp.",
+        "ing": ["Whole chicken skinless 1.2kg", "Hung thick yogurt 0.5 cup", "Fresh lemon juice 4 tbsp", "Ginger garlic paste 2 tbsp", "Chaat masala 2 tbsp", "Roasted cumin powder 1.5 tbsp", "Red chili flakes and powder 1.5 tbsp", "Egg beaten 1", "Cornstarch 2 tbsp", "Oil for deep frying"],
+        "steps": [
+            "Make deep vertical cuts along chicken breasts, thighs, and legs.",
+            "Whisk yogurt with lemon juice, ginger-garlic, chaat masala, cumin, chili, beaten egg, cornstarch, and salt into a thick marinade.",
+            "Rub marinade thoroughly into all cuts and inside cavity; marinate for at least 3 hours.",
+            "Place chicken on a steamer rack inside a large pot, cover tightly, and steam for 30 minutes until fully cooked and tender.",
+            "Allow steamed chicken to cool completely so moisture evaporates from the surface.",
+            "Lower chicken into a deep wok of hot oil; deep fry for 6 to 8 minutes turning carefully until blistering golden and crispy.",
+            "Dust generously with extra chaat masala and serve with mint chutney and hot naan."
+        ],
+        "tip": "Cooling the steamed chicken before frying is the critical halwai secret; it ensures the outer crust turns ultra-crispy without soaking up excess oil.",
+        "nutrition": {"calories": 530, "proteinContent": 52.0, "fatContent": 32.0, "carbohydrateContent": 9.0},
+        "lang": {
+            "ru": {"name": "Crispy Lahori Chargha", "catLabel": "BBQ", "diff": "Darmiyana", "servings": "4 log", "desc": "Bhaap aur tel mein paka hua crispy Lahori chargha.", "alt": "Lahori Chargha"},
+            "hi": {"name": "लाहौरी चरगा", "catLabel": "बारबेक्यू", "diff": "मध्यम", "servings": "4 लोग", "desc": "भाप और तलकर बना कुरकुरा साबुत चिकन।", "alt": "लाहौरी चरगा"}
+        }
+    },
+    {
+        "id": "hyderabadi-khatti-dal",
+        "country": "India",
+        "name": "Hyderabadi Khatti Dal",
+        "cat": "desi-dishes",
+        "catLabel": "Desi Dishes",
+        "veg": "veg",
+        "time": 35,
+        "diff": "Easy",
+        "servings": "4 people",
+        "alt": "Sour tangy Hyderabadi Khatti Dal with tamarind and curry leaf tadka with ZaikaWorlds logo",
+        "desc": "Zesty, comforting yellow lentils simmered with juicy tomatoes, tangy tamarind extract, finished with a smoking garlic and curry leaf tadka.",
+        "intro": "No Hyderabadi meal is complete without Khatti Dal. Yellow pigeon peas (toor dal) are cooked tender with ripe tomatoes, seasoned with tart tamarind pulp, and tempered with crackling mustard seeds, cumin, garlic, and fragrant curry leaves.",
+        "ing": ["Toor dal (pigeon pea lentils) 1 cup", "Ripe tomatoes chopped 3", "Thick tamarind extract 3 tbsp", "Ginger garlic paste 1 tbsp", "Turmeric powder 0.75 tsp", "Green chilies slit 4", "Fresh curry leaves 12", "Cumin and mustard seeds 1 tsp each", "Dried red button chilies 4", "Desi ghee 3 tbsp", "Salt 1.25 tsp"],
+        "steps": [
+            "Pressure cook toor dal with chopped tomatoes, turmeric, green chilies, and 3 cups water for 4 whistles until soft; whisk smoothly.",
+            "Stir in thick tamarind extract, ginger-garlic paste, and salt; simmer on medium flame for 10 minutes until raw tamarind aroma disappears.",
+            "In a small pan, heat desi ghee for tadka; add mustard seeds, cumin seeds, dried red chilies, garlic slivers, and curry leaves.",
+            "When garlic turns light golden and curry leaves crackle, pour sizzling tadka directly into the simmering dal.",
+            "Cover immediately with lid to trap the smoky aromatics for 5 minutes before serving with steamed rice."
+        ],
+        "tip": "Always allow the dal and tamarind to boil together for at least 8 to 10 minutes before tempering; this mellows the sharpness of the tamarind.",
+        "nutrition": {"calories": 220, "proteinContent": 11.0, "fatContent": 7.0, "carbohydrateContent": 29.0},
+        "lang": {
+            "ru": {"name": "Hyderabadi Khatti Dal", "catLabel": "Desi Dishes", "diff": "Aasan", "servings": "4 log", "desc": "Imli aur tamatar ke tadke wali Hyderabadi khatti daal.", "alt": "Hyderabadi Khatti Dal"},
+            "hi": {"name": "हैदराबादी खट्टी दाल", "catLabel": "देसी व्यंजन", "diff": "सरल", "servings": "4 लोग", "desc": "इमली और टमाटर के तड़के वाली खट्टी दाल।", "alt": "हैदराबादी खट्टी दाल"}
+        }
+    },
+    {
+        "id": "beef-kofta-curry",
+        "country": "Pakistan",
+        "name": "Traditional Beef Kofta Curry",
+        "cat": "desi-dishes",
+        "catLabel": "Desi Dishes",
+        "veg": "nonveg",
+        "time": 55,
+        "diff": "Medium",
+        "servings": "5 people",
+        "alt": "Tender spiced beef meatballs simmered in silky yogurt onion gravy with ZaikaWorlds logo",
+        "desc": "Spiced ground beef meatballs hand-rolled and gently poached in a royal browned onion, yogurt, and cardamom gravy.",
+        "intro": "Traditional Pakistani Kofta Curry is an enduring culinary classic. Finely minced beef is pounded with roasted gram flour, poppy seeds, and whole spices, shaped into round meatballs, and gently simmered in a velvety golden gravy without breaking.",
+        "ing": ["Finely minced beef (keema) 750g", "Roasted chickpea flour (bhuna besan) 3 tbsp", "Poppy seeds (khashkhash) ground 1 tbsp", "Yogurt whisked 1 cup", "Fried golden onions crushed 1 cup", "Ginger garlic paste 2 tbsp", "Coriander powder 1.5 tbsp", "Red chili powder 1 tbsp", "Garam masala 1 tsp", "Desi ghee or oil 0.5 cup", "Salt 1.5 tsp"],
+        "steps": [
+            "In a food processor, blend beef mince with roasted besan, ground poppy seeds, half the ginger-garlic paste, green chilies, and salt into a smooth pliable dough.",
+            "Shape into 15 to 18 smooth, compact, crack-free meatballs.",
+            "In a wide pot, heat ghee, add remaining ginger-garlic paste, coriander powder, red chili, and whisked yogurt; saute for 5 minutes.",
+            "Stir in crushed fried onions and half cup water; bring to a gentle boil.",
+            "Gently place meatballs side by side into the bubbling gravy in a single layer (do not stir with a spoon).",
+            "Hold the pot with kitchen towels and gently swirl in a circular motion to coat meatballs in gravy; cover and cook on low heat for 25 minutes.",
+            "Finish with garam masala and fresh coriander leaves."
+        ],
+        "tip": "Never use a spoon to stir koftas in the first 15 minutes of cooking; only swirl the pot by its handles to prevent the delicate meatballs from breaking.",
+        "nutrition": {"calories": 490, "proteinContent": 42.0, "fatContent": 32.0, "carbohydrateContent": 8.0},
+        "lang": {
+            "ru": {"name": "Traditional Beef Kofta Curry", "catLabel": "Desi Dishes", "diff": "Darmiyana", "servings": "5 log", "desc": "Naram gosht ke kofte dahi pyaaz ke shorbe mein.", "alt": "Beef Kofta Curry"},
+            "hi": {"name": "बीफ कोफ्ता करी", "catLabel": "देसी व्यंजन", "diff": "मध्यम", "servings": "4 लोग", "desc": "दही और प्याज की ग्रेवी में बने मुलायम बीफ कोफ्ते।", "alt": "बीफ कोफ्ता करी"}
+        }
+    },
+    {
+        "id": "dum-ka-keema",
+        "country": "Pakistan",
+        "name": "Dum Ka Keema (Smoked Minced Meat)",
+        "cat": "desi-dishes",
+        "catLabel": "Desi Dishes",
+        "veg": "nonveg",
+        "time": 45,
+        "diff": "Easy",
+        "servings": "4 people",
+        "alt": "Slow-cooked charcoal-infused aromatic minced beef with onions and mint with ZaikaWorlds logo",
+        "desc": "Tender minced beef slow-cooked on gentle dum with raw papaya, fried onions, roasted spices, and infused with burning charcoal smoke.",
+        "intro": "Dum Ka Keema is an aromatic Mughlai heirloom recipe. Finely ground beef is marinated with raw papaya, brown onions, and aromatic potli masala, slowly braised in its own rich juices on gentle dum, and crowned with live charcoal smoke.",
+        "ing": ["Minced beef fine (keema) 700g", "Raw papaya paste 2 tbsp", "Golden fried onions crushed 0.75 cup", "Yogurt whisked 0.5 cup", "Ginger garlic paste 2 tbsp", "Roasted cumin and coriander powder 1.5 tbsp", "Garam masala powder 1 tsp", "Desi ghee 4 tbsp", "A piece of natural charcoal and 1 tsp butter for smoking", "Salt 1.25 tsp"],
+        "steps": [
+            "Marinate minced beef with raw papaya paste, crushed fried onions, yogurt, ginger-garlic paste, roasted spices, and salt for 1 hour.",
+            "Heat desi ghee in a heavy pot, add marinated keema, and cook on medium flame for 12 minutes stirring to break up lumps.",
+            "Cover pot tightly with foil and lid; simmer on lowest flame (dum) for 25 minutes until ghee floats to the top.",
+            "Place a small metal bowl or onion peel in the center of the keema.",
+            "Heat a piece of natural charcoal until glowing red; place in the bowl, drop half teaspoon ghee on it, and immediately cover the lid tightly for 4 minutes.",
+            "Remove charcoal bowl, fluff the smoked mince, and garnish with sliced ginger and fresh mint."
+        ],
+        "tip": "Do not leave the burning coal inside for more than 4 minutes; a brief smoke infusion gives a sweet tandoori aroma, whereas excessive smoke turns the dish bitter.",
+        "nutrition": {"calories": 460, "proteinContent": 41.0, "fatContent": 30.0, "carbohydrateContent": 6.0},
+        "lang": {
+            "ru": {"name": "Dum Ka Keema", "catLabel": "Desi Dishes", "diff": "Aasan", "servings": "4 log", "desc": "Koyle ki dhuwan wala lazeez dum ka keema.", "alt": "Dum Ka Keema"},
+            "hi": {"name": "दम का कीमा", "catLabel": "देसी व्यंजन", "diff": "सरल", "servings": "4 लोग", "desc": "कोयले के धुएं के स्वाद वाला धीमी आंच पर पका कीमा।", "alt": "दम का कीमा"}
+        }
+    },
+    {
+        "id": "chicken-reshmi-handi",
+        "country": "Pakistan",
+        "name": "Silky Chicken Reshmi Handi",
+        "cat": "desi-dishes",
+        "catLabel": "Desi Dishes",
+        "veg": "nonveg",
+        "time": 40,
+        "diff": "Easy",
+        "servings": "4 people",
+        "alt": "Silky smooth boneless chicken cooked in clay pot with cream and cashew gravy with ZaikaWorlds logo",
+        "desc": "Tender boneless chicken cubes simmered in a silken, creamy gravy of butter, yogurt, cashew paste, and aromatic green chilies.",
+        "intro": "Reshmi Handi is famous for its silk-like smooth texture. Prepared in an earthenware pot, succulent boneless chicken melts into a luscious gravy made from white butter, cashew cream, and fragrant kasuri methi.",
+        "ing": ["Boneless chicken cubes 700g", "Whisked yogurt 0.75 cup", "Cashew nut paste 3 tbsp", "Fresh dairy cream 0.5 cup", "Butter 2 tbsp", "Ginger garlic paste 1.5 tbsp", "White pepper powder 1 tsp", "Black pepper powder 0.5 tsp", "Crushed green chilies 1.5 tbsp", "Kasuri methi 1 tbsp", "Salt 1.25 tsp"],
+        "steps": [
+            "Melt butter in a clay handi; saute ginger-garlic paste and green chili paste for 1 minute.",
+            "Add boneless chicken cubes and fry on medium-high heat for 6 minutes until chicken turns white.",
+            "Lower heat, add whisked yogurt, cashew paste, white pepper, and salt; stir constantly to combine.",
+            "Cover handi with lid and cook on low heat for 15 minutes until chicken is tender and sauce is creamy.",
+            "Pour in fresh dairy cream and crushed kasuri methi; simmer gently for 3 minutes without boiling.",
+            "Serve piping hot in the clay pot with garlic naan."
+        ],
+        "tip": "Avoid using red chili powder or turmeric in Reshmi Handi; white pepper and green chilies keep the signature ivory-pearl color intact.",
+        "nutrition": {"calories": 460, "proteinContent": 39.0, "fatContent": 31.0, "carbohydrateContent": 8.0},
+        "lang": {
+            "ru": {"name": "Silky Chicken Reshmi Handi", "catLabel": "Desi Dishes", "diff": "Aasan", "servings": "4 log", "desc": "Reshmi malai aur kaju paste mein bani mitti ki handi chicken.", "alt": "Chicken Reshmi Handi"},
+            "hi": {"name": "चिकन रेशमी हांडी", "catLabel": "देसी व्यंजन", "diff": "सरल", "servings": "4 लोग", "desc": "मलाई और काजू की मखमली ग्रेवी में बनी चिकन हांडी।", "alt": "चिकन रेशमी हांडी"}
+        }
+    },
+    {
+        "id": "lahori-fried-chanay",
+        "country": "Pakistan",
+        "name": "Lahori Murgh Chanay",
+        "cat": "breakfast",
+        "catLabel": "Breakfast",
+        "veg": "nonveg",
+        "time": 50,
+        "diff": "Medium",
+        "servings": "5 people",
+        "alt": "Soft spiced chickpeas and chicken stewed with black pepper gravy with ZaikaWorlds logo",
+        "desc": "Famous Lahore street-food breakfast of meltingly soft chickpeas and chicken cooked in a heavily spiced black pepper, cumin, and lentil gravy.",
+        "intro": "Murgh Chanay is the legendary heartbeat of Lahore's Sunday breakfast culture. Chickpeas cooked with baking soda to supreme tenderness are braised with bone-in chicken in an aromatic black-pepper gravy thickened naturally with masoor dal paste.",
+        "ing": ["White chickpeas (kabuli chana) soaked overnight 2 cups", "Chicken bone-in pieces 600g", "Red masoor dal cooked and mashed 0.5 cup", "Baking soda 0.5 tsp", "Ginger garlic paste 2 tbsp", "Coarsely crushed black pepper 1.5 tbsp", "Roasted cumin powder 1 tbsp", "Garam masala 1 tsp", "Desi ghee or oil 0.5 cup", "Salt 1.5 tsp"],
+        "steps": [
+            "Boil soaked chickpeas with baking soda and salt until completely soft and creamy; drain and reserve 1 cup of cooking broth.",
+            "Heat ghee in a pot, add ginger-garlic paste and chicken; saute for 8 minutes until golden.",
+            "Add crushed black pepper, cumin powder, and garam masala; saute with 2 tbsp water for 2 minutes.",
+            "Add mashed masoor dal paste, boiled chickpeas, and reserved chickpea broth; stir well to combine.",
+            "Bring to boil, cover, and simmer on lowest heat (dum) for 20 minutes until ghee surfaces and the gravy is thick and glossy.",
+            "Serve hot with crispy puri, rogheni naan, and sliced raw onions."
+        ],
+        "tip": "Mashing half a cup of boiled red lentils into the gravy is the secret technique Lahori halwais use to give the sauce its rich, clinging body.",
+        "nutrition": {"calories": 480, "proteinContent": 36.0, "fatContent": 20.0, "carbohydrateContent": 42.0},
+        "lang": {
+            "ru": {"name": "Lahori Murgh Chanay", "catLabel": "Breakfast", "diff": "Darmiyana", "servings": "5 log", "desc": "Lahori subah ke nashte wale chicken chholay chanay.", "alt": "Murgh Chanay"},
+            "hi": {"name": "लाहौरी मुर्ग चने", "catLabel": "नाश्ता", "diff": "मध्यम", "servings": "5 लोग", "desc": "काली मिर्च और मसालों में पके चिकन और काबुली चने।", "alt": "लाहौरी मुर्ग चने"}
+        }
+    },
+    {
+        "id": "afghani-chicken-boti",
+        "country": "Pakistan",
+        "name": "Peshawari Afghani Chicken Boti",
+        "cat": "bbq",
+        "catLabel": "BBQ",
+        "veg": "nonveg",
+        "time": 35,
+        "diff": "Easy",
+        "servings": "4 people",
+        "alt": "Mildly spiced creamy white charcoal grilled chicken skewers with ZaikaWorlds logo",
+        "desc": "Tender boneless chicken skewers marinated in cream, hung curd, garlic, cashew paste, and cracked black pepper, charcoal grilled to perfection.",
+        "intro": "Afghani Boti is celebrated for its mild, rich, and aromatic flavor profile. Free of fiery red spices, succulent chicken thigh pieces are steeped in a marinade of malai, yogurt, cashews, and aromatic cardamom before being charred over live charcoal.",
+        "ing": ["Boneless chicken thigh cubes 750g", "Thick hung curd 0.5 cup", "Fresh heavy cream 0.25 cup", "Cashew nut paste 2 tbsp", "Ginger garlic paste 1.5 tbsp", "Lemon juice 2 tbsp", "Cardamom powder 0.5 tsp", "Cracked black pepper 1 tbsp", "Melted butter for basting 3 tbsp", "Salt 1.25 tsp"],
+        "steps": [
+            "Whisk hung curd, fresh cream, cashew paste, ginger-garlic, lemon juice, cardamom, black pepper, and salt into a thick marinade.",
+            "Toss chicken cubes in the marinade; cover and refrigerate for at least 2 hours.",
+            "Thread chicken cubes onto metal or soaked wooden skewers leaving a little space between pieces.",
+            "Grill over live glowing coals or in a preheated oven at 220°C (425°F) for 15 to 18 minutes, turning skewers halfway.",
+            "Generously baste with melted butter and grill for final 2 minutes until lightly charred and smoky.",
+            "Serve immediately with mint raita and thin Afghani naan."
+        ],
+        "tip": "Use boneless chicken thighs instead of breast meat; thighs contain more intramuscular fat and stay remarkably juicy when exposed to high grilling heat.",
+        "nutrition": {"calories": 440, "proteinContent": 41.0, "fatContent": 27.0, "carbohydrateContent": 6.5},
+        "lang": {
+            "ru": {"name": "Peshawari Afghani Chicken Boti", "catLabel": "BBQ", "diff": "Aasan", "servings": "4 log", "desc": "Kaju aur malai ke amezay mein bani Afghani chicken boti.", "alt": "Afghani Chicken Boti"},
+            "hi": {"name": "अफगानी चिकन बोटी", "catLabel": "बारबेक्यू", "diff": "सरल", "servings": "4 लोग", "desc": "काजू और मलाई में मैरीनेट की गई रसीली चिकन बोटी।", "alt": "अफगानी चिकन बोटी"}
+        }
+    },
+    {
+        "id": "shahi-tukda-rabri-roll",
+        "country": "India",
+        "name": "Lucknowi Shahi Malai Roll",
+        "cat": "desserts",
+        "catLabel": "Desserts",
+        "veg": "veg",
+        "time": 40,
+        "diff": "Easy",
+        "servings": "5 people",
+        "alt": "Soft bread rolls stuffed with mawa nuts and dipped in saffron rabri with ZaikaWorlds logo",
+        "desc": "Awadhi dessert rolls stuffed with sweetened mawa, pistachios, and soaked in cold cardamom saffron cream.",
+        "intro": "Originating from the royal kitchens of Lucknow, Shahi Malai Roll is a modern aristocratic dessert. Thin crustless bread slices are wrapped around roasted pistachio-khoya filling and drenched in an aromatic chilled saffron cream bath.",
+        "ing": ["White bread slices crusts removed 8", "Fresh mawa (khoya) 1 cup", "Powdered sugar 0.5 cup", "Finely chopped almonds and pistachios 4 tbsp", "Full-fat milk for rabri 3 cups", "Condensed milk 0.5 cup", "Saffron strands 1 pinch", "Cardamom powder 0.5 tsp"],
+        "steps": [
+            "Roast mawa in a pan for 4 minutes with powdered sugar and chopped nuts; let cool into a pliable filling.",
+            "Simmer milk, condensed milk, and saffron for 15 minutes into a fragrant, velvety pourable rabri; chill in fridge.",
+            "Flatten each crustless bread slice thinly with a rolling pin.",
+            "Place a log of mawa filling on one end and roll tightly into a cylinder; arrange seam-side down in a serving platter.",
+            "Pour chilled saffron rabri generously over the rolls 20 minutes before serving so they absorb the sweetness.",
+            "Garnish with silver vark and crushed pistachios."
+        ],
+        "tip": "Flatten the bread slices very firmly with a rolling pin before rolling; this prevents the bread from breaking when rolled.",
+        "nutrition": {"calories": 340, "proteinContent": 8.0, "fatContent": 14.0, "carbohydrateContent": 46.0},
+        "lang": {
+            "ru": {"name": "Lucknowi Shahi Malai Roll", "catLabel": "Desserts", "diff": "Aasan", "servings": "5 log", "desc": "Awadhi khoya bhari malai roll mithaas.", "alt": "Shahi Malai Roll"},
+            "hi": {"name": "शाही मलाई रोल", "catLabel": "मिठाई", "diff": "सरल", "servings": "5 लोग", "desc": "मावा और मेवों से भरे लखनवी मलाई रोल।", "alt": "शाही मलाई रोल"}
+        }
+    },
+    {
+        "id": "kashmiri-mutton-yakhni",
+        "country": "India",
+        "name": "Kashmiri Mutton Yakhni",
+        "cat": "desi-dishes",
+        "catLabel": "Desi Dishes",
+        "veg": "nonveg",
+        "time": 60,
+        "diff": "Medium",
+        "servings": "5 people",
+        "alt": "Tender mutton cooked in delicate spiced yogurt and dried mint gravy with ZaikaWorlds logo",
+        "desc": "Fragrant Kashmiri Wazwan delicacy of tender bone-in mutton simmered in a mildly spiced, aromatic yogurt broth with dried mint leaves.",
+        "intro": "Mutton Yakhni is an essential course in traditional Kashmiri Wazwan banquets. Tender mutton pieces are cooked in a silky, spiced yogurt gravy scented with green cardamoms, fennel seeds, and crushed dried mountain mint (pudina).",
+        "ing": ["Mutton bone-in pieces 1kg", "Full-fat plain yogurt whisked 3 cups", "Mustard oil or desi ghee 4 tbsp", "Fennel seed powder (saunf) 1.5 tbsp", "Dry ginger powder (soonth) 1 tsp", "Green cardamoms 5, black cardamom 1, cloves 4, cinnamon stick 1", "Crushed dried mint leaves (sukha pudina) 1.5 tbsp", "Salt 1.5 tsp"],
+        "steps": [
+            "Boil mutton with whole spices and salt in 4 cups water for 35 minutes until tender; strain and reserve the clear mutton broth.",
+            "In a large pot, whisk yogurt with an egg or 1 tbsp cornstarch (to prevent curdling).",
+            "Cook yogurt on high heat, stirring continuously in one direction without stopping until it reaches a vigorous boil.",
+            "Add reserved mutton broth, fennel powder, ginger powder, and mutton pieces; simmer gently for 15 minutes.",
+            "In a small pan, heat ghee and fry a pinch of asafoetida (hing); pour sizzling tadka into the yogurt gravy.",
+            "Crush dried mint leaves between palms and sprinkle over the gravy; simmer for 2 minutes and serve with Kashmiri pulao."
+        ],
+        "tip": "Stir the yogurt continuously in one direction without pausing until it comes to a boil; this prevents the yogurt from breaking or curdling.",
+        "nutrition": {"calories": 480, "proteinContent": 46.0, "fatContent": 31.0, "carbohydrateContent": 5.0},
+        "lang": {
+            "ru": {"name": "Kashmiri Mutton Yakhni", "catLabel": "Desi Dishes", "diff": "Darmiyana", "servings": "5 log", "desc": "Dahi aur sukhe pudinay mein paka hua Kashmiri mutton yakhni.", "alt": "Kashmiri Mutton Yakhni"},
+            "hi": {"name": "कश्मीरी मटन यखनी", "catLabel": "देसी व्यंजन", "diff": "मध्यम", "servings": "5 लोग", "desc": "दही और सूखे पुदीने के स्वाद वाली कश्मीरी मटन करी।", "alt": "कश्मीरी मटन यखनी"}
+        }
+    }
+]
+
+with open("new_15_batch.json", "w", encoding="utf-8") as f:
+    json.dump(NEW_15_UNIQUE_RECIPES, f, indent=2, ensure_ascii=False)
+
+print(f"Generated {len(NEW_15_UNIQUE_RECIPES)} guaranteed unique recipes in new_15_batch.json")

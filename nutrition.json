@@ -720,5 +720,47 @@
     "proteinContent": 45.0,
     "fatContent": 35.0,
     "carbohydrateContent": 6.0
+  },
+  "lahori-mutton-paya": {
+    "calories": 420,
+    "proteinContent": 38.0,
+    "fatContent": 28.0,
+    "carbohydrateContent": 4.5
+  },
+  "chicken-dopiaza": {
+    "calories": 440,
+    "proteinContent": 36.0,
+    "fatContent": 24.0,
+    "carbohydrateContent": 18.0
+  },
+  "malai-kofta-curry": {
+    "calories": 480,
+    "proteinContent": 14.0,
+    "fatContent": 34.0,
+    "carbohydrateContent": 32.0
+  },
+  "peshawari-dum-pukht": {
+    "calories": 520,
+    "proteinContent": 46.0,
+    "fatContent": 35.0,
+    "carbohydrateContent": 14.0
+  },
+  "chicken-jalfrezi": {
+    "calories": 360,
+    "proteinContent": 34.0,
+    "fatContent": 16.0,
+    "carbohydrateContent": 20.0
+  },
+  "paneer-butter-masala": {
+    "calories": 420,
+    "proteinContent": 16.0,
+    "fatContent": 32.0,
+    "carbohydrateContent": 18.0
+  },
+  "lahori-chargha": {
+    "calories": 530,
+    "proteinContent": 52.0,
+    "fatContent": 32.0,
+    "carbohydrateContent": 9.0
   }
 }
