@@ -762,5 +762,35 @@
     "proteinContent": 52.0,
     "fatContent": 32.0,
     "carbohydrateContent": 9.0
+  },
+  "hyderabadi-khatti-dal": {
+    "calories": 220,
+    "proteinContent": 11.0,
+    "fatContent": 7.0,
+    "carbohydrateContent": 29.0
+  },
+  "beef-kofta-curry": {
+    "calories": 490,
+    "proteinContent": 42.0,
+    "fatContent": 32.0,
+    "carbohydrateContent": 8.0
+  },
+  "dum-ka-keema": {
+    "calories": 460,
+    "proteinContent": 41.0,
+    "fatContent": 30.0,
+    "carbohydrateContent": 6.0
+  },
+  "chicken-reshmi-handi": {
+    "calories": 460,
+    "proteinContent": 39.0,
+    "fatContent": 31.0,
+    "carbohydrateContent": 8.0
+  },
+  "lahori-fried-chanay": {
+    "calories": 480,
+    "proteinContent": 36.0,
+    "fatContent": 20.0,
+    "carbohydrateContent": 42.0
   }
 }

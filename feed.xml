@@ -5,7 +5,7 @@
     <link>https://www.zaikaworlds.com/</link>
     <description>Cook famous dishes from Pakistan and India, plus favourites from around the world, with big photos and step by step methods.</description>
     <language>en</language>
-    <lastBuildDate>Tue, 17 Nov 2026 06:59:58 GMT</lastBuildDate>
+    <lastBuildDate>Tue, 17 Nov 2026 08:09:50 GMT</lastBuildDate>
     <item>
       <title>Chicken Biryani</title>
       <link>https://www.zaikaworlds.com/recipe/biryani</link>
@@ -685,6 +685,46 @@
       <description>Lahori Chargha is one of food street Lahore's absolute greatest innovations. A whole skinless chicken is scored deeply, soaked in an intense marinade of yogurt, chaat masala, lemon, and spices, steamed to lock in juiciness, and finally flash-fried until crackling crisp.</description>
       <enclosure url="https://www.zaikaworlds.com/assets/lahori-chargha-808537.webp" type="image/webp" length="301498" />
       <media:content url="https://www.zaikaworlds.com/assets/lahori-chargha-808537.webp" type="image/webp" medium="image" />
+    </item>
+    <item>
+      <title>Hyderabadi Khatti Dal</title>
+      <link>https://www.zaikaworlds.com/recipe/hyderabadi-khatti-dal</link>
+      <guid isPermaLink="true">https://www.zaikaworlds.com/recipe/hyderabadi-khatti-dal</guid>
+      <description>No Hyderabadi meal is complete without Khatti Dal. Yellow pigeon peas (toor dal) are cooked tender with ripe tomatoes, seasoned with tart tamarind pulp, and tempered with crackling mustard seeds, cumin, garlic, and fragrant curry leaves.</description>
+      <enclosure url="https://www.zaikaworlds.com/assets/hyderabadi-khatti-dal-902376.webp" type="image/webp" length="222692" />
+      <media:content url="https://www.zaikaworlds.com/assets/hyderabadi-khatti-dal-902376.webp" type="image/webp" medium="image" />
+    </item>
+    <item>
+      <title>Traditional Beef Kofta Curry</title>
+      <link>https://www.zaikaworlds.com/recipe/beef-kofta-curry</link>
+      <guid isPermaLink="true">https://www.zaikaworlds.com/recipe/beef-kofta-curry</guid>
+      <description>Traditional Pakistani Kofta Curry is an enduring culinary classic. Finely minced beef is pounded with roasted gram flour, poppy seeds, and whole spices, shaped into round meatballs, and gently simmered in a velvety golden gravy without breaking.</description>
+      <enclosure url="https://www.zaikaworlds.com/assets/beef-kofta-curry-902435.webp" type="image/webp" length="234354" />
+      <media:content url="https://www.zaikaworlds.com/assets/beef-kofta-curry-902435.webp" type="image/webp" medium="image" />
+    </item>
+    <item>
+      <title>Dum Ka Keema (Smoked Minced Meat)</title>
+      <link>https://www.zaikaworlds.com/recipe/dum-ka-keema</link>
+      <guid isPermaLink="true">https://www.zaikaworlds.com/recipe/dum-ka-keema</guid>
+      <description>Dum Ka Keema is an aromatic Mughlai heirloom recipe. Finely ground beef is marinated with raw papaya, brown onions, and aromatic potli masala, slowly braised in its own rich juices on gentle dum, and crowned with live charcoal smoke.</description>
+      <enclosure url="https://www.zaikaworlds.com/assets/dum-ka-keema-902489.webp" type="image/webp" length="180856" />
+      <media:content url="https://www.zaikaworlds.com/assets/dum-ka-keema-902489.webp" type="image/webp" medium="image" />
+    </item>
+    <item>
+      <title>Silky Chicken Reshmi Handi</title>
+      <link>https://www.zaikaworlds.com/recipe/chicken-reshmi-handi</link>
+      <guid isPermaLink="true">https://www.zaikaworlds.com/recipe/chicken-reshmi-handi</guid>
+      <description>Reshmi Handi is famous for its silk-like smooth texture. Prepared in an earthenware pot, succulent boneless chicken melts into a luscious gravy made from white butter, cashew cream, and fragrant kasuri methi.</description>
+      <enclosure url="https://www.zaikaworlds.com/assets/chicken-reshmi-handi-902536.webp" type="image/webp" length="182240" />
+      <media:content url="https://www.zaikaworlds.com/assets/chicken-reshmi-handi-902536.webp" type="image/webp" medium="image" />
+    </item>
+    <item>
+      <title>Lahori Murgh Chanay</title>
+      <link>https://www.zaikaworlds.com/recipe/lahori-fried-chanay</link>
+      <guid isPermaLink="true">https://www.zaikaworlds.com/recipe/lahori-fried-chanay</guid>
+      <description>Murgh Chanay is the legendary heartbeat of Lahore's Sunday breakfast culture. Chickpeas cooked with baking soda to supreme tenderness are braised with bone-in chicken in an aromatic black-pepper gravy thickened naturally with masoor dal paste.</description>
+      <enclosure url="https://www.zaikaworlds.com/assets/lahori-fried-chanay-902585.webp" type="image/webp" length="264172" />
+      <media:content url="https://www.zaikaworlds.com/assets/lahori-fried-chanay-902585.webp" type="image/webp" medium="image" />
     </item>
   </channel>
 </rss>
