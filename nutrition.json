@@ -792,5 +792,23 @@
     "proteinContent": 36.0,
     "fatContent": 20.0,
     "carbohydrateContent": 42.0
+  },
+  "afghani-chicken-boti": {
+    "calories": 440,
+    "proteinContent": 41.0,
+    "fatContent": 27.0,
+    "carbohydrateContent": 6.5
+  },
+  "shahi-tukda-rabri-roll": {
+    "calories": 340,
+    "proteinContent": 8.0,
+    "fatContent": 14.0,
+    "carbohydrateContent": 46.0
+  },
+  "kashmiri-mutton-yakhni": {
+    "calories": 480,
+    "proteinContent": 46.0,
+    "fatContent": 31.0,
+    "carbohydrateContent": 5.0
   }
 }

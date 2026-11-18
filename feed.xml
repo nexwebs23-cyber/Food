@@ -5,7 +5,7 @@
     <link>https://www.zaikaworlds.com/</link>
     <description>Cook famous dishes from Pakistan and India, plus favourites from around the world, with big photos and step by step methods.</description>
     <language>en</language>
-    <lastBuildDate>Tue, 17 Nov 2026 08:09:50 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 18 Nov 2026 16:46:31 GMT</lastBuildDate>
     <item>
       <title>Chicken Biryani</title>
       <link>https://www.zaikaworlds.com/recipe/biryani</link>
@@ -725,6 +725,30 @@
       <description>Murgh Chanay is the legendary heartbeat of Lahore's Sunday breakfast culture. Chickpeas cooked with baking soda to supreme tenderness are braised with bone-in chicken in an aromatic black-pepper gravy thickened naturally with masoor dal paste.</description>
       <enclosure url="https://www.zaikaworlds.com/assets/lahori-fried-chanay-902585.webp" type="image/webp" length="264172" />
       <media:content url="https://www.zaikaworlds.com/assets/lahori-fried-chanay-902585.webp" type="image/webp" medium="image" />
+    </item>
+    <item>
+      <title>Peshawari Afghani Chicken Boti</title>
+      <link>https://www.zaikaworlds.com/recipe/afghani-chicken-boti</link>
+      <guid isPermaLink="true">https://www.zaikaworlds.com/recipe/afghani-chicken-boti</guid>
+      <description>Afghani Boti is celebrated for its mild, rich, and aromatic flavor profile. Free of fiery red spices, succulent chicken thigh pieces are steeped in a marinade of malai, yogurt, cashews, and aromatic cardamom before being charred over live charcoal.</description>
+      <enclosure url="https://www.zaikaworlds.com/assets/afghani-chicken-boti.webp" type="image/webp" length="276618" />
+      <media:content url="https://www.zaikaworlds.com/assets/afghani-chicken-boti.webp" type="image/webp" medium="image" />
+    </item>
+    <item>
+      <title>Lucknowi Shahi Malai Roll</title>
+      <link>https://www.zaikaworlds.com/recipe/shahi-tukda-rabri-roll</link>
+      <guid isPermaLink="true">https://www.zaikaworlds.com/recipe/shahi-tukda-rabri-roll</guid>
+      <description>Originating from the royal kitchens of Lucknow, Shahi Malai Roll is a modern aristocratic dessert. Thin crustless bread slices are wrapped around roasted pistachio-khoya filling and drenched in an aromatic chilled saffron cream bath.</description>
+      <enclosure url="https://www.zaikaworlds.com/assets/shahi-tukda-rabri-roll.webp" type="image/webp" length="274512" />
+      <media:content url="https://www.zaikaworlds.com/assets/shahi-tukda-rabri-roll.webp" type="image/webp" medium="image" />
+    </item>
+    <item>
+      <title>Kashmiri Mutton Yakhni</title>
+      <link>https://www.zaikaworlds.com/recipe/kashmiri-mutton-yakhni</link>
+      <guid isPermaLink="true">https://www.zaikaworlds.com/recipe/kashmiri-mutton-yakhni</guid>
+      <description>Mutton Yakhni is an essential course in traditional Kashmiri Wazwan banquets. Tender mutton pieces are cooked in a silky, spiced yogurt gravy scented with green cardamoms, fennel seeds, and crushed dried mountain mint (pudina).</description>
+      <enclosure url="https://www.zaikaworlds.com/assets/kashmiri-mutton-yakhni.webp" type="image/webp" length="204170" />
+      <media:content url="https://www.zaikaworlds.com/assets/kashmiri-mutton-yakhni.webp" type="image/webp" medium="image" />
     </item>
   </channel>
 </rss>
