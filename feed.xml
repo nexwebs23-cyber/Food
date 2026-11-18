@@ -5,7 +5,7 @@
     <link>https://www.zaikaworlds.com/</link>
     <description>Cook famous dishes from Pakistan and India, plus favourites from around the world, with big photos and step by step methods.</description>
     <language>en</language>
-    <lastBuildDate>Wed, 18 Nov 2026 16:46:31 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 18 Nov 2026 17:09:59 GMT</lastBuildDate>
     <item>
       <title>Chicken Biryani</title>
       <link>https://www.zaikaworlds.com/recipe/biryani</link>
@@ -749,6 +749,46 @@
       <description>Mutton Yakhni is an essential course in traditional Kashmiri Wazwan banquets. Tender mutton pieces are cooked in a silky, spiced yogurt gravy scented with green cardamoms, fennel seeds, and crushed dried mountain mint (pudina).</description>
       <enclosure url="https://www.zaikaworlds.com/assets/kashmiri-mutton-yakhni.webp" type="image/webp" length="204170" />
       <media:content url="https://www.zaikaworlds.com/assets/kashmiri-mutton-yakhni.webp" type="image/webp" medium="image" />
+    </item>
+    <item>
+      <title>Turkish Adana Kebab</title>
+      <link>https://www.zaikaworlds.com/recipe/turkish-adana-kebab</link>
+      <guid isPermaLink="true">https://www.zaikaworlds.com/recipe/turkish-adana-kebab</guid>
+      <description>Originating from the historic culinary capital of Adana in southern Turkey, Adana Kebab is famous for its juicy texture and gentle smoky heat. Coarsely hand-chopped lamb is blended with lamb tail fat, roasted sweet red peppers, and fiery Urfa or Aleppo chili flakes before being pressed onto broad iron skewers and grilled over natural hardwood lump charcoal.</description>
+      <enclosure url="https://www.zaikaworlds.com/assets/turkish-adana-kebab.webp" type="image/webp" length="284268" />
+      <media:content url="https://www.zaikaworlds.com/assets/turkish-adana-kebab.webp" type="image/webp" medium="image" />
+    </item>
+    <item>
+      <title>Thai Green Curry</title>
+      <link>https://www.zaikaworlds.com/recipe/thai-green-curry</link>
+      <guid isPermaLink="true">https://www.zaikaworlds.com/recipe/thai-green-curry</guid>
+      <description>Gaeng Kiew Wan (Sweet Green Curry) is Thailand's most beloved aromatic curry. Made by frying fragrant green curry paste with rich coconut cream, the curry combines coconut milk, tender chicken breast, makrut lime leaves, palm sugar, and aromatic sweet Thai basil to create an irresistible balance of spicy, savory, and herbal notes.</description>
+      <enclosure url="https://www.zaikaworlds.com/assets/thai-green-curry.webp" type="image/webp" length="211720" />
+      <media:content url="https://www.zaikaworlds.com/assets/thai-green-curry.webp" type="image/webp" medium="image" />
+    </item>
+    <item>
+      <title>Japanese Chicken Teriyaki</title>
+      <link>https://www.zaikaworlds.com/recipe/japanese-chicken-teriyaki</link>
+      <guid isPermaLink="true">https://www.zaikaworlds.com/recipe/japanese-chicken-teriyaki</guid>
+      <description>In Japanese culinary tradition, 'Teri' means luster or shine and 'Yaki' means grilled or pan-fried. Juicy boneless skin-on chicken thighs are seared until golden crisp, then deglazed and basted in a reduction of Japanese soy sauce, mirin, sake, and brown sugar until lacquer-glossy and packed with umami.</description>
+      <enclosure url="https://www.zaikaworlds.com/assets/japanese-chicken-teriyaki.webp" type="image/webp" length="229796" />
+      <media:content url="https://www.zaikaworlds.com/assets/japanese-chicken-teriyaki.webp" type="image/webp" medium="image" />
+    </item>
+    <item>
+      <title>Mexican Beef Tacos</title>
+      <link>https://www.zaikaworlds.com/recipe/mexican-beef-tacos</link>
+      <guid isPermaLink="true">https://www.zaikaworlds.com/recipe/mexican-beef-tacos</guid>
+      <description>Carne Asada tacos are the undisputed crown jewel of Mexican street food taquerías. Tender flank or skirt steak is marinated in fresh lime and orange juice, garlic, cumin, and Mexican oregano, seared rapidly over high heat to achieve a charred crust, finely diced, and served on fragrant warm corn tortillas.</description>
+      <enclosure url="https://www.zaikaworlds.com/assets/mexican-beef-tacos.webp" type="image/webp" length="384446" />
+      <media:content url="https://www.zaikaworlds.com/assets/mexican-beef-tacos.webp" type="image/webp" medium="image" />
+    </item>
+    <item>
+      <title>Classic Italian Lasagna Bolognese</title>
+      <link>https://www.zaikaworlds.com/recipe/italian-lasagna-bolognese</link>
+      <guid isPermaLink="true">https://www.zaikaworlds.com/recipe/italian-lasagna-bolognese</guid>
+      <description>Lasagna alla Bolognese is the culinary pride of Emilia-Romagna, Italy. Unlike American-style lasagna, genuine Italian lasagna features paper-thin egg pasta sheets layered not with ricotta, but with a luxurious slow-simmered beef Bolognese ragù, silky nutmeg-scented béchamel sauce, and aged Parmigiano-Reggiano, baked until bubbling golden.</description>
+      <enclosure url="https://www.zaikaworlds.com/assets/italian-lasagna-bolognese.webp" type="image/webp" length="230170" />
+      <media:content url="https://www.zaikaworlds.com/assets/italian-lasagna-bolognese.webp" type="image/webp" medium="image" />
     </item>
   </channel>
 </rss>

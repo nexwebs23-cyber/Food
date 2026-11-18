@@ -810,5 +810,35 @@
     "proteinContent": 46.0,
     "fatContent": 31.0,
     "carbohydrateContent": 5.0
+  },
+  "turkish-adana-kebab": {
+    "calories": 480,
+    "proteinContent": 42.0,
+    "fatContent": 34.0,
+    "carbohydrateContent": 4.0
+  },
+  "thai-green-curry": {
+    "calories": 420,
+    "proteinContent": 32.0,
+    "fatContent": 28.0,
+    "carbohydrateContent": 12.0
+  },
+  "japanese-chicken-teriyaki": {
+    "calories": 390,
+    "proteinContent": 35.0,
+    "fatContent": 19.0,
+    "carbohydrateContent": 16.0
+  },
+  "mexican-beef-tacos": {
+    "calories": 410,
+    "proteinContent": 36.0,
+    "fatContent": 18.0,
+    "carbohydrateContent": 28.0
+  },
+  "italian-lasagna-bolognese": {
+    "calories": 540,
+    "proteinContent": 38.0,
+    "fatContent": 26.0,
+    "carbohydrateContent": 42.0
   }
 }

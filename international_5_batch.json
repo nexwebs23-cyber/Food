@@ -1,0 +1,310 @@
+[
+  {
+    "id": "turkish-adana-kebab",
+    "country": "Turkey",
+    "name": "Turkish Adana Kebab",
+    "cat": "grill",
+    "catLabel": "Grill",
+    "veg": "nonveg",
+    "time": 40,
+    "diff": "Medium",
+    "servings": "4 people",
+    "alt": "Authentic Turkish Adana lamb kebab on flat iron skewer with charred peppers and lavash bread with ZaikaWorlds logo",
+    "desc": "Spicy hand-minced lamb kebab seasoned with red bell pepper, tail fat, and Turkish chili flakes, charcoal-grilled on wide flat iron skewers.",
+    "intro": "Originating from the historic culinary capital of Adana in southern Turkey, Adana Kebab is famous for its juicy texture and gentle smoky heat. Coarsely hand-chopped lamb is blended with lamb tail fat, roasted sweet red peppers, and fiery Urfa or Aleppo chili flakes before being pressed onto broad iron skewers and grilled over natural hardwood lump charcoal.",
+    "ing": [
+      "Minced lamb shoulder with 20% fat 800g",
+      "Finely minced lamb tail fat or beef tallow 100g",
+      "Red bell pepper roasted, peeled, and finely minced 1 large",
+      "Turkish red pepper flakes (pul biber or Aleppo pepper) 2 tbsp",
+      "Garlic minced 4 cloves",
+      "Ground cumin 1 tsp",
+      "Sea salt 1.5 tsp",
+      "Warm lavash or pita bread for serving",
+      "Charred whole tomatoes, green long peppers, and sumac red onion salad for garnish"
+    ],
+    "steps": [
+      "Finely mince the red bell pepper, squeeze out any excess liquid in a clean kitchen towel so the mixture stays firm.",
+      "In a large cold stainless bowl, combine minced lamb, tail fat, drained bell pepper, garlic, pul biber, cumin, and sea salt.",
+      "Knead the mixture vigorously by hand for 8 to 10 minutes until the protein emulsifies and becomes sticky and fibrous.",
+      "Cover and chill the meat in refrigerator for at least 1 hour.",
+      "Wet hands with warm salted water, divide mixture into 4 portions, and mold each portion firmly around wide flat iron skewers (about 1 inch wide), making wavy finger indents along the skewer.",
+      "Grill over medium-hot glowing lump charcoal for 3 to 4 minutes per side, turning frequently to render fat without flare-ups.",
+      "Slide the juicy kebabs off skewers directly onto warm lavash bread using extra bread to grip; serve immediately with charred tomatoes, roasted long chilies, and sumac onion salad."
+    ],
+    "tip": "Kneading the meat cold until it turns sticky is the key secret that prevents the minced lamb from falling off the wide skewer during grilling.",
+    "nutrition": {
+      "calories": 480,
+      "proteinContent": 42.0,
+      "fatContent": 34.0,
+      "carbohydrateContent": 4.0
+    },
+    "lang": {
+      "ru": {
+        "name": "Turkish Adana Kebab",
+        "catLabel": "Grill",
+        "diff": "Darmiyana",
+        "servings": "4 log",
+        "desc": "Koyle par paka hua makhsoos masaledar Turkish lamb Adana kebab.",
+        "alt": "Turkish Adana Kebab"
+      },
+      "hi": {
+        "name": "टर्किश अदाना कबाब",
+        "catLabel": "ग्रिल",
+        "diff": "मध्यम",
+        "servings": "4 लोग",
+        "desc": "कोयले पर भुना हुआ पारंपरिक तुर्की लैम्ब कबाब।",
+        "alt": "टर्किश अदाना कबाब"
+      }
+    }
+  },
+  {
+    "id": "thai-green-curry",
+    "country": "Thailand",
+    "name": "Thai Green Curry",
+    "cat": "asian",
+    "catLabel": "Asian",
+    "veg": "nonveg",
+    "time": 35,
+    "diff": "Easy",
+    "servings": "4 people",
+    "alt": "Creamy fragrant Thai green chicken curry with Thai basil and bamboo shoots with ZaikaWorlds logo",
+    "desc": "Aromatic, creamy coconut milk curry with tender chicken strips, crisp bamboo shoots, Thai eggplant, and fresh holy basil.",
+    "intro": "Gaeng Kiew Wan (Sweet Green Curry) is Thailand's most beloved aromatic curry. Made by frying fragrant green curry paste with rich coconut cream, the curry combines coconut milk, tender chicken breast, makrut lime leaves, palm sugar, and aromatic sweet Thai basil to create an irresistible balance of spicy, savory, and herbal notes.",
+    "ing": [
+      "Boneless skinless chicken breast or thigh sliced thinly 500g",
+      "Authentic Thai green curry paste 3 tbsp",
+      "Full-fat coconut milk (separated cream and milk) 400ml",
+      "Chicken stock or water 0.5 cup",
+      "Thai eggplants quartered or sliced zucchini 1 cup",
+      "Bamboo shoot strips drained 0.5 cup",
+      "Fresh kaffir lime leaves torn 4",
+      "Thai fish sauce (nam pla) 2 tbsp",
+      "Palm sugar or brown sugar 1.5 tbsp",
+      "Fresh Thai sweet basil leaves (horapha) 1 cup",
+      "Red bird's eye chilies sliced lengthwise for garnish"
+    ],
+    "steps": [
+      "Skim 0.5 cup of thick coconut cream from top of the coconut milk can into a wide wok; heat on medium until oil separates.",
+      "Add Thai green curry paste and fry into the simmering coconut cream for 3 minutes until deeply fragrant and green oil glistens.",
+      "Add sliced chicken strips and toss for 3 to 4 minutes until exterior turns opaque.",
+      "Pour in remaining coconut milk and chicken stock; bring to a gentle boil.",
+      "Add Thai eggplant, bamboo shoot strips, and torn kaffir lime leaves; simmer gently for 8 to 10 minutes until vegetables are tender.",
+      "Season with fish sauce and palm sugar, tasting to achieve a harmonious balance of salty, sweet, and herbal heat.",
+      "Turn off the heat, stir in fresh Thai basil leaves until wilted, and garnish with sliced red chilies.",
+      "Serve piping hot over fragrant steamed jasmine rice."
+    ],
+    "tip": "Always fry the green curry paste in coconut cream until the oil splits; this releases the natural aromatic oils of lemongrass, galangal, and green chilies.",
+    "nutrition": {
+      "calories": 420,
+      "proteinContent": 32.0,
+      "fatContent": 28.0,
+      "carbohydrateContent": 12.0
+    },
+    "lang": {
+      "ru": {
+        "name": "Authentic Thai Green Curry",
+        "catLabel": "Asian",
+        "diff": "Aasan",
+        "servings": "4 log",
+        "desc": "Naryal ke doodh aur basil mein paki hui Thai green chicken curry.",
+        "alt": "Thai Green Curry"
+      },
+      "hi": {
+        "name": "थाई ग्रीन करी",
+        "catLabel": "एशियन",
+        "diff": "सरल",
+        "servings": "4 लोग",
+        "desc": "नारियल के दूध और तुलसी के पत्तों में बनी स्वादिष्ट थाई चिकन करी।",
+        "alt": "थाई ग्रीन करी"
+      }
+    }
+  },
+  {
+    "id": "japanese-chicken-teriyaki",
+    "country": "Japan",
+    "name": "Japanese Chicken Teriyaki",
+    "cat": "asian",
+    "catLabel": "Asian",
+    "veg": "nonveg",
+    "time": 25,
+    "diff": "Easy",
+    "servings": "4 people",
+    "alt": "Glazed golden pan-seared chicken teriyaki slices on steamed rice with sesame seeds with ZaikaWorlds logo",
+    "desc": "Crispy pan-seared chicken thigh fillets simmered and glazed in an authentic 4-ingredient sweet and savory homemade teriyaki sauce.",
+    "intro": "In Japanese culinary tradition, 'Teri' means luster or shine and 'Yaki' means grilled or pan-fried. Juicy boneless skin-on chicken thighs are seared until golden crisp, then deglazed and basted in a reduction of Japanese soy sauce, mirin, sake, and brown sugar until lacquer-glossy and packed with umami.",
+    "ing": [
+      "Boneless chicken thighs (skin-on preferred) 600g",
+      "Japanese soy sauce (shoyu) 4 tbsp",
+      "Mirin (Japanese sweet cooking wine) 4 tbsp",
+      "Cooking sake or dry rice wine 4 tbsp",
+      "Brown sugar or granulated sugar 2 tbsp",
+      "Grated fresh ginger 1 tsp",
+      "Cooking oil 1 tbsp",
+      "Toasted white sesame seeds and finely chopped scallions for garnish",
+      "Steamed Japanese short-grain rice for serving"
+    ],
+    "steps": [
+      "Prick the skin side of chicken thighs lightly with a fork so marinade penetrates and meat cooks evenly without curling.",
+      "In a small bowl, whisk together soy sauce, mirin, sake, sugar, and grated ginger until sugar dissolves completely.",
+      "Heat 1 tbsp oil in a wide heavy skillet over medium-high heat. Place chicken thighs skin-side down; sear for 5 to 6 minutes without moving until skin is deep golden and crisp.",
+      "Flip chicken and cook on the flesh side for 3 minutes.",
+      "Drain off excess rendered chicken fat from skillet with paper towels to keep the glaze clean.",
+      "Pour the whisked teriyaki sauce mixture into skillet around chicken. Bring to a rapid bubbling boil over medium heat.",
+      "Spoon bubbling glossy sauce continuously over chicken thighs for 3 to 4 minutes until the sauce thickens into a rich lacquer glaze.",
+      "Remove chicken to cutting board, let rest for 2 minutes, slice into thick pieces, drizzle with remaining pan glaze, and sprinkle with sesame seeds and scallions."
+    ],
+    "tip": "Wiping off the rendered excess fat before pouring the sauce ensures the glaze sticks tightly to the chicken instead of turning greasy.",
+    "nutrition": {
+      "calories": 390,
+      "proteinContent": 35.0,
+      "fatContent": 19.0,
+      "carbohydrateContent": 16.0
+    },
+    "lang": {
+      "ru": {
+        "name": "Japanese Chicken Teriyaki",
+        "catLabel": "Asian",
+        "diff": "Aasan",
+        "servings": "4 log",
+        "desc": "Meethe aur namkeen soy glaze mein paka hua crispy Japanese chicken teriyaki.",
+        "alt": "Japanese Chicken Teriyaki"
+      },
+      "hi": {
+        "name": "जापानी चिकन तेरियाकी",
+        "catLabel": "एशियन",
+        "diff": "सरल",
+        "servings": "4 लोग",
+        "desc": "सोया और मीठी जापानी सॉस में चमकदार ग्लेज़ किया गया चिकन।",
+        "alt": "जापानी चिकन तेरियाकी"
+      }
+    }
+  },
+  {
+    "id": "mexican-beef-tacos",
+    "country": "Mexico",
+    "name": "Mexican Beef Tacos",
+    "cat": "street-food",
+    "catLabel": "Street Food",
+    "veg": "nonveg",
+    "time": 30,
+    "diff": "Easy",
+    "servings": "4 people",
+    "alt": "Mexican street style carne asada steak tacos on warm corn tortillas with lime and cilantro with ZaikaWorlds logo",
+    "desc": "Juicy citrus-marinated flank steak grilled over high flame, finely chopped, and served on double warm corn tortillas with lime, onion, and cilantro.",
+    "intro": "Carne Asada tacos are the undisputed crown jewel of Mexican street food taquerías. Tender flank or skirt steak is marinated in fresh lime and orange juice, garlic, cumin, and Mexican oregano, seared rapidly over high heat to achieve a charred crust, finely diced, and served on fragrant warm corn tortillas.",
+    "ing": [
+      "Flank steak or skirt steak 700g",
+      "Fresh lime juice 4 tbsp",
+      "Fresh orange juice 3 tbsp",
+      "Garlic cloves minced 4",
+      "Ground cumin 1.5 tsp",
+      "Mexican dried oregano 1 tsp",
+      "Chili powder 1 tsp",
+      "Olive oil 2 tbsp",
+      "Coarse sea salt 1.5 tsp",
+      "Fresh small corn tortillas 12 to 16",
+      "Finely diced white onion 1 cup",
+      "Fresh cilantro leaves chopped 1 cup",
+      "Lime wedges and roasted salsa verde for serving"
+    ],
+    "steps": [
+      "In a shallow bowl, whisk lime juice, orange juice, garlic, cumin, oregano, chili powder, olive oil, and sea salt.",
+      "Coat the steak thoroughly in the citrus marinade; marinate for 1 to 2 hours in refrigerator.",
+      "Heat a cast iron skillet or outdoor grill to smoking high heat.",
+      "Sear the steak for 4 to 5 minutes on each side until deeply browned with charred edges (medium rare to medium inside).",
+      "Transfer grilled steak to a cutting board and let rest undisturbed for 8 minutes to retain its natural juices.",
+      "Slice steak against the grain, then finely dice into small bite-sized street taco cubes.",
+      "Warm corn tortillas on a dry skillet until soft and pliable with slight blistering.",
+      "Double up tortillas, pile with generous heaps of chopped carne asada, and top with raw white onions, cilantro, a squeeze of fresh lime, and salsa."
+    ],
+    "tip": "Always slice the steak strictly against the muscle grain before dicing; this cuts the long fibers and makes every bite exceptionally tender.",
+    "nutrition": {
+      "calories": 410,
+      "proteinContent": 36.0,
+      "fatContent": 18.0,
+      "carbohydrateContent": 28.0
+    },
+    "lang": {
+      "ru": {
+        "name": "Mexican Street Beef Tacos",
+        "catLabel": "Street Food",
+        "diff": "Aasan",
+        "servings": "4 log",
+        "desc": "Limu aur masalon mein bhuna hua Mexican carne asada beef taco.",
+        "alt": "Mexican Beef Tacos"
+      },
+      "hi": {
+        "name": "मैक्सिकन बीफ टैकोस",
+        "catLabel": "स्ट्रीट फूड",
+        "diff": "सरल",
+        "servings": "4 लोग",
+        "desc": "गर्म मक्के की टॉर्टिला में नींबू और धनिए के साथ रसीला बीफ टैको।",
+        "alt": "मैक्सिकन बीफ टैकोस"
+      }
+    }
+  },
+  {
+    "id": "italian-lasagna-bolognese",
+    "country": "Italy",
+    "name": "Classic Italian Lasagna Bolognese",
+    "cat": "world",
+    "catLabel": "World Cuisine",
+    "veg": "nonveg",
+    "time": 75,
+    "diff": "Medium",
+    "servings": "6 people",
+    "alt": "Layered Italian lasagna bolognese slice with bubbling melted parmesan and golden crust with ZaikaWorlds logo",
+    "desc": "Timeless Italian baked comfort dish layered with rich slow-cooked beef ragù, velvety creamy béchamel sauce, and freshly grated Parmigiano-Reggiano.",
+    "intro": "Lasagna alla Bolognese is the culinary pride of Emilia-Romagna, Italy. Unlike American-style lasagna, genuine Italian lasagna features paper-thin egg pasta sheets layered not with ricotta, but with a luxurious slow-simmered beef Bolognese ragù, silky nutmeg-scented béchamel sauce, and aged Parmigiano-Reggiano, baked until bubbling golden.",
+    "ing": [
+      "Lasagna sheet noodles 12 to 14 sheets",
+      "Ground beef lean 600g",
+      "Finely diced onion, carrot, and celery (soffritto) 1.5 cups",
+      "Tomato passata / crushed San Marzano tomatoes 2.5 cups",
+      "Tomato paste 2 tbsp",
+      "Whole milk for ragù 0.5 cup",
+      "Butter for béchamel 4 tbsp (50g)",
+      "All-purpose flour 4 tbsp (50g)",
+      "Warm milk for béchamel 3 cups (750ml)",
+      "Ground nutmeg 0.25 tsp",
+      "Grated Parmigiano-Reggiano or mozzarella 1.5 cups",
+      "Olive oil 2 tbsp, salt and black pepper to taste"
+    ],
+    "steps": [
+      "For Ragù: Heat olive oil in a pot; sauté soffritto (onion, carrot, celery) for 6 minutes until soft. Add ground beef; brown thoroughly breaking into small bits.",
+      "Add tomato paste, crushed tomatoes, salt, and pepper. Simmer on low heat for 35 minutes, stirring in 0.5 cup milk near the end to tenderize the meat.",
+      "For Béchamel: Melt butter in a saucepan over medium heat; whisk in flour for 1 minute to make a blond roux. Gradually pour in warm milk while whisking vigorously to avoid lumps. Simmer for 5 minutes until thick and velvety; season with salt, pepper, and ground nutmeg.",
+      "Preheat oven to 190°C (375°F). Lightly grease a 9x13 inch baking dish.",
+      "Layering: Spread a ladle of béchamel and ragù on bottom. Place a layer of pasta sheets, cover with ragù, ladle béchamel, and sprinkle grated parmesan.",
+      "Repeat layers 4 to 5 times, finishing top layer with generous béchamel and plenty of parmesan cheese.",
+      "Bake uncovered for 30 to 35 minutes until the top is bubbling and deep golden brown with crisp edges.",
+      "Allow to rest for 15 minutes before slicing into neat layered squares."
+    ],
+    "tip": "Letting the baked lasagna rest for 15 minutes before cutting allows the béchamel and cheese to set, giving clean, picture-perfect restaurant slices.",
+    "nutrition": {
+      "calories": 540,
+      "proteinContent": 38.0,
+      "fatContent": 26.0,
+      "carbohydrateContent": 42.0
+    },
+    "lang": {
+      "ru": {
+        "name": "Classic Italian Lasagna Bolognese",
+        "catLabel": "World Cuisine",
+        "diff": "Darmiyana",
+        "servings": "6 log",
+        "desc": "Bechamel sauce aur keema ragu mein paki hui Italian lasagna.",
+        "alt": "Italian Lasagna Bolognese"
+      },
+      "hi": {
+        "name": "क्लासिक इतालवी लसग्ना बोलोग्नीस",
+        "catLabel": "विश्व व्यंजन",
+        "diff": "मध्यम",
+        "servings": "6 लोग",
+        "desc": "सफेद बेकमेल सॉस और रसीले कीमे के साथ पकी क्लासिक इतालवी लसग्ना।",
+        "alt": "इतालवी लसग्ना बोलोग्नीस"
+      }
+    }
+  }
+]
