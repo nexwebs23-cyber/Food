@@ -1,0 +1,307 @@
+[
+  {
+    "id": "balochi-sajji",
+    "country": "Pakistan",
+    "name": "Authentic Balochi Chicken Sajji",
+    "cat": "bbq",
+    "catLabel": "BBQ",
+    "veg": "nonveg",
+    "time": 75,
+    "diff": "Medium",
+    "servings": "4 people",
+    "alt": "Whole roasted Balochi chicken sajji skewered around glowing wood embers with Kaak bread with ZaikaWorlds logo",
+    "desc": "Traditional tribal Baloch delicacy of whole skin-on chicken simply marinated with salt and garlic, slow-roasted around open wood fires.",
+    "intro": "Balochi Sajji is the iconic tribal specialty of Balochistan. A whole chicken or whole lamb leg is lightly seasoned solely with salt, crushed garlic, and whole spices, then skewered on wooden stakes surrounding a central circle of burning hardwood logs until the skin turns deep copper and crackling crisp while the interior stays extraordinarily juicy.",
+    "ing": [
+      "Whole chicken with skin (or skinless) 1.2kg",
+      "Fresh garlic paste 2 tbsp",
+      "Fresh lemon juice 4 tbsp",
+      "Coarse rock salt 2 tbsp (for brine soak)",
+      "Vinegar 3 tbsp",
+      "Cumin and coriander seeds dry-roasted and coarsely crushed 1.5 tbsp",
+      "Special Sajji chaat masala 1.5 tbsp",
+      "Melted desi ghee or oil for basting 3 tbsp",
+      "Traditional Kaak bread or saffron spiced rice for serving"
+    ],
+    "steps": [
+      "Wash whole chicken and make deep scores on thighs, breasts, and drumsticks.",
+      "Soak chicken in 6 cups cold water with 2 tbsp salt and 3 tbsp vinegar for 45 minutes; drain completely and pat dry with paper towels.",
+      "Rub garlic paste, lemon juice, and half the crushed roasted spices all over the chicken and into the cavity.",
+      "Secure legs with kitchen twine. Thread onto a sturdy metal or rotisserie skewer.",
+      "Slow-roast on low indirect charcoal heat (or oven at 180°C / 350°F) for 50 minutes, rotating slowly.",
+      "Baste generously with melted desi ghee and crank heat to high for 10 minutes until the skin turns blistered, golden, and shatteringly crisp.",
+      "Carve onto a large platter, dust liberally with special Sajji chaat masala, and serve with Kaak bread or hot basmati rice."
+    ],
+    "tip": "The salt-and-vinegar brine soak is the non-negotiable secret to Balochi sajji; it deeply seasons the meat to the bone and locks in maximum moisture during long roasting.",
+    "nutrition": {
+      "calories": 490,
+      "proteinContent": 50.0,
+      "fatContent": 30.0,
+      "carbohydrateContent": 4.0
+    },
+    "lang": {
+      "ru": {
+        "name": "Authentic Balochi Chicken Sajji",
+        "catLabel": "BBQ",
+        "diff": "Darmiyana",
+        "servings": "4 log",
+        "desc": "Balochi qabaili andaaz mein bhuni hui khalis chicken sajji.",
+        "alt": "Balochi Chicken Sajji"
+      },
+      "hi": {
+        "name": "बलूची चिकन सज्जी",
+        "catLabel": "बारबेक्यू",
+        "diff": "मध्यम",
+        "servings": "4 लोग",
+        "desc": "कोयले की धीमी आंच पर भुनी हुई पारंपरिक बलूची चिकन सज्जी।",
+        "alt": "बलूची चिकन सज्जी"
+      }
+    }
+  },
+  {
+    "id": "chicken-tikka-masala",
+    "country": "Pakistan",
+    "name": "Restaurant Chicken Tikka Masala",
+    "cat": "desi-dishes",
+    "catLabel": "Desi Dishes",
+    "veg": "nonveg",
+    "time": 45,
+    "diff": "Medium",
+    "servings": "4 people",
+    "alt": "Smoky charcoal grilled chicken tikka pieces in rich creamy spiced tomato masala gravy with ZaikaWorlds logo",
+    "desc": "Charcoal-grilled smoky chicken tikka chunks simmered in a luscious, richly spiced onion, tomato, and cashew cream gravy.",
+    "intro": "Chicken Tikka Masala is one of the most celebrated South Asian curries across the globe. Succulent boneless chicken is marinated in yogurt, tandoori spices, and lemon, grilled until charred and smoky, then tossed into a rich, velvety orange gravy infused with butter, fenugreek, and cream.",
+    "ing": [
+      "Boneless chicken breast or thigh cubes 650g",
+      "Thick whisked yogurt 0.5 cup",
+      "Ginger garlic paste 2 tbsp",
+      "Kashmiri red chili powder 1.5 tbsp",
+      "Garam masala 1 tsp",
+      "Tomato puree 1.5 cups",
+      "Cashew nut paste 3 tbsp",
+      "Heavy cream 0.25 cup",
+      "Butter (makhan) 3 tbsp",
+      "Kasuri methi (fenugreek leaves) 1 tbsp",
+      "Salt 1.25 tsp"
+    ],
+    "steps": [
+      "Marinate chicken cubes with yogurt, half the ginger-garlic paste, 1 tbsp Kashmiri chili, lemon juice, and salt for 1 hour.",
+      "Thread onto skewers and broil, grill, or pan-sear on smoking high heat for 8 to 10 minutes until lightly charred; set aside.",
+      "In a wide pan, melt butter; fry remaining ginger-garlic paste, add tomato puree, and cook on medium flame for 10 minutes until butter separates.",
+      "Stir in cashew paste, Kashmiri red chili powder, garam masala, and half cup water; simmer into a smooth, bubbling sauce.",
+      "Fold in the charred smoky chicken tikka pieces; simmer gently on low flame for 6 minutes.",
+      "Finish with heavy cream and crushed kasuri methi.",
+      "Serve piping hot with garlic butter naan."
+    ],
+    "tip": "Do not skip searing the chicken till it gets dark charred edges; that signature tandoori char gives the creamy gravy its authentic restaurant depth.",
+    "nutrition": {
+      "calories": 460,
+      "proteinContent": 38.0,
+      "fatContent": 28.0,
+      "carbohydrateContent": 14.0
+    },
+    "lang": {
+      "ru": {
+        "name": "Restaurant Chicken Tikka Masala",
+        "catLabel": "Desi Dishes",
+        "diff": "Darmiyana",
+        "servings": "4 log",
+        "desc": "Tandoori koyla chicken tikka makhani gravy mein.",
+        "alt": "Chicken Tikka Masala"
+      },
+      "hi": {
+        "name": "चिकन टिक्का मसाला",
+        "catLabel": "देसी व्यंजन",
+        "diff": "मध्यम",
+        "servings": "4 लोग",
+        "desc": "तंदूरी धुएं के स्वाद वाली मखमली ग्रेवी में बना चिकन टिक्का मसाला।",
+        "alt": "चिकन टिक्का मसाला"
+      }
+    }
+  },
+  {
+    "id": "seekh-kabab-handi",
+    "country": "Pakistan",
+    "name": "Mughlai Seekh Kabab Handi",
+    "cat": "desi-dishes",
+    "catLabel": "Desi Dishes",
+    "veg": "nonveg",
+    "time": 50,
+    "diff": "Medium",
+    "servings": "5 people",
+    "alt": "Juicy grilled beef seekh kababs simmered in rich yogurt tomato handi gravy with ZaikaWorlds logo",
+    "desc": "Tender grilled minced meat seekh kababs sliced and gently simmered in a creamy clay-pot tomato, yogurt, and butter gravy.",
+    "intro": "Seekh Kabab Handi is a royal fusion masterpiece popular in modern Pakistani dhabas and high-end restaurants. Succulent, spiced minced beef seekh kababs are charcoal-grilled, cut into thick diagonal medallions, and gently folded into a silky earthenware handi gravy perfumed with green chilies and cream.",
+    "ing": [
+      "Minced beef or mutton (20% fat) 700g",
+      "Finely chopped squeezed onion 1 medium",
+      "Ginger garlic paste 2 tbsp",
+      "Roasted gram flour (besan) 2 tbsp",
+      "Seekh kabab masala & crushed cumin 1.5 tbsp",
+      "Tomato puree 1 cup",
+      "Whisked plain yogurt 0.5 cup",
+      "Fresh cream 3 tbsp",
+      "Desi ghee or butter 3 tbsp",
+      "Slit green chilies and julienned ginger for garnish",
+      "Salt 1.25 tsp"
+    ],
+    "steps": [
+      "Knead minced beef with squeezed onions, 1 tbsp ginger-garlic, besan, seekh kabab spices, and salt until fibrous and smooth.",
+      "Mould onto skewers and grill or pan-fry until golden brown and cooked through; cut each kabab into 3 diagonal pieces.",
+      "In a traditional clay handi or heavy pot, heat ghee; fry remaining ginger-garlic and slit green chilies for 1 minute.",
+      "Add tomato puree and whisked yogurt; cook on medium flame for 8 minutes until gravy thickens and oil floats.",
+      "Gently add the sliced seekh kababs; swirl the handi gently to coat in sauce without breaking the kababs.",
+      "Cover and simmer on low heat (dum) for 8 minutes.",
+      "Stir in fresh cream, garnish with julienned ginger, and serve with hot tandoori roti."
+    ],
+    "tip": "Cook this dish in a clay handi if possible; the earthenware pot retains high heat and imparts a subtle earthy fragrance to the rich kabab gravy.",
+    "nutrition": {
+      "calories": 480,
+      "proteinContent": 42.0,
+      "fatContent": 32.0,
+      "carbohydrateContent": 8.0
+    },
+    "lang": {
+      "ru": {
+        "name": "Mughlai Seekh Kabab Handi",
+        "catLabel": "Desi Dishes",
+        "diff": "Darmiyana",
+        "servings": "5 log",
+        "desc": "Naram seekh kabab mitti ki handi masala gravy mein.",
+        "alt": "Seekh Kabab Handi"
+      },
+      "hi": {
+        "name": "सीख कबाब हांडी",
+        "catLabel": "देसी व्यंजन",
+        "diff": "मध्यम",
+        "servings": "4 लोग",
+        "desc": "मिट्टी की हांडी में मसालेदार ग्रेवी के साथ पके सीख कबाब।",
+        "alt": "सीख कबाब हांडी"
+      }
+    }
+  },
+  {
+    "id": "palak-paneer",
+    "country": "India",
+    "name": "Dhaba Style Palak Paneer",
+    "cat": "desi-dishes",
+    "catLabel": "Desi Dishes",
+    "veg": "veg",
+    "time": 35,
+    "diff": "Easy",
+    "servings": "4 people",
+    "alt": "Fresh paneer cubes in vibrant green garlic tempered spinach gravy with butter dollop with ZaikaWorlds logo",
+    "desc": "Velvety spiced emerald-green spinach gravy simmered with fresh cottage cheese cubes and finished with a sizzling garlic tadka.",
+    "intro": "Palak Paneer is the crowning glory of North Indian vegetarian cuisine. Fresh spinach leaves are quickly blanched to preserve their radiant emerald green color, pureed with green chilies, and gently simmered with soft paneer cubes, finished with fragrant kasuri methi, cream, and a garlic tadka.",
+    "ing": [
+      "Fresh spinach leaves (palak) cleaned 500g",
+      "Fresh paneer cut into cubes 250g",
+      "Finely chopped onions 1 large",
+      "Tomato puree 0.5 cup",
+      "Ginger garlic paste 1.5 tbsp",
+      "Finely chopped fresh garlic for tadka 1 tbsp",
+      "Green chilies 2",
+      "Fresh cream 2 tbsp",
+      "Desi ghee 3 tbsp",
+      "Kasuri methi 1 tsp",
+      "Salt 1 tsp"
+    ],
+    "steps": [
+      "Blanch spinach leaves and green chilies in boiling water for exactly 2 minutes; immediately plunge into ice-cold water to retain bright green color.",
+      "Drain and blend blanched spinach into a smooth, silky puree.",
+      "Heat 2 tbsp ghee in a kadai; saute chopped onions until translucent, add ginger-garlic paste and tomato puree; cook for 5 minutes.",
+      "Pour in the spinach puree and salt; simmer on medium-low flame for 6 minutes (do not cover completely to prevent discoloration).",
+      "Gently add paneer cubes and crushed kasuri methi; simmer for 3 minutes.",
+      "In a small tempering pan, heat 1 tbsp ghee with chopped garlic slivers until golden; pour sizzling tadka over the spinach.",
+      "Garnish with a swirl of fresh cream and serve with butter naan or jeera rice."
+    ],
+    "tip": "Shocking the blanched spinach immediately in an ice water bath stops cooking instantly and guarantees a vivid restaurant-style emerald green gravy.",
+    "nutrition": {
+      "calories": 310,
+      "proteinContent": 15.0,
+      "fatContent": 23.0,
+      "carbohydrateContent": 11.0
+    },
+    "lang": {
+      "ru": {
+        "name": "Dhaba Style Palak Paneer",
+        "catLabel": "Desi Dishes",
+        "diff": "Aasan",
+        "servings": "4 log",
+        "desc": "Taza palak aur paneer ka lasan tadkay wala salan.",
+        "alt": "Palak Paneer"
+      },
+      "hi": {
+        "name": "पालक पनीर",
+        "catLabel": "देसी व्यंजन",
+        "diff": "सरल",
+        "servings": "4 लोग",
+        "desc": "लहसुन के तड़के और मलाई के साथ बनी ताज़ा पालक पनीर।",
+        "alt": "पालक पनीर"
+      }
+    }
+  },
+  {
+    "id": "sindhi-biryani",
+    "country": "Pakistan",
+    "name": "Authentic Sindhi Mutton Biryani",
+    "cat": "rice",
+    "catLabel": "Rice Dishes",
+    "veg": "nonveg",
+    "time": 70,
+    "diff": "Medium",
+    "servings": "6 people",
+    "alt": "Spicy Sindhi mutton biryani layered with whole baby potatoes, dried plums, and golden saffron basmati with ZaikaWorlds logo",
+    "desc": "Legendary intensely spiced, tangy layer-cooked basmati rice with tender mutton, whole baby potatoes, and sweet-sour dried plums.",
+    "intro": "Sindhi Biryani is celebrated as the boldest and most flavor-packed biryani across Pakistan. Renowned for its distinctive inclusions of soft whole spiced potatoes and dried sour plums (aloo bukhara), fragrant sella basmati rice is slow-cooked on dum with tender spiced mutton, yogurt, and mint.",
+    "ing": [
+      "Mutton with bone 800g",
+      "Aged long-grain basmati rice soaked 3 cups (600g)",
+      "Baby potatoes peeled and halved 4",
+      "Dried sour plums (aloo bukhara) 8 to 10",
+      "Whisked yogurt 1 cup",
+      "Sliced onions golden fried 1.5 cups",
+      "Tomatoes chopped 3 medium",
+      "Ginger garlic paste 2 tbsp",
+      "Sindhi biryani whole & ground spices 2 tbsp",
+      "Fresh mint and coriander leaves 1 cup",
+      "Desi ghee or oil 0.5 cup",
+      "Saffron soaked in warm milk 3 tbsp",
+      "Salt 2 tbsp (for meat and boiling rice)"
+    ],
+    "steps": [
+      "Heat ghee in a pot, add ginger-garlic paste and mutton; sear for 8 minutes. Add chopped tomatoes, yogurt, fried onions, dried plums, and biryani spices.",
+      "Add baby potatoes and 2 cups water; cover and cook until mutton is tender and potatoes are cooked through with a thick rich masala gravy.",
+      "In a separate large pot, boil soaked basmati rice with whole spices and salt until 75% done (firm to bite); drain completely.",
+      "Layering: In the heavy bottom pot, place the prepared mutton and potato masala at the base.",
+      "Cover with drained basmati rice, top with fresh mint, coriander, green chilies, and drizzle with saffron milk and ghee.",
+      "Seal pot with heavy foil and lid; cook on high flame for 5 minutes, then lowest flame (dum) for 15 minutes.",
+      "Gently mix layers from bottom to top with a flat saucer; serve steaming hot with mint raita."
+    ],
+    "tip": "Adding dried sour plums (aloo bukhara) and baby potatoes is the non-negotiable hallmark that gives authentic Sindhi biryani its famous sweet, sour, and fiery balance.",
+    "nutrition": {
+      "calories": 580,
+      "proteinContent": 36.0,
+      "fatContent": 24.0,
+      "carbohydrateContent": 58.0
+    },
+    "lang": {
+      "ru": {
+        "name": "Authentic Sindhi Mutton Biryani",
+        "catLabel": "Rice Dishes",
+        "diff": "Darmiyana",
+        "servings": "6 log",
+        "desc": "Aloo aur aloo bukharay wali masaledar Sindhi mutton biryani.",
+        "alt": "Sindhi Mutton Biryani"
+      },
+      "hi": {
+        "name": "सिंधी मटन बिरयानी",
+        "catLabel": "चावल",
+        "diff": "मध्यम",
+        "servings": "6 लोग",
+        "desc": "आलू और सूखे आलूबुखारे के साथ बनी चटपटी सिंधी मटन बिरयानी।",
+        "alt": "सिंधी मटन बिरयानी"
+      }
+    }
+  }
+]

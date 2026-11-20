@@ -840,5 +840,35 @@
     "proteinContent": 38.0,
     "fatContent": 26.0,
     "carbohydrateContent": 42.0
+  },
+  "balochi-sajji": {
+    "calories": 490,
+    "proteinContent": 50.0,
+    "fatContent": 30.0,
+    "carbohydrateContent": 4.0
+  },
+  "chicken-tikka-masala": {
+    "calories": 460,
+    "proteinContent": 38.0,
+    "fatContent": 28.0,
+    "carbohydrateContent": 14.0
+  },
+  "seekh-kabab-handi": {
+    "calories": 480,
+    "proteinContent": 42.0,
+    "fatContent": 32.0,
+    "carbohydrateContent": 8.0
+  },
+  "palak-paneer": {
+    "calories": 310,
+    "proteinContent": 15.0,
+    "fatContent": 23.0,
+    "carbohydrateContent": 11.0
+  },
+  "sindhi-biryani": {
+    "calories": 580,
+    "proteinContent": 36.0,
+    "fatContent": 24.0,
+    "carbohydrateContent": 58.0
   }
 }

@@ -5,7 +5,7 @@
     <link>https://www.zaikaworlds.com/</link>
     <description>Cook famous dishes from Pakistan and India, plus favourites from around the world, with big photos and step by step methods.</description>
     <language>en</language>
-    <lastBuildDate>Fri, 20 Nov 2026 06:18:34 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 20 Nov 2026 10:56:58 GMT</lastBuildDate>
     <item>
       <title>Chicken Biryani</title>
       <link>https://www.zaikaworlds.com/recipe/biryani</link>
@@ -789,6 +789,46 @@
       <description>Lasagna alla Bolognese is the culinary pride of Emilia-Romagna, Italy. Unlike American-style lasagna, genuine Italian lasagna features paper-thin egg pasta sheets layered not with ricotta, but with a luxurious slow-simmered beef Bolognese ragù, silky nutmeg-scented béchamel sauce, and aged Parmigiano-Reggiano, baked until bubbling golden.</description>
       <enclosure url="https://www.zaikaworlds.com/assets/italian-lasagna-bolognese.webp" type="image/webp" length="230170" />
       <media:content url="https://www.zaikaworlds.com/assets/italian-lasagna-bolognese.webp" type="image/webp" medium="image" />
+    </item>
+    <item>
+      <title>Authentic Balochi Chicken Sajji</title>
+      <link>https://www.zaikaworlds.com/recipe/balochi-sajji</link>
+      <guid isPermaLink="true">https://www.zaikaworlds.com/recipe/balochi-sajji</guid>
+      <description>Balochi Sajji is the iconic tribal specialty of Balochistan. A whole chicken or whole lamb leg is lightly seasoned solely with salt, crushed garlic, and whole spices, then skewered on wooden stakes surrounding a central circle of burning hardwood logs until the skin turns deep copper and crackling crisp while the interior stays extraordinarily juicy.</description>
+      <enclosure url="https://www.zaikaworlds.com/assets/balochi-sajji.webp" type="image/webp" length="230234" />
+      <media:content url="https://www.zaikaworlds.com/assets/balochi-sajji.webp" type="image/webp" medium="image" />
+    </item>
+    <item>
+      <title>Restaurant Chicken Tikka Masala</title>
+      <link>https://www.zaikaworlds.com/recipe/chicken-tikka-masala</link>
+      <guid isPermaLink="true">https://www.zaikaworlds.com/recipe/chicken-tikka-masala</guid>
+      <description>Chicken Tikka Masala is one of the most celebrated South Asian curries across the globe. Succulent boneless chicken is marinated in yogurt, tandoori spices, and lemon, grilled until charred and smoky, then tossed into a rich, velvety orange gravy infused with butter, fenugreek, and cream.</description>
+      <enclosure url="https://www.zaikaworlds.com/assets/chicken-tikka-masala.webp" type="image/webp" length="233862" />
+      <media:content url="https://www.zaikaworlds.com/assets/chicken-tikka-masala.webp" type="image/webp" medium="image" />
+    </item>
+    <item>
+      <title>Mughlai Seekh Kabab Handi</title>
+      <link>https://www.zaikaworlds.com/recipe/seekh-kabab-handi</link>
+      <guid isPermaLink="true">https://www.zaikaworlds.com/recipe/seekh-kabab-handi</guid>
+      <description>Seekh Kabab Handi is a royal fusion masterpiece popular in modern Pakistani dhabas and high-end restaurants. Succulent, spiced minced beef seekh kababs are charcoal-grilled, cut into thick diagonal medallions, and gently folded into a silky earthenware handi gravy perfumed with green chilies and cream.</description>
+      <enclosure url="https://www.zaikaworlds.com/assets/seekh-kabab-handi.webp" type="image/webp" length="282636" />
+      <media:content url="https://www.zaikaworlds.com/assets/seekh-kabab-handi.webp" type="image/webp" medium="image" />
+    </item>
+    <item>
+      <title>Dhaba Style Palak Paneer</title>
+      <link>https://www.zaikaworlds.com/recipe/palak-paneer</link>
+      <guid isPermaLink="true">https://www.zaikaworlds.com/recipe/palak-paneer</guid>
+      <description>Palak Paneer is the crowning glory of North Indian vegetarian cuisine. Fresh spinach leaves are quickly blanched to preserve their radiant emerald green color, pureed with green chilies, and gently simmered with soft paneer cubes, finished with fragrant kasuri methi, cream, and a garlic tadka.</description>
+      <enclosure url="https://www.zaikaworlds.com/assets/palak-paneer.webp" type="image/webp" length="344360" />
+      <media:content url="https://www.zaikaworlds.com/assets/palak-paneer.webp" type="image/webp" medium="image" />
+    </item>
+    <item>
+      <title>Authentic Sindhi Mutton Biryani</title>
+      <link>https://www.zaikaworlds.com/recipe/sindhi-biryani</link>
+      <guid isPermaLink="true">https://www.zaikaworlds.com/recipe/sindhi-biryani</guid>
+      <description>Sindhi Biryani is celebrated as the boldest and most flavor-packed biryani across Pakistan. Renowned for its distinctive inclusions of soft whole spiced potatoes and dried sour plums (aloo bukhara), fragrant sella basmati rice is slow-cooked on dum with tender spiced mutton, yogurt, and mint.</description>
+      <enclosure url="https://www.zaikaworlds.com/assets/sindhi-biryani.webp" type="image/webp" length="270662" />
+      <media:content url="https://www.zaikaworlds.com/assets/sindhi-biryani.webp" type="image/webp" medium="image" />
     </item>
   </channel>
 </rss>
