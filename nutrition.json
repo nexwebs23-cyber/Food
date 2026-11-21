@@ -870,5 +870,35 @@
     "proteinContent": 36.0,
     "fatContent": 24.0,
     "carbohydrateContent": 58.0
+  },
+  "korean-beef-bulgogi": {
+    "calories": 420,
+    "proteinContent": 38.0,
+    "fatContent": 22.0,
+    "carbohydrateContent": 14.0
+  },
+  "lebanese-shish-tawook": {
+    "calories": 390,
+    "proteinContent": 42.0,
+    "fatContent": 20.0,
+    "carbohydrateContent": 6.0
+  },
+  "vietnamese-banh-mi": {
+    "calories": 460,
+    "proteinContent": 32.0,
+    "fatContent": 18.0,
+    "carbohydrateContent": 44.0
+  },
+  "moroccan-lamb-tagine": {
+    "calories": 520,
+    "proteinContent": 44.0,
+    "fatContent": 28.0,
+    "carbohydrateContent": 26.0
+  },
+  "turkish-kiymali-pide": {
+    "calories": 480,
+    "proteinContent": 28.0,
+    "fatContent": 20.0,
+    "carbohydrateContent": 48.0
   }
 }

@@ -5,7 +5,7 @@
     <link>https://www.zaikaworlds.com/</link>
     <description>Cook famous dishes from Pakistan and India, plus favourites from around the world, with big photos and step by step methods.</description>
     <language>en</language>
-    <lastBuildDate>Fri, 20 Nov 2026 10:56:58 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 21 Nov 2026 05:52:22 GMT</lastBuildDate>
     <item>
       <title>Chicken Biryani</title>
       <link>https://www.zaikaworlds.com/recipe/biryani</link>
@@ -829,6 +829,46 @@
       <description>Sindhi Biryani is celebrated as the boldest and most flavor-packed biryani across Pakistan. Renowned for its distinctive inclusions of soft whole spiced potatoes and dried sour plums (aloo bukhara), fragrant sella basmati rice is slow-cooked on dum with tender spiced mutton, yogurt, and mint.</description>
       <enclosure url="https://www.zaikaworlds.com/assets/sindhi-biryani.webp" type="image/webp" length="270662" />
       <media:content url="https://www.zaikaworlds.com/assets/sindhi-biryani.webp" type="image/webp" medium="image" />
+    </item>
+    <item>
+      <title>Korean Beef Bulgogi</title>
+      <link>https://www.zaikaworlds.com/recipe/korean-beef-bulgogi</link>
+      <guid isPermaLink="true">https://www.zaikaworlds.com/recipe/korean-beef-bulgogi</guid>
+      <description>Bulgogi (literally 'fire meat') is Korea's most iconic and universally beloved barbecue dish. Thinly shaved tender beef ribeye is steeped in a marinade sweetened with grated Asian pear and mirin, infused with crushed garlic and toasted sesame oil, and quickly seared on high heat to create irresistible caramelized edges.</description>
+      <enclosure url="https://www.zaikaworlds.com/assets/korean-beef-bulgogi.webp" type="image/webp" length="319390" />
+      <media:content url="https://www.zaikaworlds.com/assets/korean-beef-bulgogi.webp" type="image/webp" medium="image" />
+    </item>
+    <item>
+      <title>Lebanese Shish Tawook</title>
+      <link>https://www.zaikaworlds.com/recipe/lebanese-shish-tawook</link>
+      <guid isPermaLink="true">https://www.zaikaworlds.com/recipe/lebanese-shish-tawook</guid>
+      <description>Shish Tawook is the cornerstone of Lebanese grill houses. Succulent chicken cubes are soaked in a velvety marinade of thick yogurt, fresh lemon juice, tomato paste, and aromatic warm spices, grilled over wood coals, and served wrapped in warm pita with creamy Lebanese toum garlic whip.</description>
+      <enclosure url="https://www.zaikaworlds.com/assets/lebanese-shish-tawook.webp" type="image/webp" length="386054" />
+      <media:content url="https://www.zaikaworlds.com/assets/lebanese-shish-tawook.webp" type="image/webp" medium="image" />
+    </item>
+    <item>
+      <title>Vietnamese Pork Banh Mi</title>
+      <link>https://www.zaikaworlds.com/recipe/vietnamese-banh-mi</link>
+      <guid isPermaLink="true">https://www.zaikaworlds.com/recipe/vietnamese-banh-mi</guid>
+      <description>Bánh Mì is Vietnam's greatest street-food masterpiece, born from the marriage of French baking and vibrant Vietnamese flavors. A shatteringly crisp, airy baguette is layered with savory lemongrass grilled pork, creamy pâté or chili mayo, quick-pickled carrots and daikon radish, fresh cucumber batons, and herbal cilantro leaves.</description>
+      <enclosure url="https://www.zaikaworlds.com/assets/vietnamese-banh-mi.webp" type="image/webp" length="247928" />
+      <media:content url="https://www.zaikaworlds.com/assets/vietnamese-banh-mi.webp" type="image/webp" medium="image" />
+    </item>
+    <item>
+      <title>Moroccan Lamb Tagine</title>
+      <link>https://www.zaikaworlds.com/recipe/moroccan-lamb-tagine</link>
+      <guid isPermaLink="true">https://www.zaikaworlds.com/recipe/moroccan-lamb-tagine</guid>
+      <description>Tagine is the soul of Moroccan domestic cooking, named after the iconic conical earthenware pot in which it slowly simmers. Meltingly tender chunks of bone-in lamb shoulder braise gently in their own natural juices perfumed with saffron, ginger, cinnamon, and ras el hanout, balanced with sweet dried Turkish apricots and toasted crunchy almonds.</description>
+      <enclosure url="https://www.zaikaworlds.com/assets/moroccan-lamb-tagine.webp" type="image/webp" length="257126" />
+      <media:content url="https://www.zaikaworlds.com/assets/moroccan-lamb-tagine.webp" type="image/webp" medium="image" />
+    </item>
+    <item>
+      <title>Turkish Kiymali Pide</title>
+      <link>https://www.zaikaworlds.com/recipe/turkish-kiymali-pide</link>
+      <guid isPermaLink="true">https://www.zaikaworlds.com/recipe/turkish-kiymali-pide</guid>
+      <description>Pide (often called Turkish pizza) is one of the most famous wood-fired street delicacies across Turkey. Soft yeast dough is rolled into an elongated boat shape with pinched tapered ends, filled to the brim with seasoned minced beef, sweet red peppers, tomatoes, and parsley, then stone-baked until blistering crisp and brushed with butter.</description>
+      <enclosure url="https://www.zaikaworlds.com/assets/turkish-kiymali-pide.webp" type="image/webp" length="315882" />
+      <media:content url="https://www.zaikaworlds.com/assets/turkish-kiymali-pide.webp" type="image/webp" medium="image" />
     </item>
   </channel>
 </rss>

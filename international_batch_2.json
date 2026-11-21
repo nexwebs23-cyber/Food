@@ -1,0 +1,314 @@
+[
+  {
+    "id": "korean-beef-bulgogi",
+    "country": "South Korea",
+    "name": "Korean Beef Bulgogi",
+    "cat": "asian",
+    "catLabel": "Asian",
+    "veg": "nonveg",
+    "time": 30,
+    "diff": "Easy",
+    "servings": "4 people",
+    "alt": "Sizzling thinly sliced marinated Korean beef bulgogi on cast iron plate with sesame and scallions with ZaikaWorlds logo",
+    "desc": "Paper-thin slices of tender beef ribeye marinated in sweet soy sauce, grated Asian pear, garlic, and sesame oil, caramelized on smoking heat.",
+    "intro": "Bulgogi (literally 'fire meat') is Korea's most iconic and universally beloved barbecue dish. Thinly shaved tender beef ribeye is steeped in a marinade sweetened with grated Asian pear and mirin, infused with crushed garlic and toasted sesame oil, and quickly seared on high heat to create irresistible caramelized edges.",
+    "ing": [
+      "Thinly shaved beef ribeye or top sirloin 600g",
+      "Korean soy sauce 4 tbsp",
+      "Grated Asian pear or bosc pear 0.5 cup",
+      "Brown sugar or honey 2 tbsp",
+      "Toasted sesame oil 2 tbsp",
+      "Minced garlic 2 tbsp",
+      "Grated fresh ginger 1 tsp",
+      "Thinly sliced onion 1 medium",
+      "Chopped scallions 3 stalks",
+      "Toasted white sesame seeds 1 tbsp",
+      "Cooking oil 1 tbsp",
+      "Crisp lettuce leaves and steamed short-grain rice for serving"
+    ],
+    "steps": [
+      "In a medium bowl, whisk Korean soy sauce, grated pear, brown sugar, sesame oil, minced garlic, ginger, and black pepper into a smooth marinade.",
+      "Add thinly shaved beef, sliced onions, and half the scallions; toss well to coat every ribbon of meat. Marinate for at least 30 minutes (or overnight).",
+      "Heat a heavy cast iron skillet or outdoor grill pan on smoking high heat with 1 tbsp oil.",
+      "Add marinated beef in a loose single layer without overcrowding (cook in batches if needed).",
+      "Sear rapidly for 2 to 3 minutes per side until meat is just cooked through and sauce forms sticky, charred caramelization.",
+      "Garnish generously with toasted sesame seeds and remaining chopped scallions.",
+      "Serve sizzling hot with crisp lettuce wraps, steamed rice, and spicy ssamjang paste."
+    ],
+    "tip": "Grated Asian pear contains natural calpain enzymes that chemically tenderize beef fibers rapidly while adding subtle, clean sweetness.",
+    "nutrition": {
+      "calories": 420,
+      "proteinContent": 38.0,
+      "fatContent": 22.0,
+      "carbohydrateContent": 14.0
+    },
+    "lang": {
+      "ru": {
+        "name": "Korean Beef Bulgogi",
+        "catLabel": "Asian",
+        "diff": "Aasan",
+        "servings": "4 log",
+        "desc": "Nashpati aur soy sauce mein bhuna hua Korean beef bulgogi.",
+        "alt": "Korean Beef Bulgogi"
+      },
+      "hi": {
+        "name": "कोरियन बीफ बुलगोगी",
+        "catLabel": "एशियन",
+        "diff": "सरल",
+        "servings": "4 लोग",
+        "desc": "नाशपाती और सोया सॉस में मैरीनेट किया हुआ स्वादिष्ट कोरियन बीफ।",
+        "alt": "कोरियन बीफ बुलगोगी"
+      }
+    }
+  },
+  {
+    "id": "lebanese-shish-tawook",
+    "country": "Lebanon",
+    "name": "Lebanese Shish Tawook",
+    "cat": "grill",
+    "catLabel": "Grill",
+    "veg": "nonveg",
+    "time": 35,
+    "diff": "Easy",
+    "servings": "4 people",
+    "alt": "Charcoal grilled skewered Lebanese chicken shish tawook with toum garlic sauce and pita with ZaikaWorlds logo",
+    "desc": "Tender chicken breast skewers steeped in yogurt, lemon juice, garlic, tomato paste, and warm Mediterranean spices, charcoal-grilled to golden perfection.",
+    "intro": "Shish Tawook is the cornerstone of Lebanese grill houses. Succulent chicken cubes are soaked in a velvety marinade of thick yogurt, fresh lemon juice, tomato paste, and aromatic warm spices, grilled over wood coals, and served wrapped in warm pita with creamy Lebanese toum garlic whip.",
+    "ing": [
+      "Boneless chicken breast or thigh cubes 750g",
+      "Thick Greek or hung yogurt 0.5 cup",
+      "Fresh lemon juice 3 tbsp",
+      "Tomato paste 1.5 tbsp",
+      "Minced fresh garlic 2 tbsp",
+      "Olive oil 3 tbsp",
+      "Paprika 1.5 tsp",
+      "Ground cumin 1 tsp",
+      "Ground coriander 1 tsp",
+      "Dried oregano 1 tsp",
+      "Sea salt 1.25 tsp",
+      "Authentic Lebanese Toum (garlic sauce) and warm pita for serving"
+    ],
+    "steps": [
+      "In a bowl, whisk thick yogurt, lemon juice, olive oil, tomato paste, minced garlic, paprika, cumin, coriander, oregano, and salt into an orange emulsion.",
+      "Coat chicken cubes thoroughly in marinade; cover and chill for at least 2 hours.",
+      "Thread marinated chicken onto flat metal skewers, leaving slight breathing room between pieces for even cooking.",
+      "Preheat grill or grill pan to medium-high heat; brush grates lightly with oil.",
+      "Grill chicken skewers for 12 to 14 minutes, turning every 3 to 4 minutes until all sides have charred grill marks and meat registers 75°C (165°F).",
+      "Rest grilled chicken for 3 minutes under loose foil.",
+      "Serve warm on flatbread with generous smears of fluffy white toum garlic whip, pickled cucumbers, and french fries."
+    ],
+    "tip": "Adding a spoonful of tomato paste to the yogurt marinade not only deepens the flavor but produces the iconic vibrant amber-red color and rich char on the grill.",
+    "nutrition": {
+      "calories": 390,
+      "proteinContent": 42.0,
+      "fatContent": 20.0,
+      "carbohydrateContent": 6.0
+    },
+    "lang": {
+      "ru": {
+        "name": "Lebanese Shish Tawook",
+        "catLabel": "Grill",
+        "diff": "Aasan",
+        "servings": "4 log",
+        "desc": "Lasan aur dahi ke amezay mein bani Lebanese shish tawook boti.",
+        "alt": "Lebanese Shish Tawook"
+      },
+      "hi": {
+        "name": "लेबनानी शीश तावूक",
+        "catLabel": "ग्रिल",
+        "diff": "सरल",
+        "servings": "4 लोग",
+        "desc": "दही और लहसुन में मैरीनेट की गई रसीली लेबनानी चिकन सीख।",
+        "alt": "लेबनानी शीश तावूक"
+      }
+    }
+  },
+  {
+    "id": "vietnamese-banh-mi",
+    "country": "Vietnam",
+    "name": "Vietnamese Pork Banh Mi",
+    "cat": "street-food",
+    "catLabel": "Street Food",
+    "veg": "nonveg",
+    "time": 25,
+    "diff": "Easy",
+    "servings": "4 people",
+    "alt": "Crusty airy baguette stuffed with lemongrass pork pickled daikon carrot and fresh cilantro with ZaikaWorlds logo",
+    "desc": "Crispy French-Vietnamese baguette stuffed with sweet savory lemongrass pork, pickled carrots and daikon, fresh cilantro, jalapeño, and spicy mayo.",
+    "intro": "Bánh Mì is Vietnam's greatest street-food masterpiece, born from the marriage of French baking and vibrant Vietnamese flavors. A shatteringly crisp, airy baguette is layered with savory lemongrass grilled pork, creamy pâté or chili mayo, quick-pickled carrots and daikon radish, fresh cucumber batons, and herbal cilantro leaves.",
+    "ing": [
+      "Individual airy French baguettes (warm & crusty) 4",
+      "Thinly sliced pork loin or chicken breast 500g",
+      "Minced fresh lemongrass 2 tbsp",
+      "Fish sauce 2 tbsp",
+      "Soy sauce 1 tbsp",
+      "Brown sugar 1.5 tbsp",
+      "Minced garlic 1 tbsp",
+      "Pickled carrot and daikon radish matchsticks (Do Chua) 1 cup",
+      "Thinly sliced English cucumber 1",
+      "Fresh cilantro sprigs 1 cup",
+      "Thinly sliced fresh jalapeño chilies 1",
+      "Mayonnaise mixed with sriracha 4 tbsp"
+    ],
+    "steps": [
+      "In a bowl, mix minced lemongrass, fish sauce, soy sauce, brown sugar, garlic, and 1 tbsp oil.",
+      "Toss sliced meat in lemongrass marinade; let sit for 20 minutes.",
+      "Sear meat in a hot skillet with 1 tbsp oil over high heat for 5 to 6 minutes until cooked through with charred caramelized edges.",
+      "Split baguettes lengthwise, leaving back hinge attached; toast lightly so crust crackles.",
+      "Spread spicy sriracha mayonnaise along both inside sides of the baguette.",
+      "Layer in warm lemongrass pork, fresh cucumber ribbons, a generous heap of drained pickled daikon and carrot, fresh jalapeño rings, and sprigs of cilantro.",
+      "Close baguette firmly and serve immediately while the bread is crispy and filling is fresh."
+    ],
+    "tip": "The bread must have a thin, shatteringly crisp crust with an ultra-light, airy interior so biting into it doesn't squish out all the pickled vegetables.",
+    "nutrition": {
+      "calories": 460,
+      "proteinContent": 32.0,
+      "fatContent": 18.0,
+      "carbohydrateContent": 44.0
+    },
+    "lang": {
+      "ru": {
+        "name": "Vietnamese Pork Banh Mi",
+        "catLabel": "Street Food",
+        "diff": "Aasan",
+        "servings": "4 log",
+        "desc": "Crispy baguette mein bhara hua Vietnamese banh mi sandwich.",
+        "alt": "Vietnamese Banh Mi"
+      },
+      "hi": {
+        "name": "वियतनामी बान मी",
+        "catLabel": "स्ट्रीट फूड",
+        "diff": "सरल",
+        "servings": "4 लोग",
+        "desc": "कुरकुरी फ्रेंच ब्रेड में बना मशहूर वियतनामी स्ट्रीट सैंडविच।",
+        "alt": "वियतनामी बान मी"
+      }
+    }
+  },
+  {
+    "id": "moroccan-lamb-tagine",
+    "country": "Morocco",
+    "name": "Moroccan Lamb Tagine",
+    "cat": "world",
+    "catLabel": "World Cuisine",
+    "veg": "nonveg",
+    "time": 90,
+    "diff": "Medium",
+    "servings": "5 people",
+    "alt": "Slow cooked meltingly tender Moroccan lamb tagine with dried apricots almonds and ras el hanout with ZaikaWorlds logo",
+    "desc": "North African clay-pot braise of tender lamb shoulder infused with ras el hanout, sweet dried apricots, honey, and toasted almonds.",
+    "intro": "Tagine is the soul of Moroccan domestic cooking, named after the iconic conical earthenware pot in which it slowly simmers. Meltingly tender chunks of bone-in lamb shoulder braise gently in their own natural juices perfumed with saffron, ginger, cinnamon, and ras el hanout, balanced with sweet dried Turkish apricots and toasted crunchy almonds.",
+    "ing": [
+      "Bone-in lamb shoulder cut into chunks 900g",
+      "Finely chopped onions 2 large",
+      "Minced garlic 4 cloves",
+      "Authentic Ras el Hanout spice blend 1.5 tbsp",
+      "Ground ginger 1 tsp",
+      "Ground cinnamon 1 tsp",
+      "A pinch of saffron threads steeped in 0.5 cup warm water",
+      "Dried apricots plump and soft 1 cup",
+      "Pure honey 2 tbsp",
+      "Toasted whole blanched almonds 0.5 cup",
+      "Olive oil 3 tbsp",
+      "Fresh chopped coriander and mint for garnish",
+      "Salt 1.5 tsp"
+    ],
+    "steps": [
+      "In a traditional clay tagine base or heavy Dutch oven, heat olive oil over medium flame; sear lamb chunks for 8 minutes until lightly browned on all sides.",
+      "Add chopped onions, minced garlic, ras el hanout, ginger, cinnamon, and salt; sauté for 5 minutes until onions soften and spices release aromatics.",
+      "Pour in the steeped saffron water and 1 cup lamb or beef broth; bring to a simmer.",
+      "Cover tightly with conical tagine lid (or pot lid); reduce heat to lowest setting and simmer gently for 1 hour 15 minutes until lamb is meltingly tender.",
+      "Scatter dried apricots over the meat, drizzle with honey, and simmer uncovered for final 12 minutes until sauce is glossy and lightly reduced.",
+      "Garnish with golden toasted almonds, fresh coriander, and mint; serve directly from tagine with couscous or crusty bread."
+    ],
+    "tip": "Cooking at a very low simmer allows the conical tagine lid to condense steam and continuously baste the meat, keeping the lamb succulent without needing excess liquid.",
+    "nutrition": {
+      "calories": 520,
+      "proteinContent": 44.0,
+      "fatContent": 28.0,
+      "carbohydrateContent": 26.0
+    },
+    "lang": {
+      "ru": {
+        "name": "Moroccan Lamb Tagine",
+        "catLabel": "World Cuisine",
+        "diff": "Darmiyana",
+        "servings": "5 log",
+        "desc": "Khubani aur zafraan mein dheemi aanch par paka Moroccan lamb tagine.",
+        "alt": "Moroccan Lamb Tagine"
+      },
+      "hi": {
+        "name": "मोरक्कन लैम्ब तजीन",
+        "catLabel": "विश्व व्यंजन",
+        "diff": "मध्यम",
+        "servings": "5 लोग",
+        "desc": "मिट्टी के बर्तन में खुबानी और केसर के साथ धीमी आंच पर पका मटन।",
+        "alt": "मोरक्कन लैम्ब तजीन"
+      }
+    }
+  },
+  {
+    "id": "turkish-kiymali-pide",
+    "country": "Turkey",
+    "name": "Turkish Kiymali Pide",
+    "cat": "street-food",
+    "catLabel": "Street Food",
+    "veg": "nonveg",
+    "time": 45,
+    "diff": "Medium",
+    "servings": "4 people",
+    "alt": "Boat-shaped stone baked Turkish flatbread filled with spiced minced beef tomato and melted cheese with ZaikaWorlds logo",
+    "desc": "Authentic boat-shaped Turkish flatbread filled with savory spiced minced beef, peppers, tomatoes, and golden melted cheese with crispy crust.",
+    "intro": "Pide (often called Turkish pizza) is one of the most famous wood-fired street delicacies across Turkey. Soft yeast dough is rolled into an elongated boat shape with pinched tapered ends, filled to the brim with seasoned minced beef, sweet red peppers, tomatoes, and parsley, then stone-baked until blistering crisp and brushed with butter.",
+    "ing": [
+      "Flour for yeast dough 3 cups (375g)",
+      "Instant dry yeast 1 tsp, sugar 1 tsp, warm water 1 cup, olive oil 2 tbsp",
+      "Minced beef or lamb 400g",
+      "Finely diced sweet red pepper 1",
+      "Finely diced green pepper 1",
+      "Finely diced ripe tomatoes 1 large",
+      "Finely grated onion with juice squeezed out 1",
+      "Tomato paste 1 tbsp",
+      "Turkish chili flakes (pul biber) 1 tbsp",
+      "Black pepper & cumin 1 tsp each",
+      "Shredded Turkish kashar or mozzarella cheese 1 cup",
+      "Melted butter for crust brushing 3 tbsp",
+      "Salt 1.25 tsp"
+    ],
+    "steps": [
+      "Knead flour, yeast, sugar, warm water, olive oil, and 1 tsp salt into a smooth, elastic dough; cover and rest for 1 hour until doubled.",
+      "In a bowl, mix minced beef with diced peppers, tomatoes, onion, tomato paste, pul biber, black pepper, cumin, and salt into a spreadable filling.",
+      "Preheat oven to 230°C (450°F) with a heavy baking steel or upside-down baking sheet inside.",
+      "Divide dough into 3 oval portions; roll each thinly on parchment paper into an elongated oval (about 14 inches long).",
+      "Spread spiced meat filling evenly over dough, leaving a 1-inch border; sprinkle with shredded cheese.",
+      "Fold the dough edges inwards over filling and pinch both ends tightly together into a pointed boat shape.",
+      "Slide onto the hot baking steel; bake for 12 to 14 minutes until crust is blistering golden brown and meat is sizzling.",
+      "Immediately brush crust edges with melted butter, slice into thick diagonal finger pieces, and serve hot with lemon wedges."
+    ],
+    "tip": "Baking on high heat on a preheated baking steel or stone mimics a traditional Turkish stone hearth, giving a crackling bottom crust with a soft, pillowy edge.",
+    "nutrition": {
+      "calories": 480,
+      "proteinContent": 28.0,
+      "fatContent": 20.0,
+      "carbohydrateContent": 48.0
+    },
+    "lang": {
+      "ru": {
+        "name": "Turkish Kiymali Pide",
+        "catLabel": "Street Food",
+        "diff": "Darmiyana",
+        "servings": "4 log",
+        "desc": "Kashti numa Turkish keema pide bread makhani crust ke sath.",
+        "alt": "Turkish Kiymali Pide"
+      },
+      "hi": {
+        "name": "टर्किश कीमाली पिदे",
+        "catLabel": "स्ट्रीट फूड",
+        "diff": "मध्यम",
+        "servings": "4 लोग",
+        "desc": "नाव के आकार की कुरकुरी तुर्की ब्रेड जिसमें मसालेदार कीमा भरा हो।",
+        "alt": "टर्किश कीमाली पिदे"
+      }
+    }
+  }
+]
