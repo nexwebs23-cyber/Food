@@ -3698,13 +3698,14 @@ def thumb_wh(img, img_dims):
 
 
 def static_grid_html(data):
-    """The homepage recipe grid as static HTML (issue M): all 46 recipe
+    """The homepage recipe grid as static HTML (issue M): top 20 recipe
     cards in the same <article class="pin"> markup the SPA's cardHtml()
-    produces, so the homepage shows real content in raw HTML without JS.
-    The SPA's render() replaces this grid on load, so filters keep
-    working. Links point at the static /recipe/<slug> pages."""
+    produces, keeping the homepage short and fast, with an Explore All button
+    linking to /recipes. The SPA's render() replaces this grid on load, so
+    filters keep working. Links point at the static /recipe/<slug> pages."""
     cards = []
-    for r in sorted(data['recipes'], key=lambda x: x['name']):
+    all_recipes = sorted(data['recipes'], key=lambda x: x['name'])
+    for r in all_recipes[:20]:
         tx = r_text_en(r, data['extra'])
         wh = thumb_wh(r['img'], data['img_dims'])
         badge = r['country'] if r['cat'] == 'world' else r['catLabel']
@@ -3728,7 +3729,13 @@ def static_grid_html(data):
                esc(r['name']), esc(tx.get('desc') or ''),
                esc(r['time']), esc(r['servings']), esc(r['diff']),
                esc(veg), esc(r['country'])))
-    return ''.join(cards)
+    n_recipes = len(data['recipes'])
+    btn = (
+        '<div class="explore-more-bar" id="staticExploreBar" style="grid-column:1/-1;text-align:center;padding:36px 0 16px;width:100%;">'
+        '<a href="/recipes" class="btn btn-red" style="display:inline-block;padding:14px 32px;font-size:16px;font-weight:600;border-radius:999px;text-decoration:none;">'
+        'Explore All ' + str(n_recipes) + ' Recipes &rarr;</a></div>'
+    )
+    return ''.join(cards) + btn
 
 
 def homepage_faq_json_ld(data):

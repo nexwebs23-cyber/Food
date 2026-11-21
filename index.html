@@ -282,6 +282,9 @@ h1,h2,h3{font-family:"Cormorant Garamond",Georgia,serif;font-weight:600;line-hei
 .result-note b{color:var(--ink)}
 /* masonry */
 .masonry{columns:3;column-gap:18px;margin:14px 0 8px}
+  .explore-more-bar{column-span:all;text-align:center;padding:36px 0 20px;width:100%;margin:0 auto;clear:both}
+  .explore-more-bar .btn{display:inline-block;padding:14px 34px;font-size:16px;font-weight:600;border-radius:999px;text-decoration:none;box-shadow:0 4px 14px rgba(224,40,40,.25);transition:transform .15s ease,box-shadow .15s ease}
+  .explore-more-bar .btn:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(224,40,40,.35)}
 .pin{break-inside:avoid;margin:0 0 20px;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;box-shadow:0 4px 18px rgba(68,38,18,.07)}
 .pin:hover{box-shadow:var(--shadow);border-color:var(--line)}
 .pin-img{position:relative;overflow:hidden;display:block}
@@ -1283,7 +1286,14 @@ function cardHtml(r){
 }
 function render(){
   var list=filtered();
-  grid.innerHTML=list.map(cardHtml).join("");
+  var isDefault=(activeCat==="all" && !showSavedOnly && !document.getElementById("search").value.trim() && document.getElementById("vegFilter").value==="all" && document.getElementById("timeFilter").value==="all" && document.getElementById("countryFilter").value==="all");
+  if(isDefault && list.length > 20){
+    var visible=list.slice(0, 20);
+    var moreBtn='<div class="explore-more-bar" id="exploreMoreBar"><a href="/recipes" data-section="recipes" class="btn btn-red">Explore All '+list.length+' Recipes &rarr;</a></div>';
+    grid.innerHTML=visible.map(cardHtml).join("") + moreBtn;
+  } else {
+    grid.innerHTML=list.map(cardHtml).join("");
+  }
   empty.classList.toggle("show",list.length===0);
   note.innerHTML=list.length?T().results(list.length,activeCat!=="all"?catName(activeCat):"",showSavedOnly):"";
   document.getElementById("savedCount").textContent=saved.size;
