@@ -845,6 +845,64 @@ def lang_alt(recipe, data, lang):
     return recipe.get('alt') or recipe['name']
 
 
+CAT_SLUG_MAP = {
+    'desi': 'desi-dishes',
+    'desi-dishes': 'desi-dishes',
+    'bbq': 'bbq',
+    'nashta': 'breakfast',
+    'breakfast': 'breakfast',
+    'street': 'street-food',
+    'street-food': 'street-food',
+    'meetha': 'desserts',
+    'desserts': 'desserts',
+    'drinks': 'drinks',
+    'world': 'world-food',
+    'middle-eastern': 'world-food',
+    'asian': 'asian-dishes',
+    'rice': 'rice-dishes',
+    'fish': 'fish-dishes',
+    'grill': 'grill-bbq',
+}
+
+COUNTRY_SLUG_MAP = {
+    'Pakistan': 'pakistan',
+    'India': 'india',
+    'Italy': 'italy',
+    'Japan': 'japan',
+    'Mexico': 'mexico',
+    'Thailand': 'thailand',
+    'China': 'china',
+    'France': 'france',
+    'Spain': 'spain',
+    'Vietnam': 'vietnam',
+    'Canada': 'canada',
+    'South Africa': 'south-africa',
+    'Greece': 'greece',
+    'Middle East': 'middle-east',
+    'Saudi Arabia': 'middle-east',
+    'Lebanon': 'middle-east',
+    'Turkey': 'middle-east',
+    'Morocco': 'middle-east',
+    'South Korea': 'japan',
+    'Brazil': 'brazil',
+    'Australia': 'australia',
+    'Afghanistan': 'afghanistan',
+    'Armenia': 'armenia',
+    'Azerbaijan': 'azerbaijan',
+    'Bahrain': 'bahrain',
+    'Bangladesh': 'bangladesh',
+    'Bhutan': 'bhutan',
+    'Brunei Darussalam': 'brunei-darussalam',
+    'Cambodia': 'cambodia',
+    'Cyprus': 'cyprus',
+}
+
+def recipe_cat_slug(recipe, data):
+    return (data.get('cat_slug') or {}).get(recipe.get('cat')) or CAT_SLUG_MAP.get(recipe.get('cat')) or 'world-food'
+
+def recipe_country_slug(recipe, data):
+    return (data.get('country_slug') or {}).get(recipe.get('country')) or COUNTRY_SLUG_MAP.get(recipe.get('country')) or 'pakistan'
+
 def lang_cat_label(recipe, data, lang):
     """Category label in a language (short-form data; English fallback)."""
     if lang == 'en':
@@ -2500,7 +2558,7 @@ def recipe_json_ld(data, recipe, tx, url, lang='en', meta_desc=None,
     # Category crumb links the English category URL (the visible breadcrumb
     # does the same): language category pages do not exist (/hi/category/…
     # is a 404), so a language-prefixed item URL would be a dead link.
-    cat_slug = data['cat_slug'].get(recipe['cat'], '')
+    cat_slug = recipe_cat_slug(recipe, data)
     bld = {"@context": "https://schema.org", "@type": "BreadcrumbList",
            "itemListElement": [
                {"@type": "ListItem", "position": 1, "name": "Home",
@@ -2633,11 +2691,11 @@ RECIPE_PAIRINGS = {
                        ('nihari',        'Nalli Nihari'),
                        ('gulabjamun',    'Gulab Jamun')],
     'sindhi-biryani': [('biryani',       'Chicken Biryani'),
-                       ('mutton-biryani','Mutton Biryani'),
+                       ('sindhi-biryani', 'Sindhi Biryani'),
                        ('daal',          'Daal Fry'),
                        ('lassi',         'Mango Lassi')],
     'hyderabadi-biryani': [('biryani',   'Chicken Biryani'),
-                           ('mutton-biryani', 'Mutton Biryani'),
+                           ('sindhi-biryani', 'Sindhi Biryani'),
                            ('karahi',    'Chicken Karahi'),
                            ('gulabjamun','Gulab Jamun')],
     'kunna':          [('nihari',        'Nalli Nihari'),
@@ -2697,7 +2755,7 @@ RECIPE_PAIRINGS = {
     'padthai':        [('fish-amok',     'Fish Amok'),
                        ('dimsum',        'Dim Sum'),
                        ('ramen',         'Japanese Ramen'),
-                       ('green-curry',   'Thai Green Curry')],
+                       ('thai-green-curry', 'Thai Green Curry')],
     'pekingduck':     [('dimsum',        'Dim Sum'),
                        ('padthai',       'Pad Thai'),
                        ('ramen',         'Japanese Ramen'),
@@ -2713,12 +2771,12 @@ RECIPE_PAIRINGS = {
     'fish-amok':      [('beefpho',       'Beef Pho'),
                        ('padthai',       'Pad Thai'),
                        ('ambuyat',       'Ambuyat'),
-                       ('green-curry',   'Thai Green Curry')],
+                       ('thai-green-curry', 'Thai Green Curry')],
     'green-curry':    [('padthai',       'Pad Thai'),
                        ('fish-amok',     'Fish Amok'),
                        ('ramen',         'Japanese Ramen'),
                        ('massaman-curry','Massaman Curry')],
-    'massaman-curry': [('green-curry',   'Thai Green Curry'),
+    'massaman-curry': [('thai-green-curry', 'Thai Green Curry'),
                        ('padthai',       'Pad Thai'),
                        ('dimsum',        'Dim Sum'),
                        ('fish-amok',     'Fish Amok')],
@@ -2755,7 +2813,7 @@ RECIPE_PAIRINGS = {
                        ('ramen',         'Japanese Ramen'),
                        ('kung-pao',      'Kung Pao Chicken')],
     'tom-yum':        [('padthai',       'Pad Thai'),
-                       ('green-curry',   'Thai Green Curry'),
+                       ('thai-green-curry', 'Thai Green Curry'),
                        ('fish-amok',     'Fish Amok'),
                        ('ramen',         'Japanese Ramen')],
     'katsu-curry':    [('ramen',         'Japanese Ramen'),
@@ -2766,11 +2824,11 @@ RECIPE_PAIRINGS = {
     'pizza':          [('carbonara',     'Spaghetti Carbonara'),
                        ('coqauvin',      'Coq au Vin'),
                        ('paella',        'Seafood Paella'),
-                       ('lasagna',       'Lasagna Bolognese')],
+                       ('italian-lasagna-bolognese', 'Lasagna Bolognese')],
     'carbonara':      [('pizza',         'Margherita Pizza'),
                        ('coqauvin',      'Coq au Vin'),
                        ('bouillabaisse', 'Bouillabaisse'),
-                       ('lasagna',       'Lasagna Bolognese')],
+                       ('italian-lasagna-bolognese', 'Lasagna Bolognese')],
     'lasagna':        [('pizza',         'Margherita Pizza'),
                        ('carbonara',     'Spaghetti Carbonara'),
                        ('coqauvin',      'Coq au Vin'),
@@ -2791,11 +2849,11 @@ RECIPE_PAIRINGS = {
     'tacos':          [('pozole',        'Pozole Rojo'),
                        ('feijoada',      'Brazilian Feijoada'),
                        ('pizza',         'Margherita Pizza'),
-                       ('guacamole',     'Guacamole')],
+                       ('mexican-beef-tacos', 'Mexican Beef Tacos')],
     'pozole':         [('tacos',         'Tacos al Pastor'),
                        ('feijoada',      'Brazilian Feijoada'),
                        ('meatpie',       'Aussie Meat Pie'),
-                       ('guacamole',     'Guacamole')],
+                       ('mexican-beef-tacos', 'Mexican Beef Tacos')],
     'feijoada':       [('tacos',         'Tacos al Pastor'),
                        ('pozole',        'Pozole Rojo'),
                        ('bobotie',       'Bobotie'),
@@ -2810,15 +2868,15 @@ RECIPE_PAIRINGS = {
                        ('pizza',         'Margherita Pizza')],
     'birria-tacos':   [('tacos',         'Tacos al Pastor'),
                        ('pozole',        'Pozole Rojo'),
-                       ('guacamole',     'Guacamole & Chips'),
+                       ('mexican-beef-tacos', 'Mexican Beef Tacos'),
                        ('feijoada',      'Brazilian Feijoada')],
     'carne-asada':    [('tacos',         'Tacos al Pastor'),
                        ('birria-tacos',  'Birria Tacos'),
-                       ('guacamole',     'Guacamole & Chips'),
+                       ('mexican-beef-tacos', 'Mexican Beef Tacos'),
                        ('pozole',        'Pozole Rojo')],
     'enchiladas':     [('tacos',         'Tacos al Pastor'),
                        ('carne-asada',   'Carne Asada'),
-                       ('guacamole',     'Guacamole & Chips'),
+                       ('mexican-beef-tacos', 'Mexican Beef Tacos'),
                        ('pozole',        'Pozole Rojo')],
     # ── African cluster ────────────────────────────────────────────────────
     'bobotie':        [('meatpie',       'Aussie Meat Pie'),
@@ -2831,7 +2889,7 @@ RECIPE_PAIRINGS = {
                        ('tacos',         'Tacos al Pastor')],
     # ── Italian extras (from XLSX) ──────────────────────────────────────────
     'fettuccine-alfredo': [('carbonara', 'Spaghetti Carbonara'),
-                           ('lasagna',   'Lasagna Bolognese'),
+                           ('italian-lasagna-bolognese', 'Lasagna Bolognese'),
                            ('pizza',     'Margherita Pizza'),
                            ('coqauvin',  'Coq au Vin')],
     # ── Middle Eastern extras (from XLSX authority file) ───────────────────
@@ -2879,7 +2937,7 @@ RECIPE_PAIRINGS = {
                        ('biryani',       'Chicken Biryani'),
                        ('butter-chicken','Butter Chicken'),
                        ('daal',          'Daal Fry')],
-    'butter-chicken': [('tikka-masala',  'Chicken Tikka Masala'),
+    'butter-chicken': [('chicken-tikka-masala', 'Chicken Tikka Masala'),
                        ('karahi',        'Chicken Karahi'),
                        ('biryani',       'Chicken Biryani'),
                        ('lassi',         'Mango Lassi')],
@@ -2909,8 +2967,8 @@ def recipe_page(data, recipe, lang='en', dates=None):
     img_alt = lang_alt(recipe, data, lang)
     dims = data['img_dims'].get(recipe['img'], [])
     wh = (' width="%d" height="%d"' % (dims[0], dims[1]) if len(dims) == 2 else '')
-    cat_slug = data['cat_slug'].get(recipe['cat'], '')
-    ctry_slug = data['country_slug'].get(recipe['country'], '')
+    cat_slug = recipe_cat_slug(recipe, data)
+    ctry_slug = recipe_country_slug(recipe, data)
     home_url = lang_url('/', lang)
     cat_label = lang_cat_label(recipe, data, lang)
     minute = data['ui_min'].get(lang, 'min')
@@ -3387,7 +3445,12 @@ def language_home_page(data, lang):
     url = lang_url('/', lang)
     ht = re.sub(r'</?em>', '', ui_str(data, lang, 'heroTitle', ''))
     title = cap_title(ht + ' | Zaika Worlds')
-    desc = fit_desc(ui_str(data, lang, 'heroSub', ''), '')
+    if lang == 'ja':
+        desc = 'パキスタンやインドの名物料理と世界の人気家庭料理の本格レシピ。大きな写真と丁寧な手順で美味しく作れます。'
+    elif lang == 'zh':
+        desc = '精选巴基斯坦、印度及世界地道美食食谱，配高清大图与清晰分步图解，轻松在家做出正宗美味。'
+    else:
+        desc = fit_desc(ui_str(data, lang, 'heroSub', ''), '')
     cards = []
     for r in sorted(data['recipes'], key=lambda x: lang_name(x, data, lang)):
         wh = thumb_wh(r['img'], data['img_dims'])
@@ -4151,6 +4214,10 @@ def validate_build(data):
                                 '(PageSpeed accessibility)' % (rel, a, b))
                 break
         problems.extend(_anchor_problems(rel, html))
+        if 'href="/category/"' in html:
+            problems.append('%s: empty category link href="/category/"' % rel)
+        if 'href="/country/"' in html:
+            problems.append('%s: empty country link href="/country/"' % rel)
         quals = ING_QUALIFIERS.get(lang, set())
         _rv = None
         _vo = None

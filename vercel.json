@@ -42,6 +42,76 @@
       "source": "/recipe/",
       "destination": "/",
       "permanent": true
+    },
+    {
+      "source": "/category",
+      "destination": "/recipes",
+      "permanent": true
+    },
+    {
+      "source": "/category/",
+      "destination": "/recipes",
+      "permanent": true
+    },
+    {
+      "source": "/country",
+      "destination": "/recipes",
+      "permanent": true
+    },
+    {
+      "source": "/country/",
+      "destination": "/recipes",
+      "permanent": true
+    },
+    {
+      "source": "/recipe/lasagna",
+      "destination": "/recipe/italian-lasagna-bolognese",
+      "permanent": true
+    },
+    {
+      "source": "/recipe/lasagna/",
+      "destination": "/recipe/italian-lasagna-bolognese",
+      "permanent": true
+    },
+    {
+      "source": "/recipe/green-curry",
+      "destination": "/recipe/thai-green-curry",
+      "permanent": true
+    },
+    {
+      "source": "/recipe/green-curry/",
+      "destination": "/recipe/thai-green-curry",
+      "permanent": true
+    },
+    {
+      "source": "/recipe/mutton-biryani",
+      "destination": "/recipe/sindhi-biryani",
+      "permanent": true
+    },
+    {
+      "source": "/recipe/mutton-biryani/",
+      "destination": "/recipe/sindhi-biryani",
+      "permanent": true
+    },
+    {
+      "source": "/recipe/tikka-masala",
+      "destination": "/recipe/chicken-tikka-masala",
+      "permanent": true
+    },
+    {
+      "source": "/recipe/tikka-masala/",
+      "destination": "/recipe/chicken-tikka-masala",
+      "permanent": true
+    },
+    {
+      "source": "/recipe/guacamole",
+      "destination": "/recipe/mexican-beef-tacos",
+      "permanent": true
+    },
+    {
+      "source": "/recipe/guacamole/",
+      "destination": "/recipe/mexican-beef-tacos",
+      "permanent": true
     }
   ],
   "rewrites": [
