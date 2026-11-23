@@ -2403,6 +2403,7 @@ def page_shell(title, desc, url, og_img, og_alt, json_ld_blocks, body,
     head = ('<!DOCTYPE html>\n<html lang="%s">\n<head>\n<meta charset="utf-8">\n'
             '<meta name="viewport" content="width=device-width,'
             ' initial-scale=1, viewport-fit=cover">\n'
+            '<meta name="google-adsense-account" content="ca-pub-4766868021895107">\n'
             % html_lang)
     return (head +
             '<title>' + esc(title) + '</title>\n'
