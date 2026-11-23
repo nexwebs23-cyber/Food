@@ -3704,8 +3704,9 @@ def static_grid_html(data):
     linking to /recipes. The SPA's render() replaces this grid on load, so
     filters keep working. Links point at the static /recipe/<slug> pages."""
     cards = []
-    all_recipes = sorted(data['recipes'], key=lambda x: x['name'])
-    for r in all_recipes[:20]:
+    # Show most recently added recipes first (latest upload at top)
+    newest_first = list(reversed(data['recipes']))
+    for r in newest_first[:20]:
         tx = r_text_en(r, data['extra'])
         wh = thumb_wh(r['img'], data['img_dims'])
         badge = r['country'] if r['cat'] == 'world' else r['catLabel']

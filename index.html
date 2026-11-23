@@ -1260,7 +1260,7 @@ function catName(c){if(c==="all") return T().chips[0]; var r=RECIPES.find(functi
 function filtered(){
   var q=document.getElementById("search").value.trim().toLowerCase();
   var veg=document.getElementById("vegFilter").value, t=document.getElementById("timeFilter").value, sort=document.getElementById("sortFilter").value, country=document.getElementById("countryFilter").value;
-  var list=RECIPES.filter(function(r){
+  var list=RECIPES.slice().reverse().filter(function(r){
     if(showSavedOnly && !saved.has(r.id)) return false;
     if(activeCat!=="all" && r.cat!==activeCat) return false;
     if(country!=="all" && r.country!==country) return false;
