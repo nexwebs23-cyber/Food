@@ -2404,6 +2404,7 @@ def page_shell(title, desc, url, og_img, og_alt, json_ld_blocks, body,
             '<meta name="viewport" content="width=device-width,'
             ' initial-scale=1, viewport-fit=cover">\n'
             '<meta name="google-adsense-account" content="ca-pub-4766868021895107">\n'
+            '<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4766868021895107" crossorigin="anonymous"></script>\n'
             % html_lang)
     return (head +
             '<title>' + esc(title) + '</title>\n'
