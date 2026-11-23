@@ -5,7 +5,7 @@
     <link>https://www.zaikaworlds.com/</link>
     <description>Cook famous dishes from Pakistan and India, plus favourites from around the world, with big photos and step by step methods.</description>
     <language>en</language>
-    <lastBuildDate>Sat, 21 Nov 2026 15:17:40 GMT</lastBuildDate>
+    <lastBuildDate>Mon, 23 Nov 2026 06:34:21 GMT</lastBuildDate>
     <item>
       <title>Chicken Biryani</title>
       <link>https://www.zaikaworlds.com/recipe/biryani</link>
@@ -869,6 +869,46 @@
       <description>Pide (often called Turkish pizza) is one of the most famous wood-fired street delicacies across Turkey. Soft yeast dough is rolled into an elongated boat shape with pinched tapered ends, filled to the brim with seasoned minced beef, sweet red peppers, tomatoes, and parsley, then stone-baked until blistering crisp and brushed with butter.</description>
       <enclosure url="https://www.zaikaworlds.com/assets/turkish-kiymali-pide.webp" type="image/webp" length="315882" />
       <media:content url="https://www.zaikaworlds.com/assets/turkish-kiymali-pide.webp" type="image/webp" medium="image" />
+    </item>
+    <item>
+      <title>Japanese Chicken Katsu Curry</title>
+      <link>https://www.zaikaworlds.com/recipe/japanese-chicken-katsu-curry</link>
+      <guid isPermaLink="true">https://www.zaikaworlds.com/recipe/japanese-chicken-katsu-curry</guid>
+      <description>Katsu Curry is one of Japan's most comforting and popular soul foods found from Tokyo alleys to train station eateries. Tender chicken breast or thigh is coated in delicate Japanese panko breadcrumbs and deep-fried until shatteringly crisp, then served over warm steamed short-grain rice and blanketed with a thick, mildly spiced savory-sweet vegetable curry sauce.</description>
+      <enclosure url="https://www.zaikaworlds.com/assets/japanese-chicken-katsu-curry.webp" type="image/webp" length="220926" />
+      <media:content url="https://www.zaikaworlds.com/assets/japanese-chicken-katsu-curry.webp" type="image/webp" medium="image" />
+    </item>
+    <item>
+      <title>Japanese Beef Gyudon</title>
+      <link>https://www.zaikaworlds.com/recipe/japanese-beef-gyudon</link>
+      <guid isPermaLink="true">https://www.zaikaworlds.com/recipe/japanese-beef-gyudon</guid>
+      <description>Gyudon ('beef bowl') is one of Japan's most cherished everyday fast-casual dishes. Paper-thin slices of beef and sweet onions are gently poached in an umami-rich broth made with Japanese dashi stock, soy sauce, mirin, and sake until melt-in-the-mouth tender, then ladled generously over a steaming mound of short-grain rice with its savory sweet jus.</description>
+      <enclosure url="https://www.zaikaworlds.com/assets/japanese-beef-gyudon.webp" type="image/webp" length="237676" />
+      <media:content url="https://www.zaikaworlds.com/assets/japanese-beef-gyudon.webp" type="image/webp" medium="image" />
+    </item>
+    <item>
+      <title>Mexican Chicken Quesadillas</title>
+      <link>https://www.zaikaworlds.com/recipe/mexican-chicken-quesadillas</link>
+      <guid isPermaLink="true">https://www.zaikaworlds.com/recipe/mexican-chicken-quesadillas</guid>
+      <description>Quesadillas are Mexico's ultimate comforting griddle treat. Soft flour tortillas are toasted on a hot comal with melted butter until blistered and crackling crisp, holding a molten heart of stringy melting cheese, spiced shredded chicken simmered with cumin and chipotle peppers, and paired with creamy handmade guacamole.</description>
+      <enclosure url="https://www.zaikaworlds.com/assets/mexican-chicken-quesadillas.webp" type="image/webp" length="332682" />
+      <media:content url="https://www.zaikaworlds.com/assets/mexican-chicken-quesadillas.webp" type="image/webp" medium="image" />
+    </item>
+    <item>
+      <title>Greek Chicken Souvlaki</title>
+      <link>https://www.zaikaworlds.com/recipe/greek-chicken-souvlaki</link>
+      <guid isPermaLink="true">https://www.zaikaworlds.com/recipe/greek-chicken-souvlaki</guid>
+      <description>Souvlaki is the timeless crown jewel of Greek street cuisine. Juicy bite-sized cubes of chicken are steeped in sunny Mediterranean olive oil, freshly squeezed lemon juice, minced garlic, and aromatic dried wild oregano, threaded onto bamboo skewers and grilled over hot coals to smoky perfection.</description>
+      <enclosure url="https://www.zaikaworlds.com/assets/greek-chicken-souvlaki.webp" type="image/webp" length="298442" />
+      <media:content url="https://www.zaikaworlds.com/assets/greek-chicken-souvlaki.webp" type="image/webp" medium="image" />
+    </item>
+    <item>
+      <title>Thai Tom Yum Soup</title>
+      <link>https://www.zaikaworlds.com/recipe/thai-tom-yum-soup</link>
+      <guid isPermaLink="true">https://www.zaikaworlds.com/recipe/thai-tom-yum-soup</guid>
+      <description>Tom Yum Goong is Thailand's internationally celebrated national soup. A fiery, sour, and intensely fragrant broth harmonizes crushed stalks of fresh lemongrass, sliced galangal, torn makrut lime leaves, and fiery bird's eye chilies with tender straw mushrooms and sweet jumbo tiger prawns.</description>
+      <enclosure url="https://www.zaikaworlds.com/assets/thai-tom-yum-soup.webp" type="image/webp" length="219028" />
+      <media:content url="https://www.zaikaworlds.com/assets/thai-tom-yum-soup.webp" type="image/webp" medium="image" />
     </item>
   </channel>
 </rss>

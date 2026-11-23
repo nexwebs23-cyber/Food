@@ -900,5 +900,35 @@
     "proteinContent": 28.0,
     "fatContent": 20.0,
     "carbohydrateContent": 48.0
+  },
+  "japanese-chicken-katsu-curry": {
+    "calories": 680,
+    "proteinContent": 42.0,
+    "fatContent": 24.0,
+    "carbohydrateContent": 74.0
+  },
+  "japanese-beef-gyudon": {
+    "calories": 540,
+    "proteinContent": 34.0,
+    "fatContent": 18.0,
+    "carbohydrateContent": 60.0
+  },
+  "mexican-chicken-quesadillas": {
+    "calories": 510,
+    "proteinContent": 36.0,
+    "fatContent": 24.0,
+    "carbohydrateContent": 38.0
+  },
+  "greek-chicken-souvlaki": {
+    "calories": 440,
+    "proteinContent": 39.0,
+    "fatContent": 20.0,
+    "carbohydrateContent": 26.0
+  },
+  "thai-tom-yum-soup": {
+    "calories": 210,
+    "proteinContent": 24.0,
+    "fatContent": 6.0,
+    "carbohydrateContent": 14.0
   }
 }

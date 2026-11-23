@@ -1,0 +1,317 @@
+[
+  {
+    "id": "japanese-chicken-katsu-curry",
+    "country": "Japan",
+    "name": "Japanese Chicken Katsu Curry",
+    "cat": "asian",
+    "catLabel": "Asian",
+    "veg": "nonveg",
+    "time": 40,
+    "diff": "Medium",
+    "servings": "4 people",
+    "alt": "Crispy panko chicken cutlet sliced over rice smothered in rich Japanese curry sauce with ZaikaWorlds logo",
+    "desc": "Crispy golden panko-breaded fried chicken cutlet sliced over steaming Japanese rice, smothered in rich aromatic glossy brown curry sauce.",
+    "intro": "Katsu Curry is one of Japan's most comforting and popular soul foods found from Tokyo alleys to train station eateries. Tender chicken breast or thigh is coated in delicate Japanese panko breadcrumbs and deep-fried until shatteringly crisp, then served over warm steamed short-grain rice and blanketed with a thick, mildly spiced savory-sweet vegetable curry sauce.",
+    "ing": [
+      "Boneless skinless chicken breasts or thighs 4 cutlets (600g)",
+      "Japanese panko breadcrumbs 2 cups",
+      "All-purpose flour 0.5 cup",
+      "Eggs beaten 2 large",
+      "Japanese curry roux blocks (S&B Golden Curry or homemade) 100g",
+      "Onions thinly sliced 2 medium",
+      "Carrots cut into bite-size rolling wedges 1 large",
+      "Potatoes peeled and cubed 2 medium",
+      "Chicken stock or dashi broth 4 cups",
+      "Grated apple or honey 1 tbsp",
+      "Soy sauce 1 tbsp, Worcester sauce 1 tbsp",
+      "Cooking oil for shallow or deep frying",
+      "Steamed short-grain rice and red pickled fukujinzuke for serving"
+    ],
+    "steps": [
+      "In a medium pot, heat 1 tbsp oil over medium heat. Sauté sliced onions slowly for 10 minutes until soft and caramelized golden.",
+      "Add carrot wedges and potato cubes; sauté for 3 minutes. Pour in chicken stock, bring to a boil, skim off foam, then cover and simmer for 15 minutes until vegetables are fork-tender.",
+      "Turn off the heat, break the curry roux blocks into the pot, and stir until dissolved completely.",
+      "Stir in grated apple, soy sauce, and Worcestershire sauce. Return to low heat and simmer uncovered for 8 minutes, stirring frequently until sauce is thick and glossy.",
+      "Pound chicken cutlets to an even 1/2-inch thickness; season both sides with salt and black pepper.",
+      "Dredge chicken cutlets in flour (shaking off excess), dip in beaten egg, then press firmly into panko breadcrumbs until evenly coated.",
+      "Heat 1 inch of oil in a wide skillet to 175°C (350°F). Fry cutlets for 4 to 5 minutes, flipping once, until golden brown and cooked through (165°F internal).",
+      "Drain on a wire rack for 2 minutes, then slice diagonally into 1-inch strips.",
+      "Portion warm steamed rice onto deep plates, place sliced crispy katsu on top, ladle warm rich curry sauce over half the cutlet, and garnish with pickled fukujinzuke."
+    ],
+    "tip": "Resting fried katsu on a wire rack instead of paper towels preserves the airy bottom panko crunch before plating with the warm curry sauce.",
+    "nutrition": {
+      "calories": 680,
+      "proteinContent": 42.0,
+      "fatContent": 24.0,
+      "carbohydrateContent": 74.0
+    },
+    "lang": {
+      "ru": {
+        "name": "Japanese Chicken Katsu Curry",
+        "catLabel": "Asian",
+        "diff": "Darmiyana",
+        "servings": "4 log",
+        "desc": "Crispy panko fried chicken katsu aur khushbudar Japanese curry chawal ke sath.",
+        "alt": "Japanese Chicken Katsu Curry"
+      },
+      "hi": {
+        "name": "जापानी चिकन कत्सू करी",
+        "catLabel": "एशियन",
+        "diff": "मध्यम",
+        "servings": "4 लोग",
+        "desc": "कुरकुरा पैनको फ्राइड चिकन कटलेट गाढ़ी और स्वादिष्ट जापानी करी के साथ।",
+        "alt": "जापानी चिकन कत्सू करी"
+      }
+    }
+  },
+  {
+    "id": "japanese-beef-gyudon",
+    "country": "Japan",
+    "name": "Japanese Beef Gyudon",
+    "cat": "asian",
+    "catLabel": "Asian",
+    "veg": "nonveg",
+    "time": 20,
+    "diff": "Easy",
+    "servings": "4 people",
+    "alt": "Steaming bowl of Japanese beef gyudon with tender beef onions runny egg and scallions with ZaikaWorlds logo",
+    "desc": "Traditional Japanese beef bowl featuring thinly shaved beef ribbons and sweet translucent onions simmered in savory dashi mirin soy broth over rice.",
+    "intro": "Gyudon ('beef bowl') is one of Japan's most cherished everyday fast-casual dishes. Paper-thin slices of beef and sweet onions are gently poached in an umami-rich broth made with Japanese dashi stock, soy sauce, mirin, and sake until melt-in-the-mouth tender, then ladled generously over a steaming mound of short-grain rice with its savory sweet jus.",
+    "ing": [
+      "Thinly shaved beef ribeye or chuck roll 500g",
+      "Yellow onions thinly sliced 2 medium",
+      "Japanese dashi stock (kombu/bonito) 1 cup (240ml)",
+      "Japanese soy sauce (shoyu) 4 tbsp",
+      "Mirin (Japanese sweet rice wine) 3 tbsp",
+      "Cooking sake 2 tbsp",
+      "Sugar 1.5 tbsp",
+      "Grated fresh ginger 1 tsp",
+      "Steamed Japanese short-grain rice for 4 bowls",
+      "Soft-poached eggs (onsen tamago) or raw pasteurized egg yolks 4",
+      "Finely sliced scallions and Japanese red pickled ginger (beni shoga) for garnish",
+      "Shichimi togarashi (Japanese 7-spice) for sprinkling"
+    ],
+    "steps": [
+      "In a wide skillet, combine dashi stock, soy sauce, mirin, sake, sugar, and grated ginger. Bring to a gentle boil over medium heat.",
+      "Add thinly sliced onions, spread evenly in the broth, cover with a drop lid (落とし蓋) or pan lid, and simmer for 6 to 8 minutes until translucent and tender.",
+      "Uncover, increase heat slightly, and spread the thinly shaved beef ribbons across the simmering broth so they do not clump together.",
+      "Simmer the beef gently for 3 to 4 minutes until no longer pink, skimming off any foamy scum that rises to keep the broth clear and clean.",
+      "Taste the broth; let it simmer for 1 more minute until beef has absorbed the sweet and savory seasonings without overcooking.",
+      "Fill large donburi bowls with piping-hot steamed rice.",
+      "Using tongs, layer the tender beef ribbons and sweet onions evenly over the rice, then spoon 2 to 3 tablespoons of simmering seasoned broth over each bowl.",
+      "Top the center with a poached onsen egg or yolk, a mound of red beni shoga ginger, chopped green scallions, and a dusting of shichimi togarashi."
+    ],
+    "tip": "Gently poaching the shaved beef on low-medium heat rather than rapid boiling keeps the delicate ribbons velvety soft and prevents them from curling tough.",
+    "nutrition": {
+      "calories": 540,
+      "proteinContent": 34.0,
+      "fatContent": 18.0,
+      "carbohydrateContent": 60.0
+    },
+    "lang": {
+      "ru": {
+        "name": "Japanese Beef Gyudon",
+        "catLabel": "Asian",
+        "diff": "Aasan",
+        "servings": "4 log",
+        "desc": "Mitha aur namkeen dashi soy sauce mein paka hua narmi se bhara Japanese beef rice bowl.",
+        "alt": "Japanese Beef Gyudon"
+      },
+      "hi": {
+        "name": "जापानी बीफ ग्यूदोन",
+        "catLabel": "एशियन",
+        "diff": "सरल",
+        "servings": "4 लोग",
+        "desc": "दाशी और सोया सॉस में पका हुआ बारीक कटा बीफ और प्याज चावल के ऊपर।",
+        "alt": "जापानी बीफ ग्यूदोन"
+      }
+    }
+  },
+  {
+    "id": "mexican-chicken-quesadillas",
+    "country": "Mexico",
+    "name": "Mexican Chicken Quesadillas",
+    "cat": "world",
+    "catLabel": "World Cuisine",
+    "veg": "nonveg",
+    "time": 25,
+    "diff": "Easy",
+    "servings": "4 people",
+    "alt": "Golden toasted chicken quesadillas cut into triangles oozing with melted cheese served with guacamole with ZaikaWorlds logo",
+    "desc": "Golden butter-toasted flour tortillas packed with melted Oaxaca cheese, smoky chipotle spiced shredded chicken, and served with cool guacamole and salsa.",
+    "intro": "Quesadillas are Mexico's ultimate comforting griddle treat. Soft flour tortillas are toasted on a hot comal with melted butter until blistered and crackling crisp, holding a molten heart of stringy melting cheese, spiced shredded chicken simmered with cumin and chipotle peppers, and paired with creamy handmade guacamole.",
+    "ing": [
+      "Large flour tortillas (10 or 12 inch) 4 tortillas",
+      "Cooked shredded chicken breast 400g",
+      "Shredded Oaxaca, Monterey Jack, or Mozzarella cheese 2.5 cups",
+      "Finely diced onion 0.5 cup",
+      "Finely diced sweet bell pepper 0.5 cup",
+      "Ground cumin 1 tsp, smoked paprika 1 tsp, chili powder 1 tsp",
+      "Minced garlic 1 tsp",
+      "Chipotle chili in adobo sauce finely chopped 1 tbsp",
+      "Butter or oil for griddling 3 tbsp",
+      "Fresh guacamole, pico de gallo, and sour cream for dipping"
+    ],
+    "steps": [
+      "In a skillet over medium heat, heat 1 tbsp oil. Sauté diced onions and bell peppers for 3 minutes until softened.",
+      "Add shredded chicken, minced garlic, cumin, smoked paprika, chili powder, chopped chipotle, and 2 tbsp water; simmer for 3 minutes until fragrant and moist, then set aside.",
+      "Heat a wide skillet or cast iron comal over medium heat with 0.5 tsp melted butter.",
+      "Place one flour tortilla flat in the skillet. Sprinkle half of the tortilla with 1/3 cup of shredded cheese.",
+      "Scatter seasoned chicken filling evenly over the cheese, then top with another 1/3 cup of shredded cheese (this binds both sides securely).",
+      "Fold the bare half of the tortilla over the filling to create a half-moon shape.",
+      "Cook for 3 to 4 minutes until the bottom is deep golden brown and crisp, then carefully flip and toast the other side for 2 to 3 minutes until cheese is completely molten.",
+      "Transfer to a cutting board, let rest for 1 minute so cheese sets, slice into 3 neat wedges, and serve hot with fresh guacamole, pico de gallo, and sour cream."
+    ],
+    "tip": "Layering cheese both below and above the chicken filling creates an edible glue that keeps the quesadilla tightly sealed when flipped and sliced.",
+    "nutrition": {
+      "calories": 510,
+      "proteinContent": 36.0,
+      "fatContent": 24.0,
+      "carbohydrateContent": 38.0
+    },
+    "lang": {
+      "ru": {
+        "name": "Mexican Chicken Quesadillas",
+        "catLabel": "World Cuisine",
+        "diff": "Aasan",
+        "servings": "4 log",
+        "desc": "Crispy makhani tortilla roti pighle hue cheese aur masala chicken se bhari hui.",
+        "alt": "Mexican Chicken Quesadillas"
+      },
+      "hi": {
+        "name": "मैक्सिकन चिकन कैसाडिला",
+        "catLabel": "विश्व व्यंजन",
+        "diff": "सरल",
+        "servings": "4 लोग",
+        "desc": "कुरकुरी मक्खन वाली टॉर्टिला रोटी जिसमें पिघला हुआ पनीर और मसालेदार चिकन भरा हो।",
+        "alt": "मैक्सिकन चिकन कैसाडिला"
+      }
+    }
+  },
+  {
+    "id": "greek-chicken-souvlaki",
+    "country": "Greece",
+    "name": "Greek Chicken Souvlaki",
+    "cat": "grill",
+    "catLabel": "Grill",
+    "veg": "nonveg",
+    "time": 30,
+    "diff": "Easy",
+    "servings": "4 people",
+    "alt": "Charcoal grilled skewered Greek chicken souvlaki with cucumber tzatziki pita and olives with ZaikaWorlds logo",
+    "desc": "Tender chicken skewers marinated in Greek extra virgin olive oil, lemon juice, garlic, and wild oregano, flame-kissed and served with fresh tzatziki.",
+    "intro": "Souvlaki is the timeless crown jewel of Greek street cuisine. Juicy bite-sized cubes of chicken are steeped in sunny Mediterranean olive oil, freshly squeezed lemon juice, minced garlic, and aromatic dried wild oregano, threaded onto bamboo skewers and grilled over hot coals to smoky perfection.",
+    "ing": [
+      "Boneless chicken breast or thighs cut into 1.5-inch cubes 700g",
+      "Greek extra virgin olive oil 0.25 cup",
+      "Fresh lemon juice 3 tbsp",
+      "Minced fresh garlic 4 cloves",
+      "Dried Greek wild oregano 1.5 tbsp",
+      "Dried thyme 1 tsp, ground coriander 0.5 tsp",
+      "Sea salt 1.25 tsp, black pepper 1 tsp",
+      "Warm Greek pita flatbreads 4",
+      "Creamy Greek Tzatziki sauce (strained yogurt, grated cucumber, garlic, dill) 1 cup",
+      "Sliced ripe tomatoes, red onion rings, and Kalamata olives for serving"
+    ],
+    "steps": [
+      "In a non-reactive bowl, whisk extra virgin olive oil, lemon juice, minced garlic, wild oregano, thyme, coriander, salt, and black pepper into an aromatic marinade.",
+      "Add chicken cubes, toss thoroughly so every piece is generously coated, cover, and marinate in the refrigerator for at least 1 hour (up to 6 hours).",
+      "If using wooden bamboo skewers, soak them in water for 30 minutes to prevent scorching.",
+      "Thread 5 to 6 marinated chicken cubes tightly onto each skewer.",
+      "Heat a heavy outdoor grill or indoor ridged cast-iron grill pan over medium-high heat. Lightly brush grates with olive oil.",
+      "Grill chicken skewers for 10 to 12 minutes total, turning every 3 minutes, until beautifully charred on all sides and internal temperature reaches 165°F (74°C).",
+      "Transfer skewers to a platter, squeeze fresh lemon juice over the hot meat, and tent loosely with foil for 3 minutes to lock in juices.",
+      "Warm the pita flatbreads on the grill for 1 minute.",
+      "Serve hot skewers alongside warm pita, a generous scoop of cool cucumber-dill tzatziki, ripe tomato slices, red onion, and Kalamata olives."
+    ],
+    "tip": "Squeezing fresh lemon juice over the skewers immediately as they come off the screaming-hot grill enhances the herbs and keeps the chicken extraordinarily succulent.",
+    "nutrition": {
+      "calories": 440,
+      "proteinContent": 39.0,
+      "fatContent": 20.0,
+      "carbohydrateContent": 26.0
+    },
+    "lang": {
+      "ru": {
+        "name": "Greek Chicken Souvlaki",
+        "catLabel": "Grill",
+        "diff": "Aasan",
+        "servings": "4 log",
+        "desc": "Zaitoon ke tail, lemo aur oregano mein marinate kiye hue naram Greek chicken seekh kabab.",
+        "alt": "Greek Chicken Souvlaki"
+      },
+      "hi": {
+        "name": "ग्रीक चिकन सुवलाकी",
+        "catLabel": "ग्रिल",
+        "diff": "सरल",
+        "servings": "4 लोग",
+        "desc": "जैतून के तेल, नींबू और ओरेगानो में मैरीनेट किए गए स्वादिष्ट ग्रिल्ड चिकन सीख।",
+        "alt": "ग्रीक चिकन सुवलाकी"
+      }
+    }
+  },
+  {
+    "id": "thai-tom-yum-soup",
+    "country": "Thailand",
+    "name": "Thai Tom Yum Soup",
+    "cat": "world",
+    "catLabel": "World Cuisine",
+    "veg": "nonveg",
+    "time": 25,
+    "diff": "Easy",
+    "servings": "4 people",
+    "alt": "Vibrant aromatic Thai Tom Yum soup simmering with jumbo prawns mushrooms lemongrass and chili with ZaikaWorlds logo",
+    "desc": "Iconic Thai spicy and sour soup infused with fragrant lemongrass, galangal, makrut lime leaves, juicy tiger prawns, and fresh lime juice.",
+    "intro": "Tom Yum Goong is Thailand's internationally celebrated national soup. A fiery, sour, and intensely fragrant broth harmonizes crushed stalks of fresh lemongrass, sliced galangal, torn makrut lime leaves, and fiery bird's eye chilies with tender straw mushrooms and sweet jumbo tiger prawns.",
+    "ing": [
+      "Large tiger prawns or shrimp (peeled, deveined, tails intact) 400g",
+      "Chicken or prawn shell stock 4 cups (1 liter)",
+      "Fresh lemongrass stalks (bruised and cut into 2-inch pieces) 3 stalks",
+      "Fresh galangal thinly sliced into discs 8 slices",
+      "Makrut lime leaves (torn and stems removed) 6 leaves",
+      "Thai bird's eye chilies (crushed) 4 to 6 (to taste)",
+      "Fresh oyster mushrooms or straw mushrooms sliced 1.5 cups",
+      "Thai fish sauce (nam pla) 3 tbsp",
+      "Freshly squeezed lime juice 3.5 tbsp",
+      "Thai roasted chili paste in oil (nam prik pao) 2 tbsp",
+      "Sugar 1 tsp",
+      "Fresh cilantro sprigs and sliced scallions for garnish"
+    ],
+    "steps": [
+      "In a medium soup pot, bring chicken or prawn stock to a rolling boil over medium-high heat.",
+      "Add bruised lemongrass stalks, sliced galangal, torn makrut lime leaves, and crushed bird's eye chilies. Simmer vigorously for 5 minutes so herbs infuse their essential oils into the broth.",
+      "Stir in Thai chili paste (nam prik pao), fish sauce, and sugar until paste completely dissolves, tinting the soup an appetizing fiery amber.",
+      "Add sliced mushrooms and simmer for 2 minutes until tender.",
+      "Gently slide in prepared tiger prawns; simmer for 2 to 3 minutes just until prawns turn opaque pink and curl gently into a C-shape (do not overcook).",
+      "Remove pot immediately from heat.",
+      "Stir in freshly squeezed lime juice off the heat (boiling lime juice turns it bitter).",
+      "Taste broth and balance: it should be bold, distinctly sour, spicy, and savory.",
+      "Ladle piping hot into serving bowls, garnish with fresh cilantro sprigs and scallions, and serve immediately with steamed jasmine rice."
+    ],
+    "tip": "Always stir in fresh lime juice after turning off the stove. Direct heat damages the bright, delicate floral acidity of fresh limes and imparts bitterness.",
+    "nutrition": {
+      "calories": 210,
+      "proteinContent": 24.0,
+      "fatContent": 6.0,
+      "carbohydrateContent": 14.0
+    },
+    "lang": {
+      "ru": {
+        "name": "Thai Tom Yum Soup",
+        "catLabel": "World Cuisine",
+        "diff": "Aasan",
+        "servings": "4 log",
+        "desc": "Lemongrass, galangal aur jheengon se bana tazeem aur teekha mashhoor Thai soup.",
+        "alt": "Thai Tom Yum Soup"
+      },
+      "hi": {
+        "name": "थाई टॉम यम सूप",
+        "catLabel": "विश्व व्यंजन",
+        "diff": "सरल",
+        "servings": "4 लोग",
+        "desc": "लेमनग्रास, गलगल और झींगों से बना स्वादिष्ट तीखा और खट्टा प्रसिद्ध थाई सूप।",
+        "alt": "थाई टॉम यम सूप"
+      }
+    }
+  }
+]
