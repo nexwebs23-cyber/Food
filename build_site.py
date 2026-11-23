@@ -3704,8 +3704,12 @@ def static_grid_html(data):
     linking to /recipes. The SPA's render() replaces this grid on load, so
     filters keep working. Links point at the static /recipe/<slug> pages."""
     cards = []
-    # Show most recently added recipes first (latest upload at top)
-    newest_first = list(reversed(data['recipes']))
+    # Show strictly date-wise newest recipes first (daily upload / latest published at top)
+    newest_first = sorted(
+        data['recipes'],
+        key=lambda r: (r.get('published') or '1970-01-01', r['id']),
+        reverse=True
+    )
     for r in newest_first[:20]:
         tx = r_text_en(r, data['extra'])
         wh = thumb_wh(r['img'], data['img_dims'])
