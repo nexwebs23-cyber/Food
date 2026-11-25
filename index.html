@@ -1276,6 +1276,13 @@ function filtered(){
   if(sort==="az") list.sort(function(a,b){return rName(a).localeCompare(rName(b));});
   return list;
 }
+function fmtDate(iso){
+  if(!iso) return "";
+  var m=["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+  var p=iso.split("-");
+  if(p.length<3) return "";
+  return parseInt(p[2],10)+" "+m[parseInt(p[1],10)-1]+" "+p[0];
+}
 function cardHtml(r){
   var heart=saved.has(r.id)?"♥":"♡";
   var tx=rText(r);
@@ -1284,7 +1291,7 @@ function cardHtml(r){
   '<span class="cat-badge">'+esc(r.cat==="world"?rCountry(r):rCat(r))+'</span>'+
   '<button class="save-heart'+(saved.has(r.id)?" saved":"")+'" type="button" data-save="'+r.id+'" aria-label="'+esc((saved.has(r.id)?"Remove from Saved":"Save")+" : "+rName(r))+'">'+heart+'</button></div>'+
   '<a class="pin-body" href="'+recipeHref(r.id)+'" data-open="'+r.id+'"><h3>'+rName(r)+'</h3><p>'+tx.desc+'</p>'+
-  '<span class="meta"><span><span aria-hidden="true">⏱</span> <b>'+r.time+' '+minuteWord()+'</b></span><span><span aria-hidden="true">👥</span> <b>'+rServings(r)+'</b></span><span><span aria-hidden="true">📊</span> <b>'+rDiff(r)+'</b></span><span>'+vegWord(r)+'</span><span>'+esc(rCountry(r))+'</span></span></a></article>';
+  '<span class="meta"><span><span aria-hidden="true">📅</span> <b>'+fmtDate(r.published)+'</b></span><span><span aria-hidden="true">⏱</span> <b>'+r.time+' '+minuteWord()+'</b></span><span><span aria-hidden="true">👥</span> <b>'+rServings(r)+'</b></span><span><span aria-hidden="true">📊</span> <b>'+rDiff(r)+'</b></span><span>'+vegWord(r)+'</span><span>'+esc(rCountry(r))+'</span></span></a></article>';
 }
 function render(){
   var list=filtered();

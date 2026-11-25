@@ -1900,7 +1900,7 @@ def write_data_files(data):
     # recipes.js also carries NUTRITION (per-serving values, nutrition.json)
     # so the SPA's client-side JSON-LD and recipe view share the static
     # pages' single source of truth.
-    w('recipes.js', 'var RECIPES=' + js_json(data['recipes']) + ';\n'
+    w('recipes.js', 'var RECIPES=' + js_json(sorted(data['recipes'], key=lambda r: (r.get('published') or '1970-01-01', r['id']), reverse=True)) + ';\n'
                     'var NUTRITION='
                     + js_json(data.get('nutrition') or {}) + ';\n'
                     'var RATINGS='
@@ -3340,11 +3340,11 @@ def new_list_pages(data):
     """The new list pages (issue B/O): /recipes, /trending, /eid-recipes,
     /ramadan-recipes. Returns {rel_path: html}."""
     by_id = {r['id']: r for r in data['recipes']}
-    all_recipes = sorted(data['recipes'], key=lambda r: r['name'])
+    all_recipes = sorted(data['recipes'], key=lambda r: (r.get('published') or '1970-01-01', r['id']), reverse=True)
     first_img = all_recipes[0]['img']
     first_alt = r_text_en(all_recipes[0], data['extra']).get('alt') or ''
     pages = {}
-    intro_all = ("All 46 Zaika Worlds recipes: Pakistani, Indian and world "
+    intro_all = ("All " + str(len(data['recipes'])) + " Zaika Worlds recipes: Pakistani, Indian and world "
                  "food dishes with full ingredients, step by step methods, "
                  "cooking time and servings. Click any recipe to open the "
                  "full method and start cooking.")
@@ -3725,7 +3725,8 @@ def static_grid_html(data):
             '<span class="cat-badge">%s</span></div>'
             '<a class="pin-body" href="/recipe/%s" data-open="%s">'
             '<h3>%s</h3><p>%s</p>'
-            '<span class="meta"><span><span aria-hidden="true">⏱</span> '
+            '<span class="meta"><span><span aria-hidden="true">📅</span> '
+            '<b>%s</b></span><span><span aria-hidden="true">⏱</span> '
             '<b>%s min</b></span><span><span aria-hidden="true">👥</span> '
             '<b>%s</b></span><span><span aria-hidden="true">📊</span> '
             '<b>%s</b></span><span>%s</span><span>%s</span></span>'
@@ -3734,6 +3735,7 @@ def static_grid_html(data):
                esc(r['name']), esc(thumb_img(r['img'])), esc(tx.get('alt') or ''),
                wh, esc(badge), esc(r['id']), esc(r['id']),
                esc(r['name']), esc(tx.get('desc') or ''),
+               esc(fmt_date(r.get('published'))),
                esc(r['time']), esc(r['servings']), esc(r['diff']),
                esc(veg), esc(r['country'])))
     n_recipes = len(data['recipes'])
