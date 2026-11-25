@@ -5,7 +5,7 @@
     <link>https://www.zaikaworlds.com/</link>
     <description>Cook famous dishes from Pakistan and India, plus favourites from around the world, with big photos and step by step methods.</description>
     <language>en</language>
-    <lastBuildDate>Wed, 25 Nov 2026 07:09:47 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 25 Nov 2026 11:11:11 GMT</lastBuildDate>
     <item>
       <title>Chicken Biryani</title>
       <link>https://www.zaikaworlds.com/recipe/biryani</link>
@@ -909,6 +909,46 @@
       <description>Tom Yum Goong is Thailand's internationally celebrated national soup. A fiery, sour, and intensely fragrant broth harmonizes crushed stalks of fresh lemongrass, sliced galangal, torn makrut lime leaves, and fiery bird's eye chilies with tender straw mushrooms and sweet jumbo tiger prawns.</description>
       <enclosure url="https://www.zaikaworlds.com/assets/thai-tom-yum-soup.webp" type="image/webp" length="219028" />
       <media:content url="https://www.zaikaworlds.com/assets/thai-tom-yum-soup.webp" type="image/webp" medium="image" />
+    </item>
+    <item>
+      <title>Classic Smash Cheeseburger</title>
+      <link>https://www.zaikaworlds.com/recipe/classic-smash-cheeseburger</link>
+      <guid isPermaLink="true">https://www.zaikaworlds.com/recipe/classic-smash-cheeseburger</guid>
+      <description>The Smash Cheeseburger is a global culinary sensation and one of the highest-searched comfort foods on Pinterest and TikTok. Fresh ground beef balls are smashed paper-thin onto a searing hot cast-iron griddle, creating intense crispy caramelized lacy crusts while locking all savory beef juices inside.</description>
+      <enclosure url="https://www.zaikaworlds.com/assets/classic-smash-cheeseburger.webp" type="image/webp" length="278612" />
+      <media:content url="https://www.zaikaworlds.com/assets/classic-smash-cheeseburger.webp" type="image/webp" medium="image" />
+    </item>
+    <item>
+      <title>Authentic Italian Tiramisu</title>
+      <link>https://www.zaikaworlds.com/recipe/authentic-italian-tiramisu</link>
+      <guid isPermaLink="true">https://www.zaikaworlds.com/recipe/authentic-italian-tiramisu</guid>
+      <description>Tiramisu (literally 'pick me up' in Italian) is Italy's most famous and sought-after dessert across Pinterest and fine dining worldwide. Crisp Italian ladyfingers are swiftly dipped in dark espresso coffee, then blanketed under pillowy layers of whipped mascarpone cream and finished with a snowfall of Dutch cocoa powder.</description>
+      <enclosure url="https://www.zaikaworlds.com/assets/authentic-italian-tiramisu.webp" type="image/webp" length="201372" />
+      <media:content url="https://www.zaikaworlds.com/assets/authentic-italian-tiramisu.webp" type="image/webp" medium="image" />
+    </item>
+    <item>
+      <title>Italian Chicken Parmigiana</title>
+      <link>https://www.zaikaworlds.com/recipe/italian-chicken-parmigiana</link>
+      <guid isPermaLink="true">https://www.zaikaworlds.com/recipe/italian-chicken-parmigiana</guid>
+      <description>Chicken Parmigiana (or Chicken Parmesan) is one of the most beloved Italian-American classics with massive viral appeal. Butterflied tender chicken cutlets are breaded in seasoned herbs and panko, pan-fried to golden crunchiness, ladled with garlicky tomato marinara, and broiled until thick blankets of mozzarella turn golden-brown and bubbling.</description>
+      <enclosure url="https://www.zaikaworlds.com/assets/italian-chicken-parmigiana.webp" type="image/webp" length="293184" />
+      <media:content url="https://www.zaikaworlds.com/assets/italian-chicken-parmigiana.webp" type="image/webp" medium="image" />
+    </item>
+    <item>
+      <title>Traditional Middle Eastern Shakshuka</title>
+      <link>https://www.zaikaworlds.com/recipe/traditional-shakshuka</link>
+      <guid isPermaLink="true">https://www.zaikaworlds.com/recipe/traditional-shakshuka</guid>
+      <description>Shakshuka is an undisputed breakfast and brunch superstar across social media and Middle Eastern dining tables. Plump fresh eggs are poached directly inside a bubbling, aromatic skillet sauce of sweet bell peppers, ripe tomatoes, caramelized onions, garlic, and warm North African spices, best enjoyed by dipping chunks of warm crusty bread.</description>
+      <enclosure url="https://www.zaikaworlds.com/assets/traditional-shakshuka.webp" type="image/webp" length="307240" />
+      <media:content url="https://www.zaikaworlds.com/assets/traditional-shakshuka.webp" type="image/webp" medium="image" />
+    </item>
+    <item>
+      <title>Spanish Churros con Chocolate</title>
+      <link>https://www.zaikaworlds.com/recipe/spanish-churros-con-chocolate</link>
+      <guid isPermaLink="true">https://www.zaikaworlds.com/recipe/spanish-churros-con-chocolate</guid>
+      <description>Churros con Chocolate is Spain's most iconic sweet street delicacy, celebrated from Madrid chocolaterías to bakeries worldwide. Piped through a star-shaped nozzle directly into hot oil, these golden fluted pastries emerge with a shatteringly crisp exterior and a tender, steaming interior, paired with intensely rich and glossy Spanish dipping chocolate.</description>
+      <enclosure url="https://www.zaikaworlds.com/assets/spanish-churros-con-chocolate.webp" type="image/webp" length="192334" />
+      <media:content url="https://www.zaikaworlds.com/assets/spanish-churros-con-chocolate.webp" type="image/webp" medium="image" />
     </item>
   </channel>
 </rss>

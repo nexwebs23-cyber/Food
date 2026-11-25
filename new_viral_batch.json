@@ -1,0 +1,320 @@
+[
+  {
+    "id": "classic-smash-cheeseburger",
+    "country": "United States",
+    "name": "Classic Smash Cheeseburger",
+    "cat": "street-food",
+    "catLabel": "Street Food",
+    "veg": "nonveg",
+    "time": 20,
+    "diff": "Easy",
+    "servings": "4 people",
+    "alt": "Double patty smash cheeseburger with melting cheddar lettuce tomato on brioche bun with ZaikaWorlds logo",
+    "desc": "Crispy lacy-edged smashed beef patties smothered in melting American cheddar, crisp lettuce, ripe tomato, and tangy secret burger sauce on a toasted brioche bun.",
+    "intro": "The Smash Cheeseburger is a global culinary sensation and one of the highest-searched comfort foods on Pinterest and TikTok. Fresh ground beef balls are smashed paper-thin onto a searing hot cast-iron griddle, creating intense crispy caramelized lacy crusts while locking all savory beef juices inside.",
+    "ing": [
+      "Fresh ground beef chuck (80/20 lean to fat ratio) 600g, divided into 8 balls",
+      "Brioche burger buns 4 buns, split and buttered",
+      "American cheddar cheese slices 8 slices",
+      "Crisp butterhead or iceberg lettuce leaves 4 large",
+      "Ripe beefsteak tomatoes sliced 4 thick slices",
+      "Dill pickle chips 16 slices",
+      "Mayonnaise 0.5 cup",
+      "Yellow mustard 1.5 tbsp, ketchup 2 tbsp, sweet pickle relish 1 tbsp",
+      "Garlic powder 0.5 tsp, smoked paprika 0.5 tsp",
+      "Coarse kosher salt & freshly cracked black pepper"
+    ],
+    "steps": [
+      "In a small bowl, whisk mayonnaise, yellow mustard, ketchup, pickle relish, garlic powder, and smoked paprika into a velvety secret burger sauce.",
+      "Heat a large heavy cast-iron skillet or flat-top griddle on high heat until lightly smoking. Lightly toast the buttered brioche bun halves for 1 to 2 minutes until golden crisp, then set aside.",
+      "Place 2 loose ground beef balls (75g each) onto the dry, smoking hot surface.",
+      "Immediately place a square of parchment paper over each ball and press down firmly with a heavy flat burger press or sturdy metal spatula, smashing the meat paper-thin so edges flare out.",
+      "Season generously with kosher salt and black pepper; cook undisturbed for 2 minutes until edges are deeply browned, crisp, and lacy.",
+      "Scrape firmly beneath patties with a sharp spatula to keep the caramelized crust attached to the burger, then flip.",
+      "Immediately top each sizzling patty with a slice of American cheddar cheese; cook for just 1 minute until cheese is completely molten.",
+      "Stack one cheesy patty on top of the other.",
+      "Assemble: Spread a generous tablespoon of secret sauce on the bottom toasted bun, add pickles, tomato, and lettuce, place the double cheesy smash patties on top, drizzle more sauce on the top bun, crown the burger, and serve hot."
+    ],
+    "tip": "High fat content (80/20) and a screaming-hot ungreased griddle are non-negotiable. Smashed beef needs direct contact with dry searing metal to develop the prized crunchy lacy crust.",
+    "nutrition": {
+      "calories": 640,
+      "proteinContent": 38.0,
+      "fatContent": 36.0,
+      "carbohydrateContent": 42.0
+    },
+    "lang": {
+      "ru": {
+        "name": "Classic Smash Cheeseburger",
+        "catLabel": "Street Food",
+        "diff": "Aasan",
+        "servings": "4 log",
+        "desc": "Crispy lacy crust double beef patties pighle hue cheddar cheese aur sauce ke sath.",
+        "alt": "Classic Smash Cheeseburger"
+      },
+      "hi": {
+        "name": "क्लासिक स्मैश चीज़बर्गर",
+        "catLabel": "स्ट्रीट फूड",
+        "diff": "सरल",
+        "servings": "4 लोग",
+        "desc": "कुरकुरे किनारों वाली बीफ पैटी पिघले हुए चेद्दार पनीर और सॉस के साथ।",
+        "alt": "क्लासिक स्मैश चीज़बर्गर"
+      }
+    }
+  },
+  {
+    "id": "authentic-italian-tiramisu",
+    "country": "Italy",
+    "name": "Authentic Italian Tiramisu",
+    "cat": "meetha",
+    "catLabel": "Dessert",
+    "veg": "veg",
+    "time": 30,
+    "diff": "Easy",
+    "servings": "8 people",
+    "alt": "Rustic layered Italian tiramisu slice with espresso savoiardi mascarpone cream and cocoa powder with ZaikaWorlds logo",
+    "desc": "Traditional Italian no-bake dessert featuring delicate espresso-soaked savoiardi ladyfingers layered with airy mascarpone zabaglione cream and dark cocoa.",
+    "intro": "Tiramisu (literally 'pick me up' in Italian) is Italy's most famous and sought-after dessert across Pinterest and fine dining worldwide. Crisp Italian ladyfingers are swiftly dipped in dark espresso coffee, then blanketed under pillowy layers of whipped mascarpone cream and finished with a snowfall of Dutch cocoa powder.",
+    "ing": [
+      "Italian Savoiardi ladyfinger biscuits 24 to 30 biscuits",
+      "Mascarpone cheese (cold) 500g (18 oz)",
+      "Large fresh pasteurized egg yolks 5",
+      "Granulated white sugar 0.5 cup (100g)",
+      "Strong freshly brewed espresso coffee (cooled to room temp) 1.5 cups (350ml)",
+      "Heavy whipping cream (optional for extra stability) 0.5 cup (120ml)",
+      "Vanilla extract 1 tsp",
+      "Dutch-process unsweetened dark cocoa powder for dusting 3 tbsp",
+      "Dark chocolate shavings for garnish"
+    ],
+    "steps": [
+      "In a heatproof bowl set over a pot of gently simmering water (bain-marie), whisk egg yolks and granulated sugar continuously for 6 to 8 minutes until pale, thick, and sugar has completely dissolved.",
+      "Remove bowl from heat and let cool to room temperature.",
+      "In a separate bowl, beat cold mascarpone cheese and vanilla extract for 1 minute until smooth and creamy.",
+      "Gently fold the cooled sweetened egg yolk mixture into the mascarpone until silky and lump-free (whip heavy cream to soft peaks and fold in if desired).",
+      "Pour cooled espresso into a shallow wide dish.",
+      "Quickly dip each Savoiardi ladyfinger into the coffee for only 1 second per side (do not over-soak or it turns soggy).",
+      "Arrange soaked biscuits in a single compact layer in the bottom of an 8x8-inch or 9x9-inch ceramic baking dish.",
+      "Spread half of the velvety mascarpone cream evenly over the biscuit layer.",
+      "Repeat with a second layer of coffee-dipped ladyfingers, then crown with the remaining mascarpone cream, smoothing with an offset spatula.",
+      "Cover and chill in the refrigerator for at least 6 hours (ideally overnight) so the flavors meld and cream sets firmly.",
+      "Just before serving, dust the top generously with unsweetened dark cocoa powder and dark chocolate shavings, then slice into neat squares."
+    ],
+    "tip": "A fast 1-second dip in room-temperature espresso is the golden rule. Savoiardi biscuits sponge up liquid rapidly and continue softening inside the cream in the fridge.",
+    "nutrition": {
+      "calories": 380,
+      "proteinContent": 7.0,
+      "fatContent": 26.0,
+      "carbohydrateContent": 31.0
+    },
+    "lang": {
+      "ru": {
+        "name": "Authentic Italian Tiramisu",
+        "catLabel": "Meetha",
+        "diff": "Aasan",
+        "servings": "8 log",
+        "desc": "Espresso coffee mein bheege ladyfinger biscuits aur makhmali mascarpone cream ka Italian meetha.",
+        "alt": "Authentic Italian Tiramisu"
+      },
+      "hi": {
+        "name": "इटैलियन तिरामिसु",
+        "catLabel": "मीठा",
+        "diff": "सरल",
+        "servings": "8 लोग",
+        "desc": "कॉफी में डूबे बिस्कुट और मखमली मस्करपोने क्रीम की मशहूर इटैलियन मिठाई।",
+        "alt": "इटैलियन तिरामिसु"
+      }
+    }
+  },
+  {
+    "id": "italian-chicken-parmigiana",
+    "country": "Italy",
+    "name": "Italian Chicken Parmigiana",
+    "cat": "world",
+    "catLabel": "World Cuisine",
+    "veg": "nonveg",
+    "time": 35,
+    "diff": "Medium",
+    "servings": "4 people",
+    "alt": "Crispy golden chicken cutlet baked with marinara bubbling mozzarella and fresh basil with ZaikaWorlds logo",
+    "desc": "Golden panko-crusted chicken cutlets smothered in rich San Marzano marinara sauce, bubbling melted fresh mozzarella, and aromatic basil over spaghetti.",
+    "intro": "Chicken Parmigiana (or Chicken Parmesan) is one of the most beloved Italian-American classics with massive viral appeal. Butterflied tender chicken cutlets are breaded in seasoned herbs and panko, pan-fried to golden crunchiness, ladled with garlicky tomato marinara, and broiled until thick blankets of mozzarella turn golden-brown and bubbling.",
+    "ing": [
+      "Boneless skinless chicken breasts 2 large (halved horizontally into 4 thin cutlets, 600g)",
+      "Japanese panko breadcrumbs 1.5 cups",
+      "Grated Parmigiano-Reggiano cheese 0.5 cup",
+      "All-purpose flour 0.5 cup",
+      "Eggs beaten 2 large",
+      "Italian San Marzano tomato marinara sauce 2 cups",
+      "Fresh mozzarella cheese sliced or shredded 200g (7 oz)",
+      "Garlic powder 1 tsp, dried oregano 1 tsp, dried basil 1 tsp",
+      "Olive oil for shallow pan frying 0.5 cup",
+      "Fresh basil leaves for garnish",
+      "Cooked al dente spaghetti pasta for serving"
+    ],
+    "steps": [
+      "Pound chicken cutlets between sheets of plastic wrap to an even 1/3-inch thickness; season both sides with salt and black pepper.",
+      "Set up 3 shallow bowls: 1) flour with garlic powder, 2) beaten eggs, 3) panko breadcrumbs mixed with 1/4 cup grated parmesan, oregano, and dried basil.",
+      "Dredge each chicken cutlet in flour, dip in egg, then press firmly into the parmesan-panko mixture until completely coated.",
+      "Heat olive oil in a wide skillet over medium-high heat. Fry cutlets for 3 to 4 minutes per side until golden brown and crispy, then transfer to a paper-towel-lined plate.",
+      "Preheat oven broiler to high (220°C / 425°F).",
+      "Spread 1/2 cup of marinara sauce across the bottom of a baking dish.",
+      "Arrange crispy chicken cutlets side by side on top of the sauce.",
+      "Spoon 2 to 3 tablespoons of marinara sauce over the center of each cutlet (leaving crusty edges bare to maintain crunch).",
+      "Top generously with fresh mozzarella slices and remaining grated parmesan.",
+      "Broil in the oven for 4 to 5 minutes until mozzarella is bubbling, melted, and flecked with golden-brown spots.",
+      "Garnish with torn fresh basil leaves and serve hot alongside marinara-tossed spaghetti."
+    ],
+    "tip": "Spoon marinara sauce only over the center of the fried cutlets before baking, leaving the edges exposed so you keep that addictive crunchy texture alongside gooey melted cheese.",
+    "nutrition": {
+      "calories": 590,
+      "proteinContent": 52.0,
+      "fatContent": 26.0,
+      "carbohydrateContent": 36.0
+    },
+    "lang": {
+      "ru": {
+        "name": "Italian Chicken Parmigiana",
+        "catLabel": "World Cuisine",
+        "diff": "Darmiyana",
+        "servings": "4 log",
+        "desc": "Crispy fried chicken cutlets tamatar marinara sauce aur pighle mozzarella cheese ke sath.",
+        "alt": "Italian Chicken Parmigiana"
+      },
+      "hi": {
+        "name": "इटैलियन चिकन पारमिगियाना",
+        "catLabel": "विश्व व्यंजन",
+        "diff": "मध्यम",
+        "servings": "4 लोग",
+        "desc": "कुरकुरा चिकन कटलेट टमाटर सॉस और पिघले हुए मोज़ेरेला पनीर के साथ।",
+        "alt": "इटैलियन चिकन पारमिगियाना"
+      }
+    }
+  },
+  {
+    "id": "traditional-shakshuka",
+    "country": "Middle East",
+    "name": "Traditional Middle Eastern Shakshuka",
+    "cat": "nashta",
+    "catLabel": "Breakfast",
+    "veg": "veg",
+    "time": 25,
+    "diff": "Easy",
+    "servings": "4 people",
+    "alt": "Skillet of bubbling spiced tomato shakshuka with soft-poached runny eggs feta and cilantro with ZaikaWorlds logo",
+    "desc": "Poached eggs nestled in a simmering skillet of spiced tomatoes, bell peppers, garlic, cumin, and smoked paprika, topped with crumbled feta cheese.",
+    "intro": "Shakshuka is an undisputed breakfast and brunch superstar across social media and Middle Eastern dining tables. Plump fresh eggs are poached directly inside a bubbling, aromatic skillet sauce of sweet bell peppers, ripe tomatoes, caramelized onions, garlic, and warm North African spices, best enjoyed by dipping chunks of warm crusty bread.",
+    "ing": [
+      "Large fresh eggs 4 to 5 eggs",
+      "Extra virgin olive oil 2 tbsp",
+      "Yellow onion finely diced 1 medium",
+      "Red bell pepper diced 1 large",
+      "Fresh garlic cloves minced 4",
+      "Ground cumin 1.5 tsp, smoked paprika 1.5 tsp, ground coriander 0.5 tsp",
+      "Cayenne pepper or chili flakes 0.25 tsp (to taste)",
+      "Crushed San Marzano tomatoes or ripe diced tomatoes 1 can (14 oz / 400g)",
+      "Tomato paste 1 tbsp",
+      "Crumbled Greek feta cheese 0.5 cup",
+      "Fresh chopped cilantro and flat-leaf parsley for garnish",
+      "Warm pita flatbreads or crusty sourdough for dipping"
+    ],
+    "steps": [
+      "Heat olive oil in a wide heavy cast-iron skillet over medium heat.",
+      "Add diced onion and red bell pepper; sauté for 5 to 7 minutes until tender and lightly caramelized.",
+      "Add minced garlic, cumin, smoked paprika, ground coriander, cayenne, salt, and black pepper; toast spices for 1 minute until fragrant.",
+      "Stir in tomato paste and crushed tomatoes; bring to a simmer, reduce heat to low-medium, and cook uncovered for 10 minutes until sauce thickens.",
+      "Using the back of a large spoon, make 4 to 5 small wells in the simmering tomato sauce.",
+      "Carefully crack one egg into each well.",
+      "Cover skillet with a lid and cook gently on low heat for 5 to 7 minutes until egg whites are set and opaque, but yolks remain soft and runny.",
+      "Remove skillet from heat.",
+      "Sprinkle crumbled creamy feta cheese, freshly chopped cilantro, and parsley over the top.",
+      "Serve bubbling hot directly in the skillet with warm crusty sourdough or pita bread for dunking into the golden yolks."
+    ],
+    "tip": "Covering the skillet on low heat cooks the egg whites gently with trapped steam without cooking through the delicate runny yolks.",
+    "nutrition": {
+      "calories": 280,
+      "proteinContent": 16.0,
+      "fatContent": 18.0,
+      "carbohydrateContent": 14.0
+    },
+    "lang": {
+      "ru": {
+        "name": "Traditional Shakshuka",
+        "catLabel": "Nashta",
+        "diff": "Aasan",
+        "servings": "4 log",
+        "desc": "Tamatar, shimla mirch aur zeera masala mein pakke hue naram anday aur feta cheese.",
+        "alt": "Traditional Shakshuka"
+      },
+      "hi": {
+        "name": "ट्रेडिशनल शकशूका",
+        "catLabel": "नाश्ता",
+        "diff": "सरल",
+        "servings": "4 लोग",
+        "desc": "मसालेदार टमाटर और शिमला मिर्च की ग्रेवी में पके हुए अंडे और फेटा पनीर।",
+        "alt": "ट्रेडिशनल शकशूका"
+      }
+    }
+  },
+  {
+    "id": "spanish-churros-con-chocolate",
+    "country": "Spain",
+    "name": "Spanish Churros con Chocolate",
+    "cat": "meetha",
+    "catLabel": "Dessert",
+    "veg": "veg",
+    "time": 30,
+    "diff": "Easy",
+    "servings": "6 people",
+    "alt": "Golden fried star-piped Spanish churros coated in cinnamon sugar with thick dark chocolate dip with ZaikaWorlds logo",
+    "desc": "Crispy golden ridges of freshly fried Spanish dough piped with a star tip, dusted in aromatic cinnamon sugar, and served with thick velvety hot chocolate dip.",
+    "intro": "Churros con Chocolate is Spain's most iconic sweet street delicacy, celebrated from Madrid chocolaterías to bakeries worldwide. Piped through a star-shaped nozzle directly into hot oil, these golden fluted pastries emerge with a shatteringly crisp exterior and a tender, steaming interior, paired with intensely rich and glossy Spanish dipping chocolate.",
+    "ing": [
+      "All-purpose flour 1 cup (130g)",
+      "Water 1 cup (240ml)",
+      "Unsalted butter 2 tbsp (30g)",
+      "Granulated sugar 1 tbsp (for dough) + 0.5 cup (for coating)",
+      "Ground cinnamon 1.5 tsp (for coating)",
+      "Baking powder 0.5 tsp, salt 0.5 tsp",
+      "Neutral oil for deep frying (vegetable or canola)",
+      "Dark chocolate (70% cocoa) chopped 150g (5 oz)",
+      "Whole milk 1 cup (240ml)",
+      "Cornstarch 1.5 tsp dissolved in 1 tbsp milk (for thick Spanish chocolate dip)"
+    ],
+    "steps": [
+      "In a medium bowl, mix 0.5 cup sugar with 1.5 tsp ground cinnamon in a shallow plate; set aside for coating.",
+      "In a saucepan, bring water, butter, 1 tbsp sugar, and salt to a rolling boil over medium-high heat until butter is melted.",
+      "Remove saucepan from heat, immediately dump in all the flour and baking powder at once, and stir vigorously with a wooden spoon until a smooth, shiny dough ball pulls away cleanly from the sides of the pan.",
+      "Let dough rest for 5 minutes to cool slightly, then transfer into a sturdy piping bag fitted with a closed star nozzle (Wilton 1M or 2D).",
+      "Heat 2 inches of oil in a wide pot or Dutch oven to 180°C (360°F).",
+      "Pipe 4 to 5-inch dough ribbons directly into hot oil, cutting the dough at the nozzle tip with kitchen scissors or a knife.",
+      "Fry churros for 3 to 4 minutes, flipping occasionally, until golden-brown and crackling crisp.",
+      "Remove with a slotted spoon onto a paper towel for 30 seconds, then roll immediately in cinnamon sugar while warm so the crystals adhere.",
+      "Make chocolate dip: In a small pot, warm milk and dissolved cornstarch over medium heat; add chopped dark chocolate and whisk continuously for 3 minutes until thick, glossy, and pudding-like.",
+      "Serve warm crispy churros stacked high with cups of warm dipping chocolate."
+    ],
+    "tip": "Dredge churros in cinnamon sugar while they are still hot from the oil so the sugar melts slightly and sticks tight to the crispy star ridges.",
+    "nutrition": {
+      "calories": 390,
+      "proteinContent": 5.0,
+      "fatContent": 20.0,
+      "carbohydrateContent": 48.0
+    },
+    "lang": {
+      "ru": {
+        "name": "Spanish Churros con Chocolate",
+        "catLabel": "Meetha",
+        "diff": "Aasan",
+        "servings": "6 log",
+        "desc": "Crispy fried Spanish churros darchini cheeni aur garma garam chocolate dip ke sath.",
+        "alt": "Spanish Churros con Chocolate"
+      },
+      "hi": {
+        "name": "स्पैनिश चुरोस चॉकलेट",
+        "catLabel": "मीठा",
+        "diff": "सरल",
+        "servings": "6 लोग",
+        "desc": "दालचीनी चीनी में लिपटे कुरकुरे स्पैनिश चुरोस और गाढ़ी चॉकलेट सॉस।",
+        "alt": "स्पैनिश चुरोस चॉकलेट"
+      }
+    }
+  }
+]

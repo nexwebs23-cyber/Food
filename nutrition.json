@@ -930,5 +930,35 @@
     "proteinContent": 24.0,
     "fatContent": 6.0,
     "carbohydrateContent": 14.0
+  },
+  "classic-smash-cheeseburger": {
+    "calories": 640,
+    "proteinContent": 38.0,
+    "fatContent": 36.0,
+    "carbohydrateContent": 42.0
+  },
+  "authentic-italian-tiramisu": {
+    "calories": 380,
+    "proteinContent": 7.0,
+    "fatContent": 26.0,
+    "carbohydrateContent": 31.0
+  },
+  "italian-chicken-parmigiana": {
+    "calories": 590,
+    "proteinContent": 52.0,
+    "fatContent": 26.0,
+    "carbohydrateContent": 36.0
+  },
+  "traditional-shakshuka": {
+    "calories": 280,
+    "proteinContent": 16.0,
+    "fatContent": 18.0,
+    "carbohydrateContent": 14.0
+  },
+  "spanish-churros-con-chocolate": {
+    "calories": 390,
+    "proteinContent": 5.0,
+    "fatContent": 20.0,
+    "carbohydrateContent": 48.0
   }
 }
