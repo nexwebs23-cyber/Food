@@ -5,7 +5,7 @@
     <link>https://www.zaikaworlds.com/</link>
     <description>Cook famous dishes from Pakistan and India, plus favourites from around the world, with big photos and step by step methods.</description>
     <language>en</language>
-    <lastBuildDate>Wed, 25 Nov 2026 11:35:51 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 26 Nov 2026 06:27:14 GMT</lastBuildDate>
     <item>
       <title>Chicken Biryani</title>
       <link>https://www.zaikaworlds.com/recipe/biryani</link>
@@ -949,6 +949,46 @@
       <description>Churros con Chocolate is Spain's most iconic sweet street delicacy, celebrated from Madrid chocolaterías to bakeries worldwide. Piped through a star-shaped nozzle directly into hot oil, these golden fluted pastries emerge with a shatteringly crisp exterior and a tender, steaming interior, paired with intensely rich and glossy Spanish dipping chocolate.</description>
       <enclosure url="https://www.zaikaworlds.com/assets/spanish-churros-con-chocolate.webp" type="image/webp" length="192334" />
       <media:content url="https://www.zaikaworlds.com/assets/spanish-churros-con-chocolate.webp" type="image/webp" medium="image" />
+    </item>
+    <item>
+      <title>Thai Mango Sticky Rice</title>
+      <link>https://www.zaikaworlds.com/recipe/thai-mango-sticky-rice</link>
+      <guid isPermaLink="true">https://www.zaikaworlds.com/recipe/thai-mango-sticky-rice</guid>
+      <description>Thai Mango Sticky Rice is Thailand's most legendary dessert and a worldwide culinary phenomenon. Made by gently steaming Thai glutinous sweet rice and soaking it in rich, aromatic coconut nectar, its heavenly creaminess provides the ultimate contrast to chilled, juicy sweet honey mangoes.</description>
+      <enclosure url="https://www.zaikaworlds.com/assets/thai-mango-sticky-rice.webp" type="image/webp" length="141900" />
+      <media:content url="https://www.zaikaworlds.com/assets/thai-mango-sticky-rice.webp" type="image/webp" medium="image" />
+    </item>
+    <item>
+      <title>Thai Massaman Beef Curry</title>
+      <link>https://www.zaikaworlds.com/recipe/thai-massaman-curry</link>
+      <guid isPermaLink="true">https://www.zaikaworlds.com/recipe/thai-massaman-curry</guid>
+      <description>Voted repeatedly as one of the world's most delicious foods by CNN Travel, Thai Massaman Curry (Massaman Neua) represents the royal meeting of Persian-Indian spices with vibrant Thai coconut cream. Mildly spicy, subtly sweet, and wonderfully nutty, it is a masterclass in culinary balance.</description>
+      <enclosure url="https://www.zaikaworlds.com/assets/thai-massaman-curry.webp" type="image/webp" length="281928" />
+      <media:content url="https://www.zaikaworlds.com/assets/thai-massaman-curry.webp" type="image/webp" medium="image" />
+    </item>
+    <item>
+      <title>Thai Basil Chicken</title>
+      <link>https://www.zaikaworlds.com/recipe/thai-basil-chicken</link>
+      <guid isPermaLink="true">https://www.zaikaworlds.com/recipe/thai-basil-chicken</guid>
+      <description>Pad Krapow Gai is Thailand's undisputed national comfort dish and the king of Bangkok street food. Minced chicken seared on scorching wok heat with pungent holy basil leaves and crushed red chilies, crowned with a famous Thai-style fried egg with golden crispy ruffled edges.</description>
+      <enclosure url="https://www.zaikaworlds.com/assets/thai-basil-chicken.webp" type="image/webp" length="283740" />
+      <media:content url="https://www.zaikaworlds.com/assets/thai-basil-chicken.webp" type="image/webp" medium="image" />
+    </item>
+    <item>
+      <title>Amritsari Chole Bhature</title>
+      <link>https://www.zaikaworlds.com/recipe/amritsari-chole-bhature</link>
+      <guid isPermaLink="true">https://www.zaikaworlds.com/recipe/amritsari-chole-bhature</guid>
+      <description>Chole Bhature is North India's crown jewel of indulgent dining and legendary street food culture. Originating from Punjab, plump kabuli chickpeas are slow-cooked in a signature dark tea-leaf infusion with roasted spices, served alongside colossal fried breads that puff like golden clouds.</description>
+      <enclosure url="https://www.zaikaworlds.com/assets/amritsari-chole-bhature.webp" type="image/webp" length="245436" />
+      <media:content url="https://www.zaikaworlds.com/assets/amritsari-chole-bhature.webp" type="image/webp" medium="image" />
+    </item>
+    <item>
+      <title>Delhi Street-Style Pani Puri</title>
+      <link>https://www.zaikaworlds.com/recipe/delhi-pani-puri</link>
+      <guid isPermaLink="true">https://www.zaikaworlds.com/recipe/delhi-pani-puri</guid>
+      <description>Pani Puri (also cherished as Golgappa and Puchka) is India's most celebrated street food masterpiece. One bite bursts with an electrifying explosion of crispy crunch, icy chilled tangy spicy mint water, soothing sweet tamarind chutney, and hearty spiced potatoes.</description>
+      <enclosure url="https://www.zaikaworlds.com/assets/delhi-pani-puri.webp" type="image/webp" length="266734" />
+      <media:content url="https://www.zaikaworlds.com/assets/delhi-pani-puri.webp" type="image/webp" medium="image" />
     </item>
   </channel>
 </rss>

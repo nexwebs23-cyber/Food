@@ -1,0 +1,296 @@
+[
+  {
+    "id": "thai-mango-sticky-rice",
+    "country": "Thailand",
+    "name": "Thai Mango Sticky Rice (Khao Niew Mamuang)",
+    "cat": "meetha",
+    "catLabel": "Dessert",
+    "veg": "veg",
+    "time": 35,
+    "diff": "Easy",
+    "servings": "4 people",
+    "alt": "Sweet ripe yellow mango slices with warm coconut sticky rice and salted coconut cream drizzle",
+    "desc": "Fragrant steamed glutinous sticky rice bathed in sweet coconut milk, served alongside luscious slices of sweet honey mango and crowned with toasted mung beans.",
+    "intro": "Thai Mango Sticky Rice (Khao Niew Mamuang) is Thailand's most legendary dessert and a worldwide culinary phenomenon. Made by gently steaming Thai glutinous sweet rice and soaking it in rich, aromatic coconut nectar, its heavenly creaminess provides the ultimate contrast to chilled, juicy sweet honey mangoes.",
+    "ing": [
+      "Thai glutinous sweet rice (sticky rice) 1.5 cups (300g), soaked for 4 hours or overnight",
+      "Ripe sweet honey mangoes (Nam Dok Mai or Alphonso/Ataulfo) 2 large, peeled and sliced",
+      "Coconut cream or full-fat coconut milk 1.5 cups (360ml)",
+      "Granulated sugar 0.5 cup (100g)",
+      "Salt 0.75 tsp (crucial for balancing the coconut sweetness)",
+      "Pandan leaf 1 tied in a knot (optional for authentic aroma)",
+      "Crispy toasted yellow split mung beans or toasted white sesame seeds 1 tbsp (for garnish)"
+    ],
+    "steps": [
+      "Drain the soaked sticky rice thoroughly and steam in a cheesecloth-lined steamer basket over boiling water for 25 to 30 minutes until soft and translucent.",
+      "While rice is steaming, combine 1 cup coconut milk, sugar, 0.5 tsp salt, and the tied pandan leaf in a small saucepan over medium heat; warm gently until sugar completely dissolves (do not boil).",
+      "Transfer hot steamed rice into a heatproof bowl, pour the warm sweet coconut mixture over it, stir gently, cover tightly, and allow to rest for 20 minutes to fully absorb the liquid.",
+      "In another small saucepan, simmer the remaining 0.5 cup coconut milk with 0.25 tsp salt and 0.5 tsp rice flour until slightly thickened into a rich salted coconut topping sauce.",
+      "To serve, mound a scoop of warm coconut sticky rice onto plates alongside freshly sliced ripe mango, drizzle generously with salted coconut sauce, and sprinkle with crispy toasted mung beans."
+    ],
+    "tip": "Always soak the glutinous sticky rice for at least 4 hours before steaming. The secret of Thai street vendors is balancing the sweet rice with a slightly salted coconut cream drizzle.",
+    "nutrition": {
+      "calories": 390,
+      "proteinContent": 5.0,
+      "fatContent": 12.0,
+      "carbohydrateContent": 68.0
+    },
+    "lang": {
+      "ru": {
+        "name": "Thai Mango Sticky Rice",
+        "catLabel": "Meetha",
+        "diff": "Aasan",
+        "servings": "4 log",
+        "desc": "Meethe ripe mango slices ke sath garam coconut sticky rice aur salted coconut cream sauce.",
+        "alt": "Thai Mango Sticky Rice"
+      },
+      "hi": {
+        "name": "थाई मैंगो स्टिकी राइस",
+        "catLabel": "मीठा",
+        "diff": "सरल",
+        "servings": "4 लोग",
+        "desc": "मीठे पके आम के टुकड़ों के साथ नारियल दूध में पके स्टिकी राइस और नमकीन नारियल क्रीम।",
+        "alt": "थाई मैंगो स्टिकी राइस"
+      }
+    }
+  },
+  {
+    "id": "thai-massaman-curry",
+    "country": "Thailand",
+    "name": "Authentic Thai Massaman Beef Curry",
+    "cat": "world",
+    "catLabel": "World Food",
+    "veg": "nonveg",
+    "time": 75,
+    "diff": "Medium",
+    "servings": "5 people",
+    "alt": "Rich aromatic Thai Massaman beef curry with tender beef baby potatoes and roasted peanuts",
+    "desc": "Tender melt-in-your-mouth beef simmered in a velvety coconut curry spiced with cardamom, cinnamon, roasted peanuts, and golden baby potatoes.",
+    "intro": "Voted repeatedly as one of the world's most delicious foods by CNN Travel, Thai Massaman Curry (Massaman Neua) represents the royal meeting of Persian-Indian spices with vibrant Thai coconut cream. Mildly spicy, subtly sweet, and wonderfully nutty, it is a masterclass in culinary balance.",
+    "ing": [
+      "Beef chuck or beef shank cut into 1.5-inch cubes 750g (1.6 lbs)",
+      "Authentic Massaman curry paste 4 tbsp (60g)",
+      "Full-fat coconut milk 2 cans (800ml total), divided into cream and thin milk",
+      "Baby yellow potatoes halved 400g (14 oz)",
+      "Shallots or pearl onions peeled whole 8 to 10",
+      "Roasted unsalted peanuts 0.33 cup (50g)",
+      "Tamarind paste concentrate 2.5 tbsp",
+      "Palm sugar (or brown sugar) 2 tbsp",
+      "Fish sauce 2 tbsp",
+      "Whole spices: 1 cinnamon stick, 3 green cardamom pods bruised, 2 star anise"
+    ],
+    "steps": [
+      "Spoon 0.5 cup of thick coconut cream from top of the can into a heavy Dutch oven over medium heat; fry until oil begins to separate.",
+      "Add Massaman curry paste, cinnamon stick, bruised cardamom, and star anise; stir-fry vigorously for 3 to 4 minutes until intoxicatingly fragrant.",
+      "Add beef cubes and toss to coat evenly in the spiced coconut paste for 3 minutes.",
+      "Pour in remaining coconut milk, bring to a gentle simmer, cover with lid slightly ajar, and cook on low heat for 50 minutes until beef is tender.",
+      "Add baby potatoes, whole shallots, roasted peanuts, tamarind paste, palm sugar, and fish sauce; simmer uncovered for 20 minutes until potatoes are fork-tender and sauce is thick and glossy.",
+      "Taste and balance the holy trinity of Massaman: sweet from palm sugar, tangy from tamarind, and savory from fish sauce. Serve warm with steamed jasmine rice."
+    ],
+    "tip": "Cracking the coconut cream in the beginning until the red oil separates is the authentic Thai secret that gives this curry its glossy sheen and deep aromatic depth.",
+    "nutrition": {
+      "calories": 580,
+      "proteinContent": 36.0,
+      "fatContent": 38.0,
+      "carbohydrateContent": 24.0
+    },
+    "lang": {
+      "ru": {
+        "name": "Authentic Thai Massaman Beef Curry",
+        "catLabel": "World Food",
+        "diff": "Darmiyana",
+        "servings": "5 log",
+        "desc": "Narm beef chunks, baby potatoes aur roasted peanuts ke sath laziz coconut Massaman curry.",
+        "alt": "Thai Massaman Beef Curry"
+      },
+      "hi": {
+        "name": "थाई मस्समान बीफ करी",
+        "catLabel": "वर्ल्ड फूड",
+        "diff": "मध्यम",
+        "servings": "5 लोग",
+        "desc": "नरम बीफ, आलू और भुनी मूंगफली के साथ खुशबूदार नारियल मस्समान करी।",
+        "alt": "थाई मस्समान बीफ करी"
+      }
+    }
+  },
+  {
+    "id": "thai-basil-chicken",
+    "country": "Thailand",
+    "name": "Thai Basil Chicken (Pad Krapow Gai)",
+    "cat": "world",
+    "catLabel": "World Food",
+    "veg": "nonveg",
+    "time": 20,
+    "diff": "Easy",
+    "servings": "3 people",
+    "alt": "Sizzling spicy Thai holy basil chicken over jasmine rice topped with crispy fried runny egg",
+    "desc": "Fiery minced chicken stir-fried at high heat with fragrant holy basil, garlic, and Thai bird's eye chilies, served over jasmine rice with a crispy fried egg.",
+    "intro": "Pad Krapow Gai is Thailand's undisputed national comfort dish and the king of Bangkok street food. Minced chicken seared on scorching wok heat with pungent holy basil leaves and crushed red chilies, crowned with a famous Thai-style fried egg with golden crispy ruffled edges.",
+    "ing": [
+      "Boneless chicken thighs or breast finely minced 500g (1.1 lbs)",
+      "Fresh Thai holy basil (or Italian sweet basil) leaves 2 packed cups",
+      "Thai bird's eye chilies (prik kee noo) 5 to 7 chilies (adjust to heat preference)",
+      "Fresh garlic cloves 8 cloves",
+      "Oyster sauce 1.5 tbsp",
+      "Light soy sauce 1 tbsp, dark sweet soy sauce (Kecap Manis) 1 tsp",
+      "Fish sauce 1 tbsp",
+      "Granulated sugar 1 tsp, water or chicken broth 2 tbsp",
+      "High-heat cooking oil 3 tbsp",
+      "Large eggs 3 (for Thai crispy fried eggs)",
+      "Steamed jasmine rice for serving"
+    ],
+    "steps": [
+      "Pound the garlic and Thai bird's eye chilies together in a mortar and pestle into a rough aromatic paste.",
+      "In a small bowl, whisk together oyster sauce, light soy sauce, dark soy sauce, fish sauce, sugar, and water.",
+      "Heat 2 tbsp oil in a wok over smoking high heat; crack in an egg and spoon hot oil over top until edges are deeply golden and crispy while yolk remains runny; remove and set aside.",
+      "In the hot wok, add the garlic-chili paste and stir-fry rapidly for 30 seconds until fragrant.",
+      "Toss in the minced chicken, breaking it apart with a spatula, and stir-fry for 3 to 4 minutes on high heat until cooked through.",
+      "Pour in the prepared sauce mixture and toss rapidly for 1 minute until glazed.",
+      "Turn off the heat completely, immediately toss in the fresh basil leaves, and fold until gently wilted.",
+      "Serve immediately over hot jasmine rice topped with the crispy fried egg."
+    ],
+    "tip": "Turn off the heat before folding in the basil leaves. The residual wok heat wilts the basil in seconds while preserving its fresh, peppery aroma without turning bitter.",
+    "nutrition": {
+      "calories": 440,
+      "proteinContent": 34.0,
+      "fatContent": 22.0,
+      "carbohydrateContent": 28.0
+    },
+    "lang": {
+      "ru": {
+        "name": "Thai Basil Chicken (Pad Krapow Gai)",
+        "catLabel": "World Food",
+        "diff": "Aasan",
+        "servings": "3 log",
+        "desc": "Tez aanch par paka spicy chicken mince, holy basil aur crispy fried egg ke sath.",
+        "alt": "Thai Basil Chicken"
+      },
+      "hi": {
+        "name": "थाई बेसिल चिकन (पैड क्रापाओ)",
+        "catLabel": "वर्ल्ड फूड",
+        "diff": "सरल",
+        "servings": "3 लोग",
+        "desc": "तीखा कीमा चिकन, तुलसी के पत्ते और कुरकुरे फ्राइड अंडे के साथ गरमा-गरम चावल पर परोसा गया।",
+        "alt": "थाई बेसिल चिकन"
+      }
+    }
+  },
+  {
+    "id": "amritsari-chole-bhature",
+    "country": "India",
+    "name": "Amritsari Chole Bhature",
+    "cat": "desi",
+    "catLabel": "Desi Dishes",
+    "veg": "veg",
+    "time": 50,
+    "diff": "Medium",
+    "servings": "4 people",
+    "alt": "Puffy golden bhature with authentic dark spiced Punjabi Amritsari chole chickpea curry",
+    "desc": "Crispy yet pillowy balloon-puffed golden bhature paired with rich, dark spiced Amritsari chickpea curry, pickled onions, and tangy mint chutney.",
+    "intro": "Chole Bhature is North India's crown jewel of indulgent dining and legendary street food culture. Originating from Punjab, plump kabuli chickpeas are slow-cooked in a signature dark tea-leaf infusion with roasted spices, served alongside colossal fried breads that puff like golden clouds.",
+    "ing": [
+      "Dried white chickpeas (Kabuli Chana) 2 cups (400g), soaked overnight with 0.5 tsp baking soda",
+      "Black tea bags 2 (boiled with chickpeas for authentic dark Amritsari color)",
+      "All-purpose flour (Maida) 2.5 cups (350g), fine semolina (Sooji) 3 tbsp",
+      "Plain yogurt (dahi) 0.33 cup, baking powder 1 tsp, sugar 1 tsp, salt 1 tsp",
+      "Onions 2 large finely chopped, fresh ginger-garlic paste 2 tbsp",
+      "Tomato puree fresh 1 cup",
+      "Chole Masala powder 2 tbsp, roasted cumin powder 1 tsp, amchur (dry mango powder) 1 tsp, kasuri methi 1 tbsp",
+      "Whole spices: 2 bay leaves, 1 black cardamom, 4 cloves, 1 cinnamon stick",
+      "Ghee or mustard oil 4 tbsp, cooking oil for deep-frying",
+      "Garnish: Julienne ginger, slit green chilies, sirka pyaz (pickled onions), fresh coriander"
+    ],
+    "steps": [
+      "Boil soaked chickpeas in a pressure cooker with 4 cups water, 2 tea bags, whole spices, and salt for 5 to 6 whistles until melt-in-the-mouth soft; discard tea bags.",
+      "For bhatura dough: Mix flour, semolina, yogurt, baking powder, sugar, salt, and 1 tbsp oil; knead with warm water into a soft elastic dough, cover with a damp cloth, and rest for 2 hours.",
+      "Heat ghee in a pan, sauté chopped onions until golden brown, add ginger-garlic paste, and cook until raw aroma departs.",
+      "Stir in tomato puree, chole masala, roasted cumin, and amchur; cook until fragrant oil releases from the masala.",
+      "Add the boiled dark chickpeas along with their cooking broth; mash a few spoonfuls against the pot to create rich gravy body. Simmer on low heat for 20 minutes.",
+      "Finish chole with kasuri methi and a hot ghee tadka of julienne ginger and slit green chilies.",
+      "Roll portions of rested dough into ovals and deep-fry in smoking hot oil, gently pressing with a slotted spoon until they balloon into golden puffy bhature.",
+      "Serve piping hot bhature immediately with spiced Amritsari chole, pickled onions, and lemon wedges."
+    ],
+    "tip": "Boiling the chickpeas with black tea bags is the authentic Punjabi secret that gives Amritsari chole their signature dark color and earthy depth.",
+    "nutrition": {
+      "calories": 620,
+      "proteinContent": 18.0,
+      "fatContent": 24.0,
+      "carbohydrateContent": 86.0
+    },
+    "lang": {
+      "ru": {
+        "name": "Amritsari Chole Bhature",
+        "catLabel": "Desi Dishes",
+        "diff": "Darmiyana",
+        "servings": "4 log",
+        "desc": "Phoole hue bhature ke sath authentic spicy dark Punjabi Amritsari chole aur sirka pyaz.",
+        "alt": "Amritsari Chole Bhature"
+      },
+      "hi": {
+        "name": "अमृतसरी छोले भटूरे",
+        "catLabel": "देसी व्यंजन",
+        "diff": "मध्यम",
+        "servings": "4 लोग",
+        "desc": "गर्मागर्म फूले हुए भटूरे के साथ असली पंजाबी गहरे मसालेदार अमृतसरी छोले और सिरका प्याज।",
+        "alt": "अमृतसरी छोले भटूरे"
+      }
+    }
+  },
+  {
+    "id": "delhi-pani-puri",
+    "country": "India",
+    "name": "Delhi Street-Style Pani Puri (Golgappa)",
+    "cat": "street-food",
+    "catLabel": "Street Food",
+    "veg": "veg",
+    "time": 30,
+    "diff": "Easy",
+    "servings": "4 people",
+    "alt": "Crispy golden hollow puris filled with spiced potatoes and spicy mint jaljeera water",
+    "desc": "Ultra-crispy hollow puris loaded with spiced potato and chickpea filling, filled to the brim with refreshing spicy mint-coriander water and sweet tamarind chutney.",
+    "intro": "Pani Puri (also cherished as Golgappa and Puchka) is India's most celebrated street food masterpiece. One bite bursts with an electrifying explosion of crispy crunch, icy chilled tangy spicy mint water, soothing sweet tamarind chutney, and hearty spiced potatoes.",
+    "ing": [
+      "Ready-to-fry or store-bought crisp hollow puris 30 to 40 puris",
+      "Boiled potatoes peeled and diced 2 large",
+      "Boiled black chickpeas (kala chana) or yellow peas 1 cup",
+      "Fresh mint leaves 1.5 cups, fresh coriander leaves 1 cup",
+      "Green chilies 3 to 4, fresh ginger 1-inch piece",
+      "Pani Puri masala powder 2 tbsp, black salt (kala namak) 1.5 tsp, roasted cumin powder 1.5 tsp, chaat masala 1 tsp",
+      "Hing (asafoetida) a pinch, lemon juice 3 tbsp",
+      "Ice-cold filtered water 4 cups",
+      "Sweet tamarind-date chutney 0.75 cup",
+      "Crispy salted boondi 0.5 cup (for floating in the spiced water)"
+    ],
+    "steps": [
+      "For spicy water (Teekha Pani): Blend fresh mint, coriander, green chilies, and ginger with 0.5 cup cold water into a smooth vibrant green puree.",
+      "Pour the puree through a strainer into a large pitcher; stir in 4 cups ice-cold water, black salt, roasted cumin powder, pani puri masala, chaat masala, hing, and fresh lemon juice. Mix well, float crispy boondi on top, and chill.",
+      "For potato filling: In a bowl, mash boiled potatoes and black chickpeas roughly with chaat masala, roasted cumin, red chili powder, salt, and chopped cilantro.",
+      "To assemble and serve: Poke a thumb hole in the center of a crisp puri, add a spoonful of potato filling, drizzle with sweet tamarind chutney, plunge the puri into the icy spicy green water, and eat in one glorious mouthful!"
+    ],
+    "tip": "Always use ice-cold water and plenty of black salt (kala namak) for the spicy water. The black salt gives that authentic tangy street flavor.",
+    "nutrition": {
+      "calories": 260,
+      "proteinContent": 6.0,
+      "fatContent": 5.0,
+      "carbohydrateContent": 48.0
+    },
+    "lang": {
+      "ru": {
+        "name": "Delhi Street-Style Pani Puri",
+        "catLabel": "Street Food",
+        "diff": "Aasan",
+        "servings": "4 log",
+        "desc": "Crispy gol gappay chatpatay aloo-chanay filling aur teekhay thanday pudina pani ke sath.",
+        "alt": "Delhi Pani Puri Golgappa"
+      },
+      "hi": {
+        "name": "दिल्ली स्ट्रीट-स्टाइल पानी पूरी (गोलगप्पा)",
+        "catLabel": "स्ट्रीट फूड",
+        "diff": "सरल",
+        "servings": "4 लोग",
+        "desc": "कुरकुरी पूरियां, आलू-चना भरावन, खट्टा-मीठा इमली पानी और तीखा ठंडा पुदीना जलजीरा।",
+        "alt": "दिल्ली पानी पूरी गोलगप्पा"
+      }
+    }
+  }
+]

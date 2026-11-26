@@ -960,5 +960,35 @@
     "proteinContent": 5.0,
     "fatContent": 20.0,
     "carbohydrateContent": 48.0
+  },
+  "thai-mango-sticky-rice": {
+    "calories": 390,
+    "proteinContent": 5.0,
+    "fatContent": 12.0,
+    "carbohydrateContent": 68.0
+  },
+  "thai-massaman-curry": {
+    "calories": 580,
+    "proteinContent": 36.0,
+    "fatContent": 38.0,
+    "carbohydrateContent": 24.0
+  },
+  "thai-basil-chicken": {
+    "calories": 440,
+    "proteinContent": 34.0,
+    "fatContent": 22.0,
+    "carbohydrateContent": 28.0
+  },
+  "amritsari-chole-bhature": {
+    "calories": 620,
+    "proteinContent": 18.0,
+    "fatContent": 24.0,
+    "carbohydrateContent": 86.0
+  },
+  "delhi-pani-puri": {
+    "calories": 260,
+    "proteinContent": 6.0,
+    "fatContent": 5.0,
+    "carbohydrateContent": 48.0
   }
 }
