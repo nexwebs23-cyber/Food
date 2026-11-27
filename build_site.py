@@ -4106,6 +4106,13 @@ def validate_build(data):
         if r['id'] not in (dates.get('article') or {}):
             problems.append('%s: no article date in recipe_dates.json'
                             % r['id'])
+        # Mandatory Cooking FAQs lock (minimum 5 FAQs required for every recipe):
+        # Prevents any recipe from being published without rich FAQs and FAQPage Schema.
+        tx_en = r_text_en(r, data.get('extra') or {})
+        faqs = tx_en.get('faq') or []
+        if len(faqs) < 5:
+            problems.append('%s: has only %d FAQs (minimum 5 FAQs required per recipe for rich snippets)'
+                            % (r['id'], len(faqs)))
     # PageSpeed (2026-10-31): IMG_DIMS must be the real file dimensions
     # (stale dims caused CLS) and every recipe photo must have a 600px
     # thumbnail in assets/thumbs/ (cards display at most ~563px wide).
