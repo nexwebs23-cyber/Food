@@ -1,0 +1,299 @@
+[
+  {
+    "id": "japanese-miso-ramen",
+    "country": "Japan",
+    "name": "Authentic Japanese Miso Ramen",
+    "cat": "world",
+    "catLabel": "World Food",
+    "veg": "nonveg",
+    "time": 45,
+    "diff": "Medium",
+    "servings": "4 people",
+    "alt": "Authentic Japanese miso ramen bowl with chashu pork ajitsuke tamago egg sweet corn and nori",
+    "desc": "Rich savory Hokkaido-style miso ramen with springy noodles, tender pork belly chashu, custardy ajitsuke tamago egg, sweet corn, and aromatic sesame chili oil.",
+    "intro": "Craving the ultimate Japanese miso ramen recipe from scratch? This authentic Sapporo-style homemade ramen noodle soup features a deeply flavorful umami-rich pork and chicken dashi broth, whisked with red and white fermented soybean miso paste, toasted sesame oil, and garlic. Laden with springy fresh ramen noodles and traditional toppings including melt-in-your-mouth chashu pork belly, jammy soy-marinated eggs (ajitsuke tamago), crisp menma bamboo shoots, and sweet buttered corn, it delivers authentic Tokyo ramen shop quality straight to your home dining table.",
+    "ing": [
+      "Fresh ramen noodles (curly chijire-men) 4 portions (600g)",
+      "Rich chicken and pork bone stock (or dashi broth) 6 cups (1.5 liters)",
+      "Japanese red (Akamiso) and white (Shiromiso) fermented miso paste blended 0.5 cup (120g)",
+      "Ground pork or finely sliced tender chashu pork belly 300g (10 oz)",
+      "Toasted sesame oil 2 tbsp, Japanese mirin 2 tbsp, soy sauce (shoyu) 1.5 tbsp",
+      "Garlic minced 4 cloves, fresh ginger grated 1 tbsp",
+      "Toasted white sesame seeds ground 2 tbsp",
+      "Toppings: 4 soft-boiled ramen eggs (ajitsuke tamago) halved, sweet corn kernels 0.5 cup with butter",
+      "Garnish: Crisp menma (fermented bamboo shoots), fresh bean sprouts, toasted nori seaweed sheets, finely sliced green scallions, chili oil (rayu)"
+    ],
+    "steps": [
+      "Heat 2 tbsp toasted sesame oil in a heavy soup pot over medium heat; sauté minced garlic, grated ginger, and ground pork for 4 minutes until meat is nicely browned.",
+      "Add the blended red and white miso paste, mirin, soy sauce, and ground sesame seeds; stir-fry constantly on low heat for 2 minutes to caramelize the miso base into a fragrant tare.",
+      "Pour in the warm chicken and dashi broth, whisking thoroughly to completely dissolve the miso paste; bring to a gentle simmer for 15 minutes to marry all umami notes.",
+      "In a separate pot of rapidly boiling water, cook fresh ramen noodles according to package instructions (about 90 seconds to 2 minutes for firm al dente texture); drain vigorously.",
+      "Divide the piping hot miso broth equally among 4 deep ramen bowls, then gently fold in the cooked springy noodles.",
+      "Artfully arrange toppings: tender chashu slices, halved custardy ramen egg, buttered sweet corn, crisp menma, fresh bean sprouts, and sliced scallions. Tuck a square nori sheet on the rim and drizzle with rayu chili oil."
+    ],
+    "tip": "Never allow the miso broth to boil vigorously after dissolving the miso paste, as boiling destroys the delicate aromatic probiotics and nuanced umami flavors of fermented Japanese miso.",
+    "nutrition": {
+      "calories": 590,
+      "proteinContent": 32.0,
+      "fatContent": 24.0,
+      "carbohydrateContent": 62.0
+    },
+    "lang": {
+      "ru": {
+        "name": "Authentic Japanese Miso Ramen",
+        "catLabel": "World Food",
+        "diff": "Darmiyana",
+        "servings": "4 log",
+        "desc": "Garmi bakhsh Japanese miso soup noodles chashu, custardy anday aur makai ke sath.",
+        "alt": "Japanese Miso Ramen"
+      },
+      "hi": {
+        "name": "जापानी मिसो रेमन नूडल्स",
+        "catLabel": "वर्ल्ड फूड",
+        "diff": "मध्यम",
+        "servings": "4 लोग",
+        "desc": "स्वादिष्ट मिसो शोरबा, स्प्रिंगी रेमन नूडल्स, चाशू और उबले अंडे के साथ प्रामाणिक जापानी सूप।",
+        "alt": "जापानी मिसो रेमन नूडल्स"
+      }
+    }
+  },
+  {
+    "id": "spanish-seafood-paella",
+    "country": "Spain",
+    "name": "Traditional Spanish Seafood Paella",
+    "cat": "world",
+    "catLabel": "World Food",
+    "veg": "nonveg",
+    "time": 50,
+    "diff": "Medium",
+    "servings": "6 people",
+    "alt": "Traditional Spanish seafood paella in pan with saffron bomba rice prawns mussels and crispy socarrat",
+    "desc": "Authentic Valencian seafood paella brimming with saffron-infused bomba rice, jumbo prawns, blue mussels, tender calamari, sweet bell peppers, and the signature crispy socarrat crust.",
+    "intro": "Master the art of traditional Spanish seafood paella (Paella de Marisco), Spain's most iconic and searched culinary masterpiece. Short-grain Spanish Bomba rice slowly absorbs a fragrant homemade seafood sofrito stock infused with luxurious saffron threads, sweet smoked Spanish paprika (pimentón), and ripe grated tomatoes. Studded generously with fresh jumbo tiger prawns, juicy mussels in their shells, tender calamari rings, and sweet fire-roasted peppers, it culminates in the legendary crispy caramelized rice crust known as socarrat.",
+    "ing": [
+      "Spanish Bomba rice (or short-grain Valencia rice) 2.5 cups (500g)",
+      "Rich seafood or fish stock (caldo de marisco) warmed with saffron 5.5 cups (1.3 liters)",
+      "Spanish saffron threads 0.5 tsp gently toasted and steeped",
+      "Jumbo tiger prawns (shell-on) 12 prawns",
+      "Fresh blue mussels scrubbed and debearded 12 to 16 mussels",
+      "Fresh calamari (squid) cleaned and sliced into rings 250g (9 oz)",
+      "Extra virgin Spanish olive oil 0.33 cup",
+      "Sofrito: 1 large onion finely diced, 4 cloves garlic minced, 2 ripe grated tomatoes, 1 sweet red bell pepper sliced into strips",
+      "Sweet Spanish smoked paprika (pimentón dulce) 1.5 tbsp",
+      "Sweet green peas 0.5 cup, fresh flat-leaf parsley chopped, fresh lemon wedges for serving"
+    ],
+    "steps": [
+      "Heat Spanish olive oil in a 14 to 16-inch wide carbon steel paella pan over medium heat; sear jumbo prawns for 1.5 minutes per side until pink, remove and set aside.",
+      "In the same fragrant oil, sauté diced onions, sliced red bell peppers, and calamari rings for 5 minutes until soft.",
+      "Add minced garlic, grated tomatoes, and smoked paprika; cook down the sofrito for 6 to 8 minutes until jammy, dark red, and fragrant.",
+      "Pour in the Spanish Bomba rice, stirring constantly for 2 minutes so each grain is thoroughly coated in the rich tomato sofrito oil.",
+      "Pour in the warm saffron seafood stock and 1 tsp sea salt; gently distribute rice evenly across the pan with a wooden spoon (do NOT stir the rice again once stock begins simmering).",
+      "Simmer vigorously over medium-high heat for 8 minutes, then reduce heat to medium-low for 10 minutes until liquid is mostly absorbed.",
+      "Nestle the seared prawns, cleaned mussels (hinge side down), and sweet green peas into the rice; cook covered with foil for 5 minutes until mussels pop open.",
+      "Form the socarrat: Increase heat to high for the final 2 minutes until you hear a crackling sound and smell toasted caramel rice (do not burn). Rest for 5 minutes before garnishing with parsley and lemon wedges."
+    ],
+    "tip": "The cardinal rule of authentic Spanish paella is to never stir the rice after adding the stock. Leaving the rice undisturbed allows the starches to settle and creates the prized crunchy bottom crust called socarrat.",
+    "nutrition": {
+      "calories": 520,
+      "proteinContent": 34.0,
+      "fatContent": 16.0,
+      "carbohydrateContent": 58.0
+    },
+    "lang": {
+      "ru": {
+        "name": "Traditional Spanish Seafood Paella",
+        "catLabel": "World Food",
+        "diff": "Darmiyana",
+        "servings": "6 log",
+        "desc": "Zafran chawal, prawns, mussels aur crispy bottom crust ke sath classic Spanish seafood paella.",
+        "alt": "Spanish Seafood Paella"
+      },
+      "hi": {
+        "name": "पारंपरिक स्पैनिश सीफूड पाएला",
+        "catLabel": "वर्ल्ड फूड",
+        "diff": "मध्यम",
+        "servings": "6 लोग",
+        "desc": "केसरिया चावल, झींगे और मखमली सीफूड के साथ पारंपरिक स्पेनिश पाएला और कुरकुरा सोकारात।",
+        "alt": "पारंपरिक स्पैनिश सीफूड पाएला"
+      }
+    }
+  },
+  {
+    "id": "classic-french-onion-soup",
+    "country": "France",
+    "name": "Classic French Onion Soup (Gratinée)",
+    "cat": "world",
+    "catLabel": "World Food",
+    "veg": "nonveg",
+    "time": 65,
+    "diff": "Medium",
+    "servings": "4 people",
+    "alt": "Classic French onion soup gratinee with bubbling melted Gruyere cheese and toasted baguette croutons",
+    "desc": "Deeply caramelized sweet yellow onions slow-simmered in rich beef broth, crowned with toasted crusty baguette and a bubbling, broiled blanket of melted Gruyère and Comté cheese.",
+    "intro": "Nothing compares to an authentic French onion soup gratinée (Soupe à l'Oignon) on a chilly evening. Sweet yellow onions are slowly caramelized for nearly an hour until meltingly tender and mahogany-sweet, then deglazed with dry white wine and simmered in a robust herb-infused beef broth. Ladled into traditional ceramic crock bowls, topped with toasted artisanal French baguette slices, and blanketed under mountains of nutty Gruyère cheese broiled until blistered and golden, this classic bistro recipe is the pinnacle of French comfort food.",
+    "ing": [
+      "Yellow onions thinly sliced pole-to-pole 5 large (approx. 1.2 kg / 2.6 lbs)",
+      "Unsalted European butter 3 tbsp, extra virgin olive oil 1 tbsp",
+      "Rich low-sodium beef bone broth 6 cups (1.5 liters)",
+      "Dry white wine (Sauvignon Blanc or Pinot Grigio) 0.5 cup (120ml)",
+      "All-purpose flour 2 tbsp (for velvet soup body)",
+      "Fresh garlic minced 2 cloves, fresh thyme sprigs 4, bay leaves 2",
+      "Worcestershire sauce 1 tsp, kosher salt and freshly ground black pepper",
+      "Artisanal French baguette sliced thick (1-inch) 8 slices, lightly toasted with garlic butter",
+      "Shredded Gruyère cheese (or mix of Gruyère and Comté) 2 cups (220g)"
+    ],
+    "steps": [
+      "Melt butter with olive oil in a heavy-bottomed Dutch oven over medium heat; add all sliced onions and 0.5 tsp salt, tossing to coat evenly.",
+      "Cook uncovered for 45 to 50 minutes, stirring every few minutes, adjusting heat as needed until onions turn deeply caramelized, golden-brown, and sweet like jam.",
+      "Stir in minced garlic and 2 tbsp flour; cook for 2 minutes to cook off raw flour taste.",
+      "Deglaze the pot with dry white wine, scraping up all the savory browned fond stuck to the bottom of the Dutch oven.",
+      "Pour in the warm beef bone broth, Worcestershire sauce, fresh thyme sprigs, and bay leaves; bring to a simmer, partially cover, and cook gently for 25 minutes.",
+      "Discard bay leaves and thyme sprigs; season broth to taste with salt and cracked black pepper.",
+      "Preheat oven broiler to high. Ladle hot onion soup into oven-safe ceramic bowls placed on a baking sheet.",
+      "Float 1 or 2 toasted baguette slices atop each bowl and generously drape with shredded Gruyère cheese over bread and bowl rims.",
+      "Broil 6 inches from the heating element for 3 to 4 minutes until cheese is completely melted, bubbling furiously, and delightfully blistered golden-brown. Serve carefully with fresh thyme."
+    ],
+    "tip": "Do not rush caramelizing the onions with high heat or sugar. True authentic French flavor comes solely from slow, patient caramelization over 45 minutes until the natural onion sugars transform into deep mahogany sweetness.",
+    "nutrition": {
+      "calories": 420,
+      "proteinContent": 19.0,
+      "fatContent": 22.0,
+      "carbohydrateContent": 36.0
+    },
+    "lang": {
+      "ru": {
+        "name": "Classic French Onion Soup",
+        "catLabel": "World Food",
+        "diff": "Darmiyana",
+        "servings": "4 log",
+        "desc": "Caramelized pyaz, rich beef broth aur pighli hui Gruyere cheese ke sath French bistro soup.",
+        "alt": "French Onion Soup"
+      },
+      "hi": {
+        "name": "क्लासिक फ्रेंच अनियन सूप",
+        "catLabel": "वर्ल्ड फूड",
+        "diff": "मध्यम",
+        "servings": "4 लोग",
+        "desc": "कैरामेलाइज़्ड प्याज, रिच बीफ शोरबा, टोस्टेड ब्रेड और पिघली हुई ग्रुयेरे चीज़ के साथ फ्रेंच सूप।",
+        "alt": "क्लासिक फ्रेंच अनियन सूप"
+      }
+    }
+  },
+  {
+    "id": "korean-bibimbap",
+    "country": "South Korea",
+    "name": "Authentic Korean Dolsot Bibimbap",
+    "cat": "world",
+    "catLabel": "World Food",
+    "veg": "nonveg",
+    "time": 40,
+    "diff": "Medium",
+    "servings": "4 people",
+    "alt": "Sizzling Korean dolsot bibimbap stone bowl with bulgogi beef rainbow vegetables egg and gochujang",
+    "desc": "Sizzling Korean rice bowl layered with seasoned namul vegetables, marinated bulgogi beef, a golden fried egg, crispy rice crust, and spicy sweet gochujang bibimbap sauce.",
+    "intro": "Vibrant, nourishing, and universally adored, Korean Dolsot Bibimbap (mixed rice with meat and assorted vegetables) is Korea's crowning culinary jewel. Steamed short-grain rice sizzles inside a blazing hot granite stone pot (dolsot) coated in toasted sesame oil, creating a crackling golden rice crust (nurungji). Elegantly crowned with a rainbow of seasoned sautéed namul vegetables, savory soy-marinated bulgogi beef, and a golden runny egg, it is brought to life when mixed tableside with a punchy crimson gochujang chili sauce.",
+    "ing": [
+      "Cooked short-grain Korean white rice 4 cups warm",
+      "Beef sirloin or ribeye thinly sliced (Bulgogi style) 300g (10 oz)",
+      "Bulgogi marinade: Soy sauce 2 tbsp, brown sugar 1 tbsp, toasted sesame oil 1 tbsp, minced garlic 1 tbsp, black pepper",
+      "Namul Vegetables: Fresh baby spinach 200g, soybean sprouts (kongnamul) 200g, medium carrots julienned 2, zucchini julienned 1, shiitake mushrooms sliced 6",
+      "Sesame oil and garlic for sautéing vegetables, toasted sesame seeds 2 tbsp",
+      "Large eggs 4 (sunny-side up or raw yolk for piping hot stone bowls)",
+      "Signature Bibimbap Sauce: Korean red pepper paste (gochujang) 3 tbsp, toasted sesame oil 1.5 tbsp, sugar 1 tbsp, honey 1 tsp, water 1 tbsp, rice vinegar 1 tsp, minced garlic 1 tsp"
+    ],
+    "steps": [
+      "In a bowl, toss sliced beef with soy sauce, brown sugar, sesame oil, garlic, and black pepper; marinate for 15 minutes.",
+      "Blanch spinach and bean sprouts separately in boiling salted water for 1 minute; squeeze out excess water, then season each separately with a drizzle of sesame oil, pinch of salt, and minced garlic.",
+      "Sauté julienned carrots, zucchini, and shiitake mushrooms separately in a skillet with a drop of sesame oil and pinch of salt for 2 minutes until tender-crisp.",
+      "Sear the marinated bulgogi beef in the skillet over high heat for 3 to 4 minutes until deeply caramelized.",
+      "Whisk all Bibimbap sauce ingredients (gochujang, sesame oil, sugar, honey, vinegar, garlic, water) in a small bowl until silky smooth.",
+      "Prepare the dolsot (or heavy cast-iron skillet): Brush the inside with 1 tbsp sesame oil, press cooked rice firmly into the bottom, and heat over medium heat for 5 minutes until you hear the rice crackling into a golden crust.",
+      "Artfully arrange the seasoned vegetables and beef in colorful radiating segments over the sizzling rice bed.",
+      "Place a sunny-side-up egg in the center, sprinkle generously with toasted sesame seeds, spoon gochujang sauce on top, and serve sizzling hot to mix before eating!"
+    ],
+    "tip": "Coating the hot stone bowl or cast-iron skillet generously with toasted sesame oil creates that legendary crispy toasted rice crust (nurungji) at the bottom that makes dolsot bibimbap irresistible.",
+    "nutrition": {
+      "calories": 560,
+      "proteinContent": 28.0,
+      "fatContent": 18.0,
+      "carbohydrateContent": 72.0
+    },
+    "lang": {
+      "ru": {
+        "name": "Authentic Korean Dolsot Bibimbap",
+        "catLabel": "World Food",
+        "diff": "Darmiyana",
+        "servings": "4 log",
+        "desc": "Garma garam stone bowl mein crispy rice, bulgogi beef, colorful sabziyan aur gochujang sauce.",
+        "alt": "Korean Dolsot Bibimbap"
+      },
+      "hi": {
+        "name": "कोरियाई डोलसोट बिबिम्बप",
+        "catLabel": "वर्ल्ड फूड",
+        "diff": "मध्यम",
+        "servings": "4 लोग",
+        "desc": "गरमा-गरम कुरकुरा चावल, बुलगोगी बीफ, रंगीन सब्जियां, अंडा और तीखी गोचुजांग सॉस।",
+        "alt": "कोरियाई डोलसोट बिबिम्बप"
+      }
+    }
+  },
+  {
+    "id": "classic-new-york-cheesecake",
+    "country": "United States",
+    "name": "Classic New York Cheesecake",
+    "cat": "meetha",
+    "catLabel": "Dessert",
+    "veg": "veg",
+    "time": 70,
+    "diff": "Medium",
+    "servings": "10 people",
+    "alt": "Classic New York style cheesecake slice with golden top graham crust and fresh strawberry compote",
+    "desc": "Ultra-creamy, dense, and velvety baked New York style cheesecake with a buttery graham cracker crust and sweet fresh strawberry compote.",
+    "intro": "The gold standard of world desserts, authentic New York Cheesecake is revered for its dense, ultra-velvety texture, subtle tang, and melt-in-the-mouth decadence. Unlike lighter fluffy cheesecakes, authentic NYC style relies on pure Philadelphia-style cream cheese, tangy sour cream, fresh farm eggs, and fragrant vanilla baked gently in a water bath over a crisp, buttery cinnamon graham cracker crust. Finished with a vibrant strawberry coulis, it is a timeless pastry masterpiece.",
+    "ing": [
+      "Full-fat brick cream cheese softened to room temperature 900g (32 oz / 4 blocks)",
+      "Granulated sugar 1.25 cups (250g)",
+      "Full-fat sour cream at room temperature 1 cup (240g)",
+      "Large eggs at room temperature 4 large plus 1 egg yolk",
+      "Pure vanilla extract 1.5 tbsp, fresh lemon juice 1 tbsp, all-purpose flour 3 tbsp",
+      "Crust: Graham cracker crumbs (or digestive biscuits) 2 cups (200g), unsalted melted butter 0.5 cup (115g), granulated sugar 2 tbsp, pinch of cinnamon",
+      "Fresh Strawberry Compote: Fresh ripe strawberries sliced 3 cups (450g), sugar 0.33 cup, fresh lemon juice 1 tbsp, cornstarch 1 tsp dissolved in 1 tbsp water"
+    ],
+    "steps": [
+      "Preheat oven to 325°F (160°C). In a bowl, combine graham cracker crumbs, melted butter, 2 tbsp sugar, and cinnamon; press firmly into the bottom and 1 inch up the sides of a 9-inch springform pan. Bake for 10 minutes, then cool.",
+      "In a stand mixer fitted with paddle attachment, beat room-temperature cream cheese and sugar on low-medium speed for 3 minutes until completely lump-free and silky smooth.",
+      "Add flour, sour cream, vanilla extract, and lemon juice; beat gently on low speed until combined.",
+      "Add eggs and yolk one at a time, mixing on lowest speed just until each egg is incorporated (avoid whipping air into the batter to prevent cracking).",
+      "Wrap the outside and bottom of the springform pan tightly in heavy-duty aluminum foil (or silicone protector) to create a watertight seal. Pour batter over cooled crust.",
+      "Place springform pan inside a large roasting pan; pour hot water into the roasting pan until it reaches halfway up the sides of the cheesecake pan (water bath / bain-marie).",
+      "Bake at 325°F (160°C) for 60 to 70 minutes until edges are set and center has a gentle, subtle jiggle.",
+      "Turn oven off, crack the oven door open 2 inches, and let the cheesecake cool inside the oven for 1 hour to prevent temperature shock.",
+      "Chill in refrigerator for at least 6 hours (preferably overnight) before slicing with a hot knife. Top with warm homemade strawberry compote and fresh mint."
+    ],
+    "tip": "Always ensure all dairy and eggs are strictly at room temperature before beating, and bake in a gentle water bath. Cooling the cheesecake slowly inside the turned-off oven prevents any surface cracks.",
+    "nutrition": {
+      "calories": 480,
+      "proteinContent": 8.0,
+      "fatContent": 32.0,
+      "carbohydrateContent": 42.0
+    },
+    "lang": {
+      "ru": {
+        "name": "Classic New York Cheesecake",
+        "catLabel": "Meetha",
+        "diff": "Darmiyana",
+        "servings": "10 log",
+        "desc": "Ultra-creamy aur makhmali baked New York cheesecake graham cracker crust aur strawberry sauce ke sath.",
+        "alt": "New York Cheesecake"
+      },
+      "hi": {
+        "name": "क्लासिक न्यूयॉर्क चीज़केक",
+        "catLabel": "मीठा",
+        "diff": "मध्यम",
+        "servings": "10 लोग",
+        "desc": "बेक किया हुआ मखमली रिच न्यूयॉर्क चीज़केक, कुरकुरी क्रस्ट और स्ट्रॉबेरी कॉम्पोट के साथ।",
+        "alt": "क्लासिक न्यूयॉर्क चीज़केक"
+      }
+    }
+  }
+]

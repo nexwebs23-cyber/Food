@@ -990,5 +990,35 @@
     "proteinContent": 6.0,
     "fatContent": 5.0,
     "carbohydrateContent": 48.0
+  },
+  "japanese-miso-ramen": {
+    "calories": 590,
+    "proteinContent": 32.0,
+    "fatContent": 24.0,
+    "carbohydrateContent": 62.0
+  },
+  "spanish-seafood-paella": {
+    "calories": 520,
+    "proteinContent": 34.0,
+    "fatContent": 16.0,
+    "carbohydrateContent": 58.0
+  },
+  "classic-french-onion-soup": {
+    "calories": 420,
+    "proteinContent": 19.0,
+    "fatContent": 22.0,
+    "carbohydrateContent": 36.0
+  },
+  "korean-bibimbap": {
+    "calories": 560,
+    "proteinContent": 28.0,
+    "fatContent": 18.0,
+    "carbohydrateContent": 72.0
+  },
+  "classic-new-york-cheesecake": {
+    "calories": 480,
+    "proteinContent": 8.0,
+    "fatContent": 32.0,
+    "carbohydrateContent": 42.0
   }
 }
