@@ -1020,5 +1020,65 @@
     "proteinContent": 8.0,
     "fatContent": 32.0,
     "carbohydrateContent": 42.0
+  },
+  "traditional-christmas-roast-turkey": {
+    "calories": 520,
+    "proteinContent": 54.0,
+    "fatContent": 24.0,
+    "carbohydrateContent": 4.0
+  },
+  "classic-gingerbread-cookies": {
+    "calories": 140,
+    "proteinContent": 2.0,
+    "fatContent": 5.0,
+    "carbohydrateContent": 22.0
+  },
+  "italian-panettone": {
+    "calories": 360,
+    "proteinContent": 7.0,
+    "fatContent": 14.0,
+    "carbohydrateContent": 52.0
+  },
+  "german-christmas-stollen": {
+    "calories": 390,
+    "proteinContent": 6.0,
+    "fatContent": 16.0,
+    "carbohydrateContent": 56.0
+  },
+  "french-buche-de-noel": {
+    "calories": 440,
+    "proteinContent": 6.0,
+    "fatContent": 26.0,
+    "carbohydrateContent": 48.0
+  },
+  "glazed-christmas-ham": {
+    "calories": 410,
+    "proteinContent": 38.0,
+    "fatContent": 18.0,
+    "carbohydrateContent": 24.0
+  },
+  "holiday-spiced-eggnog": {
+    "calories": 280,
+    "proteinContent": 5.0,
+    "fatContent": 18.0,
+    "carbohydrateContent": 24.0
+  },
+  "english-christmas-pudding": {
+    "calories": 380,
+    "proteinContent": 5.0,
+    "fatContent": 12.0,
+    "carbohydrateContent": 64.0
+  },
+  "mexican-tamales-navidenos": {
+    "calories": 310,
+    "proteinContent": 14.0,
+    "fatContent": 16.0,
+    "carbohydrateContent": 28.0
+  },
+  "british-mince-pies": {
+    "calories": 210,
+    "proteinContent": 3.0,
+    "fatContent": 9.0,
+    "carbohydrateContent": 32.0
   }
 }
