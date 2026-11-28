@@ -2303,6 +2303,7 @@ SITE_FOOTER = ('''<footer class="site-footer">
           <li><a href="/faqs">Cooking FAQs</a></li>
           <li><a href="/about">About Us</a></li>
           <li><a href="/privacy">Privacy Policy</a></li>
+          <li><a href="/terms">Terms of Use</a></li>
           <li><a href="/contact">Contact Us</a></li>
         </ul>
       </nav>
@@ -2475,6 +2476,28 @@ def nutrition_ld(nut):
         if key in nut:
             out[key] = "%s %s" % (_fmt_num(nut[key]), unit)
     return out
+
+
+def nutrition_table(nut):
+    """Visible nutrition as a real <table> (SEO chain: table in every
+    article) plus the USDA source line — nutrition.json values are
+    computed from USDA FoodData Central ingredient data, so the link
+    is a true source, not decoration."""
+    if not nut:
+        return ''
+    rows = []
+    for key, label, unit in _NUT_FIELDS:
+        if key not in nut:
+            continue
+        rows.append('<tr><th scope="row">%s</th><td>%s %s</td></tr>'
+                    % (label, _fmt_num(nut[key]), unit))
+    if not rows:
+        return ''
+    return ('<table class="nutrition-table"><tbody>' + ''.join(rows)
+            + '</tbody></table>'
+            '<p class="muted">Nutrition values are estimates calculated '
+            'from <a href="https://fdc.nal.usda.gov/" target="_blank" '
+            'rel="noopener">USDA FoodData Central</a> ingredient data.</p>')
 
 
 def nutrition_line(nut):
@@ -3013,13 +3036,24 @@ def recipe_page(data, recipe, lang='en', dates=None):
     pub = recipe.get('published') or article.get('published')
     pubdate_html = ''
     if pub:
-        pubdate_html = ('<p class="pubdate">' + esc(h('publishedOn', 'Published on')) + ' ' + esc(fmt_date(pub)) + '</p>\n')
+        _upd_candidates = [pub] + [v for v in (video_dates.values()
+                                               if isinstance(video_dates, dict)
+                                               else []) if v]
+        _upd = max(_upd_candidates)
+        _upd_txt = ''
+        try:
+            _uy, _um, _ud = _upd.split('-')
+            _upd_txt = ('<p class="updated">' + esc(h('updatedOn', 'Updated')) + ' '
+                        + esc('%s %s' % (_MONTHS[int(_um) - 1], _uy)) + '</p>\n')
+        except Exception:
+            _upd_txt = ''
+        pubdate_html = ('<p class="pubdate">' + esc(h('publishedOn', 'Published on')) + ' ' + esc(fmt_date(pub)) + '</p>\n' + _upd_txt)
 
     # 3. Video frame with play button overlay
     if vid:
         video_html = (
             '<div class="video-area" id="videoArea">\n'
-            '  <h2 id="videoHeading">' + esc(h('videoH', 'Recipe Video')) + '</h2>\n'
+            '  <h2 id="videoHeading">' + esc(name) + ' ' + esc(h('videoH', 'Recipe Video')) + '</h2>\n'
             '  <div class="video-frame">\n'
             '    <img src="' + esc(img_url) + '" alt="' + esc(img_alt) + '" loading="lazy" width="1792" height="1344">\n'
             '    <a class="video-play" href="https://youtu.be/' + esc(vid) + '" target="_blank" rel="noopener" aria-label="' + esc(h('videoPlay', 'Watch the recipe video')) + '">\n'
@@ -3032,7 +3066,7 @@ def recipe_page(data, recipe, lang='en', dates=None):
     else:
         video_html = (
             '<div class="video-area" id="videoArea">\n'
-            '  <h2 id="videoHeading">' + esc(h('videoH', 'Recipe Video')) + '</h2>\n'
+            '  <h2 id="videoHeading">' + esc(name) + ' ' + esc(h('videoH', 'Recipe Video')) + '</h2>\n'
             '  <p class="muted">' + esc(h('videoSoon', 'Video coming soon — this recipe is being filmed.')) + '</p>\n'
             '</div>\n'
         )
@@ -3060,7 +3094,7 @@ def recipe_page(data, recipe, lang='en', dates=None):
     step_lis = ''.join('<li id="step-%d">' % (i + 1) + esc(x) + '</li>' for i, x in enumerate(tx.get('steps') or []))
     two_col_html = (
         '<div id="recipe-card"></div>\n'
-        '<h2 id="detailsHeading">' + esc(h('detailsH', 'Ingredients and method')) + '</h2>\n'
+        '<h2 id="detailsHeading">' + esc(name) + ' ' + esc(h('detailsH', 'Ingredients and method')) + '</h2>\n'
         '<div class="two-col">\n'
         '  <div><h3 id="ingHeading">' + esc(h('ingH', 'Ingredients')) + '</h3><ul id="recipeIng">' + ing_lis + '</ul></div>\n'
         '  <div><h3 id="methodHeading">' + esc(h('methH', 'Method')) + '</h3><ol id="recipeSteps">' + step_lis + '</ol></div>\n'
@@ -3071,7 +3105,7 @@ def recipe_page(data, recipe, lang='en', dates=None):
     nut = (data.get('nutrition') or {}).get(recipe['id'])
     nut_html = ''
     if nut:
-        nut_html = ('<div class="tip" id="nutritionBlock"><h3 id="nutritionHeading">' + esc(h('nutritionH', 'Nutrition (approx. per serving)')) + '</h3><p>' + esc(nutrition_line(nut)) + '</p></div>\n')
+        nut_html = ('<div class="tip" id="nutritionBlock"><h3 id="nutritionHeading">' + esc(h('nutritionH', 'Nutrition (approx. per serving)')) + '</h3>' + nutrition_table(nut) + '</div>\n')
 
     # 7. Chef\'s Tip
     tip_html = ''
@@ -3250,6 +3284,9 @@ INFO_MORE = {
     'contact': ('Learn more <a href="/about">About Us</a>, read our '
                 '<a href="/privacy">Privacy Policy</a> or browse '
                 '<a href="/faqs">Cooking FAQs</a>.'),
+    'terms': ('Questions about the site? See <a href="/about">About Us</a>, '
+              '<a href="/privacy">Privacy Policy</a> or '
+              '<a href="/contact">Contact Us</a>.'),
 }
 
 
@@ -3307,6 +3344,11 @@ def info_page(data, name):
         for h, p in zip(en['secH'], en['secP']):
             parts.append('<h2>%s</h2>\n<p>%s</p>\n' % (esc(h), esc(p)))
         body_inner = ''.join(parts)
+    elif name == 'terms':
+        parts = ['<h1>%s</h1>\n<p>%s</p>\n' % (esc(h1), esc(en['intro']))]
+        for h, p in zip(en['secH'], en['secP']):
+            parts.append('<h2>%s</h2>\n<p>%s</p>\n' % (esc(h), esc(p)))
+        body_inner = ''.join(parts)
     else:  # contact
         body_inner = (
             '<h1>%s</h1>\n<p>%s</p>\n<p>%s</p>\n'
@@ -3318,7 +3360,8 @@ def info_page(data, name):
             '<span>%s</span></nav>\n%s'
             '<a class="cta" href="/#%s">Open the interactive site</a>\n'
             '%s\n'
-            % (esc(h1), body_inner, esc(name),
+            % (esc(h1), body_inner,
+               esc(name if name in ('about', 'privacy', 'contact') else ''),
                '<p>' + INFO_MORE[name] + '</p>'))
     wld = {"@context": "https://schema.org", "@type": "WebPage",
            "name": title, "url": url, "description": desc,
@@ -3515,7 +3558,7 @@ def write_static_pages(data):
     for slug in sorted(data['country_by_slug']):
         li = list_info(data, 'country', slug)
         w('country/%s/index.html' % slug, list_page(data, li))
-    for name in ('about', 'privacy', 'contact'):
+    for name in ('about', 'privacy', 'contact', 'terms'):
         w('%s/index.html' % name, info_page(data, name))
     for rel, html in new_list_pages(data).items():
         w(rel, html)
@@ -4163,7 +4206,7 @@ def validate_build(data):
     for slug in sorted(data['country_by_slug']):
         li = list_info(data, 'country', slug)
         add('country/%s/index.html' % slug, list_page(data, li))
-    for name in ('about', 'privacy', 'contact'):
+    for name in ('about', 'privacy', 'contact', 'terms'):
         add('%s/index.html' % name, info_page(data, name))
     for rel, html in new_list_pages(data).items():
         add(rel, html)
@@ -4723,8 +4766,8 @@ def generate_sitemap_urls(data):
         urls.append('/category/' + slug)
     for slug in sorted(data['country_by_slug']):
         urls.append('/country/' + slug)
-    for name in ('about', 'privacy', 'contact', 'recipes', 'trending',
-                 'faqs', 'eid-recipes', 'ramadan-recipes'):
+    for name in ('about', 'privacy', 'contact', 'terms', 'recipes',
+                 'trending', 'faqs', 'eid-recipes', 'ramadan-recipes'):
         urls.append('/' + name)
     urls.append('/guides/dum-cooking')
     return [SITE + u for u in urls]
